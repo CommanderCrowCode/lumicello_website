@@ -106,17 +106,25 @@ Use CSS Grid to create the "Poketo" bento-box feel.
 1.  **Hero Section:**
       * H1: "Unlocking the Genius in Every Child." (Centered, large serif).
       * Background: Soft gradient or the "Abstract 3D" AI image.
-2.  **Value Prop (The "Headspace" Cards):**
+      * Primary CTA: "Join our Community"
+2.  **Community Section:**
+      * Social links (Line, Facebook) as prominent cards.
+      * Newsletter signup form (Name + Email).
+      * Placed immediately after Hero to prioritize community building.
+3.  **Value Prop (The "Headspace" Cards):**
       * 3 cards horizontally: "Expert-Led," "Customized," "Right Pace."
       * Icons: Soft, colorful SVG icons.
-3.  **The Product (Exploration Kits):**
-      * Grid of physical kits.
-      * CTAs: "See What’s Inside" (Secondary button style).
-4.  **Social Proof:**
-      * Carousel of parent quotes.
+4.  **Curiosity Fingerprint:**
+      * Visual data visualization showing the personalized learning concept.
+      * Floating animation for engagement.
+5.  **The Product (Exploration Kits):**
+      * Grid of physical kits (3-column on desktop).
+      * "Coming Soon" badges for pre-launch phase.
+6.  **Social Proof:**
+      * Parent quotes.
       * Design: Large text, centered, very clean.
-5.  **Footer:**
-      * Simple columns. Newsletter signup prominent.
+7.  **Footer:**
+      * Simple columns with navigation links.
 
 ## 6\. Performance Optimization
 

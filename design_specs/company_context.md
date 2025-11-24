@@ -162,39 +162,36 @@ Nothing flashy or overstimulating — especially important for child/parent UX.
 7. Suggested Website Structure
 
 Hero Section
-	•	Big friendly headline (“Personalized learning that grows with your child”)
+	•	Big friendly headline ("Unlocking the Genius in Every Child")
 	•	Subtext: short, warm, parent-centered
-	•	Visual: child exploring with a kit + constellation motif overlay
-	•	Primary CTA: “Start exploring”
-	•	Secondary CTA: “Join our newsletter”
+	•	Visual: Abstract 3D shapes representing curiosity
+	•	Primary CTA: "Join our Community"
 
-How Lumicello Works
-	•	Simple flow: Discover → Explore → Grow
-	•	Visuals: fingerprint + constellation animations
+Community Section (immediately after Hero)
+	•	Social links (Line, Facebook) as prominent cards
+	•	Newsletter signup form with Name + Email
+	•	Prioritizes community building and early engagement
+
+Value Props
+	•	3 cards: "Expert-Led," "Customized," "Right Pace"
+	•	Icons: Soft, colorful SVG icons
 
 Curiosity Fingerprint™
 	•	Explain in parent-friendly terms
-	•	Visual: adaptive lines / blooming nodes
+	•	Visual: constellation/radar chart with floating animation
 
 Exploration Kits (Toy Boxes)
-	•	Photo grid
-	•	Age range selection
-	•	“What’s inside” modular layout
-	•	Developmental benefits cards
-
-For Parents / For Children / For Educators
-	•	Three role-based cards
-	•	Clear value props
+	•	3-column grid of physical kits
+	•	"Coming Soon" badges for pre-launch phase
+	•	Kit examples: Nature Explorer, Structural Engineer, Music Maker
 
 Testimonials / Impact
-	•	Parents quotes
-	•	Teachers quotes
-	•	Short clips or photos
+	•	Parent quotes
+	•	Large text, centered, clean design
 
-Stay Connected
-	•	Email subscription
-	•	Social channels
-	•	“Follow the Lumicello Lab” content teasers
+Footer
+	•	Simple columns with navigation links
+	•	Brand tagline: "Every child has a light inside. We help it shine."
 
 ⸻
 

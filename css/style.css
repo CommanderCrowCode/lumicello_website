@@ -174,14 +174,15 @@ a {
         justify-content: center;
         align-items: center;
         gap: 40px;
-        transform: translateX(100%);
-        /* Use transform instead of left for better performance */
-        transition: transform 0.4s var(--ease-fluid);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s var(--ease-fluid), visibility 0.4s;
         z-index: 1001;
     }
 
     .mobile-menu.active {
-        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
     }
 
     .mobile-menu a {
@@ -593,6 +594,24 @@ a {
     }
 }
 
+@keyframes pulse {
+    0% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.4;
+    }
+}
+
 .animate-float {
     animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse {
+    animation: pulse 4s ease-in-out infinite;
 }

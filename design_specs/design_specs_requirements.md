@@ -42,7 +42,7 @@ Goal: Define the aesthetic, motion, and asset generation strategy.
 
 ### A. The "Fluid Container" (Adaline Style)
 Instead of hard lines separating sections, use **padding** and **background color transitions**.
-* **Border Radius:** All cards and buttons must have `border-radius: 16px` (minimum) or `30px` (buttons).
+* **Border Radius:** All cards must have `border-radius: 24px`. Buttons must be pill-shaped (`50px`).
 * **Spacing:** Generous. Minimum `120px` padding between major sections on desktop.
 
 ### B. The "Bento Grid" (Poketo Style)
