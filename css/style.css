@@ -338,13 +338,43 @@ a {
     z-index: 2;
 }
 
+/* Kit image */
+.kit-image {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.kit-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Kit content */
+.kit-content {
+    padding: 24px;
+}
+
+.kit-content h3 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
 /* Kit tagline */
 .kit-tagline {
     font-style: italic;
     color: var(--color-accent);
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     margin-bottom: 12px;
     font-weight: 500;
+}
+
+.kit-content p:last-child {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-primary);
+    opacity: 0.85;
 }
 
 /* Ensure 6-card grid works well */
