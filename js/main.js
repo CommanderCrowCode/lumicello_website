@@ -49,4 +49,45 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+
+    // Testimonial Carousel
+    let slideIndex = 1;
+    // Only run if carousel exists
+    if (document.querySelector('.quote-carousel')) {
+        showSlides(slideIndex);
+
+        // Auto advance every 5 seconds
+        setInterval(() => {
+            slideIndex++;
+            showSlides(slideIndex);
+        }, 5000);
+    }
 });
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+    let i;
+    let slides = document.getElementsByClassName("quote-slide");
+    let dots = document.getElementsByClassName("dot");
+
+    if (slides.length === 0) return;
+
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+
+    for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+        slides[i].classList.remove("active");
+    }
+    for (i = 0; i < dots.length; i++) {
+        dots[i].className = dots[i].className.replace(" active", "");
+    }
+
+    slides[slideIndex - 1].style.display = "block";
+    slides[slideIndex - 1].classList.add("active");
+    dots[slideIndex - 1].className += " active";
+}
