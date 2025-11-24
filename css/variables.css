@@ -1,0 +1,23 @@
+:root {
+    /* Brand Colors */
+    --color-primary: #1A2B4C;      /* Jefferson Blue */
+    --color-accent: #F2C94C;       /* Lumen Gold */
+    --color-bg-main: #F9F8F4;      /* Soft Canvas */
+    
+    /* Section Backgrounds */
+    --color-bg-sage: #E6EBE6;
+    --color-bg-clay: #F0E6DD;
+    --color-bg-mist: #E3F2F5;
+    
+    /* Typography */
+    --font-heading: 'Fraunces', serif;
+    --font-body: 'DM Sans', 'Noto Sans Thai', sans-serif;
+    
+    /* Spacing & Layout */
+    --radius-card: 24px;
+    --radius-btn: 50px;
+    --spacing-section: 120px;      /* Breathable space */
+    
+    /* Animation Tokens */
+    --ease-fluid: cubic-bezier(0.25, 1, 0.5, 1); /* The "Adaline" smooth feel */
+}
