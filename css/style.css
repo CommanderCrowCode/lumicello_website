@@ -457,6 +457,11 @@ a {
     display: flex;
     flex-direction: column;
     gap: var(--grid-gap);
+    height: 100%;
+}
+
+.social-cards-container .community-card-small {
+    flex: 1;
 }
 
 .community-card-small {
