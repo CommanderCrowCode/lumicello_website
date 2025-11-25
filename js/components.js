@@ -3,24 +3,32 @@
  * Provides reusable header and footer components for all pages
  */
 
+// Detect if we're on the homepage
+const isHomepage = window.location.pathname.endsWith('index.html') ||
+                   window.location.pathname.endsWith('/') ||
+                   window.location.pathname === '';
+
+// Helper to get correct href based on current page
+const getHref = (anchor) => isHomepage ? anchor : `index.html${anchor}`;
+
 // Configuration for navigation links
 const NAV_LINKS = [
-    { href: 'index.html#platform', text: 'Platform' },
-    { href: 'index.html#fingerprint', text: 'Curiosity Fingerprint' },
-    { href: 'index.html#kits', text: 'Exploration Kits' },
-    { href: 'index.html#about', text: 'About' }
+    { anchor: '#platform', text: 'Platform' },
+    { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
+    { anchor: '#kits', text: 'Exploration Kits' },
+    { anchor: '#about', text: 'About' }
 ];
 
 // Configuration for footer links
 const FOOTER_LINKS = {
     product: [
-        { href: 'index.html#platform', text: 'Platform' },
-        { href: 'index.html#fingerprint', text: 'Curiosity Fingerprint' },
-        { href: 'index.html#kits', text: 'Exploration Kits' },
+        { anchor: '#platform', text: 'Platform' },
+        { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
+        { anchor: '#kits', text: 'Exploration Kits' },
         { href: '#', text: 'For Educators' }
     ],
     company: [
-        { href: 'index.html#about', text: 'About Us' },
+        { anchor: '#about', text: 'About Us' },
         { href: '#', text: 'Our Mission' },
         { href: '#', text: 'Careers' },
         { href: '#', text: 'Press' }
@@ -45,8 +53,10 @@ const SOCIAL_LINKS = {
  */
 function generateNavigation() {
     const navLinksHTML = NAV_LINKS.map(link =>
-        `<li><a href="${link.href}">${link.text}</a></li>`
+        `<li><a href="${getHref(link.anchor)}">${link.text}</a></li>`
     ).join('\n                ');
+
+    const communityHref = getHref('#community');
 
     return `
     <nav class="nav-wrapper">
@@ -60,7 +70,7 @@ function generateNavigation() {
             </ul>
 
             <div class="nav-actions">
-                <a href="index.html#community" class="btn btn-secondary">Join Community</a>
+                <a href="${communityHref}" class="btn btn-secondary">Join Community</a>
                 <div class="mobile-toggle">
                     <span></span>
                     <span></span>
@@ -77,9 +87,10 @@ function generateNavigation() {
  * @returns {string} Links HTML
  */
 function generateFooterLinks(links) {
-    return links.map(link =>
-        `<li><a href="${link.href}">${link.text}</a></li>`
-    ).join('\n                        ');
+    return links.map(link => {
+        const href = link.anchor ? getHref(link.anchor) : link.href;
+        return `<li><a href="${href}">${link.text}</a></li>`;
+    }).join('\n                        ');
 }
 
 /**
