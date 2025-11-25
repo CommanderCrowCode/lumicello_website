@@ -35,10 +35,18 @@
 ## Development
 
 ### Running Locally
+
+| Branch | Port | URL | Purpose |
+|--------|------|-----|---------|
+| `main` | 8080 | http://localhost:8080 | Production testing |
+| `responsive` | 8765 | http://localhost:8765 | Responsiveness testing |
+
 ```bash
-# No build step needed - serve static files
-python -m http.server 8000
-# Visit http://localhost:8000
+# On main branch
+python -m http.server 8080
+
+# On responsive branch
+python -m http.server 8765
 ```
 
 ### Testing Changes
@@ -105,19 +113,18 @@ python -m http.server 8000
 - Optimize to quality 85%
 - Use descriptive alt text
 
-## Page Sections (11 Total)
+## Page Sections (10 Total)
 
 1. **Announcement Bar** - Top banner with Curiosity Fingerprint CTA
 2. **Navigation** - Sticky navbar with logo icon, nav-links, mobile toggle
 3. **Hero** - 2-column grid with badge, h1, floating card, decorations
-4. **Social Proof Bar** - Trusted by educators/parents logos
+4. **Bento Grid** - Value props with mixed card sizes (sage, featured, tall, mist)
 5. **Community Section** - Newsletter form (span 2) + LINE card, dark background
-6. **Bento Grid** - Value props with mixed card sizes (sage, featured, tall, mist)
-7. **50/50 Split Section** - Image left, content right
-8. **Exploration Kits** - 6 baby kit cards (First Year Collection, 0-12 months)
-9. **Testimonials** - Single centered quote with author
-10. **Pattern Section** - Reverse 50/50 (content left, image right)
-11. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons
+6. **50/50 Split Section** - Image left, content right
+7. **Exploration Kits** - 6 baby kit cards (First Year Collection, 0-12 months)
+8. **Testimonials** - Single centered quote with author
+9. **Pattern Section** - Reverse 50/50 (content left, image right)
+10. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons
 
 ## External Integrations
 
