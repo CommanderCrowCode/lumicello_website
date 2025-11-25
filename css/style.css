@@ -1709,6 +1709,99 @@ a.community-card-link {
     background: #e5b93f;
 }
 
+/* LINE Card - Green */
+.contact-card.line {
+    background: #06C755;
+    color: white;
+}
+
+.contact-card.line .contact-card-title {
+    color: white;
+}
+
+.contact-card.line .contact-card-text {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-card.line .contact-icon {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-card.line .contact-icon svg {
+    color: white;
+}
+
+.contact-card.line .contact-card-link {
+    background: white;
+    color: #06C755;
+}
+
+.contact-card.line .contact-card-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Facebook Card - Blue */
+.contact-card.facebook {
+    background: #1877F2;
+    color: white;
+}
+
+.contact-card.facebook .contact-card-title {
+    color: white;
+}
+
+.contact-card.facebook .contact-card-text {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-card.facebook .contact-icon {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-card.facebook .contact-icon svg {
+    color: white;
+}
+
+.contact-card.facebook .contact-card-link {
+    background: white;
+    color: #1877F2;
+}
+
+.contact-card.facebook .contact-card-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Email Card - Coral/Red */
+.contact-card.email {
+    background: #EA4335;
+    color: white;
+}
+
+.contact-card.email .contact-card-title {
+    color: white;
+}
+
+.contact-card.email .contact-card-text {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.contact-card.email .contact-icon {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.contact-card.email .contact-icon svg {
+    color: white;
+}
+
+.contact-card.email .contact-card-link {
+    background: white;
+    color: #EA4335;
+}
+
+.contact-card.email .contact-card-link:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
 .contact-icon {
     width: 56px;
     height: 56px;
@@ -1943,6 +2036,21 @@ a.community-card-link {
     color: var(--color-text-secondary);
     line-height: 1.7;
     padding-left: 40px;
+}
+
+.faq-answer a {
+    color: #1877F2;
+    font-weight: 600;
+    background: rgba(24, 119, 242, 0.1);
+    padding: 2px 8px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.faq-answer a:hover {
+    background: #1877F2;
+    color: white;
 }
 
 /* ============================================
