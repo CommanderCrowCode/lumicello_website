@@ -1,2 +1,7 @@
+# Block internal documents from being served
+/QA_CHECKLIST.md    /404.html   404
+/CLAUDE.md          /404.html   404
+/SETUP_REQUIREMENTS.md   /404.html   404
+
 # Custom 404 page
 /*    /404.html   404
