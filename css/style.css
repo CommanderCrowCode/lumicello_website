@@ -538,6 +538,7 @@ a {
    ============================================ */
 .bento-section {
     padding: var(--spacing-section) 24px;
+    background-color: var(--color-bg-sage);
 }
 
 .bento-container {
