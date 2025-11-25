@@ -305,6 +305,249 @@ a {
     position: relative;
 }
 
+/* Hero CSS Illustration */
+.hero-illustration {
+    position: relative;
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    background: linear-gradient(135deg, var(--color-bg-sage) 0%, var(--color-bg-mist) 100%);
+}
+
+/* Central Lightbulb */
+.hero-bulb {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 140px;
+}
+
+.bulb-glass {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: var(--color-accent);
+    border-radius: 50% 50% 45% 45%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 0 40px rgba(242, 201, 76, 0.4);
+}
+
+.bulb-glass::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    top: 20px;
+    left: 20px;
+}
+
+.bulb-base {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 35px;
+    background: var(--color-primary);
+    border-radius: 0 0 8px 8px;
+}
+
+.bulb-base::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 8px;
+    background: var(--color-primary);
+    opacity: 0.7;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+.bulb-base::after {
+    content: '';
+    position: absolute;
+    width: 55px;
+    height: 6px;
+    background: var(--color-primary);
+    opacity: 0.5;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 4px;
+}
+
+.bulb-glow {
+    position: absolute;
+    width: 160px;
+    height: 160px;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.3) 0%, transparent 70%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    animation: pulse-glow 3s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -60%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -60%) scale(1.1); }
+}
+
+/* Orbiting Elements */
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border: 2px dashed rgba(26, 43, 76, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.orbit-1 {
+    width: 180px;
+    height: 180px;
+    animation: orbit-spin 12s linear infinite;
+}
+
+.orbit-2 {
+    width: 240px;
+    height: 240px;
+    animation: orbit-spin 18s linear infinite reverse;
+}
+
+.orbit-3 {
+    width: 300px;
+    height: 300px;
+    animation: orbit-spin 24s linear infinite;
+}
+
+.orbit-dot {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.orbit-1 .orbit-dot {
+    width: 20px;
+    height: 20px;
+    background: var(--color-bg-clay);
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 12px rgba(240, 230, 221, 0.5);
+}
+
+.orbit-2 .orbit-dot {
+    width: 16px;
+    height: 16px;
+    background: var(--color-primary);
+    opacity: 0.3;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.orbit-3 .orbit-dot {
+    width: 24px;
+    height: 24px;
+    background: var(--color-bg-mist);
+    top: 50%;
+    right: -12px;
+    transform: translateY(-50%);
+    box-shadow: 0 4px 12px rgba(227, 242, 245, 0.5);
+}
+
+@keyframes orbit-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Floating Shapes */
+.hero-shape {
+    position: absolute;
+    border-radius: 12px;
+    animation: float-shape 4s ease-in-out infinite;
+}
+
+.shape-1 {
+    width: 40px;
+    height: 40px;
+    background: var(--color-accent);
+    opacity: 0.6;
+    top: 10%;
+    left: 15%;
+    animation-delay: 0s;
+}
+
+.shape-2 {
+    width: 30px;
+    height: 30px;
+    background: var(--color-bg-clay);
+    top: 20%;
+    right: 10%;
+    animation-delay: 0.5s;
+}
+
+.shape-3 {
+    width: 24px;
+    height: 24px;
+    background: var(--color-primary);
+    opacity: 0.2;
+    bottom: 25%;
+    left: 8%;
+    animation-delay: 1s;
+}
+
+.shape-4 {
+    width: 35px;
+    height: 35px;
+    background: var(--color-bg-mist);
+    bottom: 15%;
+    right: 15%;
+    animation-delay: 1.5s;
+    border-radius: 50%;
+}
+
+.shape-5 {
+    width: 20px;
+    height: 20px;
+    background: var(--color-bg-sage);
+    top: 35%;
+    left: 5%;
+    animation-delay: 2s;
+    border-radius: 50%;
+}
+
+@keyframes float-shape {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Hero Sparkles */
+.hero-sparkle {
+    position: absolute;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: sparkle-hero 2.5s ease-in-out infinite;
+}
+
+.sparkle-1 { width: 8px; height: 8px; top: 15%; right: 25%; animation-delay: 0s; }
+.sparkle-2 { width: 6px; height: 6px; top: 30%; left: 20%; animation-delay: 0.4s; }
+.sparkle-3 { width: 10px; height: 10px; bottom: 30%; right: 20%; animation-delay: 0.8s; }
+.sparkle-4 { width: 5px; height: 5px; bottom: 20%; left: 25%; animation-delay: 1.2s; }
+.sparkle-5 { width: 7px; height: 7px; top: 50%; right: 8%; animation-delay: 1.6s; }
+
+@keyframes sparkle-hero {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* Legacy support for image container */
 .hero-image-container {
     position: relative;
     border-radius: var(--radius-card);
@@ -1841,6 +2084,65 @@ a.community-card-link {
     .hero-buttons .btn {
         width: 100%;
     }
+
+    /* Hero Illustration */
+    .hero-illustration {
+        aspect-ratio: 1/1;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    .hero-bulb {
+        width: 70px;
+        height: 100px;
+    }
+
+    .bulb-glass {
+        width: 70px;
+        height: 70px;
+    }
+
+    .bulb-glass::before {
+        width: 20px;
+        height: 20px;
+        top: 15px;
+        left: 15px;
+    }
+
+    .bulb-base {
+        width: 35px;
+        height: 25px;
+    }
+
+    .bulb-base::before {
+        width: 42px;
+        height: 6px;
+    }
+
+    .bulb-base::after {
+        width: 38px;
+        height: 5px;
+        top: 8px;
+    }
+
+    .bulb-glow {
+        width: 120px;
+        height: 120px;
+    }
+
+    .orbit-1 { width: 130px; height: 130px; }
+    .orbit-2 { width: 170px; height: 170px; }
+    .orbit-3 { width: 210px; height: 210px; }
+
+    .orbit-1 .orbit-dot { width: 14px; height: 14px; top: -7px; }
+    .orbit-2 .orbit-dot { width: 12px; height: 12px; bottom: -6px; }
+    .orbit-3 .orbit-dot { width: 16px; height: 16px; right: -8px; }
+
+    .hero-shape { display: none; }
+    .shape-1, .shape-2 { display: block; }
+
+    .shape-1 { width: 28px; height: 28px; }
+    .shape-2 { width: 22px; height: 22px; }
 
     /* Bento Grid */
     .bento-grid,
