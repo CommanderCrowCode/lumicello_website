@@ -25,16 +25,16 @@ const FOOTER_LINKS = {
         { anchor: '#platform', text: 'Platform' },
         { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
         { anchor: '#kits', text: 'Exploration Kits' },
-        { href: '#', text: 'For Educators' }
+        { href: 'coming-soon.html', text: 'For Educators' }
     ],
     company: [
         { anchor: '#about', text: 'About Us' },
-        { href: '#', text: 'Our Mission' },
-        { href: '#', text: 'Careers' },
-        { href: '#', text: 'Press' }
+        { href: 'coming-soon.html', text: 'Our Mission' },
+        { href: 'coming-soon.html', text: 'Careers' },
+        { href: 'coming-soon.html', text: 'Press' }
     ],
     support: [
-        { href: '#', text: 'Help Center' },
+        { href: 'coming-soon.html', text: 'Help Center' },
         { href: 'contact.html', text: 'Contact Us' },
         { href: 'privacy.html', text: 'Privacy Policy' },
         { href: 'terms.html', text: 'Terms of Service' }
