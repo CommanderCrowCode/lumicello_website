@@ -1,23 +1,33 @@
 :root {
-    /* Brand Colors */
+    /* Primary Palette */
     --color-primary: #1A2B4C;      /* Jefferson Blue */
     --color-accent: #F2C94C;       /* Lumen Gold */
     --color-bg-main: #F9F8F4;      /* Soft Canvas */
-    
-    /* Section Backgrounds */
-    --color-bg-sage: #E6EBE6;
-    --color-bg-clay: #F0E6DD;
-    --color-bg-mist: #E3F2F5;
-    
+
+    /* Secondary Palette */
+    --color-bg-sage: #E6EBE6;      /* Sage Whisper */
+    --color-bg-clay: #F0E6DD;      /* Pale Clay */
+    --color-bg-mist: #E3F2F5;      /* Mist Blue */
+
+    /* Functional */
+    --color-text-primary: #1A2B4C;
+    --color-text-secondary: #5E6A71;
+    --color-border-subtle: rgba(26, 43, 76, 0.08);
+
     /* Typography */
     --font-heading: 'Fraunces', serif;
-    --font-body: 'DM Sans', 'Noto Sans Thai', sans-serif;
-    
-    /* Spacing & Layout */
+    --font-body: 'Nunito', 'Noto Sans Thai', sans-serif;
+
+    /* Spacing */
+    --spacing-section: clamp(60px, 8vw, 120px);
+    --container-max: 1400px;
+    --grid-gap: 16px;
+
+    /* Border Radius */
     --radius-card: 24px;
+    --radius-card-sm: 16px;
     --radius-btn: 50px;
-    --spacing-section: 120px;      /* Breathable space */
-    
-    /* Animation Tokens */
-    --ease-fluid: cubic-bezier(0.25, 1, 0.5, 1); /* The "Adaline" smooth feel */
+
+    /* Animation */
+    --ease-fluid: cubic-bezier(0.2, 0.8, 0.2, 1);
 }
