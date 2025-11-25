@@ -6,6 +6,20 @@
     <title>Privacy Policy | Lumicello</title>
     <meta name="description" content="Lumicello's Privacy Policy - Learn how we collect, use, and protect your personal information.">
 
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/privacy.html">
+    <meta property="og:title" content="Privacy Policy | Lumicello">
+    <meta property="og:description" content="Lumicello's Privacy Policy - Learn how we collect, use, and protect your personal information.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta property="og:site_name" content="Lumicello">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Privacy Policy | Lumicello">
+    <meta name="twitter:description" content="Lumicello's Privacy Policy - Learn how we collect, use, and protect your personal information.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,144 +34,10 @@
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
-
-    <style>
-        /* Page-specific styles for legal pages */
-        .legal-hero {
-            background: var(--color-bg-sage);
-            padding: 120px 24px 80px;
-            text-align: center;
-        }
-
-        .legal-hero h1 {
-            font-size: clamp(36px, 5vw, 56px);
-            color: var(--color-primary);
-            margin-bottom: 16px;
-        }
-
-        .legal-hero p {
-            font-size: 16px;
-            color: var(--color-text-secondary);
-        }
-
-        .legal-content {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 80px 24px;
-        }
-
-        .legal-content h2 {
-            font-size: 28px;
-            color: var(--color-primary);
-            margin-top: 48px;
-            margin-bottom: 20px;
-        }
-
-        .legal-content h2:first-of-type {
-            margin-top: 0;
-        }
-
-        .legal-content h3 {
-            font-size: 20px;
-            color: var(--color-primary);
-            margin-top: 32px;
-            margin-bottom: 16px;
-        }
-
-        .legal-content p {
-            font-size: 16px;
-            color: var(--color-text-secondary);
-            line-height: 1.8;
-            margin-bottom: 16px;
-        }
-
-        .legal-content ul {
-            margin: 16px 0 24px 24px;
-            color: var(--color-text-secondary);
-        }
-
-        .legal-content ul li {
-            margin-bottom: 12px;
-            line-height: 1.7;
-        }
-
-        .legal-content a {
-            color: var(--color-primary);
-            text-decoration: underline;
-            text-decoration-color: var(--color-accent);
-            text-underline-offset: 3px;
-            transition: all 0.3s ease;
-        }
-
-        .legal-content a:hover {
-            color: var(--color-accent);
-        }
-
-        .legal-card {
-            background: var(--color-bg-clay);
-            border-radius: var(--radius-card);
-            padding: 32px;
-            margin: 32px 0;
-        }
-
-        .legal-card h4 {
-            font-family: var(--font-heading);
-            font-size: 18px;
-            color: var(--color-primary);
-            margin-bottom: 12px;
-        }
-
-        .legal-card p {
-            margin-bottom: 0;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 14px;
-            color: var(--color-primary);
-            margin-bottom: 40px;
-            transition: all 0.3s ease;
-        }
-
-        .back-link:hover {
-            color: var(--color-accent);
-            transform: translateX(-4px);
-        }
-
-        .back-link svg {
-            width: 16px;
-            height: 16px;
-        }
-    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="nav-wrapper">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
-            </a>
-
-            <ul class="nav-links">
-                <li><a href="index.html#platform">Platform</a></li>
-                <li><a href="index.html#fingerprint">Curiosity Fingerprint</a></li>
-                <li><a href="index.html#kits">Exploration Kits</a></li>
-                <li><a href="index.html#about">About</a></li>
-            </ul>
-
-            <div class="nav-actions">
-                <a href="index.html#community" class="btn btn-secondary">Join Community</a>
-                <div class="mobile-toggle">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </div>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation (Shared Component) -->
+    <div id="nav-placeholder"></div>
 
     <!-- Hero Section -->
     <section class="legal-hero">
@@ -296,83 +176,10 @@
         <p>Thank you for trusting Lumicello with your family's learning journey.</p>
     </main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
-                    </a>
-                    <p class="footer-tagline">Every child has a light inside. We help it shine.</p>
-                </div>
+    <!-- Footer (Shared Component) -->
+    <div id="footer-placeholder"></div>
 
-                <div class="footer-column">
-                    <h4>Product</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html#platform">Platform</a></li>
-                        <li><a href="index.html#fingerprint">Curiosity Fingerprint</a></li>
-                        <li><a href="index.html#kits">Exploration Kits</a></li>
-                        <li><a href="#">For Educators</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Company</h4>
-                    <ul class="footer-links">
-                        <li><a href="index.html#about">About Us</a></li>
-                        <li><a href="#">Our Mission</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Press</a></li>
-                    </ul>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Support</h4>
-                    <ul class="footer-links">
-                        <li><a href="#">Help Center</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="terms.html">Terms of Service</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="footer-bottom">
-                <p class="footer-copyright">&copy; 2025 Lumicello. All rights reserved.</p>
-                <div class="footer-social">
-                    <a href="https://web.facebook.com/LumicelloGroup" target="_blank" rel="noopener" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-                        </svg>
-                    </a>
-                    <a href="#" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-                        </svg>
-                    </a>
-                    <a href="https://lin.ee/eH1GxA5" target="_blank" rel="noopener" aria-label="LINE">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755z"/>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        if (mobileToggle) {
-            mobileToggle.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-    </script>
+    <!-- Shared Components Script -->
+    <script src="js/components.js"></script>
 </body>
 </html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Lumicello</title>
+    <meta name="description" content="Oops! This page seems to have wandered off on its own learning adventure.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/404.html">
+    <meta property="og:title" content="Page Not Found | Lumicello">
+    <meta property="og:description" content="Oops! This page seems to have wandered off on its own learning adventure.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta property="og:site_name" content="Lumicello">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Page Not Found | Lumicello">
+    <meta name="twitter:description" content="Oops! This page seems to have wandered off on its own learning adventure.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/bc46e65664.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, var(--color-bg-mist) 0%, var(--color-bg-main) 100%);
+        }
+
+        .error-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 24px 80px;
+        }
+
+        .error-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .error-illustration {
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        .error-image {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+            border-radius: var(--radius-card);
+            background: var(--color-bg-clay);
+            aspect-ratio: 4/3;
+            object-fit: cover;
+        }
+
+        /* Floating decorations around the image */
+        .error-decoration {
+            position: absolute;
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .decoration-1 {
+            width: 60px;
+            height: 60px;
+            background: var(--color-accent);
+            top: -20px;
+            right: 10%;
+            animation-delay: 0s;
+        }
+
+        .decoration-2 {
+            width: 40px;
+            height: 40px;
+            background: var(--color-bg-sage);
+            bottom: 20%;
+            left: -10px;
+            animation-delay: 1s;
+        }
+
+        .decoration-3 {
+            width: 24px;
+            height: 24px;
+            background: var(--color-primary);
+            opacity: 0.3;
+            top: 30%;
+            right: -5px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(5deg); }
+        }
+
+        .error-code {
+            font-family: var(--font-heading);
+            font-size: clamp(80px, 15vw, 150px);
+            font-weight: 900;
+            color: var(--color-primary);
+            line-height: 1;
+            margin-bottom: 16px;
+            opacity: 0.1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+        }
+
+        .error-title {
+            font-size: clamp(28px, 5vw, 44px);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .error-message {
+            font-size: 18px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 48px;
+        }
+
+        .error-suggestions {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 32px;
+            box-shadow: 0 4px 24px rgba(26, 43, 76, 0.06);
+        }
+
+        .error-suggestions h3 {
+            font-family: var(--font-heading);
+            font-size: 18px;
+            color: var(--color-primary);
+            margin-bottom: 20px;
+        }
+
+        .suggestion-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: center;
+        }
+
+        .suggestion-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--color-bg-sage);
+            border-radius: var(--radius-btn);
+            color: var(--color-primary);
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .suggestion-link:hover {
+            background: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        .suggestion-link svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Fun wiggle animation for the title */
+        .wiggle {
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* Constellation dots background */
+        .constellation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            opacity: 0.3;
+            animation: twinkle 3s ease-in-out infinite;
+        }
+
+        @media (max-width: 768px) {
+            .error-content {
+                padding: 100px 20px 60px;
+            }
+
+            .error-image {
+                max-width: 280px;
+            }
+
+            .error-suggestions {
+                padding: 24px 20px;
+            }
+
+            .suggestion-links {
+                flex-direction: column;
+            }
+
+            .suggestion-link {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="error-page">
+        <!-- Background constellation -->
+        <div class="constellation" id="constellation"></div>
+
+        <!-- Navigation (Shared Component) -->
+        <div id="nav-placeholder"></div>
+
+        <!-- Error Content -->
+        <main class="error-content">
+            <div class="error-container">
+                <div class="error-illustration">
+                    <span class="error-code">404</span>
+                    <div class="decoration-1 error-decoration"></div>
+                    <div class="decoration-2 error-decoration"></div>
+                    <div class="decoration-3 error-decoration"></div>
+                    <img
+                        src="assets/images/404-illustration.webp"
+                        alt="A curious cartoon child with a magnifying glass exploring a whimsical forest path that splits into multiple colorful directions, with floating question marks and glowing fireflies, soft pastel colors, warm lighting, Pixar-style 3D illustration, child-friendly, sense of wonder and adventure"
+                        class="error-image"
+                        onerror="this.style.display='none'"
+                    >
+                </div>
+
+                <h1 class="error-title">
+                    <span class="wiggle">Oops!</span> This page wandered off
+                </h1>
+
+                <p class="error-message">
+                    Looks like this page went on its own learning adventure and got a little lost.
+                    Don't worry, every explorer finds their way eventually!
+                </p>
+
+                <div class="error-actions">
+                    <a href="index.html" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px; margin-right: 8px;">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                            <polyline points="9 22 9 12 15 12 15 22"/>
+                        </svg>
+                        Back to Home
+                    </a>
+                    <a href="contact.html" class="btn btn-secondary">
+                        Get Help
+                    </a>
+                </div>
+
+                <div class="error-suggestions">
+                    <h3>Maybe you were looking for:</h3>
+                    <div class="suggestion-links">
+                        <a href="index.html#fingerprint" class="suggestion-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 11c0 3.517-1.009 6.799-2.753 9.571m-3.44-2.04l.054-.09A13.916 13.916 0 008 11a4 4 0 118 0c0 1.017-.07 2.019-.203 3m-2.118 6.844A21.88 21.88 0 0015.171 17m3.839 1.132c.645-2.266.99-4.659.99-7.132A8 8 0 008 4.07M3 15.364c.64-1.319 1-2.8 1-4.364 0-1.457.39-2.823 1.07-4"/>
+                            </svg>
+                            Curiosity Fingerprint
+                        </a>
+                        <a href="index.html#kits" class="suggestion-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                            Exploration Kits
+                        </a>
+                        <a href="index.html#community" class="suggestion-link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                            Join Community
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer (Shared Component) -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- Shared Components Script -->
+    <script src="js/components.js"></script>
+
+    <!-- Constellation Animation -->
+    <script>
+        // Create random constellation stars
+        const constellation = document.getElementById('constellation');
+        const starCount = 20;
+
+        for (let i = 0; i < starCount; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            star.style.animationDuration = (2 + Math.random() * 2) + 's';
+            constellation.appendChild(star);
+        }
+    </script>
+</body>
+</html>
