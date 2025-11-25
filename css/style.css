@@ -79,28 +79,13 @@ a {
 }
 
 .logo {
-    font-family: var(--font-heading);
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--color-primary);
     display: flex;
     align-items: center;
-    gap: 8px;
 }
 
-.logo-icon {
-    width: 36px;
-    height: 36px;
-    background: linear-gradient(135deg, var(--color-accent) 0%, #FFE082 100%);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.logo-icon svg {
-    width: 20px;
-    height: 20px;
+.logo-image {
+    height: 40px;
+    width: auto;
 }
 
 .nav-links {
@@ -1007,12 +992,11 @@ a {
 }
 
 .footer-brand .logo {
-    color: white;
     margin-bottom: 20px;
 }
 
-.footer-brand .logo-icon {
-    background: var(--color-accent);
+.footer-brand .logo-image {
+    height: 36px;
 }
 
 .footer-tagline {
