@@ -452,6 +452,56 @@ a {
     flex-grow: 1;
 }
 
+/* Social Cards Container - stacks LINE and Facebook vertically */
+.social-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--grid-gap);
+}
+
+.community-card-small {
+    padding: 24px;
+}
+
+.community-card-small .community-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    margin-bottom: 16px;
+}
+
+.community-card-small .community-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.community-card-small h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.community-card-small p {
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+/* Clickable card link styles */
+a.community-card-link {
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+/* LINE brand color */
+.community-icon-line {
+    background: #06C755;
+}
+
+/* Facebook brand color */
+.community-icon-facebook {
+    background: #1877F2;
+}
+
 .social-link {
     display: inline-flex;
     align-items: center;
@@ -467,6 +517,16 @@ a {
 .social-link:hover {
     background: var(--color-accent);
     color: var(--color-primary);
+}
+
+.social-link-line:hover {
+    background: #06C755;
+    color: white;
+}
+
+.social-link-facebook:hover {
+    background: #1877F2;
+    color: white;
 }
 
 /* Newsletter Form */
@@ -1214,6 +1274,14 @@ a {
         grid-column: span 1;
     }
 
+    .social-cards-container {
+        flex-direction: row;
+    }
+
+    .social-cards-container .community-card-small {
+        flex: 1;
+    }
+
     .kits-grid {
         grid-template-columns: 1fr 1fr;
     }
@@ -1243,6 +1311,10 @@ a {
     }
 
     .newsletter-form .form-row {
+        flex-direction: column;
+    }
+
+    .social-cards-container {
         flex-direction: column;
     }
 
