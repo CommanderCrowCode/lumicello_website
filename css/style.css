@@ -629,6 +629,12 @@ a.community-card-link {
     margin: 0 auto 60px;
 }
 
+@media (min-width: 769px) {
+    .section-header {
+        max-width: 850px;
+    }
+}
+
 .section-header h2 {
     font-size: clamp(32px, 4vw, 48px);
     margin-bottom: 16px;
