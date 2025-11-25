@@ -113,18 +113,17 @@ python -m http.server 8765
 - Optimize to quality 85%
 - Use descriptive alt text
 
-## Page Sections (10 Total)
+## Page Sections (9 Total)
 
 1. **Announcement Bar** - Top banner with Curiosity Fingerprint CTA
-2. **Navigation** - Sticky navbar with logo icon, nav-links, mobile toggle
+2. **Navigation** - Sticky navbar with logo image, nav-links, mobile toggle
 3. **Hero** - 2-column grid with badge, h1, floating card, decorations
-4. **Bento Grid** - Value props with mixed card sizes (sage, featured, tall, mist)
-5. **Community Section** - Newsletter form (span 2) + LINE card, dark background
+4. **Bento Grid** - Value props with mixed card sizes (sage background)
+5. **Community Section** - Newsletter form (span 2) + LINE & Facebook cards, dark background
 6. **50/50 Split Section** - Image left, content right
 7. **Exploration Kits** - 6 baby kit cards (First Year Collection, 0-12 months)
 8. **Testimonials** - Single centered quote with author
-9. **Pattern Section** - Reverse 50/50 (content left, image right)
-10. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons
+9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Facebook)
 
 ## External Integrations
 
