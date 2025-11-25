@@ -590,9 +590,9 @@ a.community-card-link {
 .newsletter-form input {
     flex: 1;
     padding: 16px 20px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-btn);
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     font-family: inherit;
     font-size: 15px;
@@ -600,13 +600,13 @@ a.community-card-link {
 }
 
 .newsletter-form input::placeholder {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.7);
 }
 
 .newsletter-form input:focus {
     outline: none;
     border-color: var(--color-accent);
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.25);
 }
 
 .newsletter-form button {
