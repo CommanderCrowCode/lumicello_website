@@ -40,7 +40,8 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(180deg, var(--color-bg-mist) 0%, var(--color-bg-main) 100%);
+            background: var(--color-bg-main);
+            overflow: hidden;
         }
 
         .error-content {
@@ -49,89 +50,269 @@
             align-items: center;
             justify-content: center;
             padding: 120px 24px 80px;
+            position: relative;
         }
 
         .error-container {
-            max-width: 800px;
+            max-width: 600px;
             text-align: center;
-        }
-
-        .error-illustration {
             position: relative;
-            margin-bottom: 40px;
+            z-index: 1;
         }
 
-        .error-image {
-            max-width: 400px;
-            width: 100%;
-            height: auto;
-            border-radius: var(--radius-card);
-            background: var(--color-bg-clay);
-            aspect-ratio: 4/3;
-            object-fit: cover;
+        /* Wandering paths illustration */
+        .paths-illustration {
+            position: relative;
+            width: 220px;
+            height: 200px;
+            margin: 0 auto 40px;
         }
 
-        /* Floating decorations around the image */
-        .error-decoration {
+        /* Central compass circle */
+        .compass {
             position: absolute;
-            border-radius: 50%;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .decoration-1 {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             background: var(--color-accent);
-            top: -20px;
-            right: 10%;
-            animation-delay: 0s;
-        }
-
-        .decoration-2 {
-            width: 40px;
-            height: 40px;
-            background: var(--color-bg-sage);
-            bottom: 20%;
-            left: -10px;
-            animation-delay: 1s;
-        }
-
-        .decoration-3 {
-            width: 24px;
-            height: 24px;
-            background: var(--color-primary);
-            opacity: 0.3;
-            top: 30%;
-            right: -5px;
-            animation-delay: 2s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-15px) rotate(5deg); }
-        }
-
-        .error-code {
-            font-family: var(--font-heading);
-            font-size: clamp(80px, 15vw, 150px);
-            font-weight: 900;
-            color: var(--color-primary);
-            line-height: 1;
-            margin-bottom: 16px;
-            opacity: 0.1;
-            position: absolute;
+            border-radius: 50%;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            z-index: 0;
+            box-shadow: 0 8px 24px rgba(242, 201, 76, 0.3);
+        }
+
+        .compass::before {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: var(--color-bg-main);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .compass::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: var(--color-primary);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Compass needle */
+        .compass-needle {
+            position: absolute;
+            width: 4px;
+            height: 36px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: spin-needle 4s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .compass-needle::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 18px solid var(--color-primary);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .compass-needle::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 4px solid transparent;
+            border-right: 4px solid transparent;
+            border-top: 14px solid var(--color-text-secondary);
+            opacity: 0.5;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        @keyframes spin-needle {
+            0%, 100% { transform: translate(-50%, -50%) rotate(-30deg); }
+            25% { transform: translate(-50%, -50%) rotate(45deg); }
+            50% { transform: translate(-50%, -50%) rotate(20deg); }
+            75% { transform: translate(-50%, -50%) rotate(-15deg); }
+        }
+
+        /* Forking paths */
+        .path {
+            position: absolute;
+            border-radius: 20px;
+            animation: path-pulse 3s ease-in-out infinite;
+        }
+
+        .path-1 {
+            width: 60px;
+            height: 12px;
+            background: var(--color-bg-sage);
+            top: 30px;
+            left: 20px;
+            transform: rotate(-30deg);
+            animation-delay: 0s;
+        }
+
+        .path-2 {
+            width: 50px;
+            height: 10px;
+            background: var(--color-bg-clay);
+            top: 25px;
+            right: 25px;
+            transform: rotate(25deg);
+            animation-delay: 0.5s;
+        }
+
+        .path-3 {
+            width: 55px;
+            height: 11px;
+            background: var(--color-bg-mist);
+            bottom: 35px;
+            left: 15px;
+            transform: rotate(20deg);
+            animation-delay: 1s;
+        }
+
+        .path-4 {
+            width: 45px;
+            height: 9px;
+            background: var(--color-bg-sage);
+            bottom: 40px;
+            right: 20px;
+            transform: rotate(-35deg);
+            animation-delay: 1.5s;
+        }
+
+        @keyframes path-pulse {
+            0%, 100% {
+                opacity: 0.7;
+                transform: rotate(var(--rotate)) scaleX(1);
+            }
+            50% {
+                opacity: 1;
+                transform: rotate(var(--rotate)) scaleX(1.1);
+            }
+        }
+
+        .path-1 { --rotate: -30deg; }
+        .path-2 { --rotate: 25deg; }
+        .path-3 { --rotate: 20deg; }
+        .path-4 { --rotate: -35deg; }
+
+        /* Floating question marks */
+        .question {
+            position: absolute;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            color: var(--color-primary);
+            animation: float-question 3s ease-in-out infinite;
+        }
+
+        .question-1 {
+            font-size: 28px;
+            top: 5px;
+            left: 50%;
+            opacity: 0.2;
+            animation-delay: 0s;
+        }
+
+        .question-2 {
+            font-size: 20px;
+            top: 50px;
+            right: 10px;
+            opacity: 0.15;
+            animation-delay: 0.7s;
+        }
+
+        .question-3 {
+            font-size: 24px;
+            bottom: 10px;
+            left: 30px;
+            opacity: 0.18;
+            animation-delay: 1.4s;
+        }
+
+        @keyframes float-question {
+            0%, 100% {
+                transform: translateY(0) rotate(-5deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(5deg);
+            }
+        }
+
+        /* Sparkles */
+        .sparkle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        .sparkle-1 { top: 15px; right: 50px; animation-delay: 0s; }
+        .sparkle-2 { bottom: 25px; right: 40px; animation-delay: 0.6s; width: 6px; height: 6px; }
+        .sparkle-3 { top: 60px; left: 25px; animation-delay: 1.2s; width: 5px; height: 5px; }
+        .sparkle-4 { bottom: 50px; left: 50px; animation-delay: 0.3s; width: 7px; height: 7px; }
+
+        @keyframes sparkle {
+            0%, 100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.4);
+            }
+        }
+
+        .error-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--color-bg-mist);
+            border-radius: var(--radius-btn);
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
         }
 
         .error-title {
-            font-size: clamp(28px, 5vw, 44px);
+            font-size: clamp(32px, 6vw, 52px);
             color: var(--color-primary);
             margin-bottom: 16px;
-            position: relative;
-            z-index: 1;
+            line-height: 1.2;
+        }
+
+        /* Fun wiggle animation for the title */
+        .wiggle {
+            display: inline-block;
+            animation: wiggle 2s ease-in-out infinite;
+        }
+
+        @keyframes wiggle {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
         }
 
         .error-message {
@@ -139,9 +320,6 @@
             color: var(--color-text-secondary);
             line-height: 1.7;
             margin-bottom: 40px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
         }
 
         .error-actions {
@@ -196,37 +374,28 @@
             height: 16px;
         }
 
-        /* Fun wiggle animation for the title */
-        .wiggle {
-            display: inline-block;
-            animation: wiggle 2s ease-in-out infinite;
-        }
-
-        @keyframes wiggle {
-            0%, 100% { transform: rotate(-2deg); }
-            50% { transform: rotate(2deg); }
-        }
-
-        /* Constellation dots background */
-        .constellation {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 0;
-            overflow: hidden;
-        }
-
-        .star {
+        /* Background decorations */
+        .bg-decoration {
             position: absolute;
-            width: 4px;
-            height: 4px;
-            background: var(--color-accent);
             border-radius: 50%;
-            opacity: 0.3;
-            animation: twinkle 3s ease-in-out infinite;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .bg-circle-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--color-bg-mist) 0%, transparent 70%);
+            top: -100px;
+            right: -100px;
+        }
+
+        .bg-circle-2 {
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, var(--color-bg-clay) 0%, transparent 70%);
+            bottom: -50px;
+            left: -50px;
         }
 
         @media (max-width: 768px) {
@@ -234,8 +403,9 @@
                 padding: 100px 20px 60px;
             }
 
-            .error-image {
-                max-width: 280px;
+            .paths-illustration {
+                transform: scale(0.85);
+                margin-bottom: 24px;
             }
 
             .error-suggestions {
@@ -254,8 +424,9 @@
 </head>
 <body>
     <div class="error-page">
-        <!-- Background constellation -->
-        <div class="constellation" id="constellation"></div>
+        <!-- Background decorations -->
+        <div class="bg-decoration bg-circle-1"></div>
+        <div class="bg-decoration bg-circle-2"></div>
 
         <!-- Navigation (Shared Component) -->
         <div id="nav-placeholder"></div>
@@ -263,17 +434,33 @@
         <!-- Error Content -->
         <main class="error-content">
             <div class="error-container">
-                <div class="error-illustration">
-                    <span class="error-code">404</span>
-                    <div class="decoration-1 error-decoration"></div>
-                    <div class="decoration-2 error-decoration"></div>
-                    <div class="decoration-3 error-decoration"></div>
-                    <img
-                        src="assets/images/404-illustration.webp"
-                        alt="A curious cartoon child with a magnifying glass exploring a whimsical forest path that splits into multiple colorful directions, with floating question marks and glowing fireflies, soft pastel colors, warm lighting, Pixar-style 3D illustration, child-friendly, sense of wonder and adventure"
-                        class="error-image"
-                        onerror="this.style.display='none'"
-                    >
+                <!-- Animated paths illustration -->
+                <div class="paths-illustration">
+                    <!-- Forking paths -->
+                    <div class="path path-1"></div>
+                    <div class="path path-2"></div>
+                    <div class="path path-3"></div>
+                    <div class="path path-4"></div>
+
+                    <!-- Floating question marks -->
+                    <span class="question question-1">?</span>
+                    <span class="question question-2">?</span>
+                    <span class="question question-3">?</span>
+
+                    <!-- Sparkles -->
+                    <div class="sparkle sparkle-1"></div>
+                    <div class="sparkle sparkle-2"></div>
+                    <div class="sparkle sparkle-3"></div>
+                    <div class="sparkle sparkle-4"></div>
+
+                    <!-- Central compass -->
+                    <div class="compass">
+                        <div class="compass-needle"></div>
+                    </div>
+                </div>
+
+                <div class="error-badge">
+                    404 - Page Not Found
                 </div>
 
                 <h1 class="error-title">
@@ -335,22 +522,5 @@
 
     <!-- Shared Components Script -->
     <script src="js/components.js"></script>
-
-    <!-- Constellation Animation -->
-    <script>
-        // Create random constellation stars
-        const constellation = document.getElementById('constellation');
-        const starCount = 20;
-
-        for (let i = 0; i < starCount; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            star.style.animationDuration = (2 + Math.random() * 2) + 's';
-            constellation.appendChild(star);
-        }
-    </script>
 </body>
 </html>
