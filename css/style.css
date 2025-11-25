@@ -69,6 +69,7 @@ a {
 }
 
 .nav-container {
+    position: relative;
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 24px;
@@ -181,6 +182,7 @@ a {
     gap: 5px;
     cursor: pointer;
     padding: 8px;
+    z-index: 1001;
 }
 
 .mobile-toggle span {
@@ -188,6 +190,45 @@ a {
     height: 2px;
     background: var(--color-primary);
     transition: all 0.3s ease;
+}
+
+/* Mobile Menu Active State */
+.nav-links.active {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-main);
+    padding: 24px;
+    gap: 20px;
+    box-shadow: 0 20px 40px rgba(26, 43, 76, 0.1);
+    border-bottom: 1px solid var(--color-border-subtle);
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.mobile-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* ============================================
@@ -1215,6 +1256,8 @@ a.community-card-link {
 /* ============================================
    Responsive Design
    ============================================ */
+
+/* Tablet - 1024px and below */
 @media (max-width: 1024px) {
     .hero-container {
         grid-template-columns: 1fr;
@@ -1246,7 +1289,7 @@ a.community-card-link {
 
     .split-image,
     .pattern-image {
-        min-height: 400px;
+        min-height: 350px;
     }
 
     .pattern-section.reverse .pattern-image {
@@ -1259,7 +1302,11 @@ a.community-card-link {
 
     .bento-card.featured {
         grid-column: span 2;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .bento-card.featured .bento-content {
+        padding: 32px;
     }
 
     .bento-card.tall {
@@ -1290,17 +1337,63 @@ a.community-card-link {
         grid-template-columns: 1fr 1fr;
         gap: 40px;
     }
+
+    .footer-brand {
+        grid-column: span 2;
+    }
 }
 
+/* Mobile - 768px and below */
 @media (max-width: 768px) {
+    /* Navigation */
     .nav-links {
-        display: none;
+        display: none !important;
+    }
+
+    .nav-links.active {
+        display: flex !important;
     }
 
     .mobile-toggle {
         display: flex;
     }
 
+    .nav-actions .btn {
+        padding: 10px 16px;
+        font-size: 12px;
+    }
+
+    /* Announcement Bar */
+    .announcement-bar {
+        font-size: 11px;
+        padding: 10px 16px;
+        line-height: 1.4;
+    }
+
+    /* Hero */
+    .hero {
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: clamp(28px, 8vw, 36px);
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+    /* Bento Grid */
     .bento-grid,
     .kits-grid {
         grid-template-columns: 1fr;
@@ -1308,18 +1401,91 @@ a.community-card-link {
 
     .bento-card.featured {
         grid-column: span 1;
+        grid-template-columns: 1fr;
+    }
+
+    .bento-card.featured .bento-content {
+        padding: 32px 24px;
+    }
+
+    .bento-card.featured .bento-image {
+        min-height: 200px;
+    }
+
+    .bento-card {
+        padding: 32px 24px;
+    }
+
+    .fingerprint-rings {
+        width: 150px;
+        height: 150px;
+    }
+
+    .fingerprint-ring:nth-child(4),
+    .fingerprint-ring:nth-child(5) {
+        display: none;
+    }
+
+    /* Community Section */
+    .community-card {
+        padding: 32px 24px;
     }
 
     .newsletter-form .form-row {
         flex-direction: column;
     }
 
+    .newsletter-form button {
+        width: 100%;
+    }
+
     .social-cards-container {
         flex-direction: column;
     }
 
-    .hero h1 {
-        font-size: 36px;
+    /* Split & Pattern Sections */
+    .split-content,
+    .pattern-content {
+        padding: 48px 24px;
+    }
+
+    .split-image,
+    .pattern-image {
+        min-height: 280px;
+    }
+
+    /* Section Headers */
+    .section-header {
+        margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+        font-size: clamp(26px, 6vw, 32px);
+    }
+
+    .section-header p {
+        font-size: 16px;
+    }
+
+    /* Kits */
+    .kit-content {
+        padding: 24px 20px;
+    }
+
+    .kit-meta {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    /* Testimonials */
+    .testimonial-quote {
+        font-size: clamp(20px, 5vw, 28px);
+    }
+
+    /* Footer */
+    .footer {
+        padding: 60px 24px 32px;
     }
 
     .footer-grid {
@@ -1327,8 +1493,86 @@ a.community-card-link {
         gap: 32px;
     }
 
+    .footer-brand {
+        grid-column: span 1;
+    }
+
     .footer-bottom {
         flex-direction: column;
         text-align: center;
+        gap: 16px;
+    }
+}
+
+/* Small Mobile - 480px and below */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 16px;
+    }
+
+    .nav-actions .btn {
+        padding: 8px 12px;
+        font-size: 11px;
+    }
+
+    .hero-container {
+        padding: 40px 16px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    .bento-section,
+    .kits-section,
+    .testimonials-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .community-section {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .bento-card,
+    .community-card {
+        padding: 24px 20px;
+    }
+
+    .bento-icon,
+    .community-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+    }
+
+    .bento-icon svg,
+    .community-icon svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .split-content,
+    .pattern-content {
+        padding: 40px 20px;
+    }
+
+    .split-content h2,
+    .pattern-content h2 {
+        font-size: 26px;
+    }
+
+    .split-content p,
+    .pattern-content p {
+        font-size: 15px;
+    }
+
+    .footer {
+        padding: 48px 16px 24px;
+    }
+
+    .footer-tagline {
+        font-size: 14px;
     }
 }
