@@ -1484,229 +1484,342 @@ a.community-card-link {
     color: var(--color-primary);
 }
 
-/* Spark Illustration - "Spark a Fresh Perspective" section */
-.spark-illustration {
+/* Prism Illustration - "Spark a Fresh Perspective" section */
+.prism-illustration {
     position: relative;
-    width: 220px;
-    height: 240px;
+    width: 240px;
+    height: 220px;
 }
 
-/* Central lightbulb */
-.spark-bulb {
+/* Central prism/diamond */
+.prism-shape {
     position: absolute;
-    width: 90px;
-    height: 110px;
-    bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.spark-bulb-glass {
-    width: 90px;
-    height: 90px;
-    background: var(--color-accent);
-    border-radius: 50% 50% 45% 45%;
-    position: absolute;
-    top: 0;
-    box-shadow: 0 0 40px rgba(242, 201, 76, 0.4);
-    animation: bulb-glow 3s ease-in-out infinite;
-}
-
-.spark-bulb-base {
-    width: 40px;
-    height: 25px;
+    width: 70px;
+    height: 70px;
     background: var(--color-primary);
-    border-radius: 0 0 8px 8px;
-    position: absolute;
-    bottom: 0;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%) rotate(45deg);
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(26, 43, 76, 0.2);
+    animation: prism-rotate 8s ease-in-out infinite;
 }
 
-.spark-bulb-base::before {
+.prism-shape::before {
     content: '';
     position: absolute;
-    width: 50px;
-    height: 8px;
-    background: var(--color-primary);
-    opacity: 0.7;
-    border-radius: 4px;
-    top: -4px;
-    left: 50%;
-    transform: translateX(-50%);
+    inset: 8px;
+    background: var(--color-accent);
+    border-radius: 8px;
+    opacity: 0.9;
 }
 
-@keyframes bulb-glow {
-    0%, 100% {
-        box-shadow: 0 0 40px rgba(242, 201, 76, 0.4);
-    }
-    50% {
-        box-shadow: 0 0 60px rgba(242, 201, 76, 0.6);
-    }
+@keyframes prism-rotate {
+    0%, 100% { transform: translate(-50%, -50%) rotate(45deg) scale(1); }
+    50% { transform: translate(-50%, -50%) rotate(45deg) scale(1.05); }
 }
 
-/* Radiating idea shapes */
-.spark-idea {
+/* Color rays emanating from prism */
+.prism-ray {
     position: absolute;
-    border-radius: 12px;
-    animation: idea-float 3s ease-in-out infinite;
+    width: 60px;
+    height: 8px;
+    border-radius: 4px;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    animation: ray-extend 3s ease-in-out infinite;
 }
 
-.spark-idea-1 {
-    width: 35px;
-    height: 35px;
+.prism-ray-1 {
     background: var(--color-bg-sage);
-    top: 30px;
-    left: 25px;
+    transform: translate(35px, -50%) rotate(-30deg);
     animation-delay: 0s;
 }
 
-.spark-idea-2 {
-    width: 28px;
-    height: 28px;
+.prism-ray-2 {
+    background: var(--color-bg-mist);
+    transform: translate(35px, -50%) rotate(0deg);
+    animation-delay: 0.2s;
+}
+
+.prism-ray-3 {
     background: var(--color-bg-clay);
-    top: 15px;
-    right: 35px;
+    transform: translate(35px, -50%) rotate(30deg);
     animation-delay: 0.4s;
 }
 
-.spark-idea-3 {
-    width: 24px;
-    height: 24px;
-    background: var(--color-bg-mist);
-    top: 60px;
-    left: 10px;
-    animation-delay: 0.8s;
-}
-
-.spark-idea-4 {
-    width: 30px;
-    height: 30px;
-    background: var(--color-bg-sage);
-    top: 50px;
-    right: 15px;
-    animation-delay: 1.2s;
-}
-
-.spark-idea-5 {
-    width: 20px;
-    height: 20px;
-    background: var(--color-bg-clay);
-    top: 100px;
-    left: 20px;
-    border-radius: 50%;
-    animation-delay: 0.6s;
-}
-
-.spark-idea-6 {
-    width: 22px;
-    height: 22px;
-    background: var(--color-bg-mist);
-    top: 95px;
-    right: 25px;
-    border-radius: 50%;
-    animation-delay: 1s;
-}
-
-@keyframes idea-float {
+@keyframes ray-extend {
     0%, 100% {
-        transform: translateY(0) scale(1);
-        opacity: 0.9;
+        width: 60px;
+        opacity: 0.8;
     }
     50% {
-        transform: translateY(-8px) scale(1.05);
+        width: 75px;
         opacity: 1;
     }
 }
 
-/* Sparkles around the bulb */
-.spark-sparkle {
+/* Incoming light beam */
+.prism-beam {
+    position: absolute;
+    width: 50px;
+    height: 6px;
+    background: linear-gradient(to right, transparent, var(--color-accent));
+    border-radius: 3px;
+    top: 50%;
+    right: 50%;
+    transform: translate(-35px, -50%);
+    animation: beam-pulse 3s ease-in-out infinite;
+}
+
+@keyframes beam-pulse {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+}
+
+/* Floating perspective shapes */
+.prism-float {
+    position: absolute;
+    border-radius: 10px;
+    animation: float-drift 4s ease-in-out infinite;
+}
+
+.prism-float-1 {
+    width: 30px;
+    height: 30px;
+    background: var(--color-bg-sage);
+    top: 20px;
+    left: 30px;
+    animation-delay: 0s;
+}
+
+.prism-float-2 {
+    width: 25px;
+    height: 25px;
+    background: var(--color-bg-clay);
+    top: 25px;
+    right: 25px;
+    animation-delay: 0.5s;
+}
+
+.prism-float-3 {
+    width: 22px;
+    height: 22px;
+    background: var(--color-bg-mist);
+    bottom: 30px;
+    left: 25px;
+    animation-delay: 1s;
+}
+
+.prism-float-4 {
+    width: 28px;
+    height: 28px;
+    background: var(--color-bg-sage);
+    bottom: 25px;
+    right: 35px;
+    animation-delay: 1.5s;
+}
+
+@keyframes float-drift {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+        opacity: 1;
+    }
+}
+
+/* Sparkles */
+.prism-sparkle {
     position: absolute;
     background: var(--color-accent);
     border-radius: 50%;
-    animation: spark-twinkle 2s ease-in-out infinite;
+    animation: prism-twinkle 2s ease-in-out infinite;
 }
 
-.spark-sparkle-1 {
-    width: 8px;
-    height: 8px;
-    top: 5px;
+.prism-sparkle-1 { width: 8px; height: 8px; top: 40px; right: 60px; animation-delay: 0s; }
+.prism-sparkle-2 { width: 6px; height: 6px; bottom: 50px; right: 50px; animation-delay: 0.4s; }
+.prism-sparkle-3 { width: 5px; height: 5px; top: 60px; left: 50px; animation-delay: 0.8s; }
+.prism-sparkle-4 { width: 7px; height: 7px; bottom: 45px; left: 60px; animation-delay: 1.2s; }
+
+@keyframes prism-twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Family Illustration - "A Learning Family of Experiences" section */
+.family-illustration {
+    position: relative;
+    width: 220px;
+    height: 220px;
+}
+
+/* Central hub */
+.family-hub {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 30px rgba(242, 201, 76, 0.4);
+    animation: hub-pulse 3s ease-in-out infinite;
+}
+
+.family-hub::before {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes hub-pulse {
+    0%, 100% { box-shadow: 0 0 30px rgba(242, 201, 76, 0.4); }
+    50% { box-shadow: 0 0 50px rgba(242, 201, 76, 0.6); }
+}
+
+/* Orbiting family members */
+.family-orbit {
+    position: absolute;
+    border-radius: 50%;
+    animation: orbit-float 4s ease-in-out infinite;
+}
+
+.family-orbit-1 {
+    width: 40px;
+    height: 40px;
+    background: var(--color-bg-sage);
+    top: 15px;
     left: 50%;
     transform: translateX(-50%);
     animation-delay: 0s;
 }
 
-.spark-sparkle-2 {
-    width: 6px;
-    height: 6px;
-    top: 25px;
-    left: 45px;
+.family-orbit-2 {
+    width: 35px;
+    height: 35px;
+    background: var(--color-bg-clay);
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    animation-delay: 0.5s;
+}
+
+.family-orbit-3 {
+    width: 38px;
+    height: 38px;
+    background: var(--color-bg-mist);
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 1s;
+}
+
+.family-orbit-4 {
+    width: 32px;
+    height: 32px;
+    background: var(--color-bg-sage);
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    animation-delay: 1.5s;
+}
+
+@keyframes orbit-float {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.1);
+        opacity: 1;
+    }
+}
+
+.family-orbit-2, .family-orbit-4 {
+    animation-name: orbit-float-y;
+}
+
+@keyframes orbit-float-y {
+    0%, 100% {
+        transform: translateY(-50%) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-50%) scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* Connecting lines */
+.family-line {
+    position: absolute;
+    height: 3px;
+    background: var(--color-primary);
+    opacity: 0.2;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    animation: line-pulse 3s ease-in-out infinite;
+}
+
+.family-line-1 {
+    width: 55px;
+    transform: translate(0, -50%) rotate(-90deg);
+    animation-delay: 0s;
+}
+
+.family-line-2 {
+    width: 50px;
+    transform: translate(0, -50%) rotate(0deg);
     animation-delay: 0.3s;
 }
 
-.spark-sparkle-3 {
-    width: 6px;
-    height: 6px;
-    top: 25px;
-    right: 45px;
+.family-line-3 {
+    width: 55px;
+    transform: translate(0, -50%) rotate(90deg);
     animation-delay: 0.6s;
 }
 
-.spark-sparkle-4 {
-    width: 5px;
-    height: 5px;
-    top: 70px;
-    left: 30px;
+.family-line-4 {
+    width: 50px;
+    transform: translate(0, -50%) rotate(180deg);
     animation-delay: 0.9s;
 }
 
-.spark-sparkle-5 {
-    width: 5px;
-    height: 5px;
-    top: 70px;
-    right: 30px;
-    animation-delay: 1.2s;
+@keyframes line-pulse {
+    0%, 100% { opacity: 0.2; }
+    50% { opacity: 0.5; }
 }
 
-@keyframes spark-twinkle {
-    0%, 100% {
-        opacity: 0.4;
-        transform: scale(1);
-    }
-    50% {
-        opacity: 1;
-        transform: scale(1.4);
-    }
-}
-
-/* Light rays from bulb */
-.spark-ray {
+/* Small orbiting dots */
+.family-dot {
     position: absolute;
-    width: 3px;
-    height: 20px;
-    background: linear-gradient(to top, var(--color-accent), transparent);
-    border-radius: 2px;
-    top: 35px;
-    left: 50%;
-    transform-origin: bottom center;
-    animation: ray-pulse 2s ease-in-out infinite;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: dot-twinkle 2s ease-in-out infinite;
 }
 
-.spark-ray-1 { transform: translateX(-50%) rotate(-40deg); animation-delay: 0s; }
-.spark-ray-2 { transform: translateX(-50%) rotate(-20deg); animation-delay: 0.2s; }
-.spark-ray-3 { transform: translateX(-50%) rotate(0deg); animation-delay: 0.4s; }
-.spark-ray-4 { transform: translateX(-50%) rotate(20deg); animation-delay: 0.6s; }
-.spark-ray-5 { transform: translateX(-50%) rotate(40deg); animation-delay: 0.8s; }
+.family-dot-1 { top: 35px; left: 70px; animation-delay: 0s; }
+.family-dot-2 { top: 70px; right: 35px; animation-delay: 0.3s; }
+.family-dot-3 { bottom: 40px; right: 70px; animation-delay: 0.6s; }
+.family-dot-4 { bottom: 70px; left: 40px; animation-delay: 0.9s; }
 
-@keyframes ray-pulse {
-    0%, 100% {
-        opacity: 0.3;
-        height: 20px;
-    }
-    50% {
-        opacity: 0.7;
-        height: 28px;
-    }
+@keyframes dot-twinkle {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
 }
 
 /* Constellation Background */
