@@ -1484,6 +1484,231 @@ a.community-card-link {
     color: var(--color-primary);
 }
 
+/* Spark Illustration - "Spark a Fresh Perspective" section */
+.spark-illustration {
+    position: relative;
+    width: 220px;
+    height: 240px;
+}
+
+/* Central lightbulb */
+.spark-bulb {
+    position: absolute;
+    width: 90px;
+    height: 110px;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spark-bulb-glass {
+    width: 90px;
+    height: 90px;
+    background: var(--color-accent);
+    border-radius: 50% 50% 45% 45%;
+    position: absolute;
+    top: 0;
+    box-shadow: 0 0 40px rgba(242, 201, 76, 0.4);
+    animation: bulb-glow 3s ease-in-out infinite;
+}
+
+.spark-bulb-base {
+    width: 40px;
+    height: 25px;
+    background: var(--color-primary);
+    border-radius: 0 0 8px 8px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.spark-bulb-base::before {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 8px;
+    background: var(--color-primary);
+    opacity: 0.7;
+    border-radius: 4px;
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes bulb-glow {
+    0%, 100% {
+        box-shadow: 0 0 40px rgba(242, 201, 76, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 60px rgba(242, 201, 76, 0.6);
+    }
+}
+
+/* Radiating idea shapes */
+.spark-idea {
+    position: absolute;
+    border-radius: 12px;
+    animation: idea-float 3s ease-in-out infinite;
+}
+
+.spark-idea-1 {
+    width: 35px;
+    height: 35px;
+    background: var(--color-bg-sage);
+    top: 30px;
+    left: 25px;
+    animation-delay: 0s;
+}
+
+.spark-idea-2 {
+    width: 28px;
+    height: 28px;
+    background: var(--color-bg-clay);
+    top: 15px;
+    right: 35px;
+    animation-delay: 0.4s;
+}
+
+.spark-idea-3 {
+    width: 24px;
+    height: 24px;
+    background: var(--color-bg-mist);
+    top: 60px;
+    left: 10px;
+    animation-delay: 0.8s;
+}
+
+.spark-idea-4 {
+    width: 30px;
+    height: 30px;
+    background: var(--color-bg-sage);
+    top: 50px;
+    right: 15px;
+    animation-delay: 1.2s;
+}
+
+.spark-idea-5 {
+    width: 20px;
+    height: 20px;
+    background: var(--color-bg-clay);
+    top: 100px;
+    left: 20px;
+    border-radius: 50%;
+    animation-delay: 0.6s;
+}
+
+.spark-idea-6 {
+    width: 22px;
+    height: 22px;
+    background: var(--color-bg-mist);
+    top: 95px;
+    right: 25px;
+    border-radius: 50%;
+    animation-delay: 1s;
+}
+
+@keyframes idea-float {
+    0%, 100% {
+        transform: translateY(0) scale(1);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(-8px) scale(1.05);
+        opacity: 1;
+    }
+}
+
+/* Sparkles around the bulb */
+.spark-sparkle {
+    position: absolute;
+    background: var(--color-accent);
+    border-radius: 50%;
+    animation: spark-twinkle 2s ease-in-out infinite;
+}
+
+.spark-sparkle-1 {
+    width: 8px;
+    height: 8px;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.spark-sparkle-2 {
+    width: 6px;
+    height: 6px;
+    top: 25px;
+    left: 45px;
+    animation-delay: 0.3s;
+}
+
+.spark-sparkle-3 {
+    width: 6px;
+    height: 6px;
+    top: 25px;
+    right: 45px;
+    animation-delay: 0.6s;
+}
+
+.spark-sparkle-4 {
+    width: 5px;
+    height: 5px;
+    top: 70px;
+    left: 30px;
+    animation-delay: 0.9s;
+}
+
+.spark-sparkle-5 {
+    width: 5px;
+    height: 5px;
+    top: 70px;
+    right: 30px;
+    animation-delay: 1.2s;
+}
+
+@keyframes spark-twinkle {
+    0%, 100% {
+        opacity: 0.4;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.4);
+    }
+}
+
+/* Light rays from bulb */
+.spark-ray {
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    background: linear-gradient(to top, var(--color-accent), transparent);
+    border-radius: 2px;
+    top: 35px;
+    left: 50%;
+    transform-origin: bottom center;
+    animation: ray-pulse 2s ease-in-out infinite;
+}
+
+.spark-ray-1 { transform: translateX(-50%) rotate(-40deg); animation-delay: 0s; }
+.spark-ray-2 { transform: translateX(-50%) rotate(-20deg); animation-delay: 0.2s; }
+.spark-ray-3 { transform: translateX(-50%) rotate(0deg); animation-delay: 0.4s; }
+.spark-ray-4 { transform: translateX(-50%) rotate(20deg); animation-delay: 0.6s; }
+.spark-ray-5 { transform: translateX(-50%) rotate(40deg); animation-delay: 0.8s; }
+
+@keyframes ray-pulse {
+    0%, 100% {
+        opacity: 0.3;
+        height: 20px;
+    }
+    50% {
+        opacity: 0.7;
+        height: 28px;
+    }
+}
+
 /* Constellation Background */
 .constellation-bg {
     position: absolute;
