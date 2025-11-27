@@ -1014,8 +1014,12 @@ a {
     color: white;
 }
 
+.community-section .section-header h2 {
+    color: white;
+}
+
 .community-section .section-header p {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 .community-grid {
@@ -1072,10 +1076,11 @@ a {
 .community-card h3 {
     font-size: var(--text-h3);
     margin-bottom: var(--space-sm);
+    color: white;
 }
 
 .community-card p {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(255, 255, 255, 0.85);
     margin-bottom: var(--space-lg);
 }
 
@@ -1104,11 +1109,13 @@ a {
 
 .community-card-small h3 {
     font-size: var(--text-body);
+    color: white;
 }
 
 .community-card-small p {
     font-size: var(--text-small);
     margin-bottom: var(--space-md);
+    color: rgba(255, 255, 255, 0.85);
 }
 
 /* Clickable card link */
