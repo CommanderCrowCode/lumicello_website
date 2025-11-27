@@ -34,6 +34,356 @@
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.ico">
+
+    <style>
+        /* Legal Page Enhanced Styles */
+        .legal-hero {
+            position: relative;
+            padding: clamp(140px, 18vw, 200px) var(--spacing-page) clamp(60px, 8vw, 100px);
+            text-align: center;
+            overflow: hidden;
+            background: var(--color-bg-mist);
+        }
+
+        .legal-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.7) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            animation: blob-morph 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .legal-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 45%;
+            height: 70%;
+            background: radial-gradient(ellipse, var(--color-bg-sage) 0%, transparent 70%);
+            border-radius: var(--radius-blob-alt);
+            opacity: 0.5;
+            animation: blob-morph 20s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        .legal-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .legal-hero .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: var(--radius-btn);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow-soft);
+            animation: fade-up 0.8s var(--ease-out) forwards;
+        }
+
+        .legal-hero .hero-badge svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .legal-hero h1 {
+            font-family: var(--font-heading);
+            font-size: var(--text-display);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+            animation: fade-up 0.8s var(--ease-out) 0.1s forwards;
+            opacity: 0;
+        }
+
+        .legal-hero .update-date {
+            font-size: var(--text-base);
+            color: var(--color-text-secondary);
+            animation: fade-up 0.8s var(--ease-out) 0.2s forwards;
+            opacity: 0;
+        }
+
+        /* Floating decorative elements */
+        .floating-shape {
+            position: absolute;
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .shape-1 {
+            width: 10px;
+            height: 10px;
+            background: var(--color-accent);
+            top: 25%;
+            left: 12%;
+            animation: float 7s ease-in-out infinite;
+            opacity: 0.6;
+        }
+
+        .shape-2 {
+            width: 6px;
+            height: 6px;
+            background: var(--color-primary);
+            top: 45%;
+            right: 18%;
+            animation: float 9s ease-in-out infinite 1s;
+            opacity: 0.4;
+        }
+
+        .shape-3 {
+            width: 14px;
+            height: 14px;
+            background: white;
+            bottom: 25%;
+            left: 20%;
+            animation: float 6s ease-in-out infinite 0.5s;
+            opacity: 0.8;
+        }
+
+        /* Content Area */
+        .legal-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(48px, 6vw, 80px) var(--spacing-page) clamp(80px, 10vw, 120px);
+            background: var(--color-bg-main);
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            color: var(--color-primary);
+            text-decoration: none;
+            margin-bottom: 40px;
+            padding: 12px 20px;
+            background: var(--color-bg-sage);
+            border-radius: var(--radius-btn);
+            transition: all 0.3s var(--ease-out);
+        }
+
+        .back-link svg {
+            width: 18px;
+            height: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: var(--color-accent-soft);
+            color: var(--color-primary);
+        }
+
+        .back-link:hover svg {
+            transform: translateX(-4px);
+        }
+
+        .legal-content > p {
+            font-size: var(--text-lg);
+            line-height: 1.9;
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .legal-content h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-top: 56px;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid var(--color-border-subtle);
+            position: relative;
+        }
+
+        .legal-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--color-accent);
+        }
+
+        .legal-content h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            margin-top: 32px;
+            margin-bottom: 16px;
+        }
+
+        .legal-content p {
+            font-size: var(--text-base);
+            line-height: 1.8;
+            color: var(--color-text-secondary);
+            margin-bottom: 20px;
+        }
+
+        .legal-content ul {
+            margin-bottom: 24px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .legal-content li {
+            position: relative;
+            padding-left: 28px;
+            margin-bottom: 12px;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        .legal-content li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent);
+            border-radius: 50%;
+        }
+
+        .legal-content li strong {
+            color: var(--color-primary);
+        }
+
+        /* Highlight Cards */
+        .legal-card {
+            background: var(--color-bg-sage);
+            border-radius: var(--radius-card);
+            padding: 28px 32px;
+            margin: 32px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .legal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--color-accent);
+        }
+
+        .legal-card h4 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .legal-card h4::before {
+            content: '';
+            width: 24px;
+            height: 24px;
+            background: var(--color-accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .legal-card p {
+            color: var(--color-text-secondary);
+            margin-bottom: 0;
+        }
+
+        .legal-card a {
+            color: var(--color-primary);
+            font-weight: 600;
+            text-decoration: underline;
+            text-decoration-color: var(--color-accent);
+            text-underline-offset: 3px;
+        }
+
+        .legal-content > p:last-of-type {
+            font-style: italic;
+            padding-top: 32px;
+            margin-top: 48px;
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .legal-hero {
+                padding: 120px 20px 50px;
+            }
+
+            .legal-content {
+                padding: 40px 20px 60px;
+            }
+
+            .legal-card {
+                padding: 24px;
+            }
+
+            .legal-content h2 {
+                font-size: var(--text-xl);
+                margin-top: 40px;
+            }
+
+            .shape-1, .shape-2, .shape-3 {
+                display: none;
+            }
+        }
+
+        /* Animations */
+        @keyframes blob-morph {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+            25% {
+                border-radius: 60% 40% 50% 60% / 50% 60% 40% 50%;
+            }
+            50% {
+                border-radius: 50% 60% 40% 60% / 60% 40% 60% 40%;
+            }
+            75% {
+                border-radius: 40% 50% 60% 50% / 50% 60% 50% 60%;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(5deg);
+            }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation (Shared Component) -->
@@ -41,8 +391,22 @@
 
     <!-- Hero Section -->
     <section class="legal-hero">
-        <h1>Privacy Policy</h1>
-        <p>Last updated: November 2025</p>
+        <!-- Floating decorative shapes -->
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+
+        <div class="legal-hero-content">
+            <div class="hero-badge">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                Your Privacy Matters
+            </div>
+            <h1>Privacy Policy</h1>
+            <p class="update-date">Last updated: November 2025</p>
+        </div>
     </section>
 
     <!-- Content -->
@@ -85,7 +449,7 @@
 
         <p>We use the information we collect to:</p>
         <ul>
-            <li>Personalize your child's learning experience through the Curiosity Fingerprint™</li>
+            <li>Personalize your child's learning experience through the Curiosity Fingerprint</li>
             <li>Send you newsletters with learning ideas, activity tips, and product updates</li>
             <li>Process orders for Exploration Kits and provide customer support</li>
             <li>Improve our website, products, and services</li>

@@ -1,33 +1,204 @@
+/* ============================================
+   LUMICELLO - Design System Variables
+   "Soft Science" / "Organic Intelligence"
+   ============================================ */
+
 :root {
-    /* Primary Palette */
-    --color-primary: #1A2B4C;      /* Jefferson Blue */
-    --color-accent: #F2C94C;       /* Lumen Gold */
-    --color-bg-main: #F9F8F4;      /* Soft Canvas */
+    /* ========================================
+       PRIMARY PALETTE - Brand Anchors
+       ======================================== */
+    --color-primary: #1A2B4C;           /* Jefferson Blue - deep trust */
+    --color-primary-light: #2A3D5E;     /* Lighter blue for hover states */
+    --color-primary-dark: #0F1A2E;      /* Darker blue for depth */
 
-    /* Secondary Palette */
-    --color-bg-sage: #E6EBE6;      /* Sage Whisper */
-    --color-bg-clay: #F0E6DD;      /* Pale Clay */
-    --color-bg-mist: #E3F2F5;      /* Mist Blue */
+    --color-accent: #F2C94C;            /* Lumen Gold - warmth & spark */
+    --color-accent-glow: rgba(242, 201, 76, 0.4);  /* Atmospheric glow */
+    --color-accent-soft: rgba(242, 201, 76, 0.15); /* Subtle backgrounds */
 
-    /* Functional */
+    --color-bg-main: #F9F8F4;           /* Soft Canvas - warm white */
+    --color-bg-warm: #FFFDF8;           /* Slightly warmer for contrast */
+
+    /* ========================================
+       SECONDARY PALETTE - Exploration Tones
+       ======================================== */
+    --color-bg-sage: #E6EBE6;           /* Sage Whisper - calm, nature */
+    --color-bg-sage-deep: #D4DCD4;      /* Deeper sage for hover */
+
+    --color-bg-clay: #F0E6DD;           /* Pale Clay - warm, tactile */
+    --color-bg-clay-deep: #E5D8CC;      /* Deeper clay */
+
+    --color-bg-mist: #E3F2F5;           /* Mist Blue - curiosity, sky */
+    --color-bg-mist-deep: #D1E6EB;      /* Deeper mist */
+
+    /* ========================================
+       FUNCTIONAL COLORS
+       ======================================== */
     --color-text-primary: #1A2B4C;
     --color-text-secondary: #5E6A71;
+    --color-text-tertiary: #8A9199;
+    --color-text-inverse: #FFFFFF;
+
     --color-border-subtle: rgba(26, 43, 76, 0.08);
+    --color-border-medium: rgba(26, 43, 76, 0.15);
 
-    /* Typography */
-    --font-heading: 'Fraunces', serif;
-    --font-body: 'Nunito', 'Noto Sans Thai', sans-serif;
+    /* Social brand colors */
+    --color-line: #06C755;
+    --color-facebook: #1877F2;
+    --color-email: #EA4335;
 
-    /* Spacing */
-    --spacing-section: clamp(60px, 8vw, 120px);
+    /* ========================================
+       TYPOGRAPHY - "Warm Intelligence"
+       ======================================== */
+    --font-heading: 'Fraunces', Georgia, serif;
+    --font-body: 'Nunito', 'Noto Sans Thai', -apple-system, sans-serif;
+
+    /* Type Scale - More dramatic hierarchy */
+    --text-hero: clamp(3.5rem, 8vw, 6rem);
+    --text-display: clamp(2.5rem, 5vw, 4rem);
+    --text-h1: clamp(2rem, 4vw, 3rem);
+    --text-h2: clamp(1.75rem, 3.5vw, 2.5rem);
+    --text-h3: clamp(1.25rem, 2vw, 1.5rem);
+    --text-body: 1.0625rem;             /* 17px */
+    --text-body-lg: 1.125rem;           /* 18px */
+    --text-small: 0.875rem;             /* 14px */
+    --text-xs: 0.75rem;                 /* 12px */
+
+    /* Line heights */
+    --leading-tight: 1.1;
+    --leading-snug: 1.25;
+    --leading-normal: 1.5;
+    --leading-relaxed: 1.7;
+
+    /* Letter spacing */
+    --tracking-tight: -0.02em;
+    --tracking-normal: 0;
+    --tracking-wide: 0.05em;
+    --tracking-wider: 0.1em;
+
+    /* ========================================
+       SPACING - Generous & Breathing
+       ======================================== */
+    --space-xs: 0.5rem;                 /* 8px */
+    --space-sm: 0.75rem;                /* 12px */
+    --space-md: 1rem;                   /* 16px */
+    --space-lg: 1.5rem;                 /* 24px */
+    --space-xl: 2rem;                   /* 32px */
+    --space-2xl: 3rem;                  /* 48px */
+    --space-3xl: 4rem;                  /* 64px */
+    --space-4xl: 6rem;                  /* 96px */
+    --space-5xl: 8rem;                  /* 128px */
+
+    --spacing-section: clamp(5rem, 10vw, 8rem);
     --container-max: 1400px;
-    --grid-gap: 16px;
+    --container-narrow: 800px;
+    --grid-gap: 1.25rem;
 
-    /* Border Radius */
-    --radius-card: 24px;
-    --radius-card-sm: 16px;
-    --radius-btn: 50px;
+    /* ========================================
+       BORDERS & RADII - Soft & Organic
+       ======================================== */
+    --radius-xs: 8px;
+    --radius-sm: 12px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-2xl: 48px;
+    --radius-pill: 100px;
+    --radius-blob: 40% 60% 70% 30% / 40% 50% 60% 50%;
 
-    /* Animation */
-    --ease-fluid: cubic-bezier(0.2, 0.8, 0.2, 1);
+    /* ========================================
+       SHADOWS - Soft & Atmospheric
+       ======================================== */
+    --shadow-xs: 0 1px 2px rgba(26, 43, 76, 0.04);
+    --shadow-sm: 0 2px 8px rgba(26, 43, 76, 0.06);
+    --shadow-md: 0 4px 16px rgba(26, 43, 76, 0.08);
+    --shadow-lg: 0 8px 32px rgba(26, 43, 76, 0.1);
+    --shadow-xl: 0 16px 48px rgba(26, 43, 76, 0.12);
+    --shadow-2xl: 0 24px 64px rgba(26, 43, 76, 0.15);
+
+    /* Glow shadows for accent */
+    --shadow-glow-sm: 0 4px 20px var(--color-accent-glow);
+    --shadow-glow-md: 0 8px 40px var(--color-accent-glow);
+    --shadow-glow-lg: 0 16px 60px var(--color-accent-glow);
+
+    /* Colored card shadows */
+    --shadow-sage: 0 8px 32px rgba(230, 235, 230, 0.5);
+    --shadow-clay: 0 8px 32px rgba(240, 230, 221, 0.5);
+    --shadow-mist: 0 8px 32px rgba(227, 242, 245, 0.5);
+
+    /* ========================================
+       ANIMATION - Breathing & Organic
+       ======================================== */
+    --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.25, 0.1, 0.25, 1);
+
+    --duration-fast: 150ms;
+    --duration-normal: 300ms;
+    --duration-slow: 500ms;
+    --duration-slower: 800ms;
+    --duration-slowest: 1200ms;
+
+    /* Stagger delays for orchestrated animations */
+    --stagger-1: 0ms;
+    --stagger-2: 100ms;
+    --stagger-3: 200ms;
+    --stagger-4: 300ms;
+    --stagger-5: 400ms;
+    --stagger-6: 500ms;
+
+    /* ========================================
+       EFFECTS & TEXTURES
+       ======================================== */
+    --blur-sm: 8px;
+    --blur-md: 16px;
+    --blur-lg: 32px;
+    --blur-xl: 64px;
+
+    /* Grain texture (applied via pseudo-element) */
+    --grain-opacity: 0.03;
+
+    /* Gradient meshes */
+    --gradient-warm: radial-gradient(ellipse at 20% 50%, var(--color-bg-clay) 0%, transparent 50%),
+                     radial-gradient(ellipse at 80% 20%, var(--color-bg-mist) 0%, transparent 40%),
+                     radial-gradient(ellipse at 40% 80%, var(--color-bg-sage) 0%, transparent 50%);
+
+    --gradient-hero: radial-gradient(ellipse at 30% 30%, var(--color-accent-soft) 0%, transparent 50%),
+                     radial-gradient(ellipse at 70% 70%, var(--color-bg-mist) 0%, transparent 40%);
+
+    --gradient-glow: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
+
+    /* ========================================
+       Z-INDEX SCALE
+       ======================================== */
+    --z-below: -1;
+    --z-base: 0;
+    --z-above: 1;
+    --z-dropdown: 100;
+    --z-sticky: 200;
+    --z-overlay: 300;
+    --z-modal: 400;
+    --z-toast: 500;
+}
+
+/* ============================================
+   DARK MODE OVERRIDES (Future-proof)
+   ============================================ */
+@media (prefers-color-scheme: dark) {
+    :root {
+        /* Keep light mode for now - brand is warm/light focused */
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    :root {
+        --duration-fast: 0ms;
+        --duration-normal: 0ms;
+        --duration-slow: 0ms;
+        --duration-slower: 0ms;
+        --duration-slowest: 0ms;
+    }
 }
