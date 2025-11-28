@@ -207,6 +207,36 @@ a {
     gap: var(--space-lg);
 }
 
+/* Join Community button - prominent when at top */
+.nav-actions .btn-secondary.nav-cta {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    font-weight: 700;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.nav-actions .btn-secondary.nav-cta:hover {
+    background: var(--color-brick);
+    border-color: var(--color-brick);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* When scrolled - revert to subtle secondary style */
+.nav-wrapper.scrolled .nav-actions .btn-secondary.nav-cta {
+    background: transparent;
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+}
+
+.nav-wrapper.scrolled .nav-actions .btn-secondary.nav-cta:hover {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
 /* Mobile Menu Toggle */
 .mobile-toggle {
     display: none;
