@@ -34,11 +34,11 @@ This document tracks all external information needed before deployment.
 | Platform | Status | URL |
 |----------|--------|-----|
 | Line Official Account | [X] Done | `https://lin.ee/eH1GxA5`|
-| Facebook Page | [X] Done | `https://web.facebook.com/LumicelloGroup`|
+| Facebook Group | [X] Done | `https://www.facebook.com/groups/807504868371462`|
 
 ### URL Formats
 - **Line**: `https://line.me/R/ti/p/@YOUR_LINE_ID`
-- **Facebook**: `https://facebook.com/YOUR_PAGE_NAME`
+- **Facebook Group**: `https://www.facebook.com/groups/YOUR_GROUP_ID`
 
 ---
 
