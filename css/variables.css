@@ -14,6 +14,10 @@
     --color-accent: #F2C94C;            /* Lumen Gold - warmth & spark */
     --color-accent-glow: rgba(242, 201, 76, 0.4);  /* Atmospheric glow */
     --color-accent-soft: rgba(242, 201, 76, 0.15); /* Subtle backgrounds */
+    --color-accent-dark: #D4A82D;       /* Darker gold for pressed states */
+
+    --color-brick: #C65D32;             /* Monticello Brick - warm accent */
+    --color-brick-dark: #A84D28;        /* Darker brick for pressed states */
 
     --color-bg-main: #F9F8F4;           /* Soft Canvas - warm white */
     --color-bg-warm: #FFFDF8;           /* Slightly warmer for contrast */

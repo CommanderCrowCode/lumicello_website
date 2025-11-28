@@ -72,7 +72,7 @@ function generateNavigation() {
             </ul>
 
             <div class="nav-actions">
-                <a href="${communityHref}" class="btn btn-secondary">Join Community</a>
+                <a href="${communityHref}" class="btn btn-secondary nav-cta">Join Community</a>
                 <div class="mobile-toggle">
                     <span></span>
                     <span></span>
@@ -168,6 +168,30 @@ function initMobileMenu() {
 }
 
 /**
+ * Initialize nav scroll behavior
+ * Adds 'scrolled' class to nav-wrapper when user scrolls down
+ */
+function initNavScroll() {
+    const navWrapper = document.querySelector('.nav-wrapper');
+
+    if (navWrapper) {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                navWrapper.classList.add('scrolled');
+            } else {
+                navWrapper.classList.remove('scrolled');
+            }
+        };
+
+        // Check initial scroll position
+        handleScroll();
+
+        // Listen for scroll events
+        window.addEventListener('scroll', handleScroll, { passive: true });
+    }
+}
+
+/**
  * Load shared components into the page
  * Call this function after DOM is ready
  */
@@ -188,6 +212,9 @@ function loadSharedComponents() {
 
     // Initialize mobile menu after components are loaded
     initMobileMenu();
+
+    // Initialize nav scroll behavior
+    initNavScroll();
 }
 
 // Auto-initialize when DOM is ready
