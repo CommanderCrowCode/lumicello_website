@@ -323,26 +323,40 @@
             gap: 20px;
         }
 
+        /* Floating Label Form Groups */
         .form-group {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
+            position: relative;
         }
 
         .form-group label {
-            font-weight: 600;
-            font-size: var(--text-sm);
-            color: var(--color-primary);
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-weight: 500;
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            pointer-events: none;
+            transition: all 0.3s ease;
+            background: transparent;
+            z-index: 1;
+        }
+
+        /* Label position for textarea */
+        .form-group:has(textarea) label {
+            top: 24px;
+            transform: translateY(0);
         }
 
         .form-group input,
         .form-group select,
         .form-group textarea {
-            padding: 16px 20px;
+            width: 100%;
+            padding: 22px 20px 10px;
             border: 2px solid var(--color-border-subtle);
-            border-radius: var(--radius-card-sm);
+            border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: var(--text-base);
+            font-size: var(--text-body);
             color: var(--color-text-primary);
             background: var(--color-bg-main);
             transition: all 0.3s ease;
@@ -350,7 +364,28 @@
 
         .form-group input::placeholder,
         .form-group textarea::placeholder {
-            color: var(--color-text-muted);
+            color: transparent;
+        }
+
+        /* Float label when focused or has content */
+        .form-group input:focus + label,
+        .form-group input:not(:placeholder-shown) + label,
+        .form-group textarea:focus + label,
+        .form-group textarea:not(:placeholder-shown) + label {
+            top: 10px;
+            transform: translateY(0);
+            font-size: var(--text-xs);
+            color: var(--color-accent-dark);
+            font-weight: 600;
+        }
+
+        /* Select always has label floated (since it always has a value) */
+        .form-group select + label {
+            top: 10px;
+            transform: translateY(0);
+            font-size: var(--text-xs);
+            color: var(--color-primary);
+            font-weight: 600;
         }
 
         .form-group input:focus,
@@ -362,9 +397,16 @@
             box-shadow: 0 0 0 4px var(--color-accent-soft);
         }
 
+        .form-group input:focus + label,
+        .form-group textarea:focus + label,
+        .form-group select:focus + label {
+            color: var(--color-accent-dark);
+        }
+
         .form-group textarea {
             min-height: 150px;
             resize: vertical;
+            padding-top: 28px;
         }
 
         .form-group select {
@@ -758,22 +800,21 @@
                 <form class="contact-form" action="#" method="POST">
                     <div class="form-row">
                         <div class="form-group">
+                            <input type="text" id="first-name" name="first_name" placeholder=" " required>
                             <label for="first-name">First Name</label>
-                            <input type="text" id="first-name" name="first_name" placeholder="Your first name" required>
                         </div>
                         <div class="form-group">
+                            <input type="text" id="last-name" name="last_name" placeholder=" " required>
                             <label for="last-name">Last Name</label>
-                            <input type="text" id="last-name" name="last_name" placeholder="Your last name" required>
                         </div>
                     </div>
 
                     <div class="form-group">
+                        <input type="email" id="email" name="email" placeholder=" " required>
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="you@example.com" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">Subject</label>
                         <select id="subject" name="subject" required>
                             <option value="" disabled selected>Select a topic</option>
                             <option value="general">General Inquiry</option>
@@ -784,11 +825,12 @@
                             <option value="support">Customer Support</option>
                             <option value="other">Other</option>
                         </select>
+                        <label for="subject">Subject</label>
                     </div>
 
                     <div class="form-group">
+                        <textarea id="message" name="message" placeholder=" " required></textarea>
                         <label for="message">Message</label>
-                        <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
                     </div>
 
                     <div class="form-submit">

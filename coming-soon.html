@@ -315,24 +315,51 @@
         .notify-input-group {
             display: flex;
             gap: 12px;
+            align-items: stretch;
         }
 
-        .notify-input-group input {
+        /* Floating field - light variant for coming-soon page */
+        .floating-field-light {
+            position: relative;
             flex: 1;
-            padding: 16px 20px;
+        }
+
+        .floating-field-light input {
+            width: 100%;
+            padding: 22px 20px 10px;
             border: 2px solid var(--color-border-subtle);
-            border-radius: var(--radius-btn);
+            border-radius: var(--radius-sm);
             font-family: inherit;
-            font-size: var(--text-base);
+            font-size: var(--text-body);
             background: var(--color-bg-main);
+            color: var(--color-text-primary);
             transition: all 0.3s ease;
         }
 
-        .notify-input-group input::placeholder {
-            color: var(--color-text-muted);
+        .floating-field-light label {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--color-text-secondary);
+            font-size: var(--text-body);
+            pointer-events: none;
+            transition: all 0.3s ease;
         }
 
-        .notify-input-group input:focus {
+        .floating-field-light input:focus + label,
+        .floating-field-light input:not(:placeholder-shown) + label {
+            top: 12px;
+            transform: translateY(0);
+            font-size: var(--text-xs);
+            color: var(--color-accent-dark);
+        }
+
+        .floating-field-light input::placeholder {
+            color: transparent;
+        }
+
+        .floating-field-light input:focus {
             outline: none;
             border-color: var(--color-accent);
             background: white;
@@ -450,7 +477,10 @@
                     <h3>Get Notified</h3>
                     <p>Want to know when this page is ready? Join our community!</p>
                     <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="notify-input-group">
-                        <input type="email" name="email_address" placeholder="Enter your email" required>
+                        <div class="floating-field floating-field-light">
+                            <input type="email" id="notify-email" name="email_address" placeholder=" " required>
+                            <label for="notify-email">Enter your email</label>
+                        </div>
                         <button type="submit" class="btn btn-primary">Notify Me</button>
                     </form>
                 </div>
