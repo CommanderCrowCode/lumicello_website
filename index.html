@@ -311,8 +311,37 @@
                 <p>Thoughtfully designed exploration kits for babies 0-12 months. Each kit supports key developmental milestones while nurturing natural curiosity.</p>
             </div>
 
-            <div class="kits-grid reveal-stagger">
-                <!-- Kit 1: First Gazes -->
+            <div class="kits-journey-wrapper">
+                <!-- Journey Progress Timeline (mobile: above cards, always visible) -->
+                <div class="journey-progress">
+                    <div class="journey-progress-track">
+                        <div class="journey-progress-fill"></div>
+                    </div>
+                    <div class="journey-progress-dots">
+                        <button class="journey-dot active" data-index="0" aria-label="Go to kit 1">
+                            <span class="journey-dot-label">0-2</span>
+                        </button>
+                        <button class="journey-dot" data-index="1" aria-label="Go to kit 2">
+                            <span class="journey-dot-label">3-4</span>
+                        </button>
+                        <button class="journey-dot" data-index="2" aria-label="Go to kit 3">
+                            <span class="journey-dot-label">5-6</span>
+                        </button>
+                        <button class="journey-dot" data-index="3" aria-label="Go to kit 4">
+                            <span class="journey-dot-label">7-8</span>
+                        </button>
+                        <button class="journey-dot" data-index="4" aria-label="Go to kit 5">
+                            <span class="journey-dot-label">9-10</span>
+                        </button>
+                        <button class="journey-dot" data-index="5" aria-label="Go to kit 6">
+                            <span class="journey-dot-label">11-12</span>
+                        </button>
+                    </div>
+                    <p class="journey-hint">Kit <span class="current-kit-num">1</span> of 6: <span class="current-kit-name">First Gazes</span></p>
+                </div>
+
+                <div class="kits-grid reveal-stagger">
+                    <!-- Kit 1: First Gazes -->
                 <div class="kit-card">
                     <div class="kit-image">
                         <div class="kit-carousel">
@@ -490,6 +519,7 @@
                             </div>
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </div>

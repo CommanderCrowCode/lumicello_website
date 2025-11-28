@@ -1963,6 +1963,23 @@ a.community-card-link {
 }
 
 /* ============================================
+   KITS JOURNEY SCROLLER (Mobile)
+   Horizontal scroll with developmental journey
+   ============================================ */
+.kits-journey-wrapper {
+    position: relative;
+}
+
+/* Journey Progress - Hidden on desktop, shown on mobile */
+.journey-progress {
+    display: none;
+}
+
+.journey-hint {
+    display: none;
+}
+
+/* ============================================
    TESTIMONIALS SECTION
    ============================================ */
 .testimonials-section {
@@ -2988,8 +3005,7 @@ a.community-card-link {
     }
 
     /* Bento Grid */
-    .bento-grid,
-    .kits-grid {
+    .bento-grid {
         grid-template-columns: 1fr;
     }
 
@@ -3015,6 +3031,259 @@ a.community-card-link {
     .fingerprint-ring:nth-child(4),
     .fingerprint-ring:nth-child(5) {
         display: none;
+    }
+
+    /* ==========================================
+       KITS JOURNEY SCROLLER - Mobile Layout
+       Redesigned: Timeline ABOVE cards, always visible
+       Compact cards that show peek of next
+       ========================================== */
+    .kits-section {
+        padding-left: 0;
+        padding-right: 0;
+        overflow: hidden;
+    }
+
+    .kits-section .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .kits-section .section-header {
+        padding: 0 var(--space-lg);
+        margin-bottom: var(--space-lg);
+    }
+
+    .kits-journey-wrapper {
+        position: relative;
+    }
+
+    /* ===== JOURNEY TIMELINE - ALWAYS VISIBLE ABOVE CARDS ===== */
+    .journey-progress {
+        display: block;
+        padding: 0 var(--space-lg) var(--space-lg);
+        position: relative;
+        background: var(--color-bg-sage);
+    }
+
+    .journey-progress-track {
+        position: relative;
+        height: 4px;
+        background: rgba(26, 43, 76, 0.12);
+        border-radius: 2px;
+        margin-bottom: var(--space-sm);
+    }
+
+    .journey-progress-fill {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 0%;
+        background: linear-gradient(
+            90deg,
+            var(--color-accent),
+            var(--color-brick)
+        );
+        border-radius: 2px;
+        transition: width var(--duration-slow) var(--ease-out);
+    }
+
+    .journey-progress-dots {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        margin-top: -12px;
+    }
+
+    .journey-dot {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        background: white;
+        border: 2px solid var(--color-border-medium);
+        border-radius: 50%;
+        cursor: pointer;
+        transition: all var(--duration-normal) var(--ease-out);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+    }
+
+    .journey-dot::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: var(--color-text-tertiary);
+        border-radius: 50%;
+        transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .journey-dot:hover {
+        border-color: var(--color-accent);
+        transform: scale(1.1);
+    }
+
+    .journey-dot:hover::before {
+        background: var(--color-accent);
+    }
+
+    .journey-dot.active {
+        border-color: var(--color-accent);
+        background: var(--color-accent);
+        box-shadow: 0 0 0 3px var(--color-accent-soft);
+        transform: scale(1.2);
+    }
+
+    .journey-dot.active::before {
+        background: white;
+    }
+
+    .journey-dot.passed {
+        border-color: var(--color-accent);
+        background: var(--color-accent);
+    }
+
+    .journey-dot.passed::before {
+        background: white;
+    }
+
+    .journey-dot-label {
+        position: absolute;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 9px;
+        font-weight: 700;
+        color: var(--color-text-tertiary);
+        white-space: nowrap;
+        transition: color var(--duration-normal) var(--ease-out);
+    }
+
+    .journey-dot.active .journey-dot-label {
+        color: var(--color-primary);
+    }
+
+    .journey-dot.passed .journey-dot-label {
+        color: var(--color-text-secondary);
+    }
+
+    /* Current kit indicator text */
+    .journey-hint {
+        display: block;
+        text-align: center;
+        font-size: var(--text-xs);
+        font-weight: 600;
+        color: var(--color-primary);
+        margin-top: var(--space-xl);
+        padding-top: var(--space-xs);
+    }
+
+    .journey-hint .current-kit-name {
+        color: var(--color-accent-dark);
+    }
+
+    /* ===== HORIZONTAL SCROLL CONTAINER ===== */
+    .kits-grid {
+        display: flex !important;
+        gap: var(--space-md);
+        padding: var(--space-sm) var(--space-md);
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        position: relative;
+    }
+
+    .kits-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* ===== COMPACT KIT CARDS ===== */
+    /* Card takes ~72% of viewport width so next card peeks */
+    .kits-grid .kit-card {
+        flex: 0 0 72vw;
+        max-width: 300px;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+        position: relative;
+    }
+
+    /* First card offset for centering */
+    .kits-grid .kit-card:first-child {
+        margin-left: calc((100vw - 72vw) / 2 - var(--space-md));
+    }
+
+    /* Last card offset */
+    .kits-grid .kit-card:last-child {
+        margin-right: calc((100vw - 72vw) / 2 - var(--space-md));
+    }
+
+    /* Make kit image square and smaller */
+    .kits-grid .kit-image {
+        aspect-ratio: 1/1;
+        padding: var(--space-sm);
+    }
+
+    /* Compact content area */
+    .kits-grid .kit-content {
+        padding: var(--space-md);
+    }
+
+    .kits-grid .kit-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: var(--space-xs);
+    }
+
+    .kits-grid .kit-tagline {
+        font-size: var(--text-xs);
+        margin-bottom: var(--space-xs);
+    }
+
+    /* Hide full description on mobile - show truncated */
+    .kits-grid .kit-card > .kit-content > p:not(.kit-tagline) {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        font-size: var(--text-xs);
+        line-height: 1.5;
+        margin-bottom: var(--space-sm);
+    }
+
+    .kits-grid .kit-meta {
+        padding-top: var(--space-sm);
+        gap: var(--space-xs);
+    }
+
+    .kits-grid .kit-age {
+        font-size: var(--text-xs);
+    }
+
+    .kits-grid .interest-tag {
+        font-size: 10px;
+        padding: 2px var(--space-xs);
+    }
+
+    /* Visual indicator: current card has subtle glow */
+    .kits-grid .kit-card.active {
+        box-shadow:
+            var(--shadow-lg),
+            0 0 0 2px var(--color-accent);
+    }
+
+    /* Inactive cards slightly faded */
+    .kits-grid .kit-card:not(.active) {
+        opacity: 0.7;
+        transform: scale(0.97);
+        transition: all var(--duration-normal) var(--ease-out);
+    }
+
+    .kits-grid .kit-card:not(.active):hover {
+        opacity: 0.85;
     }
 
     /* Community */
@@ -3046,7 +3315,7 @@ a.community-card-link {
         margin-bottom: var(--space-2xl);
     }
 
-    /* Kits */
+    /* Kits Content Adjustments */
     .kit-content {
         padding: var(--space-lg);
     }

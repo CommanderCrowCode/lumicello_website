@@ -69,6 +69,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Kit Image Carousels
     initKitCarousels();
+
+    // Kit Journey Scroller (mobile)
+    initKitJourneyScroller();
 });
 
 function currentSlide(n) {
@@ -298,4 +301,156 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     updateLightbox();
     lightbox.classList.add('active');
     document.body.classList.add('no-scroll');
+}
+
+// Kit Journey Scroller - Mobile horizontal scroll with progress tracking
+function initKitJourneyScroller() {
+    const wrapper = document.querySelector('.kits-journey-wrapper');
+    const grid = document.querySelector('.kits-grid');
+    const cards = document.querySelectorAll('.kits-grid .kit-card');
+    const dots = document.querySelectorAll('.journey-dot');
+    const progressFill = document.querySelector('.journey-progress-fill');
+    const kitNumEl = document.querySelector('.current-kit-num');
+    const kitNameEl = document.querySelector('.current-kit-name');
+
+    if (!wrapper || !grid || cards.length === 0) return;
+
+    // Kit names for the indicator
+    const kitNames = [
+        'First Gazes',
+        'Tummy Time Discovery',
+        'Grasp & Spin',
+        'Peek & Find',
+        'Stack & Sort',
+        'Push & Play'
+    ];
+
+    // Only activate on mobile (matches CSS media query)
+    const isMobile = () => window.innerWidth <= 768;
+
+    let currentIndex = 0;
+    let isScrolling = false;
+    let scrollTimeout;
+
+    // Update progress indicator based on scroll position
+    function updateProgress() {
+        if (!isMobile()) return;
+
+        const scrollLeft = grid.scrollLeft;
+        const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(grid).gap || 16);
+        const firstCardOffset = cards[0].offsetLeft - grid.offsetLeft;
+
+        // Calculate which card is most centered
+        const adjustedScroll = scrollLeft + (grid.offsetWidth / 2) - firstCardOffset;
+        const newIndex = Math.round(adjustedScroll / cardWidth);
+        const clampedIndex = Math.max(0, Math.min(newIndex, cards.length - 1));
+
+        if (clampedIndex !== currentIndex) {
+            currentIndex = clampedIndex;
+            updateUI();
+        }
+    }
+
+    // Update all UI elements
+    function updateUI() {
+        // Update dots
+        dots.forEach((dot, index) => {
+            dot.classList.remove('active', 'passed');
+            if (index === currentIndex) {
+                dot.classList.add('active');
+            } else if (index < currentIndex) {
+                dot.classList.add('passed');
+            }
+        });
+
+        // Update cards (active state)
+        cards.forEach((card, index) => {
+            if (index === currentIndex) {
+                card.classList.add('active');
+            } else {
+                card.classList.remove('active');
+            }
+        });
+
+        // Update progress bar
+        if (progressFill) {
+            const progress = (currentIndex / (cards.length - 1)) * 100;
+            progressFill.style.width = `${progress}%`;
+        }
+
+        // Update kit name indicator
+        if (kitNumEl) kitNumEl.textContent = currentIndex + 1;
+        if (kitNameEl) kitNameEl.textContent = kitNames[currentIndex] || '';
+    }
+
+    // Scroll to specific card
+    function scrollToCard(index) {
+        if (!isMobile() || index < 0 || index >= cards.length) return;
+
+        const card = cards[index];
+        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        const gridCenter = grid.offsetWidth / 2;
+        const scrollTarget = cardCenter - gridCenter;
+
+        grid.scrollTo({
+            left: scrollTarget,
+            behavior: 'smooth'
+        });
+    }
+
+    // Dot click handlers
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            scrollToCard(index);
+        });
+    });
+
+    // Scroll event listener with debounce
+    grid.addEventListener('scroll', () => {
+        if (!isMobile()) return;
+
+        // Debounce the progress update
+        if (!isScrolling) {
+            isScrolling = true;
+            requestAnimationFrame(() => {
+                updateProgress();
+                isScrolling = false;
+            });
+        }
+
+        // Clear existing timeout
+        clearTimeout(scrollTimeout);
+
+        // Final update after scroll ends
+        scrollTimeout = setTimeout(() => {
+            updateProgress();
+        }, 100);
+    }, { passive: true });
+
+    // Touch end - snap and update
+    grid.addEventListener('touchend', () => {
+        if (!isMobile()) return;
+        setTimeout(updateProgress, 150);
+    }, { passive: true });
+
+    // Window resize handler
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            if (isMobile()) {
+                updateProgress();
+                updateUI();
+            } else {
+                // Reset on desktop
+                cards.forEach(card => card.classList.remove('active'));
+            }
+        }, 200);
+    }, { passive: true });
+
+    // Initial state
+    if (isMobile()) {
+        updateUI();
+        cards[0].classList.add('active');
+    }
 }
