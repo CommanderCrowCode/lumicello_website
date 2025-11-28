@@ -853,7 +853,7 @@ a {
     padding: var(--space-2xl);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .bento-card.featured .bento-image {
