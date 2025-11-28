@@ -42,8 +42,10 @@ const FOOTER_LINKS = {
 };
 
 // Social links configuration
+// Note: Facebook has two links - Page for support/footer, Group for community/engagement
 const SOCIAL_LINKS = {
-    facebookGroup: 'https://www.facebook.com/groups/807504868371462',  // Community group - primary Facebook link
+    facebookPage: 'https://www.facebook.com/LumicelloGroup',  // Company page - for footer, contact, support
+    facebookGroup: 'https://www.facebook.com/groups/807504868371462',  // Community group - for engagement
     line: 'https://lin.ee/eH1GxA5'
 };
 
@@ -134,7 +136,7 @@ function generateFooter() {
             <div class="footer-bottom">
                 <p class="footer-copyright">&copy; ${new Date().getFullYear()} Lumicello. All rights reserved.</p>
                 <div class="footer-social">
-                    <a href="${SOCIAL_LINKS.facebookGroup}" target="_blank" rel="noopener" aria-label="Facebook">
+                    <a href="${SOCIAL_LINKS.facebookPage}" target="_blank" rel="noopener" aria-label="Facebook">
                         <svg viewBox="0 0 24 24" fill="currentColor">
                             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
                         </svg>

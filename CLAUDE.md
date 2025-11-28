@@ -135,8 +135,12 @@ python -m http.server 8765
 
 ### Social Links
 - LINE Official: `https://lin.ee/eH1GxA5`
-- **Facebook Group**: `https://www.facebook.com/groups/807504868371462`
-  - Use for: All Facebook links (footer, contact page, community section, engagement CTAs)
+
+**Facebook (two separate links):**
+- **Facebook Group** (community/engagement): `https://www.facebook.com/groups/807504868371462`
+  - Use for: Community section, content sharing, engagement CTAs
+- **Facebook Page** (company/support): `https://www.facebook.com/LumicelloGroup`
+  - Use for: Footer, Contact page, customer support, complaints
 
 ### FontAwesome
 - Kit ID: `bc46e65664`

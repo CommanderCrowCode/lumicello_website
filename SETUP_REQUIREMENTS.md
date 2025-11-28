@@ -31,14 +31,16 @@ This document tracks all external information needed before deployment.
 
 ## Social Media URLs
 
-| Platform | Status | URL |
-|----------|--------|-----|
-| Line Official Account | [X] Done | `https://lin.ee/eH1GxA5`|
-| Facebook Group | [X] Done | `https://www.facebook.com/groups/807504868371462`|
+| Platform | Status | URL | Use For |
+|----------|--------|-----|---------|
+| Line Official Account | [X] Done | `https://lin.ee/eH1GxA5`| All LINE links |
+| Facebook Group | [X] Done | `https://www.facebook.com/groups/807504868371462`| Community, engagement |
+| Facebook Page | [X] Done | `https://www.facebook.com/LumicelloGroup`| Footer, Contact, Support |
 
 ### URL Formats
 - **Line**: `https://line.me/R/ti/p/@YOUR_LINE_ID`
 - **Facebook Group**: `https://www.facebook.com/groups/YOUR_GROUP_ID`
+- **Facebook Page**: `https://www.facebook.com/YOUR_PAGE_NAME`
 
 ---
 
