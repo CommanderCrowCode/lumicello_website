@@ -214,8 +214,14 @@
 
                     <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="newsletter-form">
                         <div class="form-row">
-                            <input type="text" name="fields[first_name]" placeholder="Your name" required>
-                            <input type="email" name="email_address" placeholder="Your email" required>
+                            <div class="floating-field">
+                                <input type="text" id="newsletter-name" name="fields[first_name]" placeholder=" " required>
+                                <label for="newsletter-name">Your name</label>
+                            </div>
+                            <div class="floating-field">
+                                <input type="email" id="newsletter-email" name="email_address" placeholder=" " required>
+                                <label for="newsletter-email">Your email</label>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-gold">Subscribe to Newsletter</button>
                         <p class="form-note">We respect your privacy. Read our <a href="privacy.html">Privacy Policy</a>.</p>
@@ -309,7 +315,16 @@
                 <!-- Kit 1: First Gazes -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="First Gazes Kit - Black and white cognitive cards and comforter" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_0-2.webp" alt="First Gazes Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_0-2.webp" alt="First Gazes Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">0-2 months</span>
                     </div>
                     <div class="kit-content">
@@ -330,7 +345,16 @@
                 <!-- Kit 2: Tummy Time Discovery -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="Tummy Time Discovery Kit - Mirror and sensory toys" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_3-4.webp" alt="Tummy Time Discovery Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_3-4.webp" alt="Tummy Time Discovery Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">3-4 months</span>
                     </div>
                     <div class="kit-content">
@@ -351,7 +375,16 @@
                 <!-- Kit 3: Grasp & Spin -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="Grasp and Spin Kit - Spinning drum and sensory ball" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_5-6.webp" alt="Grasp and Spin Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_5-6.webp" alt="Grasp and Spin Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">5-6 months</span>
                     </div>
                     <div class="kit-content">
@@ -372,7 +405,16 @@
                 <!-- Kit 4: Peek & Find -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="Peek and Find Kit - Object permanence box" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_7-8.webp" alt="Peek and Find Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_7-8.webp" alt="Peek and Find Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">7-8 months</span>
                     </div>
                     <div class="kit-content">
@@ -393,7 +435,16 @@
                 <!-- Kit 5: Stack & Sort -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="Stack and Sort Kit - Stacking tower and shape puzzle" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_9-10.webp" alt="Stack and Sort Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_9-10.webp" alt="Stack and Sort Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">9-10 months</span>
                     </div>
                     <div class="kit-content">
@@ -414,7 +465,16 @@
                 <!-- Kit 6: Push & Play -->
                 <div class="kit-card">
                     <div class="kit-image">
-                        <img src="assets/images/exploration_kit.webp" alt="Push and Play Kit - Push toys and activity book" loading="lazy">
+                        <div class="kit-carousel">
+                            <div class="kit-carousel-track">
+                                <img src="assets/images/exploration_kits/box_11-12.webp" alt="Push and Play Kit box" loading="lazy">
+                                <img src="assets/images/exploration_kits/items_11-12.webp" alt="Push and Play Kit items spread" loading="lazy">
+                            </div>
+                            <div class="kit-carousel-dots">
+                                <button class="kit-dot active" aria-label="View box image"></button>
+                                <button class="kit-dot" aria-label="View items image"></button>
+                            </div>
+                        </div>
                         <span class="kit-badge">11-12 months</span>
                     </div>
                     <div class="kit-content">

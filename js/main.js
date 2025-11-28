@@ -63,6 +63,9 @@ document.addEventListener('DOMContentLoaded', () => {
             showSlides(slideIndex);
         }, 5000);
     }
+
+    // Kit Image Carousels
+    initKitCarousels();
 });
 
 function currentSlide(n) {
@@ -90,4 +93,206 @@ function showSlides(n) {
     slides[slideIndex - 1].style.display = "block";
     slides[slideIndex - 1].classList.add("active");
     dots[slideIndex - 1].className += " active";
+}
+
+// Kit Image Carousel functionality
+function initKitCarousels() {
+    const carousels = document.querySelectorAll('.kit-carousel');
+
+    carousels.forEach(carousel => {
+        const track = carousel.querySelector('.kit-carousel-track');
+        const dots = carousel.querySelectorAll('.kit-dot');
+        const images = carousel.querySelectorAll('.kit-carousel-track img');
+        let currentIndex = 0;
+
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', (e) => {
+                e.stopPropagation();
+                currentIndex = index;
+                updateCarousel();
+            });
+        });
+
+        // Click on image to open lightbox
+        images.forEach(img => {
+            img.addEventListener('click', () => {
+                const imageSrcs = Array.from(images).map(i => i.src);
+                const imageAlts = Array.from(images).map(i => i.alt);
+                openKitLightbox(imageSrcs, imageAlts, currentIndex);
+            });
+        });
+
+        // Swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        carousel.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        carousel.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, { passive: true });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0 && currentIndex < images.length - 1) {
+                    currentIndex++;
+                } else if (diff < 0 && currentIndex > 0) {
+                    currentIndex--;
+                }
+                updateCarousel();
+            }
+        }
+
+        function updateCarousel() {
+            track.style.transform = `translateX(-${currentIndex * 50}%)`;
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIndex);
+            });
+        }
+    });
+}
+
+// Kit Lightbox functionality
+function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
+    // Create lightbox if it doesn't exist
+    let lightbox = document.querySelector('.kit-lightbox');
+
+    if (!lightbox) {
+        lightbox = document.createElement('div');
+        lightbox.className = 'kit-lightbox';
+        lightbox.innerHTML = `
+            <div class="lightbox-overlay"></div>
+            <div class="lightbox-content">
+                <button class="lightbox-close" aria-label="Close lightbox">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+                <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="15 18 9 12 15 6"></polyline>
+                    </svg>
+                </button>
+                <div class="lightbox-image-container">
+                    <img class="lightbox-image" src="" alt="">
+                </div>
+                <button class="lightbox-nav lightbox-next" aria-label="Next image">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6"></polyline>
+                    </svg>
+                </button>
+                <div class="lightbox-counter"></div>
+                <div class="lightbox-dots"></div>
+            </div>
+        `;
+        document.body.appendChild(lightbox);
+    }
+
+    const lightboxImage = lightbox.querySelector('.lightbox-image');
+    const dotsContainer = lightbox.querySelector('.lightbox-dots');
+    const counterEl = lightbox.querySelector('.lightbox-counter');
+    const prevBtn = lightbox.querySelector('.lightbox-prev');
+    const nextBtn = lightbox.querySelector('.lightbox-next');
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    const overlay = lightbox.querySelector('.lightbox-overlay');
+
+    let currentIndex = startIndex;
+    let isTransitioning = false;
+
+    // Create dots
+    dotsContainer.innerHTML = imageSrcs.map((_, i) =>
+        `<button class="lightbox-dot ${i === currentIndex ? 'active' : ''}" aria-label="View image ${i + 1}"></button>`
+    ).join('');
+
+    const dots = dotsContainer.querySelectorAll('.lightbox-dot');
+
+    // Smooth crossfade transition
+    function transitionToImage(newIndex) {
+        if (isTransitioning || newIndex === currentIndex) return;
+        isTransitioning = true;
+
+        // Fade out current image
+        lightboxImage.classList.add('transitioning');
+
+        setTimeout(() => {
+            // Update to new image
+            currentIndex = newIndex;
+            lightboxImage.src = imageSrcs[currentIndex];
+            lightboxImage.alt = imageAlts[currentIndex];
+            updateUI();
+
+            // Fade in new image
+            setTimeout(() => {
+                lightboxImage.classList.remove('transitioning');
+                isTransitioning = false;
+            }, 50);
+        }, 250); // Match CSS transition duration
+    }
+
+    function updateUI() {
+        dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
+        prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
+        prevBtn.style.pointerEvents = currentIndex === 0 ? 'none' : 'auto';
+        nextBtn.style.opacity = currentIndex === imageSrcs.length - 1 ? '0.3' : '1';
+        nextBtn.style.pointerEvents = currentIndex === imageSrcs.length - 1 ? 'none' : 'auto';
+        counterEl.textContent = `${currentIndex + 1} / ${imageSrcs.length}`;
+    }
+
+    function updateLightbox() {
+        lightboxImage.src = imageSrcs[currentIndex];
+        lightboxImage.alt = imageAlts[currentIndex];
+        updateUI();
+    }
+
+    function closeLightbox() {
+        lightbox.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    }
+
+    // Event listeners with smooth transitions
+    prevBtn.onclick = () => { if (currentIndex > 0) transitionToImage(currentIndex - 1); };
+    nextBtn.onclick = () => { if (currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1); };
+    closeBtn.onclick = closeLightbox;
+    overlay.onclick = closeLightbox;
+
+    dots.forEach((dot, i) => {
+        dot.onclick = () => transitionToImage(i);
+    });
+
+    // Keyboard navigation with transitions
+    const keyHandler = (e) => {
+        if (!lightbox.classList.contains('active')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft' && currentIndex > 0) transitionToImage(currentIndex - 1);
+        if (e.key === 'ArrowRight' && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+    };
+
+    document.removeEventListener('keydown', keyHandler);
+    document.addEventListener('keydown', keyHandler);
+
+    // Touch swipe for lightbox with transitions
+    let touchStartX = 0;
+    const imageContainer = lightbox.querySelector('.lightbox-image-container');
+
+    imageContainer.ontouchstart = (e) => { touchStartX = e.changedTouches[0].screenX; };
+    imageContainer.ontouchend = (e) => {
+        const diff = touchStartX - e.changedTouches[0].screenX;
+        if (Math.abs(diff) > 50) {
+            if (diff > 0 && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+            else if (diff < 0 && currentIndex > 0) transitionToImage(currentIndex - 1);
+        }
+    };
+
+    // Show lightbox
+    updateLightbox();
+    lightbox.classList.add('active');
+    document.body.classList.add('no-scroll');
 }
