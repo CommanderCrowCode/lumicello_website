@@ -214,8 +214,14 @@
 
                     <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="newsletter-form">
                         <div class="form-row">
-                            <input type="text" name="fields[first_name]" placeholder="Your name" required>
-                            <input type="email" name="email_address" placeholder="Your email" required>
+                            <div class="floating-field">
+                                <input type="text" id="newsletter-name" name="fields[first_name]" placeholder=" " required>
+                                <label for="newsletter-name">Your name</label>
+                            </div>
+                            <div class="floating-field">
+                                <input type="email" id="newsletter-email" name="email_address" placeholder=" " required>
+                                <label for="newsletter-email">Your email</label>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-gold">Subscribe to Newsletter</button>
                         <p class="form-note">We respect your privacy. Read our <a href="privacy.html">Privacy Policy</a>.</p>
