@@ -468,15 +468,17 @@ function initFingerprintCinema() {
 
     const sceneNumEl = fpCinema.querySelector('.fp-scene-num');
     const sceneNameEl = fpCinema.querySelector('.fp-scene-name');
+    const sceneDescEl = fpCinema.querySelector('.fp-stage-desc');
     const timelineFill = fpCinema.querySelector('.fp-timeline-fill');
     const dots = fpCinema.querySelectorAll('.fp-dot');
 
     // Act configuration - timing in ms
+    // Coherent narrative: Scan the fingerprint, Analyze data, Map connections, Complete Profile
     const acts = [
-        { num: '01', name: 'DISCOVER', duration: 2500 },
-        { num: '02', name: 'CONNECT', duration: 2500 },
-        { num: '03', name: 'IGNITE', duration: 2000 },
-        { num: '04', name: 'ALIVE', duration: 4000 }
+        { num: '01', name: 'SCAN', desc: 'Capturing unique patterns', duration: 2200 },
+        { num: '02', name: 'ANALYZE', desc: 'Discovering interests', duration: 2500 },
+        { num: '03', name: 'MAP', desc: 'Connecting the dots', duration: 2800 },
+        { num: '04', name: 'PROFILE', desc: 'Your curiosity fingerprint', duration: 6000 }
     ];
 
     let currentAct = 0;
@@ -495,6 +497,7 @@ function initFingerprintCinema() {
         // Update scene label
         if (sceneNumEl) sceneNumEl.textContent = act.num;
         if (sceneNameEl) sceneNameEl.textContent = act.name;
+        if (sceneDescEl) sceneDescEl.textContent = act.desc;
 
         // Update timeline progress
         if (timelineFill) {

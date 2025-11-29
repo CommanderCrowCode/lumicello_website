@@ -139,100 +139,103 @@
                         <p>A unique profile that maps your child's interests, learning styles, and engagement patterns - evolving as they grow.</p>
                     </div>
                     <div class="bento-image fingerprint-cinema" id="fp-cinema">
-                        <!-- Dark dramatic backdrop -->
+                        <!-- Deep blue backdrop with subtle texture -->
                         <div class="fp-backdrop"></div>
 
-                        <!-- Scene label - shows current act -->
-                        <div class="fp-scene-label">
-                            <span class="fp-scene-num">01</span>
-                            <span class="fp-scene-name">DISCOVER</span>
+                        <!-- Prominent Stage Label - Part of the Design -->
+                        <div class="fp-stage-header">
+                            <div class="fp-stage-indicator">
+                                <span class="fp-stage-step">STEP</span>
+                                <span class="fp-scene-num">01</span>
+                            </div>
+                            <div class="fp-stage-title">
+                                <span class="fp-scene-name">SCAN</span>
+                                <span class="fp-stage-desc">Capturing unique patterns</span>
+                            </div>
                         </div>
 
-                        <!-- The Stage - where the magic happens -->
+                        <!-- The Fingerprint Stage -->
                         <div class="fp-stage">
-                            <!-- Atmospheric glow layers -->
-                            <div class="fp-atmosphere">
-                                <div class="fp-atmo-ring fp-atmo-ring-1"></div>
-                                <div class="fp-atmo-ring fp-atmo-ring-2"></div>
-                                <div class="fp-atmo-ring fp-atmo-ring-3"></div>
-                            </div>
+                            <!-- Ambient glow behind fingerprint -->
+                            <div class="fp-glow"></div>
 
-                            <!-- Fingerprint paths - dramatic neon strokes -->
-                            <svg class="fp-paths" viewBox="0 0 200 200">
+                            <!-- Authentic fingerprint ridges - whorl pattern with natural variation -->
+                            <svg class="fp-ridges" viewBox="0 0 200 200">
                                 <defs>
-                                    <linearGradient id="fp-gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#FFD700"/>
-                                        <stop offset="50%" stop-color="#F2C94C"/>
-                                        <stop offset="100%" stop-color="#FF8C00"/>
-                                    </linearGradient>
-                                    <filter id="fp-glow">
-                                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <filter id="fp-ridge-glow">
+                                        <feGaussianBlur stdDeviation="1.2" result="blur"/>
                                         <feMerge>
-                                            <feMergeNode in="coloredBlur"/>
+                                            <feMergeNode in="blur"/>
                                             <feMergeNode in="SourceGraphic"/>
                                         </feMerge>
                                     </filter>
                                 </defs>
-                                <!-- Outer whorl -->
-                                <path class="fp-whorl fp-whorl-1" d="M100 15 Q170 35, 185 100 Q180 170, 100 185 Q20 175, 15 100 Q20 25, 100 15" />
-                                <!-- Middle whorl -->
-                                <path class="fp-whorl fp-whorl-2" d="M100 35 Q150 50, 165 100 Q160 155, 100 165 Q40 155, 35 100 Q40 45, 100 35" />
-                                <!-- Inner whorl -->
-                                <path class="fp-whorl fp-whorl-3" d="M100 55 Q135 65, 145 100 Q140 135, 100 145 Q60 137, 55 100 Q60 63, 100 55" />
-                                <!-- Core spiral -->
-                                <path class="fp-whorl fp-whorl-4" d="M100 75 Q120 80, 125 100 Q122 120, 100 125 Q78 120, 75 100 Q80 78, 100 75" />
+                                <!-- Whorl pattern - offset curves with natural irregularity -->
+                                <!-- Outer ridges - slightly irregular spacing -->
+                                <path class="fp-ridge fp-ridge-1" d="M22,102 Q24,38 72,22 Q125,8 162,42 Q192,72 186,115 Q178,155 145,178 Q105,198 55,182 Q22,168 22,102" />
+                                <path class="fp-ridge fp-ridge-2" d="M30,98 Q34,46 75,32 Q120,18 158,50 Q185,78 180,118 Q172,152 142,174 Q102,192 58,176 Q30,162 30,98" />
+                                <path class="fp-ridge fp-ridge-3" d="M38,100 Q42,54 78,42 Q118,28 152,58 Q175,84 171,120 Q165,150 138,170 Q100,186 62,170 Q38,156 38,100" />
+                                <path class="fp-ridge fp-ridge-4" d="M47,101 Q50,64 82,52 Q115,40 146,66 Q166,88 163,122 Q158,148 132,165 Q98,180 66,164 Q47,150 47,101" />
+                                <path class="fp-ridge fp-ridge-5" d="M55,100 Q58,70 85,60 Q112,50 140,74 Q158,94 155,124 Q150,150 126,163 Q96,176 70,160 Q55,146 55,100" />
+                                <!-- Inner loop ridges - tighter spiral -->
+                                <path class="fp-ridge fp-ridge-6" d="M64,102 Q68,76 92,68 Q114,60 134,82 Q150,100 146,126 Q140,148 118,160 Q92,170 72,154 Q64,140 64,102" />
+                                <path class="fp-ridge fp-ridge-7" d="M73,103 Q78,84 98,78 Q116,72 132,92 Q144,108 140,130 Q134,148 114,156 Q92,164 78,148 Q73,136 73,103" />
+                                <path class="fp-ridge fp-ridge-8" d="M83,105 Q88,92 104,88 Q118,84 130,102 Q138,116 134,134 Q128,148 110,152 Q94,156 86,142 Q83,130 83,105" />
+                                <!-- Core whorl - tightest inner spiral -->
+                                <path class="fp-ridge fp-ridge-core" d="M93,108 Q98,100 108,98 Q118,98 124,110 Q128,122 120,132 Q110,140 100,136 Q92,130 93,118 Q94,112 93,108" />
                             </svg>
 
-                            <!-- Connection beams - electric lines -->
-                            <div class="fp-beams">
-                                <div class="fp-beam" style="--angle: 0deg;"></div>
-                                <div class="fp-beam" style="--angle: 45deg;"></div>
-                                <div class="fp-beam" style="--angle: 90deg;"></div>
-                                <div class="fp-beam" style="--angle: 135deg;"></div>
-                                <div class="fp-beam" style="--angle: 180deg;"></div>
-                                <div class="fp-beam" style="--angle: 225deg;"></div>
-                                <div class="fp-beam" style="--angle: 270deg;"></div>
-                                <div class="fp-beam" style="--angle: 315deg;"></div>
+                            <!-- Minutiae points - detected interests along ridges -->
+                            <div class="fp-minutiae">
+                                <!-- Ridge endings = interests discovered, bifurcations = connected skills -->
+                                <span class="fp-point" style="--x: 25%; --y: 35%;" data-type="ending"></span>
+                                <span class="fp-point" style="--x: 70%; --y: 18%;" data-type="bifurcation"></span>
+                                <span class="fp-point" style="--x: 88%; --y: 52%;" data-type="ending"></span>
+                                <span class="fp-point" style="--x: 80%; --y: 80%;" data-type="bifurcation"></span>
+                                <span class="fp-point" style="--x: 40%; --y: 90%;" data-type="ending"></span>
+                                <span class="fp-point" style="--x: 15%; --y: 65%;" data-type="bifurcation"></span>
+                                <span class="fp-point" style="--x: 54%; --y: 54%;" data-type="core"></span>
+                                <span class="fp-point" style="--x: 65%; --y: 68%;" data-type="ending"></span>
                             </div>
 
-                            <!-- Domain nodes - glowing orbs -->
-                            <div class="fp-orbs">
-                                <div class="fp-orb fp-orb-1" style="--x: 50%; --y: 8%;"><span>S</span></div>
-                                <div class="fp-orb fp-orb-2" style="--x: 88%; --y: 30%;"><span>M</span></div>
-                                <div class="fp-orb fp-orb-3" style="--x: 92%; --y: 70%;"><span>L</span></div>
-                                <div class="fp-orb fp-orb-4" style="--x: 70%; --y: 92%;"><span>C</span></div>
-                                <div class="fp-orb fp-orb-5" style="--x: 30%; --y: 92%;"><span>S</span></div>
-                                <div class="fp-orb fp-orb-6" style="--x: 8%; --y: 70%;"><span>E</span></div>
-                                <div class="fp-orb fp-orb-7" style="--x: 12%; --y: 30%;"><span>P</span></div>
-                                <div class="fp-orb fp-orb-8" style="--x: 50%; --y: 50%;"><span></span></div>
-                            </div>
+                            <!-- Connection threads - interest network forming -->
+                            <svg class="fp-connections" viewBox="0 0 200 200">
+                                <!-- Outer ring connections -->
+                                <line class="fp-thread" x1="50" y1="70" x2="140" y2="36" />
+                                <line class="fp-thread" x1="140" y1="36" x2="176" y2="104" />
+                                <line class="fp-thread" x1="176" y1="104" x2="160" y2="160" />
+                                <line class="fp-thread" x1="160" y1="160" x2="80" y2="180" />
+                                <line class="fp-thread" x1="80" y1="180" x2="30" y2="130" />
+                                <line class="fp-thread" x1="30" y1="130" x2="50" y2="70" />
+                                <!-- Core connections - linking everything to center -->
+                                <line class="fp-thread fp-thread-core" x1="108" y1="108" x2="50" y2="70" />
+                                <line class="fp-thread fp-thread-core" x1="108" y1="108" x2="140" y2="36" />
+                                <line class="fp-thread fp-thread-core" x1="108" y1="108" x2="176" y2="104" />
+                                <line class="fp-thread fp-thread-core" x1="108" y1="108" x2="130" y2="136" />
+                                <line class="fp-thread fp-thread-core" x1="130" y1="136" x2="160" y2="160" />
+                                <line class="fp-thread fp-thread-core" x1="130" y1="136" x2="80" y2="180" />
+                            </svg>
 
-                            <!-- The Core - pulsing heart -->
+                            <!-- The Core - child's unique spark -->
                             <div class="fp-core">
-                                <div class="fp-core-burst"></div>
-                                <div class="fp-core-ring"></div>
-                                <div class="fp-core-ring fp-core-ring-2"></div>
-                                <div class="fp-core-heart"></div>
+                                <div class="fp-core-glow"></div>
+                                <div class="fp-core-center"></div>
                             </div>
 
-                            <!-- Energy particles -->
-                            <div class="fp-sparks">
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
-                                <span class="fp-spark"></span>
+                            <!-- Data particles flowing toward fingerprint during analysis -->
+                            <div class="fp-data-flow">
+                                <span class="fp-data" style="--delay: 0s; --angle: 30deg;"></span>
+                                <span class="fp-data" style="--delay: 0.5s; --angle: 75deg;"></span>
+                                <span class="fp-data" style="--delay: 1s; --angle: 120deg;"></span>
+                                <span class="fp-data" style="--delay: 1.5s; --angle: 165deg;"></span>
+                                <span class="fp-data" style="--delay: 2s; --angle: 210deg;"></span>
+                                <span class="fp-data" style="--delay: 2.5s; --angle: 255deg;"></span>
+                                <span class="fp-data" style="--delay: 3s; --angle: 300deg;"></span>
+                                <span class="fp-data" style="--delay: 3.5s; --angle: 345deg;"></span>
                             </div>
                         </div>
 
-                        <!-- Progress timeline -->
+                        <!-- Progress indicator -->
                         <div class="fp-timeline">
                             <div class="fp-timeline-track">
                                 <div class="fp-timeline-fill"></div>
