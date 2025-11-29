@@ -2334,14 +2334,9 @@ a.community-card-link {
         0 8px 32px rgba(26, 43, 76, 0.08);
     /* Slightly more visible border with warm undertone */
     border: 1px solid rgba(26, 43, 76, 0.1);
-    /* Ensure all children clip to border-radius */
-    isolation: isolate;
-    /* Fix for Safari overflow: hidden with border-radius */
-    transform: translateZ(0);
-    will-change: transform;
-    /* Force clipping in WebKit - use linear gradient (solid white) instead of
-       radial gradient which clips edges */
-    -webkit-mask-image: linear-gradient(white, white);
+    /* Safari fix: Use contain to create proper stacking context
+       without mask-image which can clip box-shadow */
+    contain: paint;
     /* Flexbox for consistent height alignment of kit-meta across cards */
     display: flex;
     flex-direction: column;
