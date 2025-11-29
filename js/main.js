@@ -72,6 +72,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Kit Journey Scroller (mobile)
     initKitJourneyScroller();
+
+    // Cinematic Fingerprint Experience
+    initFingerprintCinema();
 });
 
 function currentSlide(n) {
@@ -453,4 +456,147 @@ function initKitJourneyScroller() {
         updateUI();
         cards[0].classList.add('active');
     }
+}
+
+// ============================================
+// CINEMATIC FINGERPRINT EXPERIENCE
+// Auto-playing loop when visible - "The Living Light Show"
+// ============================================
+function initFingerprintCinema() {
+    const fpCinema = document.getElementById('fp-cinema');
+    if (!fpCinema) return;
+
+    const sceneNumEl = fpCinema.querySelector('.fp-scene-num');
+    const sceneNameEl = fpCinema.querySelector('.fp-scene-name');
+    const timelineFill = fpCinema.querySelector('.fp-timeline-fill');
+    const dots = fpCinema.querySelectorAll('.fp-dot');
+
+    // Act configuration - timing in ms
+    const acts = [
+        { num: '01', name: 'DISCOVER', duration: 2500 },
+        { num: '02', name: 'CONNECT', duration: 2500 },
+        { num: '03', name: 'IGNITE', duration: 2000 },
+        { num: '04', name: 'ALIVE', duration: 4000 }
+    ];
+
+    let currentAct = 0;
+    let isPlaying = false;
+    let animationLoop = null;
+    let actTimeout = null;
+
+    // Update the UI for current act
+    function setAct(actIndex) {
+        currentAct = actIndex;
+        const act = acts[actIndex];
+
+        // Update data attribute for CSS animations
+        fpCinema.setAttribute('data-act', actIndex + 1);
+
+        // Update scene label
+        if (sceneNumEl) sceneNumEl.textContent = act.num;
+        if (sceneNameEl) sceneNameEl.textContent = act.name;
+
+        // Update timeline progress
+        if (timelineFill) {
+            const progress = ((actIndex + 1) / acts.length) * 100;
+            timelineFill.style.width = `${progress}%`;
+        }
+
+        // Update dots
+        dots.forEach((dot, i) => {
+            dot.classList.remove('active', 'passed');
+            if (i === actIndex) {
+                dot.classList.add('active');
+            } else if (i < actIndex) {
+                dot.classList.add('passed');
+            }
+        });
+    }
+
+    // Advance to next act
+    function nextAct() {
+        const nextIndex = (currentAct + 1) % acts.length;
+
+        // If looping back to start, reset animations
+        if (nextIndex === 0) {
+            fpCinema.removeAttribute('data-act');
+            // Brief pause before restarting
+            setTimeout(() => {
+                setAct(0);
+                scheduleNextAct();
+            }, 300);
+        } else {
+            setAct(nextIndex);
+            scheduleNextAct();
+        }
+    }
+
+    // Schedule the next act transition
+    function scheduleNextAct() {
+        if (!isPlaying) return;
+
+        const act = acts[currentAct];
+        actTimeout = setTimeout(nextAct, act.duration);
+    }
+
+    // Start the cinema loop
+    function startCinema() {
+        if (isPlaying) return;
+
+        isPlaying = true;
+        fpCinema.classList.add('is-playing');
+
+        // Start from act 1
+        setAct(0);
+        scheduleNextAct();
+    }
+
+    // Stop the cinema loop
+    function stopCinema() {
+        isPlaying = false;
+        fpCinema.classList.remove('is-playing');
+
+        if (actTimeout) {
+            clearTimeout(actTimeout);
+            actTimeout = null;
+        }
+    }
+
+    // Intersection Observer - play when visible
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                startCinema();
+            } else {
+                // Keep playing briefly when scrolling past
+                // Only stop if really out of view
+                if (entry.intersectionRatio < 0.1) {
+                    stopCinema();
+                }
+            }
+        });
+    }, {
+        root: null,
+        rootMargin: '0px',
+        threshold: [0, 0.1, 0.3, 0.5, 0.7, 1]
+    });
+
+    observer.observe(fpCinema);
+
+    // Click on dots to jump to act
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            if (actTimeout) clearTimeout(actTimeout);
+            setAct(index);
+            scheduleNextAct();
+        });
+    });
+
+    // Pause on hover (optional - lets user study the animation)
+    // fpCinema.addEventListener('mouseenter', () => {
+    //     if (actTimeout) clearTimeout(actTimeout);
+    // });
+    // fpCinema.addEventListener('mouseleave', () => {
+    //     if (isPlaying) scheduleNextAct();
+    // });
 }

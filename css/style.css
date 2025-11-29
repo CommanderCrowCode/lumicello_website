@@ -1058,73 +1058,706 @@ a {
     line-height: var(--leading-relaxed);
 }
 
-/* Fingerprint Visual Animation */
-.fingerprint-visual {
+/* ============================================
+   CURIOSITY FINGERPRINT CINEMA
+   "The Living Light Show" - Eye-catching,
+   auto-playing cinematic loop
+   ============================================ */
+
+/* --- Container & Dark Backdrop --- */
+.fingerprint-cinema {
+    position: relative;
     aspect-ratio: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    overflow: hidden;
+    border-radius: var(--radius-lg);
 }
 
-.fingerprint-rings {
+.fp-backdrop {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse at 30% 20%, rgba(242, 201, 76, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 80%, rgba(198, 93, 50, 0.1) 0%, transparent 40%),
+        linear-gradient(135deg, #0a1628 0%, #1a2b4c 50%, #0f1a2e 100%);
+    z-index: 0;
+}
+
+/* Scanline effect for drama */
+.fp-backdrop::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.03) 2px,
+        rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+}
+
+/* --- Scene Label --- */
+.fp-scene-label {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.5s var(--ease-out);
+}
+
+.fingerprint-cinema.is-playing .fp-scene-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fp-scene-num {
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: #F2C94C;
+    background: rgba(242, 201, 76, 0.15);
+    padding: 3px 6px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+}
+
+.fp-scene-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- The Stage --- */
+.fp-stage {
     position: relative;
     width: 200px;
     height: 200px;
+    z-index: 1;
 }
 
-.fingerprint-ring {
+/* --- Atmospheric Glow Rings --- */
+.fp-atmosphere {
     position: absolute;
-    border: 3px solid var(--color-primary);
-    border-radius: 50%;
+    inset: -40px;
+    pointer-events: none;
+}
+
+.fp-atmo-ring {
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: fingerprint-pulse 4s ease-in-out infinite;
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.8s ease-out;
 }
 
-.fingerprint-ring:nth-child(1) {
-    width: 40px;
-    height: 40px;
-    border-color: var(--color-accent);
-    animation-delay: 0s;
+.fp-atmo-ring-1 {
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.3) 0%, transparent 70%);
+    animation: fp-atmo-pulse-1 4s ease-in-out infinite;
 }
 
-.fingerprint-ring:nth-child(2) {
-    width: 80px;
-    height: 80px;
-    animation-delay: 0.5s;
+.fp-atmo-ring-2 {
+    width: 220px;
+    height: 220px;
+    background: radial-gradient(circle, rgba(255, 140, 0, 0.2) 0%, transparent 60%);
+    animation: fp-atmo-pulse-2 3s ease-in-out infinite 0.5s;
 }
 
-.fingerprint-ring:nth-child(3) {
-    width: 120px;
-    height: 120px;
-    animation-delay: 1s;
-}
-
-.fingerprint-ring:nth-child(4) {
+.fp-atmo-ring-3 {
     width: 160px;
     height: 160px;
-    animation-delay: 1.5s;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.4) 0%, transparent 50%);
+    animation: fp-atmo-pulse-3 2.5s ease-in-out infinite 1s;
 }
 
-.fingerprint-ring:nth-child(5) {
-    width: 200px;
-    height: 200px;
-    animation-delay: 2s;
+@keyframes fp-atmo-pulse-1 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.7; }
 }
 
-@keyframes fingerprint-pulse {
+@keyframes fp-atmo-pulse-2 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+    50% { transform: translate(-50%, -50%) scale(1.15); opacity: 0.5; }
+}
 
-    0%,
-    100% {
-        opacity: 0.2;
+@keyframes fp-atmo-pulse-3 {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.5; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+}
+
+/* --- Fingerprint Whorls (Neon Strokes) --- */
+.fp-paths {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.fp-whorl {
+    fill: none;
+    stroke: url(#fp-gold-gradient);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    filter: url(#fp-glow);
+    opacity: 0;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    transition: opacity 0.5s ease-out;
+}
+
+.fp-whorl-1 {
+    stroke-width: 1.5;
+    stroke: #F2C94C;
+}
+
+.fp-whorl-2 {
+    stroke-width: 2;
+    stroke: #FFD700;
+}
+
+.fp-whorl-3 {
+    stroke-width: 2.5;
+    stroke: #FF8C00;
+}
+
+.fp-whorl-4 {
+    stroke-width: 3;
+    stroke: #F2C94C;
+}
+
+/* --- Connection Beams --- */
+.fp-beams {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.fp-beam {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 0;
+    background: linear-gradient(to top, #F2C94C, transparent);
+    transform-origin: bottom center;
+    transform: rotate(var(--angle)) translateY(0);
+    opacity: 0;
+    transition: all 0.4s ease-out;
+}
+
+/* --- Domain Orbs --- */
+.fp-orbs {
+    position: absolute;
+    inset: 0;
+}
+
+.fp-orb {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 24px;
+    height: 24px;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: all 0.6s var(--ease-bounce);
+}
+
+.fp-orb::before {
+    content: '';
+    position: absolute;
+    inset: -4px;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.4) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: fp-orb-glow 2s ease-in-out infinite;
+}
+
+.fp-orb::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #FFD700 0%, #F2C94C 50%, #FF8C00 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 0 15px rgba(242, 201, 76, 0.6),
+        0 0 30px rgba(242, 201, 76, 0.3),
+        inset 0 -2px 4px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(255, 255, 255, 0.4);
+}
+
+.fp-orb span {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 9px;
+    font-weight: 800;
+    color: #1A2B4C;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Center orb - larger and special */
+.fp-orb-8 {
+    width: 0;
+    height: 0;
+}
+
+@keyframes fp-orb-glow {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.3); opacity: 0.8; }
+}
+
+/* Different orb animation delays */
+.fp-orb-1 { transition-delay: 0.1s; }
+.fp-orb-2 { transition-delay: 0.2s; }
+.fp-orb-3 { transition-delay: 0.3s; }
+.fp-orb-4 { transition-delay: 0.4s; }
+.fp-orb-5 { transition-delay: 0.5s; }
+.fp-orb-6 { transition-delay: 0.6s; }
+.fp-orb-7 { transition-delay: 0.7s; }
+
+/* --- The Core (Pulsing Heart) --- */
+.fp-core {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60px;
+    height: 60px;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.8s var(--ease-bounce);
+}
+
+.fp-core-burst {
+    position: absolute;
+    inset: -30px;
+    background: radial-gradient(circle, rgba(242, 201, 76, 0.5) 0%, transparent 60%);
+    border-radius: 50%;
+    opacity: 0;
+    animation: fp-burst 2s ease-out infinite;
+}
+
+@keyframes fp-burst {
+    0% { transform: scale(0.5); opacity: 0.8; }
+    100% { transform: scale(2); opacity: 0; }
+}
+
+.fp-core-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+    border: 3px solid #F2C94C;
+    border-radius: 50%;
+    opacity: 0.7;
+    animation: fp-ring-spin 8s linear infinite;
+    box-shadow:
+        0 0 10px rgba(242, 201, 76, 0.5),
+        inset 0 0 10px rgba(242, 201, 76, 0.2);
+}
+
+.fp-core-ring::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 8px;
+    height: 8px;
+    background: #FFD700;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #F2C94C;
+}
+
+.fp-core-ring-2 {
+    width: 38px;
+    height: 38px;
+    border-width: 2px;
+    border-color: #FF8C00;
+    animation-direction: reverse;
+    animation-duration: 6s;
+    opacity: 0.5;
+}
+
+.fp-core-ring-2::before {
+    width: 6px;
+    height: 6px;
+    top: auto;
+    bottom: -4px;
+    background: #FF8C00;
+}
+
+@keyframes fp-ring-spin {
+    from { transform: translate(-50%, -50%) rotate(0deg); }
+    to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.fp-core-heart {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 26px;
+    height: 26px;
+    background: linear-gradient(135deg, #FFD700 0%, #F2C94C 50%, #FF8C00 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 0 20px rgba(242, 201, 76, 0.8),
+        0 0 40px rgba(242, 201, 76, 0.5),
+        0 0 60px rgba(242, 201, 76, 0.3),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+        inset 0 3px 6px rgba(255, 255, 255, 0.5);
+    animation: fp-heart-beat 1.5s ease-in-out infinite;
+}
+
+.fp-core-heart::after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+@keyframes fp-heart-beat {
+    0%, 100% {
         transform: translate(-50%, -50%) scale(1);
+        box-shadow:
+            0 0 20px rgba(242, 201, 76, 0.8),
+            0 0 40px rgba(242, 201, 76, 0.5),
+            0 0 60px rgba(242, 201, 76, 0.3),
+            inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+            inset 0 3px 6px rgba(255, 255, 255, 0.5);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+        box-shadow:
+            0 0 30px rgba(242, 201, 76, 1),
+            0 0 60px rgba(242, 201, 76, 0.7),
+            0 0 90px rgba(242, 201, 76, 0.4),
+            inset 0 -3px 6px rgba(0, 0, 0, 0.2),
+            inset 0 3px 6px rgba(255, 255, 255, 0.5);
+    }
+}
+
+/* --- Energy Sparks --- */
+.fp-sparks {
+    position: absolute;
+    inset: -20px;
+    pointer-events: none;
+}
+
+.fp-spark {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    opacity: 0;
+    box-shadow: 0 0 6px #F2C94C, 0 0 12px #F2C94C;
+}
+
+.fp-spark:nth-child(1) { left: 15%; top: 20%; animation: fp-spark-fly 3s ease-in-out infinite 0s; }
+.fp-spark:nth-child(2) { left: 80%; top: 15%; animation: fp-spark-fly 3.2s ease-in-out infinite 0.3s; }
+.fp-spark:nth-child(3) { left: 90%; top: 60%; animation: fp-spark-fly 2.8s ease-in-out infinite 0.6s; }
+.fp-spark:nth-child(4) { left: 75%; top: 85%; animation: fp-spark-fly 3.5s ease-in-out infinite 0.9s; }
+.fp-spark:nth-child(5) { left: 25%; top: 80%; animation: fp-spark-fly 3.1s ease-in-out infinite 1.2s; }
+.fp-spark:nth-child(6) { left: 10%; top: 55%; animation: fp-spark-fly 2.9s ease-in-out infinite 1.5s; }
+.fp-spark:nth-child(7) { left: 20%; top: 35%; animation: fp-spark-fly 3.3s ease-in-out infinite 1.8s; }
+.fp-spark:nth-child(8) { left: 50%; top: 5%; animation: fp-spark-fly 3s ease-in-out infinite 2.1s; }
+.fp-spark:nth-child(9) { left: 65%; top: 25%; animation: fp-spark-fly 2.7s ease-in-out infinite 2.4s; }
+.fp-spark:nth-child(10) { left: 35%; top: 65%; animation: fp-spark-fly 3.4s ease-in-out infinite 2.7s; }
+.fp-spark:nth-child(11) { left: 55%; top: 75%; animation: fp-spark-fly 3.2s ease-in-out infinite 3s; }
+.fp-spark:nth-child(12) { left: 45%; top: 10%; animation: fp-spark-fly 2.9s ease-in-out infinite 3.3s; }
+
+@keyframes fp-spark-fly {
+    0%, 100% {
+        opacity: 0;
+        transform: translate(0, 0) scale(0.5);
+    }
+    10% {
+        opacity: 1;
+        transform: translate(0, 0) scale(1);
+    }
+    90% {
+        opacity: 0.8;
+        transform: translate(calc(var(--tx, 10px)), calc(var(--ty, -20px))) scale(0.8);
+    }
+}
+
+/* --- Timeline Progress --- */
+.fp-timeline {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    opacity: 0;
+    transition: opacity 0.5s ease-out;
+}
+
+.fingerprint-cinema.is-playing .fp-timeline {
+    opacity: 1;
+}
+
+.fp-timeline-track {
+    width: 80px;
+    height: 3px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.fp-timeline-fill {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #F2C94C, #FF8C00);
+    border-radius: 3px;
+    transition: width 0.3s linear;
+    box-shadow: 0 0 8px rgba(242, 201, 76, 0.5);
+}
+
+.fp-timeline-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.fp-dot {
+    width: 6px;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+.fp-dot.active {
+    background: #F2C94C;
+    box-shadow: 0 0 8px rgba(242, 201, 76, 0.6);
+    transform: scale(1.3);
+}
+
+.fp-dot.passed {
+    background: rgba(242, 201, 76, 0.5);
+}
+
+/* ============================================
+   CINEMA ACTS - Animation States
+   ============================================ */
+
+/* --- ACT 1: DISCOVER - Whorls Draw --- */
+.fingerprint-cinema[data-act="1"] .fp-atmo-ring-1,
+.fingerprint-cinema[data-act="1"] .fp-atmo-ring-2 {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="1"] .fp-whorl {
+    opacity: 1;
+    animation: fp-draw-whorl 2s ease-out forwards;
+}
+
+.fingerprint-cinema[data-act="1"] .fp-whorl-1 { animation-delay: 0s; }
+.fingerprint-cinema[data-act="1"] .fp-whorl-2 { animation-delay: 0.3s; }
+.fingerprint-cinema[data-act="1"] .fp-whorl-3 { animation-delay: 0.6s; }
+.fingerprint-cinema[data-act="1"] .fp-whorl-4 { animation-delay: 0.9s; }
+
+@keyframes fp-draw-whorl {
+    0% { stroke-dashoffset: 600; opacity: 0.3; }
+    100% { stroke-dashoffset: 0; opacity: 1; }
+}
+
+/* --- ACT 2: CONNECT - Orbs Appear & Beams Fire --- */
+.fingerprint-cinema[data-act="2"] .fp-atmo-ring {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="2"] .fp-whorl {
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+.fingerprint-cinema[data-act="2"] .fp-orb {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fingerprint-cinema[data-act="2"] .fp-beam {
+    opacity: 0.6;
+    height: 70px;
+    transform: rotate(var(--angle)) translateY(-35px);
+    animation: fp-beam-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes fp-beam-pulse {
+    0%, 100% { opacity: 0.4; height: 60px; }
+    50% { opacity: 0.8; height: 80px; }
+}
+
+/* Stagger beam appearances */
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(1) { transition-delay: 0.1s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(2) { transition-delay: 0.2s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(3) { transition-delay: 0.3s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(4) { transition-delay: 0.4s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(5) { transition-delay: 0.5s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(6) { transition-delay: 0.6s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(7) { transition-delay: 0.7s; }
+.fingerprint-cinema[data-act="2"] .fp-beam:nth-child(8) { transition-delay: 0.8s; }
+
+/* --- ACT 3: IGNITE - Core Explodes --- */
+.fingerprint-cinema[data-act="3"] .fp-atmo-ring {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="3"] .fp-whorl {
+    opacity: 1;
+    stroke-dashoffset: 0;
+}
+
+.fingerprint-cinema[data-act="3"] .fp-orb {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fingerprint-cinema[data-act="3"] .fp-beam {
+    opacity: 0.6;
+    height: 70px;
+    transform: rotate(var(--angle)) translateY(-35px);
+}
+
+.fingerprint-cinema[data-act="3"] .fp-core {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fingerprint-cinema[data-act="3"] .fp-core-burst {
+    opacity: 1;
+}
+
+/* Zoom in effect */
+.fingerprint-cinema[data-act="3"] .fp-stage {
+    animation: fp-stage-zoom 2s ease-out forwards;
+}
+
+@keyframes fp-stage-zoom {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.15); }
+    100% { transform: scale(1.05); }
+}
+
+/* --- ACT 4: ALIVE - Full Animation Loop --- */
+.fingerprint-cinema[data-act="4"] .fp-atmo-ring {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="4"] .fp-whorl {
+    opacity: 1;
+    stroke-dashoffset: 0;
+    animation: fp-whorl-breathe 4s ease-in-out infinite;
+}
+
+@keyframes fp-whorl-breathe {
+    0%, 100% { stroke-width: inherit; opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+.fingerprint-cinema[data-act="4"] .fp-orb {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+    animation: fp-orb-float 3s ease-in-out infinite;
+}
+
+@keyframes fp-orb-float {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, calc(-50% - 3px)) scale(1.05); }
+}
+
+.fingerprint-cinema[data-act="4"] .fp-orb-1 { animation-delay: 0s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-2 { animation-delay: 0.3s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-3 { animation-delay: 0.6s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-4 { animation-delay: 0.9s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-5 { animation-delay: 1.2s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-6 { animation-delay: 1.5s; }
+.fingerprint-cinema[data-act="4"] .fp-orb-7 { animation-delay: 1.8s; }
+
+.fingerprint-cinema[data-act="4"] .fp-beam {
+    opacity: 0.6;
+    height: 70px;
+    transform: rotate(var(--angle)) translateY(-35px);
+    animation: fp-beam-pulse 1.5s ease-in-out infinite;
+}
+
+.fingerprint-cinema[data-act="4"] .fp-core {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.fingerprint-cinema[data-act="4"] .fp-core-burst {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="4"] .fp-spark {
+    opacity: 1;
+}
+
+.fingerprint-cinema[data-act="4"] .fp-stage {
+    transform: scale(1.05);
+    animation: fp-stage-breathe 6s ease-in-out infinite;
+}
+
+@keyframes fp-stage-breathe {
+    0%, 100% { transform: scale(1.05); }
+    50% { transform: scale(1); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .fp-stage {
+        width: 160px;
+        height: 160px;
     }
 
-    50% {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1.05);
+    .fp-orb {
+        width: 18px;
+        height: 18px;
+    }
+
+    .fp-orb span {
+        font-size: 7px;
+    }
+
+    .fp-scene-label {
+        top: 8px;
+        left: 8px;
+    }
+
+    .fp-timeline {
+        bottom: 8px;
     }
 }
 
@@ -3392,13 +4025,34 @@ a.community-card-link {
         padding: var(--space-xl);
     }
 
-    .fingerprint-rings {
-        width: 160px;
-        height: 160px;
+    /* Fingerprint Neural Map - Mobile */
+    .fingerprint-neural-map {
+        width: 180px;
+        height: 180px;
     }
 
-    .fingerprint-ring:nth-child(4),
-    .fingerprint-ring:nth-child(5) {
+    .fp-node {
+        width: 12px;
+        height: 12px;
+    }
+
+    .fp-core-center {
+        width: 18px;
+        height: 18px;
+    }
+
+    .fp-core-ring {
+        width: 34px;
+        height: 34px;
+    }
+
+    .fp-core-glow {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Hide some particles on mobile for performance */
+    .fp-particle:nth-child(n+5) {
         display: none;
     }
 
