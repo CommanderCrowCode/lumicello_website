@@ -2339,8 +2339,12 @@ a.community-card-link {
     /* Fix for Safari overflow: hidden with border-radius */
     transform: translateZ(0);
     will-change: transform;
-    /* Force clipping mask for WebKit */
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    /* Force clipping in WebKit - use linear gradient (solid white) instead of
+       radial gradient which clips edges */
+    -webkit-mask-image: linear-gradient(white, white);
+    /* Flexbox for consistent height alignment of kit-meta across cards */
+    display: flex;
+    flex-direction: column;
 }
 
 .kit-card:hover {
@@ -2732,6 +2736,10 @@ a.community-card-link {
     background: linear-gradient(180deg,
             rgba(245, 237, 229, 0.3) 0%,
             white 30%);
+    /* Flexbox to push kit-meta to bottom for alignment across cards */
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .kit-category {
@@ -2780,6 +2788,8 @@ a.community-card-link {
     gap: var(--space-md);
     padding-top: var(--space-md);
     border-top: 1px solid var(--color-border-subtle);
+    /* Push to bottom of kit-content for alignment across all cards */
+    margin-top: auto;
 }
 
 .kit-age {
