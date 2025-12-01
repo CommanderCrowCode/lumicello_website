@@ -2357,11 +2357,14 @@ a.community-card-link {
     flex-direction: column;
 }
 
-.kit-card:hover {
-    transform: translateY(-10px);
-    box-shadow:
-        0 4px 16px rgba(26, 43, 76, 0.08),
-        0 16px 48px rgba(26, 43, 76, 0.12);
+/* Only apply hover effects on devices that support hover (not touch) */
+@media (hover: hover) {
+    .kit-card:hover {
+        transform: translateY(-10px);
+        box-shadow:
+            0 4px 16px rgba(26, 43, 76, 0.08),
+            0 16px 48px rgba(26, 43, 76, 0.12);
+    }
 }
 
 .kit-image {
@@ -2408,8 +2411,10 @@ a.community-card-link {
     border-radius: var(--radius-md);
 }
 
-.kit-card:hover .kit-image img {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .kit-card:hover .kit-image img {
+        transform: scale(1.05);
+    }
 }
 
 /* Kit Image Carousel */
