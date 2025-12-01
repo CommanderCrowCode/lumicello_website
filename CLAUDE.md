@@ -89,6 +89,15 @@ python -m http.server 8765
 
 ## Code Conventions
 
+### Code Style (IMPORTANT)
+When writing code for this project, follow these formatting rules:
+- **Indentation:** 4 spaces (not tabs)
+- **Quotes:** Single quotes for JavaScript strings
+- **Semicolons:** Always use semicolons in JavaScript
+- **Line length:** ~100 characters max
+
+Config files: `.prettierrc`, `.eslintrc.json`
+
 ### CSS
 - Use CSS custom properties from `variables.css`
 - Mobile-first responsive design
@@ -100,6 +109,7 @@ python -m http.server 8765
 - Scroll reveal using IntersectionObserver pattern
 - Smooth scroll for anchor links
 - Mobile menu toggle
+- Add JSDoc comments to functions (see `js/main.js` for examples)
 
 ### HTML
 - Semantic elements (`<section>`, `<nav>`, `<footer>`)

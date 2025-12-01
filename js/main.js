@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -65,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // Testimonial Carousel
     let slideIndex = 1;
     // Only run if carousel exists
@@ -94,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
  * @param {number} n - The slide number to display (1-indexed)
  */
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides((slideIndex = n));
 }
 
 /**
@@ -104,25 +103,29 @@ function currentSlide(n) {
  */
 function showSlides(n) {
     let i;
-    let slides = document.getElementsByClassName("quote-slide");
-    let dots = document.getElementsByClassName("dot");
+    let slides = document.getElementsByClassName('quote-slide');
+    let dots = document.getElementsByClassName('dot');
 
     if (slides.length === 0) return;
 
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
 
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].classList.remove("active");
+        slides[i].style.display = 'none';
+        slides[i].classList.remove('active');
     }
     for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].className = dots[i].className.replace(' active', '');
     }
 
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex - 1].classList.add("active");
-    dots[slideIndex - 1].className += " active";
+    slides[slideIndex - 1].style.display = 'block';
+    slides[slideIndex - 1].classList.add('active');
+    dots[slideIndex - 1].className += ' active';
 }
 
 /**
@@ -140,7 +143,7 @@ function initKitCarousels() {
 
         // Dot click handlers
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', (e) => {
+            dot.addEventListener('click', e => {
                 e.stopPropagation();
                 currentIndex = index;
                 updateCarousel();
@@ -160,14 +163,22 @@ function initKitCarousels() {
         let touchStartX = 0;
         let touchEndX = 0;
 
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+        carousel.addEventListener(
+            'touchstart',
+            e => {
+                touchStartX = e.changedTouches[0].screenX;
+            },
+            { passive: true }
+        );
 
-        carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
+        carousel.addEventListener(
+            'touchend',
+            e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            },
+            { passive: true }
+        );
 
         /**
          * Handle swipe gesture to navigate carousel.
@@ -255,9 +266,12 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     let isTransitioning = false;
 
     // Create dots
-    dotsContainer.innerHTML = imageSrcs.map((_, i) =>
-        `<button class="lightbox-dot ${i === currentIndex ? 'active' : ''}" aria-label="View image ${i + 1}"></button>`
-    ).join('');
+    dotsContainer.innerHTML = imageSrcs
+        .map(
+            (_, i) =>
+                `<button class="lightbox-dot ${i === currentIndex ? 'active' : ''}" aria-label="View image ${i + 1}"></button>`
+        )
+        .join('');
 
     const dots = dotsContainer.querySelectorAll('.lightbox-dot');
 
@@ -317,8 +331,12 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     }
 
     // Event listeners with smooth transitions
-    prevBtn.onclick = () => { if (currentIndex > 0) transitionToImage(currentIndex - 1); };
-    nextBtn.onclick = () => { if (currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1); };
+    prevBtn.onclick = () => {
+        if (currentIndex > 0) transitionToImage(currentIndex - 1);
+    };
+    nextBtn.onclick = () => {
+        if (currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+    };
     closeBtn.onclick = closeLightbox;
     overlay.onclick = closeLightbox;
 
@@ -327,11 +345,12 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     });
 
     // Keyboard navigation with transitions
-    const keyHandler = (e) => {
+    const keyHandler = e => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft' && currentIndex > 0) transitionToImage(currentIndex - 1);
-        if (e.key === 'ArrowRight' && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+        if (e.key === 'ArrowRight' && currentIndex < imageSrcs.length - 1)
+            transitionToImage(currentIndex + 1);
     };
 
     document.removeEventListener('keydown', keyHandler);
@@ -341,11 +360,14 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     let touchStartX = 0;
     const imageContainer = lightbox.querySelector('.lightbox-image-container');
 
-    imageContainer.ontouchstart = (e) => { touchStartX = e.changedTouches[0].screenX; };
-    imageContainer.ontouchend = (e) => {
+    imageContainer.ontouchstart = e => {
+        touchStartX = e.changedTouches[0].screenX;
+    };
+    imageContainer.ontouchend = e => {
         const diff = touchStartX - e.changedTouches[0].screenX;
         if (Math.abs(diff) > 50) {
-            if (diff > 0 && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+            if (diff > 0 && currentIndex < imageSrcs.length - 1)
+                transitionToImage(currentIndex + 1);
             else if (diff < 0 && currentIndex > 0) transitionToImage(currentIndex - 1);
         }
     };
@@ -379,7 +401,7 @@ function initKitJourneyScroller() {
         'Grasp & Spin',
         'Peek & Find',
         'Stack & Sort',
-        'Push & Play'
+        'Push & Play',
     ];
 
     /**
@@ -404,7 +426,7 @@ function initKitJourneyScroller() {
         const firstCardOffset = cards[0].offsetLeft - grid.offsetLeft;
 
         // Calculate which card is most centered
-        const adjustedScroll = scrollLeft + (grid.offsetWidth / 2) - firstCardOffset;
+        const adjustedScroll = scrollLeft + grid.offsetWidth / 2 - firstCardOffset;
         const newIndex = Math.round(adjustedScroll / cardWidth);
         const clampedIndex = Math.max(0, Math.min(newIndex, cards.length - 1));
 
@@ -456,13 +478,13 @@ function initKitJourneyScroller() {
         if (!isMobile() || index < 0 || index >= cards.length) return;
 
         const card = cards[index];
-        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
         const gridCenter = grid.offsetWidth / 2;
         const scrollTarget = cardCenter - gridCenter;
 
         grid.scrollTo({
             left: scrollTarget,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
     }
 
@@ -474,47 +496,59 @@ function initKitJourneyScroller() {
     });
 
     // Scroll event listener with debounce
-    grid.addEventListener('scroll', () => {
-        if (!isMobile()) return;
+    grid.addEventListener(
+        'scroll',
+        () => {
+            if (!isMobile()) return;
 
-        // Debounce the progress update
-        if (!isScrolling) {
-            isScrolling = true;
-            requestAnimationFrame(() => {
+            // Debounce the progress update
+            if (!isScrolling) {
+                isScrolling = true;
+                requestAnimationFrame(() => {
+                    updateProgress();
+                    isScrolling = false;
+                });
+            }
+
+            // Clear existing timeout
+            clearTimeout(scrollTimeout);
+
+            // Final update after scroll ends
+            scrollTimeout = setTimeout(() => {
                 updateProgress();
-                isScrolling = false;
-            });
-        }
-
-        // Clear existing timeout
-        clearTimeout(scrollTimeout);
-
-        // Final update after scroll ends
-        scrollTimeout = setTimeout(() => {
-            updateProgress();
-        }, 100);
-    }, { passive: true });
+            }, 100);
+        },
+        { passive: true }
+    );
 
     // Touch end - snap and update
-    grid.addEventListener('touchend', () => {
-        if (!isMobile()) return;
-        setTimeout(updateProgress, 150);
-    }, { passive: true });
+    grid.addEventListener(
+        'touchend',
+        () => {
+            if (!isMobile()) return;
+            setTimeout(updateProgress, 150);
+        },
+        { passive: true }
+    );
 
     // Window resize handler
     let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (isMobile()) {
-                updateProgress();
-                updateUI();
-            } else {
-                // Reset on desktop
-                cards.forEach(card => card.classList.remove('active'));
-            }
-        }, 200);
-    }, { passive: true });
+    window.addEventListener(
+        'resize',
+        () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (isMobile()) {
+                    updateProgress();
+                    updateUI();
+                } else {
+                    // Reset on desktop
+                    cards.forEach(card => card.classList.remove('active'));
+                }
+            }, 200);
+        },
+        { passive: true }
+    );
 
     // Initial state
     if (isMobile()) {
@@ -551,7 +585,7 @@ function initFingerprintCinema() {
         { num: '01', name: 'SCAN', desc: 'Capturing unique patterns', duration: 2200 },
         { num: '02', name: 'ANALYZE', desc: 'Discovering interests', duration: 2500 },
         { num: '03', name: 'MAP', desc: 'Connecting the dots', duration: 2800 },
-        { num: '04', name: 'PROFILE', desc: 'Your curiosity fingerprint', duration: 6000 }
+        { num: '04', name: 'PROFILE', desc: 'Your curiosity fingerprint', duration: 6000 },
     ];
 
     let currentAct = 0;
@@ -651,23 +685,26 @@ function initFingerprintCinema() {
     }
 
     // Intersection Observer - play when visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                startCinema();
-            } else {
-                // Keep playing briefly when scrolling past
-                // Only stop if really out of view
-                if (entry.intersectionRatio < 0.1) {
-                    stopCinema();
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    startCinema();
+                } else {
+                    // Keep playing briefly when scrolling past
+                    // Only stop if really out of view
+                    if (entry.intersectionRatio < 0.1) {
+                        stopCinema();
+                    }
                 }
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: [0, 0.1, 0.3, 0.5, 0.7, 1]
-    });
+            });
+        },
+        {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0, 0.1, 0.3, 0.5, 0.7, 1],
+        }
+    );
 
     observer.observe(fpCinema);
 
@@ -714,8 +751,8 @@ function initFingerprintCinema() {
 function initEmailProtection() {
     // Handle inline email displays (creates clickable mailto link)
     document.querySelectorAll('.protected-email').forEach(el => {
-        const u = el.dataset.u;  // username part
-        const d = el.dataset.d;  // domain part
+        const u = el.dataset.u; // username part
+        const d = el.dataset.d; // domain part
         if (!u || !d) return;
 
         const email = u + '@' + d;
@@ -739,7 +776,7 @@ function initEmailProtection() {
 
         const email = u + '@' + d;
 
-        btn.addEventListener('click', (e) => {
+        btn.addEventListener('click', e => {
             e.preventDefault();
             window.location.href = 'mailto:' + email;
         });
