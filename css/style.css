@@ -3073,6 +3073,10 @@ a.community-card-link {
     margin-bottom: var(--space-md);
 }
 
+.solution-text .btn {
+    margin-top: var(--space-lg);
+}
+
 .solution-highlight {
     font-family: var(--font-heading);
     font-size: var(--text-h3);
