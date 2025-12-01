@@ -1,7 +1,21 @@
-# Block internal documents from being served
-/QA_CHECKLIST.md    /404.html   404
-/CLAUDE.md          /404.html   404
-/SETUP_REQUIREMENTS.md   /404.html   404
+# Block internal documentation files
+/CLAUDE.md                  /404.html   404
+/QA_CHECKLIST.md            /404.html   404
+/SETUP_REQUIREMENTS.md      /404.html   404
+/WEBSITE_ASSESSMENTS.md     /404.html   404
+/INSTRUCTIONS.md            /404.html   404
+/work_log.md                /404.html   404
 
-# Custom 404 page
+# Block design_specs folder
+/design_specs/*             /404.html   404
+
+# Block hidden files and folders
+/.playwright-mcp/*          /404.html   404
+/.gitignore                 /404.html   404
+
+# Block config files
+/render.yaml                /404.html   404
+/_redirects                 /404.html   404
+
+# Custom 404 page for all other unmatched routes
 /*    /404.html   404
