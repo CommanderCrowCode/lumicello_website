@@ -3363,6 +3363,8 @@ a.community-card-link {
     background: var(--color-primary);
     color: var(--color-text-inverse);
     padding: var(--space-4xl) var(--space-lg) var(--space-2xl);
+    position: relative;
+    z-index: 1;
 }
 
 .footer-container {
