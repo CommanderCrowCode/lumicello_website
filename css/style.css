@@ -2334,9 +2334,12 @@ a.community-card-link {
         0 8px 32px rgba(26, 43, 76, 0.08);
     /* Slightly more visible border with warm undertone */
     border: 1px solid rgba(26, 43, 76, 0.1);
-    /* Safari fix: Use contain to create proper stacking context
-       without mask-image which can clip box-shadow */
-    contain: paint;
+    /* Safari border-radius + overflow fix - forces GPU layer */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    /* Force Safari to clip to border-radius */
+    -webkit-clip-path: inset(0 round var(--radius-xl));
+    clip-path: inset(0 round var(--radius-xl));
     /* Flexbox for consistent height alignment of kit-meta across cards */
     display: flex;
     flex-direction: column;
@@ -2359,7 +2362,10 @@ a.community-card-link {
             #F5EDE5 45%,
             var(--color-bg-mist) 100%);
     padding: var(--space-lg);
-    /* Removed redundant clipping to let parent handle it */
+    /* Safari fix - explicit overflow clipping */
+    overflow: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
 }
 
 /* Inner container for the actual image with shadow lift */
@@ -2401,6 +2407,11 @@ a.community-card-link {
     position: relative;
     overflow: hidden;
     z-index: 1;
+    /* Safari fix - force proper overflow clipping */
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    mask-image: radial-gradient(white, black);
 }
 
 .kit-carousel-track {
