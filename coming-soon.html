@@ -312,10 +312,15 @@
             margin-bottom: 24px;
         }
 
-        .notify-input-group {
+        .notify-form-fields {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .notify-input-row {
             display: flex;
             gap: 12px;
-            align-items: stretch;
         }
 
         /* Floating field - light variant for coming-soon page */
@@ -366,7 +371,7 @@
             box-shadow: 0 0 0 4px var(--color-accent-soft);
         }
 
-        .notify-input-group button {
+        .notify-form-fields button {
             padding: 16px 28px;
             white-space: nowrap;
         }
@@ -386,11 +391,11 @@
                 padding: 28px 24px;
             }
 
-            .notify-input-group {
+            .notify-input-row {
                 flex-direction: column;
             }
 
-            .notify-input-group button {
+            .notify-form-fields button {
                 width: 100%;
             }
         }
@@ -476,10 +481,16 @@
                 <div class="notify-form">
                     <h3>Get Notified</h3>
                     <p>Want to know when this page is ready? Join our community!</p>
-                    <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="notify-input-group">
-                        <div class="floating-field floating-field-light">
-                            <input type="email" id="notify-email" name="email_address" placeholder=" " required>
-                            <label for="notify-email">Enter your email</label>
+                    <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="notify-form-fields">
+                        <div class="notify-input-row">
+                            <div class="floating-field floating-field-light">
+                                <input type="text" id="notify-name" name="fields[first_name]" placeholder=" " required>
+                                <label for="notify-name">Your name</label>
+                            </div>
+                            <div class="floating-field floating-field-light">
+                                <input type="email" id="notify-email" name="email_address" placeholder=" " required>
+                                <label for="notify-email">Your email</label>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Notify Me</button>
                     </form>

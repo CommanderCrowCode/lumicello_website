@@ -16,7 +16,7 @@
 ### Navigation
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
-| Logo | Navigate to homepage | `#` (top of page) |
+| Logo | Navigate to homepage | `index.html` |
 | Platform | Scroll to Bento Grid section | `#platform` |
 | Curiosity Fingerprint | Scroll to Fingerprint section | `#fingerprint` |
 | Exploration Kits | Scroll to Kits section | `#kits` |
@@ -34,13 +34,14 @@
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | Newsletter form | Submit to Kit.com | `https://app.kit.com/forms/8398985/subscriptions` |
+| Newsletter fields | Collect name + email | `fields[first_name]`, `email_address` |
 | LINE Card (entire card clickable) | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 | Facebook Card (entire card clickable) | Open Facebook **GROUP** | `https://web.facebook.com/share/g/1ByigscXwU/` _(new tab)_ |
 
 ### Footer (Homepage)
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
-| Logo | Navigate to homepage | `#` |
+| Logo | Navigate to homepage | `index.html` |
 | Product links | Scroll to respective sections | `#platform`, `#fingerprint`, `#kits` |
 | For Educators | Coming Soon page | `coming-soon.html` |
 | Company links | Various | See footer section below |
@@ -56,7 +57,7 @@
 |---------|-------------------|-------------|
 | LINE Card | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 | Facebook Card | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
-| Email link | Open mail client | `mailto:hello@lumicello.com` |
+| Email link | Open mail client | `mailto:contact@lumicello.com` |
 
 ---
 
@@ -105,12 +106,18 @@ These components are injected into subpages via JavaScript.
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | Back to Home | Navigate to homepage | `index.html` |
+| Contact Us | Navigate to contact page | `contact.html` |
 | Newsletter form | Submit to Kit.com | `https://app.kit.com/forms/8398985/subscriptions` |
+| Newsletter fields | Collect name + email | `fields[first_name]`, `email_address` |
 
 ### 404 Page (`404.html`)
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | Back to Home | Navigate to homepage | `index.html` |
+| Get Help | Navigate to contact page | `contact.html` |
+| Curiosity Fingerprint (suggestion) | Navigate to fingerprint section | `index.html#fingerprint` |
+| Exploration Kits (suggestion) | Navigate to kits section | `index.html#kits` |
+| Join Community (suggestion) | Navigate to community section | `index.html#community` |
 
 ---
 
