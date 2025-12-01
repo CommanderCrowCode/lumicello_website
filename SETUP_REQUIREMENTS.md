@@ -1,24 +1,45 @@
 # Lumicello Website - Setup Requirements
 
-This document tracks all external information needed before deployment.
+> **Note:** This document is for internal setup purposes only and is not deployed to production.
 
-## External Scripts
-| Script | Value |
-|--------|-------|
-| FontAwesome | `<script src="https://kit.fontawesome.com/bc46e65664.js" crossorigin="anonymous"></script>` |
+This document tracks all external integrations, deployment configuration, and setup requirements.
 
 ---
 
-## Kit.com Integration
+## Table of Contents
+
+1. [External Scripts](#external-scripts)
+2. [Kit.com Newsletter Integration](#kitcom-newsletter-integration)
+3. [Formspree Contact Form](#formspree-contact-form)
+4. [Social Media URLs](#social-media-urls)
+5. [Render.com Deployment](#rendercom-deployment)
+6. [Project Structure](#project-structure)
+7. [Analytics & Tracking](#analytics--tracking-optional)
+8. [Completion Checklist](#completion-checklist)
+
+---
+
+## External Scripts
+
+| Script | Value | Used On |
+|--------|-------|---------|
+| FontAwesome | `<script src="https://kit.fontawesome.com/bc46e65664.js" crossorigin="anonymous"></script>` | All pages |
+| Google Fonts | Fraunces, Nunito, Noto Sans Thai | All pages (via CSS) |
+
+---
+
+## Kit.com Newsletter Integration
 
 | Item | Status | Value |
 |------|--------|-------|
-| Item | Status | Value |
-|------|--------|-------|
-| Form Action URL | [X] Done | `https://app.kit.com/forms/8398985/subscriptions` |
-| Form ID | [X] Done | `8398985` |
-| Form UID | [X] Done | `65a3e2d3a6` |
-| Form Fields | [X] Done | Name: `fields[first_name]`, Email: `email_address` |
+| Form Action URL | [x] Done | `https://app.kit.com/forms/8398985/subscriptions` |
+| Form ID | [x] Done | `8398985` |
+| Form UID | [x] Done | `65a3e2d3a6` |
+| Form Fields | [x] Done | Name: `fields[first_name]`, Email: `email_address` |
+
+**Used on:**
+- `index.html` - Community section newsletter form
+- `coming-soon.html` - Notify Me form
 
 ### How to Get Kit.com Form Code
 1. Log in to [Kit.com](https://kit.com)
@@ -29,39 +50,192 @@ This document tracks all external information needed before deployment.
 
 ---
 
+## Formspree Contact Form
+
+| Item | Status | Value |
+|------|--------|-------|
+| Form ID | [x] Done | `xzznrzdb` |
+| Form Action URL | [x] Done | `https://formspree.io/f/xzznrzdb` |
+| Submissions sent to | [x] Done | `contact@lumicello.com` |
+
+**Form Fields:**
+- `first_name` - First name (required)
+- `last_name` - Last name (required)
+- `email` - Email address (required)
+- `subject` - Subject line (required)
+- `message` - Message body (required)
+
+**Hidden Fields:**
+- `_subject` - Email subject: "New Contact Form Submission - Lumicello"
+- `_next` - Redirect URL after submission: `contact.html?submitted=true`
+
+**Used on:**
+- `contact.html` - Contact form with success modal
+
+### How to Manage Formspree
+1. Log in to [Formspree.io](https://formspree.io)
+2. Go to your form dashboard
+3. View submissions, configure spam filtering, set email notifications
+4. Free tier: 50 submissions/month
+
+---
+
 ## Social Media URLs
 
 | Platform | Status | URL | Use For |
 |----------|--------|-----|---------|
-| Line Official Account | [X] Done | `https://lin.ee/eH1GxA5`| All LINE links |
-| Facebook Group | [X] Done | `https://web.facebook.com/share/g/1ByigscXwU/`| Community, engagement |
-| Facebook Page | [X] Done | `https://web.facebook.com/LumicelloCompany/`| Footer, Contact, Support |
+| LINE Official Account | [x] Done | `https://lin.ee/eH1GxA5` | All LINE links |
+| Facebook Group | [x] Done | `https://web.facebook.com/share/g/1ByigscXwU/` | Community section, engagement CTAs |
+| Facebook Page | [x] Done | `https://web.facebook.com/LumicelloCompany/` | Footer, Contact page, Support |
 
-### URL Formats
-- **Line**: `https://line.me/R/ti/p/@YOUR_LINE_ID`
-- **Facebook Group**: `https://web.facebook.com/share/g/YOUR_GROUP_ID`
-- **Facebook Page**: `https://web.facebook.com/YOUR_PAGE_NAME`
-
----
-
-## Product Links
-
-*Product links are disabled for this "Inspiration" phase. The "Exploration Kits" section will focus on future vision.*
+### Important: Facebook Group vs Page
+- **Facebook Group** - For community engagement, content sharing, parent discussions
+- **Facebook Page** - For official company presence, customer support, complaints
 
 ---
 
-## Domain & Deployment
+## Render.com Deployment
 
-| Item | Status | Value |
-|------|--------|-------|
-| Domain Name | [ ] Pending | lumicello.com (mentioned in specs) |
-| DNS Provider | [ ] Pending | |
-| Render.com Account | [ ] Pending | |
+### Overview
 
-### Render.com Deployment Settings
+The website uses a **build script** to ensure sensitive files (documentation, config) are not publicly accessible. Only public files are copied to the `dist/` folder for deployment.
+
+### Deployment Configuration
+
+| Setting | Value |
+|---------|-------|
+| Service Type | Static Site |
+| Build Command | `node build.js` |
+| Publish Directory | `dist` |
+| Branch | `main` |
+
+### How to Deploy on Render.com
+
+#### Step 1: Create Static Site
+
+1. Log in to [Render.com](https://render.com)
+2. Click **New** → **Static Site**
+3. Connect your GitHub repository
+4. Select the `lumicello_website` repository
+5. Choose the `main` branch
+
+#### Step 2: Configure Build Settings
+
+| Field | Value |
+|-------|-------|
+| Name | `lumicello-website` |
+| Branch | `main` |
+| Build Command | `node build.js` |
+| Publish Directory | `dist` |
+
+#### Step 3: Deploy
+
+1. Click **Create Static Site**
+2. Render will automatically:
+   - Clone the repository
+   - Run `node build.js`
+   - Deploy contents of `dist/` folder
+3. Wait for build to complete (usually 1-2 minutes)
+
+#### Step 4: Configure Custom Domain (Optional)
+
+1. Go to your static site dashboard
+2. Click **Settings** → **Custom Domains**
+3. Add `lumicello.com` and `www.lumicello.com`
+4. Update DNS records as instructed:
+   - `A` record pointing to Render's IP
+   - Or `CNAME` record pointing to your Render URL
+5. SSL certificate is automatically provisioned
+
+### Build Script Details
+
+The `build.js` script uses a **whitelist approach** for security:
+
+**Files Included:**
 ```
-Build Command: (leave empty)
-Publish Directory: ./
+index.html
+contact.html
+privacy.html
+terms.html
+404.html
+coming-soon.html
+favicon.ico
+```
+
+**Folders Included:**
+```
+css/
+js/
+assets/
+```
+
+**Files Excluded (Protected):**
+```
+*.md files (CLAUDE.md, QA_CHECKLIST.md, SETUP_REQUIREMENTS.md, etc.)
+design_specs/
+render.yaml
+_redirects
+build.js
+.gitignore
+.git/
+.playwright-mcp/
+```
+
+### Testing the Build Locally
+
+```bash
+# Run the build script
+node build.js
+
+# Verify dist/ contents
+ls -la dist/
+
+# Serve locally to test
+cd dist && python -m http.server 8080
+```
+
+### Automatic Deployments
+
+Render automatically redeploys when you push to the `main` branch. No manual action needed.
+
+### Troubleshooting
+
+| Issue | Solution |
+|-------|----------|
+| Build fails | Check `build.js` for syntax errors, ensure Node.js is available |
+| Missing files | Add files to `PUBLIC_FILES` or `PUBLIC_FOLDERS` in `build.js` |
+| 404 on all routes | Ensure `render.yaml` has correct `staticPublishPath: ./dist` |
+| Sensitive files visible | Verify build script runs and `dist/` doesn't contain `.md` files |
+
+---
+
+## Project Structure
+
+```
+lumicello_website/
+├── index.html              # Homepage
+├── contact.html            # Contact page with Formspree form
+├── privacy.html            # Privacy Policy
+├── terms.html              # Terms of Service
+├── 404.html                # Custom 404 page
+├── coming-soon.html        # Coming Soon page (For Educators)
+├── favicon.ico             # Site favicon
+├── css/
+│   ├── variables.css       # Design tokens
+│   └── style.css           # Main stylesheet
+├── js/
+│   ├── main.js             # Main interactions
+│   └── components.js       # Shared nav/footer components
+├── assets/
+│   ├── images/             # All images
+│   └── icons/              # SVG icons
+├── design_specs/           # Internal design documentation (NOT deployed)
+├── build.js                # Build script for deployment
+├── render.yaml             # Render.com configuration
+├── _redirects              # Redirect rules (reference only, not used by Render)
+├── CLAUDE.md               # Claude Code instructions (NOT deployed)
+├── QA_CHECKLIST.md         # QA testing checklist (NOT deployed)
+└── SETUP_REQUIREMENTS.md   # This file (NOT deployed)
 ```
 
 ---
@@ -72,42 +246,41 @@ Publish Directory: ./
 |---------|--------|-----|
 | Google Analytics 4 | [ ] Pending | G-XXXXXXXXXX |
 | Facebook Pixel | [ ] Pending | |
-| Other | [ ] Pending | |
-
----
-
-## Content (Optional Enhancements)
-
-| Item | Status | Notes |
-|------|--------|-------|
-| Additional Testimonials | [ ] Pending | Currently 1 static quote |
-| Value Prop Icons | [ ] Pending | 3 icons for Expert-Led, Customized, Right Pace |
-| Privacy Policy URL | [ ] Pending | |
-| Terms of Service URL | [ ] Pending | |
+| LINE Tag | [ ] Pending | |
 
 ---
 
 ## Completion Checklist
 
 ### Required for Launch
-- [ ] Kit.com form integration
-- [ ] Social media URLs (Line, Facebook, WhatsApp)
-- [ ] Product/kit link strategy decided
+- [x] Kit.com newsletter form integration
+- [x] Formspree contact form integration
+- [x] Social media URLs configured
+- [x] All pages created and linked
+- [x] Responsive design tested
+- [x] Build script for secure deployment
 
 ### Required for Production
-- [ ] Domain configured
-- [ ] Render.com deployment set up
+- [x] Render.com deployment configured
+- [ ] Custom domain configured
 - [ ] SSL certificate active (automatic on Render)
+- [ ] DNS records updated
 
 ### Nice to Have
-- [ ] Analytics tracking
+- [ ] Analytics tracking (GA4)
 - [ ] Additional testimonials
-- [ ] Legal pages linked
-- [ ] Value prop icons
+- [ ] Performance optimization (image compression)
+- [ ] SEO meta tags review
 
 ---
 
-## Notes
+## Contact Information
 
-_Add any additional notes or decisions here._
+| Purpose | Email |
+|---------|-------|
+| General Contact | contact@lumicello.com |
+| Form Submissions | contact@lumicello.com (via Formspree) |
 
+---
+
+_Last updated: December 2025_
