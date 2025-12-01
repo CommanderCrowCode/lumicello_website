@@ -22,7 +22,11 @@ const PUBLIC_FILES = [
     '404.html',
     'coming-soon.html',
     'welcome.html',
-    'favicon.ico'
+    'favicon.ico',
+    'favicon.png',
+    'favicon-192.png',
+    'apple-touch-icon.png',
+    'svg_favicon.svg'
 ];
 
 const PUBLIC_FOLDERS = [
