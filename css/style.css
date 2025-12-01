@@ -184,8 +184,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 80px;
+    height: 88px;
     position: relative;
+    transition: height var(--duration-normal) var(--ease-out);
+}
+
+/* Compact nav when scrolled */
+.nav-wrapper.scrolled .nav-container {
+    height: 72px;
 }
 
 .logo {
@@ -195,9 +201,15 @@ a {
 }
 
 .logo-image {
-    height: 44px;
+    height: 56px;
     width: auto;
-    transition: transform var(--duration-normal) var(--ease-out);
+    transition: height var(--duration-normal) var(--ease-out),
+                transform var(--duration-normal) var(--ease-out);
+}
+
+/* Shrink logo when scrolled */
+.nav-wrapper.scrolled .logo-image {
+    height: 40px;
 }
 
 .logo:hover .logo-image {
@@ -4000,6 +4012,22 @@ a.community-card-link {
 
     .mobile-toggle {
         display: flex;
+    }
+
+    .nav-container {
+        height: 72px;
+    }
+
+    .nav-wrapper.scrolled .nav-container {
+        height: 64px;
+    }
+
+    .logo-image {
+        height: 44px;
+    }
+
+    .nav-wrapper.scrolled .logo-image {
+        height: 36px;
     }
 
     .nav-actions .btn {
