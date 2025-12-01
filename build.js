@@ -21,6 +21,7 @@ const PUBLIC_FILES = [
     'terms.html',
     '404.html',
     'coming-soon.html',
+    'welcome.html',
     'favicon.ico'
 ];
 
