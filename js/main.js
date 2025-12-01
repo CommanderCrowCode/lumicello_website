@@ -603,3 +603,52 @@ function initFingerprintCinema() {
     //     if (isPlaying) scheduleNextAct();
     // });
 }
+
+// ============================================
+// EMAIL OBFUSCATION
+// Protects email addresses from bot scraping
+// See SECURITY_DECISIONS.md for details
+// ============================================
+
+/**
+ * Decodes and renders obfuscated email addresses
+ * Usage: <span class="protected-email" data-u="contact" data-d="lumicello.com"></span>
+ * Or button: <button class="protected-email-btn" data-u="contact" data-d="lumicello.com">Email Us</button>
+ */
+function initEmailProtection() {
+    // Handle inline email displays (creates clickable mailto link)
+    document.querySelectorAll('.protected-email').forEach(el => {
+        const u = el.dataset.u;  // username part
+        const d = el.dataset.d;  // domain part
+        if (!u || !d) return;
+
+        const email = u + '@' + d;
+
+        // Create clickable mailto link
+        const link = document.createElement('a');
+        link.href = 'mailto:' + email;
+        link.textContent = email;
+        link.className = 'email-link';
+
+        // Clear any noscript fallback and add the link
+        el.innerHTML = '';
+        el.appendChild(link);
+    });
+
+    // Handle email buttons (opens mailto on click, no visible email)
+    document.querySelectorAll('.protected-email-btn').forEach(btn => {
+        const u = btn.dataset.u;
+        const d = btn.dataset.d;
+        if (!u || !d) return;
+
+        const email = u + '@' + d;
+
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'mailto:' + email;
+        });
+    });
+}
+
+// Initialize email protection when DOM is ready
+document.addEventListener('DOMContentLoaded', initEmailProtection);

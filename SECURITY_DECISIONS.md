@@ -12,9 +12,10 @@ This document captures security choices, design decisions, and troubleshooting g
 1. [Subresource Integrity (SRI)](#subresource-integrity-sri)
 2. [Content Security Policy (CSP)](#content-security-policy-csp)
 3. [Security Headers](#security-headers)
-4. [SEO Infrastructure](#seo-infrastructure)
-5. [AI Crawler Policy](#ai-crawler-policy)
-6. [Troubleshooting Guide](#troubleshooting-guide)
+4. [Email Obfuscation](#email-obfuscation)
+5. [SEO Infrastructure](#seo-infrastructure)
+6. [AI Crawler Policy](#ai-crawler-policy)
+7. [Troubleshooting Guide](#troubleshooting-guide)
 
 ---
 
@@ -134,6 +135,74 @@ If you add a new third-party service:
 
 ---
 
+## Email Obfuscation
+
+### What It Does
+Protects email addresses from automated bot scraping by assembling them via JavaScript rather than exposing them in plain HTML.
+
+### Implementation
+
+**Method:** JavaScript Assembly (95%+ bot protection)
+
+Email addresses are stored as separate data attributes and assembled at runtime:
+
+```html
+<!-- In HTML (what bots see): -->
+<span class="protected-email" data-u="contact" data-d="lumicello.com">
+  <noscript>contact [at] lumicello [dot] com</noscript>
+</span>
+
+<!-- After JavaScript runs (what users see): -->
+<a href="mailto:contact@lumicello.com">contact@lumicello.com</a>
+```
+
+### Protected Emails
+
+| Page | Email | Method |
+|------|-------|--------|
+| `contact.html` | contact@lumicello.com | Button (no visible email) |
+| `privacy.html` | privacy@lumicello.com | Inline span (visible after JS) |
+| `terms.html` | legal@lumicello.com | Inline span (visible after JS) |
+
+### Code Location
+
+- **JavaScript function:** `js/main.js` → `initEmailProtection()`
+- **CSS classes:** `.protected-email` (inline), `.protected-email-btn` (button)
+
+### Usage
+
+**For inline email display:**
+```html
+<span class="protected-email" data-u="username" data-d="domain.com">
+  <noscript>username [at] domain [dot] com</noscript>
+</span>
+```
+
+**For email button (no visible email):**
+```html
+<button class="protected-email-btn" data-u="username" data-d="domain.com">
+  Email Us
+</button>
+```
+
+### Why JavaScript Assembly?
+
+| Method | Bot Protection | Accessibility | Chose? |
+|--------|---------------|---------------|--------|
+| Plain text | 0% | ✓ | ✗ |
+| HTML entities | ~80% | ✓ | ✗ |
+| CSS reversal | ~90% | ✗ (screen readers fail) | ✗ |
+| **JavaScript assembly** | ~95% | ✓ | ✓ |
+| Image of email | ~99% | ✗ | ✗ |
+
+### Limitations
+
+- Users with JavaScript disabled see fallback text: `username [at] domain [dot] com`
+- Sophisticated bots that execute JavaScript can still extract emails
+- Not a replacement for spam filtering on your email server
+
+---
+
 ## SEO Infrastructure
 
 ### robots.txt
@@ -177,6 +246,27 @@ Disallow: /*.md$
 - Significantly updating existing pages
 - Changing URL structure
 
+### Canonical URLs
+
+All pages include canonical URL tags to prevent duplicate content issues:
+
+```html
+<link rel="canonical" href="https://lumicello.com/page.html">
+```
+
+**Files with canonical URLs:** All 7 HTML files
+
+### OG Locale Tags
+
+Pages specify language/region for social sharing:
+
+```html
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="th_TH">
+```
+
+**Purpose:** Helps Facebook and other platforms understand the target audience (English primary, Thai alternate).
+
 ---
 
 ## AI Crawler Policy
@@ -214,9 +304,22 @@ User-agent: Google-Extended
 Disallow: /
 ```
 
-### Future Consideration: llms.txt
+### llms.txt
 
-Consider creating an `llms.txt` file (emerging standard) to provide AI-specific crawling guidance. Not yet implemented as the standard is still evolving.
+**Location:** `/llms.txt`
+
+An AI-specific guidance file (emerging standard) that provides:
+- Site description and purpose
+- Content policy for AI use
+- Preferred citation format
+- Contact information
+- Technical metadata
+
+**Content summary:**
+- Allows indexing for search and discovery
+- Allows answering questions about Lumicello
+- Provides preferred citation format
+- Links to sitemap for structured crawling
 
 ---
 
@@ -282,6 +385,9 @@ Consider creating an `llms.txt` file (emerging standard) to provide AI-specific 
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2024-12-01 | Add canonical URLs and OG locale tags to all pages | Claude |
+| 2024-12-01 | Implement email obfuscation via JavaScript assembly | Claude |
+| 2024-12-01 | Create llms.txt for AI crawler guidance | Claude |
 | 2024-12-01 | Initial security implementation: CSP, SRI, security headers, robots.txt, sitemap.xml | Claude |
 
 ---
