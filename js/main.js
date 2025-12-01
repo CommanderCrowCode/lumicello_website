@@ -1,5 +1,17 @@
+/**
+ * @fileoverview Main JavaScript for Lumicello website
+ * Handles scroll animations, mobile navigation, carousels, and interactive features.
+ * @author Lumicello Development Team
+ * @version 1.0.0
+ */
+
+/**
+ * Initialize all page functionality when DOM is ready.
+ * Sets up scroll observers, navigation, carousels, and interactive elements.
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Observer
+    // Scroll Observer - reveals elements as they enter viewport
+    /** @type {IntersectionObserverInit} */
     const observerOptions = {
         root: null,
         rootMargin: '0px',
@@ -77,10 +89,19 @@ document.addEventListener('DOMContentLoaded', () => {
     initFingerprintCinema();
 });
 
+/**
+ * Navigate to a specific slide in the testimonial carousel.
+ * @param {number} n - The slide number to display (1-indexed)
+ */
 function currentSlide(n) {
     showSlides(slideIndex = n);
 }
 
+/**
+ * Display a specific slide in the testimonial carousel.
+ * Handles wrapping at the beginning and end of the carousel.
+ * @param {number} n - The slide number to display (1-indexed)
+ */
 function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("quote-slide");
@@ -104,7 +125,10 @@ function showSlides(n) {
     dots[slideIndex - 1].className += " active";
 }
 
-// Kit Image Carousel functionality
+/**
+ * Initialize all kit image carousels on the page.
+ * Sets up dot navigation, click-to-lightbox, and touch swipe support.
+ */
 function initKitCarousels() {
     const carousels = document.querySelectorAll('.kit-carousel');
 
@@ -145,6 +169,10 @@ function initKitCarousels() {
             handleSwipe();
         }, { passive: true });
 
+        /**
+         * Handle swipe gesture to navigate carousel.
+         * @private
+         */
         function handleSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
@@ -159,6 +187,10 @@ function initKitCarousels() {
             }
         }
 
+        /**
+         * Update carousel position and dot states.
+         * @private
+         */
         function updateCarousel() {
             track.style.transform = `translateX(-${currentIndex * 50}%)`;
             dots.forEach((dot, index) => {
@@ -168,7 +200,13 @@ function initKitCarousels() {
     });
 }
 
-// Kit Lightbox functionality
+/**
+ * Open a fullscreen lightbox for viewing kit images.
+ * Supports keyboard navigation, touch swipe, and smooth crossfade transitions.
+ * @param {string[]} imageSrcs - Array of image source URLs
+ * @param {string[]} imageAlts - Array of image alt text descriptions
+ * @param {number} [startIndex=0] - Initial image index to display
+ */
 function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     // Create lightbox if it doesn't exist
     let lightbox = document.querySelector('.kit-lightbox');
@@ -223,7 +261,10 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
 
     const dots = dotsContainer.querySelectorAll('.lightbox-dot');
 
-    // Smooth crossfade transition
+    /**
+     * Transition to a new image with crossfade effect.
+     * @param {number} newIndex - Index of the image to transition to
+     */
     function transitionToImage(newIndex) {
         if (isTransitioning || newIndex === currentIndex) return;
         isTransitioning = true;
@@ -246,6 +287,9 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
         }, 250); // Match CSS transition duration
     }
 
+    /**
+     * Update lightbox UI elements (dots, nav buttons, counter).
+     */
     function updateUI() {
         dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
         prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
@@ -255,12 +299,18 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
         counterEl.textContent = `${currentIndex + 1} / ${imageSrcs.length}`;
     }
 
+    /**
+     * Update lightbox with current image.
+     */
     function updateLightbox() {
         lightboxImage.src = imageSrcs[currentIndex];
         lightboxImage.alt = imageAlts[currentIndex];
         updateUI();
     }
 
+    /**
+     * Close the lightbox and restore body scroll.
+     */
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.classList.remove('no-scroll');
@@ -306,7 +356,11 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     document.body.classList.add('no-scroll');
 }
 
-// Kit Journey Scroller - Mobile horizontal scroll with progress tracking
+/**
+ * Initialize the mobile kit journey scroller.
+ * Provides horizontal scroll navigation with progress tracking on mobile devices.
+ * Only activates on screens <= 768px width.
+ */
 function initKitJourneyScroller() {
     const wrapper = document.querySelector('.kits-journey-wrapper');
     const grid = document.querySelector('.kits-grid');
@@ -318,7 +372,7 @@ function initKitJourneyScroller() {
 
     if (!wrapper || !grid || cards.length === 0) return;
 
-    // Kit names for the indicator
+    /** @type {string[]} Kit names for the indicator display */
     const kitNames = [
         'First Gazes',
         'Tummy Time Discovery',
@@ -328,14 +382,20 @@ function initKitJourneyScroller() {
         'Push & Play'
     ];
 
-    // Only activate on mobile (matches CSS media query)
+    /**
+     * Check if viewport is mobile size.
+     * @returns {boolean} True if viewport width <= 768px
+     */
     const isMobile = () => window.innerWidth <= 768;
 
     let currentIndex = 0;
     let isScrolling = false;
     let scrollTimeout;
 
-    // Update progress indicator based on scroll position
+    /**
+     * Update progress indicator based on scroll position.
+     * Calculates which card is most centered in the viewport.
+     */
     function updateProgress() {
         if (!isMobile()) return;
 
@@ -354,7 +414,9 @@ function initKitJourneyScroller() {
         }
     }
 
-    // Update all UI elements
+    /**
+     * Update all UI elements (dots, cards, progress bar, kit name).
+     */
     function updateUI() {
         // Update dots
         dots.forEach((dot, index) => {
@@ -386,7 +448,10 @@ function initKitJourneyScroller() {
         if (kitNameEl) kitNameEl.textContent = kitNames[currentIndex] || '';
     }
 
-    // Scroll to specific card
+    /**
+     * Scroll to a specific card with smooth animation.
+     * @param {number} index - Index of the card to scroll to
+     */
     function scrollToCard(index) {
         if (!isMobile() || index < 0 || index >= cards.length) return;
 
@@ -462,6 +527,12 @@ function initKitJourneyScroller() {
 // CINEMATIC FINGERPRINT EXPERIENCE
 // Auto-playing loop when visible - "The Living Light Show"
 // ============================================
+
+/**
+ * Initialize the cinematic fingerprint animation experience.
+ * Creates an auto-playing, looping animation that activates when visible in viewport.
+ * Features 4 acts: SCAN, ANALYZE, MAP, PROFILE.
+ */
 function initFingerprintCinema() {
     const fpCinema = document.getElementById('fp-cinema');
     if (!fpCinema) return;
@@ -472,8 +543,10 @@ function initFingerprintCinema() {
     const timelineFill = fpCinema.querySelector('.fp-timeline-fill');
     const dots = fpCinema.querySelectorAll('.fp-dot');
 
-    // Act configuration - timing in ms
-    // Coherent narrative: Scan the fingerprint, Analyze data, Map connections, Complete Profile
+    /**
+     * Act configuration with timing and display text.
+     * @type {Array<{num: string, name: string, desc: string, duration: number}>}
+     */
     const acts = [
         { num: '01', name: 'SCAN', desc: 'Capturing unique patterns', duration: 2200 },
         { num: '02', name: 'ANALYZE', desc: 'Discovering interests', duration: 2500 },
@@ -486,7 +559,10 @@ function initFingerprintCinema() {
     let animationLoop = null;
     let actTimeout = null;
 
-    // Update the UI for current act
+    /**
+     * Set the current act and update all UI elements.
+     * @param {number} actIndex - Index of the act to display (0-3)
+     */
     function setAct(actIndex) {
         currentAct = actIndex;
         const act = acts[actIndex];
@@ -516,7 +592,10 @@ function initFingerprintCinema() {
         });
     }
 
-    // Advance to next act
+    /**
+     * Advance to the next act in the sequence.
+     * Loops back to act 0 after completing all acts.
+     */
     function nextAct() {
         const nextIndex = (currentAct + 1) % acts.length;
 
@@ -534,7 +613,9 @@ function initFingerprintCinema() {
         }
     }
 
-    // Schedule the next act transition
+    /**
+     * Schedule the next act transition based on current act duration.
+     */
     function scheduleNextAct() {
         if (!isPlaying) return;
 
@@ -542,7 +623,9 @@ function initFingerprintCinema() {
         actTimeout = setTimeout(nextAct, act.duration);
     }
 
-    // Start the cinema loop
+    /**
+     * Start the cinema animation loop.
+     */
     function startCinema() {
         if (isPlaying) return;
 
@@ -554,7 +637,9 @@ function initFingerprintCinema() {
         scheduleNextAct();
     }
 
-    // Stop the cinema loop
+    /**
+     * Stop the cinema animation loop.
+     */
     function stopCinema() {
         isPlaying = false;
         fpCinema.classList.remove('is-playing');
@@ -611,9 +696,20 @@ function initFingerprintCinema() {
 // ============================================
 
 /**
- * Decodes and renders obfuscated email addresses
- * Usage: <span class="protected-email" data-u="contact" data-d="lumicello.com"></span>
- * Or button: <button class="protected-email-btn" data-u="contact" data-d="lumicello.com">Email Us</button>
+ * Initialize email protection by decoding obfuscated email addresses.
+ * Converts data attributes into clickable mailto links at runtime to prevent bot scraping.
+ *
+ * @example
+ * // Inline email display (creates clickable mailto link)
+ * <span class="protected-email" data-u="contact" data-d="lumicello.com">
+ *   <noscript>contact [at] lumicello [dot] com</noscript>
+ * </span>
+ *
+ * @example
+ * // Email button (opens mailto on click, no visible email)
+ * <button class="protected-email-btn" data-u="contact" data-d="lumicello.com">
+ *   Email Us
+ * </button>
  */
 function initEmailProtection() {
     // Handle inline email displays (creates clickable mailto link)

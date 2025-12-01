@@ -14,8 +14,9 @@ This document captures security choices, design decisions, and troubleshooting g
 3. [Security Headers](#security-headers)
 4. [Email Obfuscation](#email-obfuscation)
 5. [SEO Infrastructure](#seo-infrastructure)
-6. [AI Crawler Policy](#ai-crawler-policy)
-7. [Troubleshooting Guide](#troubleshooting-guide)
+6. [Structured Data (JSON-LD)](#structured-data-json-ld)
+7. [AI Crawler Policy](#ai-crawler-policy)
+8. [Troubleshooting Guide](#troubleshooting-guide)
 
 ---
 
@@ -256,6 +257,18 @@ All pages include canonical URL tags to prevent duplicate content issues:
 
 **Files with canonical URLs:** All 7 HTML files
 
+### Theme Color
+
+All pages include a theme-color meta tag for mobile browser chrome customization:
+
+```html
+<meta name="theme-color" content="#1A2B4C">
+```
+
+**Purpose:** Sets the browser toolbar/address bar color on mobile devices to match the brand (Jefferson Blue).
+
+**Files with theme-color:** All 7 HTML files
+
 ### OG Locale Tags
 
 Pages specify language/region for social sharing:
@@ -266,6 +279,94 @@ Pages specify language/region for social sharing:
 ```
 
 **Purpose:** Helps Facebook and other platforms understand the target audience (English primary, Thai alternate).
+
+---
+
+## Structured Data (JSON-LD)
+
+### What It Does
+JSON-LD (JavaScript Object Notation for Linked Data) provides structured information about your website to search engines and AI systems, enabling rich search results and better content understanding.
+
+### Current Implementation
+
+**Location:** `index.html` (homepage only)
+
+#### Organization Schema
+
+Provides company/brand information:
+
+```json
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Lumicello",
+    "description": "Personalized learning platform for children...",
+    "url": "https://lumicello.com",
+    "logo": "https://lumicello.com/assets/images/lumicello_logo.webp",
+    "sameAs": [
+        "https://web.facebook.com/LumicelloCompany/",
+        "https://web.facebook.com/share/g/1ByigscXwU/",
+        "https://lin.ee/eH1GxA5"
+    ],
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Thai"]
+    }
+}
+```
+
+**Benefits:**
+- Knowledge panel in Google search results
+- Brand verification for social profiles
+- Consistent company information across search engines
+
+#### Product Schema (ItemList)
+
+Lists all 6 Exploration Kits with structured product data:
+
+```json
+{
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "First Year Collection - Exploration Kits",
+    "description": "Monthly exploration kits for babies 0-12 months",
+    "numberOfItems": 6,
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@type": "Product",
+                "name": "First Gazes Kit",
+                "description": "High-contrast cards and gentle sounds...",
+                "brand": { "@type": "Brand", "name": "Lumicello" },
+                "audience": { "@type": "PeopleAudience", "suggestedMinAge": 0, "suggestedMaxAge": 2 }
+            }
+        }
+        // ... 5 more kits
+    ]
+}
+```
+
+**Benefits:**
+- Rich product snippets in search results
+- Better product discovery
+- Age-appropriate content signals for AI recommendations
+
+### Testing JSON-LD
+
+Use these tools to validate your structured data:
+- [Google Rich Results Test](https://search.google.com/test/rich-results)
+- [Schema.org Validator](https://validator.schema.org/)
+
+### Maintenance
+
+**Update JSON-LD when:**
+- Adding new products/kits
+- Changing company contact information
+- Adding new social media profiles
+- Modifying product descriptions or age ranges
 
 ---
 
@@ -385,6 +486,9 @@ An AI-specific guidance file (emerging standard) that provides:
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2025-12-01 | Add theme-color meta tag to all pages | Claude |
+| 2025-12-01 | Add code formatting config (.prettierrc, .eslintrc.json) | Claude |
+| 2025-12-01 | Document JSON-LD structured data implementation | Claude |
 | 2024-12-01 | Add canonical URLs and OG locale tags to all pages | Claude |
 | 2024-12-01 | Implement email obfuscation via JavaScript assembly | Claude |
 | 2024-12-01 | Create llms.txt for AI crawler guidance | Claude |
