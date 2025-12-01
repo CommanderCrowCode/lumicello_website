@@ -797,7 +797,11 @@
                 <h2>Send Us a Message</h2>
                 <p>Fill out the form below and we'll get back to you shortly.</p>
 
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/xzznrzdb" method="POST">
+                    <!-- Formspree hidden fields -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Lumicello">
+                    <input type="hidden" name="_next" value="https://lumicello.com/contact.html?submitted=true">
+
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="first-name" name="first_name" placeholder=" " required>
@@ -817,13 +821,13 @@
                     <div class="form-group">
                         <select id="subject" name="subject" required>
                             <option value="" disabled selected>Select a topic</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="kits">Exploration Kits</option>
-                            <option value="platform">Digital Platform</option>
-                            <option value="partnership">Partnership Opportunity</option>
-                            <option value="press">Press & Media</option>
-                            <option value="support">Customer Support</option>
-                            <option value="other">Other</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Exploration Kits">Exploration Kits</option>
+                            <option value="Digital Platform">Digital Platform</option>
+                            <option value="Partnership Opportunity">Partnership Opportunity</option>
+                            <option value="Press & Media">Press & Media</option>
+                            <option value="Customer Support">Customer Support</option>
+                            <option value="Other">Other</option>
                         </select>
                         <label for="subject">Subject</label>
                     </div>
