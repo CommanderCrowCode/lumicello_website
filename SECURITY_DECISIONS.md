@@ -161,8 +161,8 @@ Email addresses are stored as separate data attributes and assembled at runtime:
 | Page | Email | Method |
 |------|-------|--------|
 | `contact.html` | contact@lumicello.com | Button (no visible email) |
-| `privacy.html` | privacy@lumicello.com | Inline span (visible after JS) |
-| `terms.html` | legal@lumicello.com | Inline span (visible after JS) |
+| `privacy.html` | contact@lumicello.com | Inline span (visible after JS) |
+| `terms.html` | contact@lumicello.com | Inline span (visible after JS) |
 
 ### Code Location
 
