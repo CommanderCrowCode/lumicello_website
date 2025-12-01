@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Family | Lumicello</title>
+    <meta name="description" content="You're officially part of the Lumicello family! Get ready for weekly inspiration, early access, and honest parenting conversations.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/welcome.html">
+    <meta property="og:title" content="Welcome to the Family | Lumicello">
+    <meta property="og:description" content="You're officially part of the Lumicello family! Get ready for weekly inspiration, early access, and honest parenting conversations.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta property="og:site_name" content="Lumicello">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Welcome to the Family | Lumicello">
+    <meta name="twitter:description" content="You're officially part of the Lumicello family! Get ready for weekly inspiration, early access, and honest parenting conversations.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/bc46e65664.js" crossorigin="anonymous"></script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico">
+
+    <style>
+        .welcome-page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: var(--color-bg-main);
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .welcome-hero {
+            position: relative;
+            padding: clamp(140px, 18vw, 200px) var(--space-lg) clamp(80px, 12vw, 140px);
+            text-align: center;
+            overflow: hidden;
+            background: var(--color-bg-main);
+        }
+
+        .welcome-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 55%;
+            height: 80%;
+            background: radial-gradient(ellipse, var(--color-bg-sage) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            opacity: 0.8;
+            animation: blob-morph 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .welcome-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -15%;
+            left: -10%;
+            width: 45%;
+            height: 70%;
+            background: radial-gradient(ellipse, var(--color-bg-mist) 0%, transparent 70%);
+            border-radius: var(--radius-blob-alt);
+            opacity: 0.6;
+            animation: blob-morph 20s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        .welcome-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Celebration animation */
+        .celebration-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 32px;
+            position: relative;
+            animation: bounce-in 0.8s var(--ease-out) forwards;
+        }
+
+        .celebration-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: var(--color-accent);
+        }
+
+        /* Confetti particles */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            animation: confetti-fall 3s ease-in-out infinite;
+        }
+
+        .confetti-1 { background: var(--color-accent); top: -10px; left: 20%; animation-delay: 0s; }
+        .confetti-2 { background: var(--color-bg-sage); top: -10px; left: 50%; animation-delay: 0.3s; width: 8px; height: 8px; }
+        .confetti-3 { background: var(--color-bg-mist); top: -10px; left: 80%; animation-delay: 0.6s; }
+        .confetti-4 { background: var(--color-primary); top: -10px; left: 35%; animation-delay: 0.9s; width: 6px; height: 6px; opacity: 0.5; }
+        .confetti-5 { background: var(--color-bg-clay); top: -10px; left: 65%; animation-delay: 1.2s; width: 8px; height: 8px; }
+
+        @keyframes confetti-fall {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(150px) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes bounce-in {
+            0% {
+                transform: scale(0) rotate(-180deg);
+                opacity: 0;
+            }
+            60% {
+                transform: scale(1.2) rotate(10deg);
+            }
+            100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+        }
+
+        .welcome-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--color-accent);
+            border-radius: var(--radius-btn);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-soft);
+            animation: fade-up 0.8s var(--ease-out) 0.2s forwards;
+            opacity: 0;
+        }
+
+        .welcome-badge svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .welcome-title {
+            font-family: var(--font-heading);
+            font-size: var(--text-display);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+            animation: fade-up 0.8s var(--ease-out) 0.3s forwards;
+            opacity: 0;
+        }
+
+        .welcome-message {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.8;
+            margin-bottom: 40px;
+            animation: fade-up 0.8s var(--ease-out) 0.4s forwards;
+            opacity: 0;
+        }
+
+        .welcome-message strong {
+            color: var(--color-primary);
+        }
+
+        /* What to Expect Section */
+        .expect-section {
+            padding: clamp(80px, 12vw, 140px) var(--space-lg);
+            background: var(--color-bg-sage);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expect-section::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            left: -10%;
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.5) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            animation: blob-morph 30s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .expect-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .expect-header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 64px);
+        }
+
+        .expect-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            border-radius: var(--radius-btn);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(26, 43, 76, 0.08);
+        }
+
+        .expect-badge svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-accent);
+        }
+
+        .expect-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .expect-header p {
+            color: var(--color-text-secondary);
+            font-size: var(--text-lg);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .expect-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 36px 32px;
+            text-align: center;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.5s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .expect-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--color-accent);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .expect-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .expect-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .expect-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+            background: var(--color-accent-soft);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .expect-icon svg {
+            width: 32px;
+            height: 32px;
+            color: var(--color-primary);
+        }
+
+        .expect-card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .expect-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: var(--text-sm);
+        }
+
+        /* Quick Tips Section */
+        .tips-section {
+            padding: clamp(80px, 12vw, 140px) var(--space-lg);
+            background: var(--color-bg-main);
+            position: relative;
+        }
+
+        .tips-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .tips-header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 56px);
+        }
+
+        .tips-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--color-bg-mist);
+            border-radius: var(--radius-btn);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 20px;
+        }
+
+        .tips-badge svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-accent);
+        }
+
+        .tips-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .tips-header p {
+            color: var(--color-text-secondary);
+            font-size: var(--text-lg);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .tips-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .tip-item {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 32px 36px;
+            display: flex;
+            gap: 24px;
+            align-items: flex-start;
+            box-shadow: var(--shadow-soft);
+            transition: all 0.4s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tip-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--color-accent);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .tip-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+        }
+
+        .tip-item:hover::before {
+            transform: scaleY(1);
+        }
+
+        .tip-number {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: var(--color-accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .tip-content h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            margin-bottom: 8px;
+        }
+
+        .tip-content p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Social Section */
+        .social-section {
+            padding: clamp(80px, 12vw, 140px) var(--space-lg);
+            background: var(--color-primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-section::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 50%;
+            height: 80%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.08) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            animation: blob-morph 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .social-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .social-header {
+            text-align: center;
+            margin-bottom: clamp(40px, 6vw, 56px);
+        }
+
+        .social-header h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .social-header p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: var(--text-lg);
+            max-width: 550px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .social-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .social-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 36px 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.5s var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s var(--ease-out);
+        }
+
+        .social-card.line::before {
+            background: #00B900;
+        }
+
+        .social-card.facebook::before {
+            background: #1877F2;
+        }
+
+        .social-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .social-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .social-card.line .social-icon {
+            background: linear-gradient(135deg, #00B900 0%, #00C300 100%);
+        }
+
+        .social-card.facebook .social-icon {
+            background: linear-gradient(135deg, #1877F2 0%, #3B5998 100%);
+        }
+
+        .social-icon svg {
+            width: 36px;
+            height: 36px;
+        }
+
+        .social-card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .social-card p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            font-size: var(--text-sm);
+            margin-bottom: 20px;
+        }
+
+        .social-card .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            color: var(--color-primary);
+            transition: all 0.3s ease;
+        }
+
+        .social-card .btn-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-card:hover .btn-link {
+            color: var(--color-accent-dark);
+        }
+
+        .social-card:hover .btn-link svg {
+            transform: translateX(4px);
+        }
+
+        /* Explore Section */
+        .explore-section {
+            padding: clamp(80px, 12vw, 140px) var(--space-lg);
+            background: var(--color-bg-main);
+            text-align: center;
+        }
+
+        .explore-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .explore-section h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .explore-section p {
+            color: var(--color-text-secondary);
+            font-size: var(--text-lg);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .explore-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .expect-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .welcome-hero {
+                padding: 120px 20px 80px;
+            }
+
+            .celebration-icon {
+                width: 80px;
+                height: 80px;
+            }
+
+            .expect-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .tip-item {
+                flex-direction: column;
+                gap: 16px;
+                padding: 24px;
+            }
+
+            .tip-number {
+                width: 40px;
+                height: 40px;
+                min-width: 40px;
+                font-size: var(--text-lg);
+            }
+
+            .explore-links {
+                flex-direction: column;
+            }
+
+            .explore-links .btn {
+                width: 100%;
+            }
+        }
+
+        /* Animations */
+        @keyframes blob-morph {
+            0%, 100% {
+                border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            }
+            25% {
+                border-radius: 60% 40% 50% 60% / 50% 60% 40% 50%;
+            }
+            50% {
+                border-radius: 50% 60% 40% 60% / 60% 40% 60% 40%;
+            }
+            75% {
+                border-radius: 40% 50% 60% 50% / 50% 60% 50% 60%;
+            }
+        }
+
+        @keyframes fade-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-page">
+        <!-- Navigation (Shared Component) -->
+        <div id="nav-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="welcome-hero">
+            <div class="welcome-hero-content">
+                <!-- Celebration icon with confetti -->
+                <div class="celebration-icon">
+                    <div class="confetti confetti-1"></div>
+                    <div class="confetti confetti-2"></div>
+                    <div class="confetti confetti-3"></div>
+                    <div class="confetti confetti-4"></div>
+                    <div class="confetti confetti-5"></div>
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                    </svg>
+                </div>
+
+                <div class="welcome-badge">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                    You're Officially In
+                </div>
+
+                <h1 class="welcome-title">Welcome to the Lumicello Family</h1>
+
+                <p class="welcome-message">
+                    Your subscription is confirmed! <strong>Check your inbox</strong> for a welcome email from us.
+                    We're so excited to have you on this journey of nurturing your child's natural curiosity.
+                </p>
+            </div>
+        </section>
+
+        <!-- What to Expect Section -->
+        <section class="expect-section">
+            <div class="expect-container">
+                <div class="expect-header">
+                    <div class="expect-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        What's Coming
+                    </div>
+                    <h2>Here's What to Expect</h2>
+                    <p>We'll be sending you carefully curated content to support your parenting journey.</p>
+                </div>
+
+                <div class="expect-grid">
+                    <div class="expect-card">
+                        <div class="expect-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Weekly Ideas</h3>
+                        <p>Simple, play-based activities you can do at home. No fancy supplies needed, just everyday moments turned into learning adventures.</p>
+                    </div>
+
+                    <div class="expect-card">
+                        <div class="expect-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                            </svg>
+                        </div>
+                        <h3>Early Access</h3>
+                        <p>Be the first to know about new Exploration Kits, platform features, and special offers before anyone else.</p>
+                    </div>
+
+                    <div class="expect-card">
+                        <div class="expect-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <h3>Real Talk</h3>
+                        <p>Honest conversations about parenting, child development, and the beautiful chaos of raising curious little ones.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Tips Section -->
+        <section class="tips-section">
+            <div class="tips-container">
+                <div class="tips-header">
+                    <div class="tips-badge">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                        Start Today
+                    </div>
+                    <h2>3 Quick Ways to Spark Curiosity</h2>
+                    <p>While you wait for your first email, try these simple activities with your little one.</p>
+                </div>
+
+                <div class="tips-list">
+                    <div class="tip-item">
+                        <div class="tip-number">1</div>
+                        <div class="tip-content">
+                            <h3>The "What If" Game</h3>
+                            <p>Next time you're reading a book together, pause and ask "What do you think happens next?" There's no wrong answer. This simple question builds prediction skills and creative thinking.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">2</div>
+                        <div class="tip-content">
+                            <h3>Kitchen Scientists</h3>
+                            <p>Let your child help with cooking (age-appropriate tasks!). Measuring, pouring, and mixing are all early math and science concepts in disguise. Plus, kids eat better when they help prepare food.</p>
+                        </div>
+                    </div>
+
+                    <div class="tip-item">
+                        <div class="tip-number">3</div>
+                        <div class="tip-content">
+                            <h3>Wonder Walks</h3>
+                            <p>On your next walk, let your child lead. Stop when they stop. Look at what catches their attention. Ask questions together. Some of the best learning happens when we follow their curiosity, not our agenda.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Connection Section -->
+        <section class="social-section">
+            <div class="social-container">
+                <div class="social-header">
+                    <h2>Join Our Community</h2>
+                    <p>Connect with other curious parents. Share ideas, ask questions, and celebrate wins together.</p>
+                </div>
+
+                <div class="social-grid">
+                    <a href="https://lin.ee/eH1GxA5" target="_blank" rel="noopener" class="social-card line">
+                        <div class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.349 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                            </svg>
+                        </div>
+                        <h3>LINE Official</h3>
+                        <p>Get instant updates and exclusive content. Chat with us in Thai or English!</p>
+                        <span class="btn-link">
+                            Add Friend
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+
+                    <a href="https://web.facebook.com/share/g/1ByigscXwU/" target="_blank" rel="noopener" class="social-card facebook">
+                        <div class="social-icon">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+                            </svg>
+                        </div>
+                        <h3>Facebook Community</h3>
+                        <p>Join 500+ parents sharing ideas, asking questions, and celebrating curious moments.</p>
+                        <span class="btn-link">
+                            Join Group
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explore Lumicello Section -->
+        <section class="explore-section">
+            <div class="explore-container">
+                <h2>While You're Here...</h2>
+                <p>Discover what Lumicello has to offer for your family's learning journey.</p>
+                <div class="explore-links">
+                    <a href="index.html#fingerprint" class="btn btn-primary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px; margin-right: 8px;">
+                            <path d="M12 10a4 4 0 1 0 0 8 4 4 0 1 0 0-8z"/>
+                            <path d="M2 12h4M18 12h4M12 2v4M12 18v4"/>
+                        </svg>
+                        Curiosity Fingerprint
+                    </a>
+                    <a href="index.html#kits" class="btn btn-secondary">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 18px; height: 18px; margin-right: 8px;">
+                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        </svg>
+                        Exploration Kits
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (Shared Component) -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- Shared Components Script -->
+    <script src="js/components.js"></script>
+</body>
+</html>
