@@ -53,11 +53,20 @@
 
 ## 2. Contact Page (`contact.html`)
 
+### Contact Methods
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE Card | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 | Facebook Card | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 | Email link | Open mail client | `mailto:contact@lumicello.com` |
+
+### Contact Form (Formspree)
+| Element | Expected Behavior | Details |
+|---------|-------------------|---------|
+| Form action | Submit to Formspree | `https://formspree.io/f/xzznrzdb` |
+| Form fields | Collect contact info | `first_name`, `last_name`, `email`, `subject`, `message` |
+| After submit | Redirect back to contact page | `contact.html?submitted=true` |
+| Email notification | Send to Lumicello | `contact@lumicello.com` |
 
 ---
 

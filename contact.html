@@ -703,9 +703,143 @@
                 transform: translateY(0);
             }
         }
+
+        /* Success Message Modal */
+        .success-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 43, 76, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            animation: fade-in 0.3s ease-out;
+        }
+
+        .success-overlay.hidden {
+            display: none;
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .success-modal {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: clamp(40px, 6vw, 56px);
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 25px 80px rgba(26, 43, 76, 0.25);
+            animation: scale-up 0.4s var(--ease-out);
+            position: relative;
+        }
+
+        @keyframes scale-up {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .success-icon {
+            width: 72px;
+            height: 72px;
+            background: linear-gradient(135deg, #4CAF50 0%, #66BB6A 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            animation: pop 0.5s var(--ease-out) 0.2s both;
+        }
+
+        @keyframes pop {
+            0% { transform: scale(0); }
+            70% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .success-icon svg {
+            width: 36px;
+            height: 36px;
+            color: white;
+            stroke-width: 3;
+        }
+
+        .success-modal h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .success-modal p {
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 28px;
+        }
+
+        .success-modal .btn {
+            min-width: 160px;
+        }
+
+        .success-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 32px;
+            height: 32px;
+            border: none;
+            background: var(--color-bg-main);
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+        }
+
+        .success-close:hover {
+            background: var(--color-bg-sage);
+        }
+
+        .success-close svg {
+            width: 16px;
+            height: 16px;
+            color: var(--color-text-secondary);
+        }
     </style>
 </head>
 <body>
+    <!-- Success Message Modal (shown after form submission) -->
+    <div class="success-overlay hidden" id="success-modal">
+        <div class="success-modal">
+            <button class="success-close" onclick="closeSuccessModal()" aria-label="Close">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+            </div>
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out. We've received your message and will get back to you within 1-2 business days.</p>
+            <button class="btn btn-primary" onclick="closeSuccessModal()">Got It</button>
+        </div>
+    </div>
+
     <!-- Navigation (Shared Component) -->
     <div id="nav-placeholder"></div>
 
@@ -797,7 +931,11 @@
                 <h2>Send Us a Message</h2>
                 <p>Fill out the form below and we'll get back to you shortly.</p>
 
-                <form class="contact-form" action="#" method="POST">
+                <form class="contact-form" action="https://formspree.io/f/xzznrzdb" method="POST">
+                    <!-- Formspree hidden fields -->
+                    <input type="hidden" name="_subject" value="New Contact Form Submission - Lumicello">
+                    <input type="hidden" name="_next" value="https://lumicello.com/contact.html?submitted=true">
+
                     <div class="form-row">
                         <div class="form-group">
                             <input type="text" id="first-name" name="first_name" placeholder=" " required>
@@ -817,13 +955,13 @@
                     <div class="form-group">
                         <select id="subject" name="subject" required>
                             <option value="" disabled selected>Select a topic</option>
-                            <option value="general">General Inquiry</option>
-                            <option value="kits">Exploration Kits</option>
-                            <option value="platform">Digital Platform</option>
-                            <option value="partnership">Partnership Opportunity</option>
-                            <option value="press">Press & Media</option>
-                            <option value="support">Customer Support</option>
-                            <option value="other">Other</option>
+                            <option value="General Inquiry">General Inquiry</option>
+                            <option value="Exploration Kits">Exploration Kits</option>
+                            <option value="Digital Platform">Digital Platform</option>
+                            <option value="Partnership Opportunity">Partnership Opportunity</option>
+                            <option value="Press & Media">Press & Media</option>
+                            <option value="Customer Support">Customer Support</option>
+                            <option value="Other">Other</option>
                         </select>
                         <label for="subject">Subject</label>
                     </div>
@@ -893,5 +1031,34 @@
 
     <!-- Shared Components Script -->
     <script src="js/components.js"></script>
+
+    <!-- Success Modal Script -->
+    <script>
+        // Check if form was just submitted
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('submitted') === 'true') {
+            document.getElementById('success-modal').classList.remove('hidden');
+            // Clean up URL without reloading
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+
+        function closeSuccessModal() {
+            document.getElementById('success-modal').classList.add('hidden');
+        }
+
+        // Close modal on overlay click
+        document.getElementById('success-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeSuccessModal();
+            }
+        });
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeSuccessModal();
+            }
+        });
+    </script>
 </body>
 </html>

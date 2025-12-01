@@ -1,5 +1,13 @@
-routes:
-  - type: rewrite
-    source: /*
-    destination: /404.html
-    status: 404
+# Lumicello Website - Render.com Configuration
+# Build script copies only public files to dist/ for security
+
+services:
+  - type: web
+    name: lumicello-website
+    env: static
+    buildCommand: node build.js
+    staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /404.html

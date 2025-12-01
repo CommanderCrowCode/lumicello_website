@@ -155,6 +155,14 @@ python -m http.server 8765
 - **Facebook Page** (company/support): `https://web.facebook.com/LumicelloCompany/`
   - Use for: Footer, Contact page, customer support, complaints
 
+### Formspree Contact Form
+- Form ID: `xzznrzdb`
+- Action: `https://formspree.io/f/xzznrzdb`
+- Fields: `first_name`, `last_name`, `email`, `subject`, `message`
+- Located on Contact page (`contact.html`)
+- Submissions sent to: `contact@lumicello.com`
+- Hidden fields: `_subject` (email subject), `_next` (redirect after submit)
+
 ### FontAwesome
 - **Kit ID:** `bc46e65664`
 - **Load via:** `https://kit.fontawesome.com/bc46e65664.js`
