@@ -6,8 +6,8 @@
 
 | Link Type | URL | Use For |
 |-----------|-----|---------|
-| **Facebook Group** | `https://www.facebook.com/groups/807504868371462` | Community, engagement, content sharing |
-| **Facebook Page** | `https://www.facebook.com/LumicelloGroup` | Footer, Contact, Support, Legal pages |
+| **Facebook Group** | `https://web.facebook.com/share/g/1ByigscXwU/` | Community, engagement, content sharing |
+| **Facebook Page** | `https://web.facebook.com/LumicelloCompany/` | Footer, Contact, Support, Legal pages |
 
 ---
 
@@ -35,7 +35,7 @@
 |---------|-------------------|-------------|
 | Newsletter form | Submit to Kit.com | `https://app.kit.com/forms/8398985/subscriptions` |
 | LINE Card (entire card clickable) | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook Card (entire card clickable) | Open Facebook **GROUP** | `https://web.facebook.com/groups/807504868371462` _(new tab)_ |
+| Facebook Card (entire card clickable) | Open Facebook **GROUP** | `https://web.facebook.com/share/g/1ByigscXwU/` _(new tab)_ |
 
 ### Footer (Homepage)
 | Element | Expected Behavior | Link/Action |
@@ -45,7 +45,7 @@
 | For Educators | Coming Soon page | `coming-soon.html` |
 | Company links | Various | See footer section below |
 | Support links | Various | See footer section below |
-| Facebook icon | Open Facebook **PAGE** | `https://www.facebook.com/LumicelloGroup` _(new tab)_ |
+| Facebook icon | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 | LINE icon | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 
 ---
@@ -55,7 +55,7 @@
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE Card | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook Card | Open Facebook **PAGE** | `https://www.facebook.com/LumicelloGroup` _(new tab)_ |
+| Facebook Card | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 | Email link | Open mail client | `mailto:hello@lumicello.com` |
 
 ---
@@ -66,13 +66,13 @@
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE link | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook link | Open Facebook **PAGE** | `https://www.facebook.com/LumicelloGroup` _(new tab)_ |
+| Facebook link | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 
 ### Privacy Policy (`privacy.html`)
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE link | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook link | Open Facebook **PAGE** | `https://www.facebook.com/LumicelloGroup` _(new tab)_ |
+| Facebook link | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 
 ---
 
@@ -94,7 +94,7 @@ These components are injected into subpages via JavaScript.
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | Logo | Navigate to homepage | `index.html` |
-| Facebook icon | Open Facebook **PAGE** | `https://www.facebook.com/LumicelloGroup` _(new tab)_ |
+| Facebook icon | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
 | LINE icon | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 
 ---
@@ -152,8 +152,8 @@ All external links should:
 | URL | Expected Destination |
 |-----|---------------------|
 | `https://lin.ee/eH1GxA5` | LINE Official Account add friend page |
-| `https://www.facebook.com/groups/807504868371462` | Lumicello Parents Global Facebook Group |
-| `https://www.facebook.com/LumicelloGroup` | Lumicello Facebook Company Page |
+| `https://web.facebook.com/share/g/1ByigscXwU/` | Lumicello Parents Global Facebook Group |
+| `https://web.facebook.com/LumicelloCompany/` | Lumicello Facebook Company Page |
 | `https://app.kit.com/forms/8398985/subscriptions` | Kit.com newsletter subscription |
 
 ---

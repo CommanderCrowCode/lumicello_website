@@ -34,13 +34,13 @@ This document tracks all external information needed before deployment.
 | Platform | Status | URL | Use For |
 |----------|--------|-----|---------|
 | Line Official Account | [X] Done | `https://lin.ee/eH1GxA5`| All LINE links |
-| Facebook Group | [X] Done | `https://www.facebook.com/groups/807504868371462`| Community, engagement |
-| Facebook Page | [X] Done | `https://www.facebook.com/LumicelloGroup`| Footer, Contact, Support |
+| Facebook Group | [X] Done | `https://web.facebook.com/share/g/1ByigscXwU/`| Community, engagement |
+| Facebook Page | [X] Done | `https://web.facebook.com/LumicelloCompany/`| Footer, Contact, Support |
 
 ### URL Formats
 - **Line**: `https://line.me/R/ti/p/@YOUR_LINE_ID`
-- **Facebook Group**: `https://www.facebook.com/groups/YOUR_GROUP_ID`
-- **Facebook Page**: `https://www.facebook.com/YOUR_PAGE_NAME`
+- **Facebook Group**: `https://web.facebook.com/share/g/YOUR_GROUP_ID`
+- **Facebook Page**: `https://web.facebook.com/YOUR_PAGE_NAME`
 
 ---
 

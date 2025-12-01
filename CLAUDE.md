@@ -137,9 +137,9 @@ python -m http.server 8765
 - LINE Official: `https://lin.ee/eH1GxA5`
 
 **Facebook (two separate links):**
-- **Facebook Group** (community/engagement): `https://www.facebook.com/groups/807504868371462`
+- **Facebook Group** (community/engagement): `https://web.facebook.com/share/g/1ByigscXwU/`
   - Use for: Community section, content sharing, engagement CTAs
-- **Facebook Page** (company/support): `https://www.facebook.com/LumicelloGroup`
+- **Facebook Page** (company/support): `https://web.facebook.com/LumicelloCompany/`
   - Use for: Footer, Contact page, customer support, complaints
 
 ### FontAwesome

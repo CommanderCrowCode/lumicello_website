@@ -44,8 +44,8 @@ const FOOTER_LINKS = {
 // Social links configuration
 // Note: Facebook has two links - Page for support/footer, Group for community/engagement
 const SOCIAL_LINKS = {
-    facebookPage: 'https://www.facebook.com/LumicelloGroup',  // Company page - for footer, contact, support
-    facebookGroup: 'https://www.facebook.com/groups/807504868371462',  // Community group - for engagement
+    facebookPage: 'https://web.facebook.com/LumicelloCompany/',  // Company page - for footer, contact, support
+    facebookGroup: 'https://web.facebook.com/share/g/1ByigscXwU/',  // Community group - for engagement
     line: 'https://lin.ee/eH1GxA5'
 };
 
