@@ -125,13 +125,26 @@ python -m http.server 8765
 8. **Testimonials** - Single centered quote with author
 9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Facebook)
 
-## External Integrations
+## Third-Party Services (SaaS)
 
-### Kit.com Newsletter
-- Form ID: `8398985`
-- Action: `https://app.kit.com/forms/8398985/subscriptions`
-- Fields: `fields[first_name]`, `email_address`
-- Located in Community Section (dark background)
+| Service | Purpose | Dashboard |
+|---------|---------|-----------|
+| **Kit.com** | Newsletter management | https://app.kit.com |
+| **Formspree** | Contact form submissions | https://formspree.io |
+| **Render.com** | Static site hosting | https://dashboard.render.com |
+| **FontAwesome** | Icon library | https://fontawesome.com/kits |
+
+### Kit.com (Newsletter)
+- **Form ID:** `8398985`
+- **Action URL:** `https://app.kit.com/forms/8398985/subscriptions`
+- **Fields:** `fields[first_name]`, `email_address`
+- **Used on:** Homepage (Community Section), Coming Soon page
+- **Confirmation redirect:** `welcome.html`
+
+### Formspree (Contact Forms)
+- **Dashboard:** https://formspree.io/forms
+- **Used on:** Contact page (`contact.html`)
+- **Features:** Spam filtering, email notifications, submission archive
 
 ### Social Links
 - LINE Official: `https://lin.ee/eH1GxA5`
@@ -151,8 +164,8 @@ python -m http.server 8765
 - Hidden fields: `_subject` (email subject), `_next` (redirect after submit)
 
 ### FontAwesome
-- Kit ID: `bc46e65664`
-- Load via: `https://kit.fontawesome.com/bc46e65664.js`
+- **Kit ID:** `bc46e65664`
+- **Load via:** `https://kit.fontawesome.com/bc46e65664.js`
 
 ## Design Philosophy
 
