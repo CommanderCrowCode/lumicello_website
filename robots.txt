@@ -1,0 +1,32 @@
+# Lumicello Website - Robots.txt
+# Last updated: 2024-12-01
+# See SECURITY_DECISIONS.md for rationale
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://lumicello.com/sitemap.xml
+
+# Block internal/development files (defense in depth - these are also not deployed)
+Disallow: /design_specs/
+Disallow: /CLAUDE.md
+Disallow: /QA_CHECKLIST.md
+Disallow: /SETUP_REQUIREMENTS.md
+Disallow: /*.md$
+
+# Block common sensitive paths
+Disallow: /.git/
+Disallow: /.env
+Disallow: /node_modules/
+
+# AI Crawlers - Allow for now (see SECURITY_DECISIONS.md for policy)
+# To restrict AI training, uncomment below:
+# User-agent: GPTBot
+# Disallow: /
+# User-agent: ChatGPT-User
+# Disallow: /
+# User-agent: anthropic-ai
+# Disallow: /
+# User-agent: Claude-Web
+# Disallow: /

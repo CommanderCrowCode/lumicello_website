@@ -7,54 +7,54 @@
     /* ========================================
        PRIMARY PALETTE - Brand Anchors
        ======================================== */
-    --color-primary: #1A2B4C;           /* Jefferson Blue - deep trust */
-    --color-primary-light: #2A3D5E;     /* Lighter blue for hover states */
-    --color-primary-dark: #0F1A2E;      /* Darker blue for depth */
+    --color-primary: #1a2b4c; /* Jefferson Blue - deep trust */
+    --color-primary-light: #2a3d5e; /* Lighter blue for hover states */
+    --color-primary-dark: #0f1a2e; /* Darker blue for depth */
 
-    --color-accent: #F2C94C;            /* Lumen Gold - warmth & spark */
-    --color-accent-glow: rgba(242, 201, 76, 0.4);  /* Atmospheric glow */
+    --color-accent: #f2c94c; /* Lumen Gold - warmth & spark */
+    --color-accent-glow: rgba(242, 201, 76, 0.4); /* Atmospheric glow */
     --color-accent-soft: rgba(242, 201, 76, 0.15); /* Subtle backgrounds */
-    --color-accent-dark: #D4A82D;       /* Darker gold for pressed states */
+    --color-accent-dark: #d4a82d; /* Darker gold for pressed states */
 
-    --color-brick: #C65D32;             /* Monticello Brick - warm accent */
-    --color-brick-dark: #A84D28;        /* Darker brick for pressed states */
+    --color-brick: #c65d32; /* Monticello Brick - warm accent */
+    --color-brick-dark: #a84d28; /* Darker brick for pressed states */
 
-    --color-bg-main: #F9F8F4;           /* Soft Canvas - warm white */
-    --color-bg-warm: #FFFDF8;           /* Slightly warmer for contrast */
+    --color-bg-main: #f9f8f4; /* Soft Canvas - warm white */
+    --color-bg-warm: #fffdf8; /* Slightly warmer for contrast */
 
     /* ========================================
        SECONDARY PALETTE - Exploration Tones
        ======================================== */
-    --color-bg-sage: #E6EBE6;           /* Sage Whisper - calm, nature */
-    --color-bg-sage-deep: #D4DCD4;      /* Deeper sage for hover */
+    --color-bg-sage: #e6ebe6; /* Sage Whisper - calm, nature */
+    --color-bg-sage-deep: #d4dcd4; /* Deeper sage for hover */
 
-    --color-bg-clay: #F0E6DD;           /* Pale Clay - warm, tactile */
-    --color-bg-clay-deep: #E5D8CC;      /* Deeper clay */
+    --color-bg-clay: #f0e6dd; /* Pale Clay - warm, tactile */
+    --color-bg-clay-deep: #e5d8cc; /* Deeper clay */
 
-    --color-bg-mist: #E3F2F5;           /* Mist Blue - curiosity, sky */
-    --color-bg-mist-deep: #D1E6EB;      /* Deeper mist */
+    --color-bg-mist: #e3f2f5; /* Mist Blue - curiosity, sky */
+    --color-bg-mist-deep: #d1e6eb; /* Deeper mist */
 
     /* ========================================
        FUNCTIONAL COLORS
        ======================================== */
-    --color-text-primary: #1A2B4C;
-    --color-text-secondary: #5E6A71;
-    --color-text-tertiary: #8A9199;
-    --color-text-inverse: #FFFFFF;
+    --color-text-primary: #1a2b4c;
+    --color-text-secondary: #5e6a71;
+    --color-text-tertiary: #8a9199;
+    --color-text-inverse: #ffffff;
 
     --color-border-subtle: rgba(26, 43, 76, 0.08);
     --color-border-medium: rgba(26, 43, 76, 0.15);
 
     /* Social brand colors */
-    --color-line: #06C755;
-    --color-facebook: #1877F2;
-    --color-email: #EA4335;
+    --color-line: #06c755;
+    --color-facebook: #1877f2;
+    --color-email: #ea4335;
 
     /* ========================================
        TYPOGRAPHY - "Warm Intelligence"
        ======================================== */
-    --font-heading: 'Fraunces', Georgia, serif;
-    --font-body: 'Nunito', 'Noto Sans Thai', -apple-system, sans-serif;
+    --font-heading: "Fraunces", Georgia, serif;
+    --font-body: "Nunito", "Noto Sans Thai", -apple-system, sans-serif;
 
     /* Type Scale - More dramatic hierarchy */
     --text-hero: clamp(3.5rem, 8vw, 6rem);
@@ -62,10 +62,10 @@
     --text-h1: clamp(2rem, 4vw, 3rem);
     --text-h2: clamp(1.75rem, 3.5vw, 2.5rem);
     --text-h3: clamp(1.25rem, 2vw, 1.5rem);
-    --text-body: 1.0625rem;             /* 17px */
-    --text-body-lg: 1.125rem;           /* 18px */
-    --text-small: 0.875rem;             /* 14px */
-    --text-xs: 0.75rem;                 /* 12px */
+    --text-body: 1.0625rem; /* 17px */
+    --text-body-lg: 1.125rem; /* 18px */
+    --text-small: 0.875rem; /* 14px */
+    --text-xs: 0.75rem; /* 12px */
 
     /* Line heights */
     --leading-tight: 1.1;
@@ -82,15 +82,15 @@
     /* ========================================
        SPACING - Generous & Breathing
        ======================================== */
-    --space-xs: 0.5rem;                 /* 8px */
-    --space-sm: 0.75rem;                /* 12px */
-    --space-md: 1rem;                   /* 16px */
-    --space-lg: 1.5rem;                 /* 24px */
-    --space-xl: 2rem;                   /* 32px */
-    --space-2xl: 3rem;                  /* 48px */
-    --space-3xl: 4rem;                  /* 64px */
-    --space-4xl: 6rem;                  /* 96px */
-    --space-5xl: 8rem;                  /* 128px */
+    --space-xs: 0.5rem; /* 8px */
+    --space-sm: 0.75rem; /* 12px */
+    --space-md: 1rem; /* 16px */
+    --space-lg: 1.5rem; /* 24px */
+    --space-xl: 2rem; /* 32px */
+    --space-2xl: 3rem; /* 48px */
+    --space-3xl: 4rem; /* 64px */
+    --space-4xl: 6rem; /* 96px */
+    --space-5xl: 8rem; /* 128px */
 
     --spacing-section: clamp(5rem, 10vw, 8rem);
     --container-max: 1400px;
@@ -163,12 +163,14 @@
     --grain-opacity: 0.03;
 
     /* Gradient meshes */
-    --gradient-warm: radial-gradient(ellipse at 20% 50%, var(--color-bg-clay) 0%, transparent 50%),
-                     radial-gradient(ellipse at 80% 20%, var(--color-bg-mist) 0%, transparent 40%),
-                     radial-gradient(ellipse at 40% 80%, var(--color-bg-sage) 0%, transparent 50%);
+    --gradient-warm:
+        radial-gradient(ellipse at 20% 50%, var(--color-bg-clay) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, var(--color-bg-mist) 0%, transparent 40%),
+        radial-gradient(ellipse at 40% 80%, var(--color-bg-sage) 0%, transparent 50%);
 
-    --gradient-hero: radial-gradient(ellipse at 30% 30%, var(--color-accent-soft) 0%, transparent 50%),
-                     radial-gradient(ellipse at 70% 70%, var(--color-bg-mist) 0%, transparent 40%);
+    --gradient-hero:
+        radial-gradient(ellipse at 30% 30%, var(--color-accent-soft) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 70%, var(--color-bg-mist) 0%, transparent 40%);
 
     --gradient-glow: radial-gradient(circle, var(--color-accent-glow) 0%, transparent 70%);
 

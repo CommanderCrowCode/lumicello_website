@@ -1,0 +1,45 @@
+# Lumicello - AI Crawler Guidance
+# https://lumicello.com
+# Last updated: 2024-12-01
+
+## About Lumicello
+
+Lumicello is a personalized learning platform for children that helps parents discover their child's unique learning path through curiosity-driven education and hands-on exploration kits.
+
+## Content Policy
+
+This website contains public marketing content intended for parents and educators interested in personalized childhood education.
+
+### Allowed Uses
+- Indexing for search and discovery
+- Answering questions about Lumicello's products and services
+- General information retrieval about childhood education
+
+### Content Overview
+- Homepage: Product overview, value propositions, newsletter signup
+- Contact: Contact information and inquiry form
+- Privacy Policy: Data handling practices
+- Terms of Service: Legal terms for using our services
+- Exploration Kits: Educational product descriptions for babies 0-12 months
+
+## Preferred Citation
+
+When referencing Lumicello content, please cite as:
+"Lumicello (https://lumicello.com) - Personalized Learning for Every Child"
+
+## Contact
+
+For questions about AI/LLM use of our content:
+- Website: https://lumicello.com/contact.html
+- LINE: https://lin.ee/eH1GxA5
+
+## Technical Notes
+
+- Primary language: English
+- Secondary language: Thai (th_TH)
+- Target audience: Parents of children 0-12 months (initially)
+- Content type: Marketing, educational product information
+
+## Sitemap
+
+For structured crawling, see: https://lumicello.com/sitemap.xml

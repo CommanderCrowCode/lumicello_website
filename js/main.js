@@ -1,9 +1,21 @@
+/**
+ * @fileoverview Main JavaScript for Lumicello website
+ * Handles scroll animations, mobile navigation, carousels, and interactive features.
+ * @author Lumicello Development Team
+ * @version 1.0.0
+ */
+
+/**
+ * Initialize all page functionality when DOM is ready.
+ * Sets up scroll observers, navigation, carousels, and interactive elements.
+ */
 document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Observer
+    // Scroll Observer - reveals elements as they enter viewport
+    /** @type {IntersectionObserverInit} */
     const observerOptions = {
         root: null,
         rootMargin: '0px',
-        threshold: 0.1
+        threshold: 0.1,
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
@@ -53,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-
     // Testimonial Carousel
     let slideIndex = 1;
     // Only run if carousel exists
@@ -77,34 +88,50 @@ document.addEventListener('DOMContentLoaded', () => {
     initFingerprintCinema();
 });
 
+/**
+ * Navigate to a specific slide in the testimonial carousel.
+ * @param {number} n - The slide number to display (1-indexed)
+ */
 function currentSlide(n) {
-    showSlides(slideIndex = n);
+    showSlides((slideIndex = n));
 }
 
+/**
+ * Display a specific slide in the testimonial carousel.
+ * Handles wrapping at the beginning and end of the carousel.
+ * @param {number} n - The slide number to display (1-indexed)
+ */
 function showSlides(n) {
     let i;
-    let slides = document.getElementsByClassName("quote-slide");
-    let dots = document.getElementsByClassName("dot");
+    let slides = document.getElementsByClassName('quote-slide');
+    let dots = document.getElementsByClassName('dot');
 
     if (slides.length === 0) return;
 
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
 
     for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-        slides[i].classList.remove("active");
+        slides[i].style.display = 'none';
+        slides[i].classList.remove('active');
     }
     for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
+        dots[i].className = dots[i].className.replace(' active', '');
     }
 
-    slides[slideIndex - 1].style.display = "block";
-    slides[slideIndex - 1].classList.add("active");
-    dots[slideIndex - 1].className += " active";
+    slides[slideIndex - 1].style.display = 'block';
+    slides[slideIndex - 1].classList.add('active');
+    dots[slideIndex - 1].className += ' active';
 }
 
-// Kit Image Carousel functionality
+/**
+ * Initialize all kit image carousels on the page.
+ * Sets up dot navigation, click-to-lightbox, and touch swipe support.
+ */
 function initKitCarousels() {
     const carousels = document.querySelectorAll('.kit-carousel');
 
@@ -116,7 +143,7 @@ function initKitCarousels() {
 
         // Dot click handlers
         dots.forEach((dot, index) => {
-            dot.addEventListener('click', (e) => {
+            dot.addEventListener('click', e => {
                 e.stopPropagation();
                 currentIndex = index;
                 updateCarousel();
@@ -136,15 +163,27 @@ function initKitCarousels() {
         let touchStartX = 0;
         let touchEndX = 0;
 
-        carousel.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-        }, { passive: true });
+        carousel.addEventListener(
+            'touchstart',
+            e => {
+                touchStartX = e.changedTouches[0].screenX;
+            },
+            { passive: true }
+        );
 
-        carousel.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            handleSwipe();
-        }, { passive: true });
+        carousel.addEventListener(
+            'touchend',
+            e => {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            },
+            { passive: true }
+        );
 
+        /**
+         * Handle swipe gesture to navigate carousel.
+         * @private
+         */
         function handleSwipe() {
             const swipeThreshold = 50;
             const diff = touchStartX - touchEndX;
@@ -159,6 +198,10 @@ function initKitCarousels() {
             }
         }
 
+        /**
+         * Update carousel position and dot states.
+         * @private
+         */
         function updateCarousel() {
             track.style.transform = `translateX(-${currentIndex * 50}%)`;
             dots.forEach((dot, index) => {
@@ -168,7 +211,13 @@ function initKitCarousels() {
     });
 }
 
-// Kit Lightbox functionality
+/**
+ * Open a fullscreen lightbox for viewing kit images.
+ * Supports keyboard navigation, touch swipe, and smooth crossfade transitions.
+ * @param {string[]} imageSrcs - Array of image source URLs
+ * @param {string[]} imageAlts - Array of image alt text descriptions
+ * @param {number} [startIndex=0] - Initial image index to display
+ */
 function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     // Create lightbox if it doesn't exist
     let lightbox = document.querySelector('.kit-lightbox');
@@ -217,13 +266,19 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     let isTransitioning = false;
 
     // Create dots
-    dotsContainer.innerHTML = imageSrcs.map((_, i) =>
-        `<button class="lightbox-dot ${i === currentIndex ? 'active' : ''}" aria-label="View image ${i + 1}"></button>`
-    ).join('');
+    dotsContainer.innerHTML = imageSrcs
+        .map(
+            (_, i) =>
+                `<button class="lightbox-dot ${i === currentIndex ? 'active' : ''}" aria-label="View image ${i + 1}"></button>`
+        )
+        .join('');
 
     const dots = dotsContainer.querySelectorAll('.lightbox-dot');
 
-    // Smooth crossfade transition
+    /**
+     * Transition to a new image with crossfade effect.
+     * @param {number} newIndex - Index of the image to transition to
+     */
     function transitionToImage(newIndex) {
         if (isTransitioning || newIndex === currentIndex) return;
         isTransitioning = true;
@@ -246,6 +301,9 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
         }, 250); // Match CSS transition duration
     }
 
+    /**
+     * Update lightbox UI elements (dots, nav buttons, counter).
+     */
     function updateUI() {
         dots.forEach((dot, i) => dot.classList.toggle('active', i === currentIndex));
         prevBtn.style.opacity = currentIndex === 0 ? '0.3' : '1';
@@ -255,20 +313,30 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
         counterEl.textContent = `${currentIndex + 1} / ${imageSrcs.length}`;
     }
 
+    /**
+     * Update lightbox with current image.
+     */
     function updateLightbox() {
         lightboxImage.src = imageSrcs[currentIndex];
         lightboxImage.alt = imageAlts[currentIndex];
         updateUI();
     }
 
+    /**
+     * Close the lightbox and restore body scroll.
+     */
     function closeLightbox() {
         lightbox.classList.remove('active');
         document.body.classList.remove('no-scroll');
     }
 
     // Event listeners with smooth transitions
-    prevBtn.onclick = () => { if (currentIndex > 0) transitionToImage(currentIndex - 1); };
-    nextBtn.onclick = () => { if (currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1); };
+    prevBtn.onclick = () => {
+        if (currentIndex > 0) transitionToImage(currentIndex - 1);
+    };
+    nextBtn.onclick = () => {
+        if (currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+    };
     closeBtn.onclick = closeLightbox;
     overlay.onclick = closeLightbox;
 
@@ -277,11 +345,12 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     });
 
     // Keyboard navigation with transitions
-    const keyHandler = (e) => {
+    const keyHandler = e => {
         if (!lightbox.classList.contains('active')) return;
         if (e.key === 'Escape') closeLightbox();
         if (e.key === 'ArrowLeft' && currentIndex > 0) transitionToImage(currentIndex - 1);
-        if (e.key === 'ArrowRight' && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+        if (e.key === 'ArrowRight' && currentIndex < imageSrcs.length - 1)
+            transitionToImage(currentIndex + 1);
     };
 
     document.removeEventListener('keydown', keyHandler);
@@ -291,11 +360,14 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     let touchStartX = 0;
     const imageContainer = lightbox.querySelector('.lightbox-image-container');
 
-    imageContainer.ontouchstart = (e) => { touchStartX = e.changedTouches[0].screenX; };
-    imageContainer.ontouchend = (e) => {
+    imageContainer.ontouchstart = e => {
+        touchStartX = e.changedTouches[0].screenX;
+    };
+    imageContainer.ontouchend = e => {
         const diff = touchStartX - e.changedTouches[0].screenX;
         if (Math.abs(diff) > 50) {
-            if (diff > 0 && currentIndex < imageSrcs.length - 1) transitionToImage(currentIndex + 1);
+            if (diff > 0 && currentIndex < imageSrcs.length - 1)
+                transitionToImage(currentIndex + 1);
             else if (diff < 0 && currentIndex > 0) transitionToImage(currentIndex - 1);
         }
     };
@@ -306,7 +378,11 @@ function openKitLightbox(imageSrcs, imageAlts, startIndex = 0) {
     document.body.classList.add('no-scroll');
 }
 
-// Kit Journey Scroller - Mobile horizontal scroll with progress tracking
+/**
+ * Initialize the mobile kit journey scroller.
+ * Provides horizontal scroll navigation with progress tracking on mobile devices.
+ * Only activates on screens <= 768px width.
+ */
 function initKitJourneyScroller() {
     const wrapper = document.querySelector('.kits-journey-wrapper');
     const grid = document.querySelector('.kits-grid');
@@ -318,24 +394,30 @@ function initKitJourneyScroller() {
 
     if (!wrapper || !grid || cards.length === 0) return;
 
-    // Kit names for the indicator
+    /** @type {string[]} Kit names for the indicator display */
     const kitNames = [
         'First Gazes',
         'Tummy Time Discovery',
         'Grasp & Spin',
         'Peek & Find',
         'Stack & Sort',
-        'Push & Play'
+        'Push & Play',
     ];
 
-    // Only activate on mobile (matches CSS media query)
+    /**
+     * Check if viewport is mobile size.
+     * @returns {boolean} True if viewport width <= 768px
+     */
     const isMobile = () => window.innerWidth <= 768;
 
     let currentIndex = 0;
     let isScrolling = false;
     let scrollTimeout;
 
-    // Update progress indicator based on scroll position
+    /**
+     * Update progress indicator based on scroll position.
+     * Calculates which card is most centered in the viewport.
+     */
     function updateProgress() {
         if (!isMobile()) return;
 
@@ -344,7 +426,7 @@ function initKitJourneyScroller() {
         const firstCardOffset = cards[0].offsetLeft - grid.offsetLeft;
 
         // Calculate which card is most centered
-        const adjustedScroll = scrollLeft + (grid.offsetWidth / 2) - firstCardOffset;
+        const adjustedScroll = scrollLeft + grid.offsetWidth / 2 - firstCardOffset;
         const newIndex = Math.round(adjustedScroll / cardWidth);
         const clampedIndex = Math.max(0, Math.min(newIndex, cards.length - 1));
 
@@ -354,7 +436,9 @@ function initKitJourneyScroller() {
         }
     }
 
-    // Update all UI elements
+    /**
+     * Update all UI elements (dots, cards, progress bar, kit name).
+     */
     function updateUI() {
         // Update dots
         dots.forEach((dot, index) => {
@@ -386,18 +470,21 @@ function initKitJourneyScroller() {
         if (kitNameEl) kitNameEl.textContent = kitNames[currentIndex] || '';
     }
 
-    // Scroll to specific card
+    /**
+     * Scroll to a specific card with smooth animation.
+     * @param {number} index - Index of the card to scroll to
+     */
     function scrollToCard(index) {
         if (!isMobile() || index < 0 || index >= cards.length) return;
 
         const card = cards[index];
-        const cardCenter = card.offsetLeft + (card.offsetWidth / 2);
+        const cardCenter = card.offsetLeft + card.offsetWidth / 2;
         const gridCenter = grid.offsetWidth / 2;
         const scrollTarget = cardCenter - gridCenter;
 
         grid.scrollTo({
             left: scrollTarget,
-            behavior: 'smooth'
+            behavior: 'smooth',
         });
     }
 
@@ -409,47 +496,59 @@ function initKitJourneyScroller() {
     });
 
     // Scroll event listener with debounce
-    grid.addEventListener('scroll', () => {
-        if (!isMobile()) return;
+    grid.addEventListener(
+        'scroll',
+        () => {
+            if (!isMobile()) return;
 
-        // Debounce the progress update
-        if (!isScrolling) {
-            isScrolling = true;
-            requestAnimationFrame(() => {
+            // Debounce the progress update
+            if (!isScrolling) {
+                isScrolling = true;
+                requestAnimationFrame(() => {
+                    updateProgress();
+                    isScrolling = false;
+                });
+            }
+
+            // Clear existing timeout
+            clearTimeout(scrollTimeout);
+
+            // Final update after scroll ends
+            scrollTimeout = setTimeout(() => {
                 updateProgress();
-                isScrolling = false;
-            });
-        }
-
-        // Clear existing timeout
-        clearTimeout(scrollTimeout);
-
-        // Final update after scroll ends
-        scrollTimeout = setTimeout(() => {
-            updateProgress();
-        }, 100);
-    }, { passive: true });
+            }, 100);
+        },
+        { passive: true }
+    );
 
     // Touch end - snap and update
-    grid.addEventListener('touchend', () => {
-        if (!isMobile()) return;
-        setTimeout(updateProgress, 150);
-    }, { passive: true });
+    grid.addEventListener(
+        'touchend',
+        () => {
+            if (!isMobile()) return;
+            setTimeout(updateProgress, 150);
+        },
+        { passive: true }
+    );
 
     // Window resize handler
     let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (isMobile()) {
-                updateProgress();
-                updateUI();
-            } else {
-                // Reset on desktop
-                cards.forEach(card => card.classList.remove('active'));
-            }
-        }, 200);
-    }, { passive: true });
+    window.addEventListener(
+        'resize',
+        () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => {
+                if (isMobile()) {
+                    updateProgress();
+                    updateUI();
+                } else {
+                    // Reset on desktop
+                    cards.forEach(card => card.classList.remove('active'));
+                }
+            }, 200);
+        },
+        { passive: true }
+    );
 
     // Initial state
     if (isMobile()) {
@@ -462,6 +561,12 @@ function initKitJourneyScroller() {
 // CINEMATIC FINGERPRINT EXPERIENCE
 // Auto-playing loop when visible - "The Living Light Show"
 // ============================================
+
+/**
+ * Initialize the cinematic fingerprint animation experience.
+ * Creates an auto-playing, looping animation that activates when visible in viewport.
+ * Features 4 acts: SCAN, ANALYZE, MAP, PROFILE.
+ */
 function initFingerprintCinema() {
     const fpCinema = document.getElementById('fp-cinema');
     if (!fpCinema) return;
@@ -472,13 +577,15 @@ function initFingerprintCinema() {
     const timelineFill = fpCinema.querySelector('.fp-timeline-fill');
     const dots = fpCinema.querySelectorAll('.fp-dot');
 
-    // Act configuration - timing in ms
-    // Coherent narrative: Scan the fingerprint, Analyze data, Map connections, Complete Profile
+    /**
+     * Act configuration with timing and display text.
+     * @type {Array<{num: string, name: string, desc: string, duration: number}>}
+     */
     const acts = [
         { num: '01', name: 'SCAN', desc: 'Capturing unique patterns', duration: 2200 },
         { num: '02', name: 'ANALYZE', desc: 'Discovering interests', duration: 2500 },
         { num: '03', name: 'MAP', desc: 'Connecting the dots', duration: 2800 },
-        { num: '04', name: 'PROFILE', desc: 'Your curiosity fingerprint', duration: 6000 }
+        { num: '04', name: 'PROFILE', desc: 'Your curiosity fingerprint', duration: 6000 },
     ];
 
     let currentAct = 0;
@@ -486,7 +593,10 @@ function initFingerprintCinema() {
     let animationLoop = null;
     let actTimeout = null;
 
-    // Update the UI for current act
+    /**
+     * Set the current act and update all UI elements.
+     * @param {number} actIndex - Index of the act to display (0-3)
+     */
     function setAct(actIndex) {
         currentAct = actIndex;
         const act = acts[actIndex];
@@ -516,7 +626,10 @@ function initFingerprintCinema() {
         });
     }
 
-    // Advance to next act
+    /**
+     * Advance to the next act in the sequence.
+     * Loops back to act 0 after completing all acts.
+     */
     function nextAct() {
         const nextIndex = (currentAct + 1) % acts.length;
 
@@ -534,7 +647,9 @@ function initFingerprintCinema() {
         }
     }
 
-    // Schedule the next act transition
+    /**
+     * Schedule the next act transition based on current act duration.
+     */
     function scheduleNextAct() {
         if (!isPlaying) return;
 
@@ -542,7 +657,9 @@ function initFingerprintCinema() {
         actTimeout = setTimeout(nextAct, act.duration);
     }
 
-    // Start the cinema loop
+    /**
+     * Start the cinema animation loop.
+     */
     function startCinema() {
         if (isPlaying) return;
 
@@ -554,7 +671,9 @@ function initFingerprintCinema() {
         scheduleNextAct();
     }
 
-    // Stop the cinema loop
+    /**
+     * Stop the cinema animation loop.
+     */
     function stopCinema() {
         isPlaying = false;
         fpCinema.classList.remove('is-playing');
@@ -566,23 +685,26 @@ function initFingerprintCinema() {
     }
 
     // Intersection Observer - play when visible
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
-                startCinema();
-            } else {
-                // Keep playing briefly when scrolling past
-                // Only stop if really out of view
-                if (entry.intersectionRatio < 0.1) {
-                    stopCinema();
+    const observer = new IntersectionObserver(
+        entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && entry.intersectionRatio > 0.3) {
+                    startCinema();
+                } else {
+                    // Keep playing briefly when scrolling past
+                    // Only stop if really out of view
+                    if (entry.intersectionRatio < 0.1) {
+                        stopCinema();
+                    }
                 }
-            }
-        });
-    }, {
-        root: null,
-        rootMargin: '0px',
-        threshold: [0, 0.1, 0.3, 0.5, 0.7, 1]
-    });
+            });
+        },
+        {
+            root: null,
+            rootMargin: '0px',
+            threshold: [0, 0.1, 0.3, 0.5, 0.7, 1],
+        }
+    );
 
     observer.observe(fpCinema);
 
@@ -603,3 +725,63 @@ function initFingerprintCinema() {
     //     if (isPlaying) scheduleNextAct();
     // });
 }
+
+// ============================================
+// EMAIL OBFUSCATION
+// Protects email addresses from bot scraping
+// See SECURITY_DECISIONS.md for details
+// ============================================
+
+/**
+ * Initialize email protection by decoding obfuscated email addresses.
+ * Converts data attributes into clickable mailto links at runtime to prevent bot scraping.
+ *
+ * @example
+ * // Inline email display (creates clickable mailto link)
+ * <span class="protected-email" data-u="contact" data-d="lumicello.com">
+ *   <noscript>contact [at] lumicello [dot] com</noscript>
+ * </span>
+ *
+ * @example
+ * // Email button (opens mailto on click, no visible email)
+ * <button class="protected-email-btn" data-u="contact" data-d="lumicello.com">
+ *   Email Us
+ * </button>
+ */
+function initEmailProtection() {
+    // Handle inline email displays (creates clickable mailto link)
+    document.querySelectorAll('.protected-email').forEach(el => {
+        const u = el.dataset.u; // username part
+        const d = el.dataset.d; // domain part
+        if (!u || !d) return;
+
+        const email = u + '@' + d;
+
+        // Create clickable mailto link
+        const link = document.createElement('a');
+        link.href = 'mailto:' + email;
+        link.textContent = email;
+        link.className = 'email-link';
+
+        // Clear any noscript fallback and add the link
+        el.innerHTML = '';
+        el.appendChild(link);
+    });
+
+    // Handle email buttons (opens mailto on click, no visible email)
+    document.querySelectorAll('.protected-email-btn').forEach(btn => {
+        const u = btn.dataset.u;
+        const d = btn.dataset.d;
+        if (!u || !d) return;
+
+        const email = u + '@' + d;
+
+        btn.addEventListener('click', e => {
+            e.preventDefault();
+            window.location.href = 'mailto:' + email;
+        });
+    });
+}
+
+// Initialize email protection when DOM is ready
+document.addEventListener('DOMContentLoaded', initEmailProtection);

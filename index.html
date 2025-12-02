@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1A2B4C">
     <title>Lumicello - Personalized Learning for Every Child</title>
     <meta name="description" content="Lumicello helps every child discover their unique learning path through curiosity-driven education and hands-on exploration kits.">
 
@@ -13,6 +14,11 @@
     <meta property="og:description" content="Lumicello helps every child discover their unique learning path through curiosity-driven education and hands-on exploration kits.">
     <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
     <meta property="og:site_name" content="Lumicello">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lumicello.com/">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
@@ -30,13 +36,168 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/bc46e65664.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/bc46e65664.js" integrity="sha384-Ndyvb54bOrSvO4TpXhLQp7K9lpIkhNGHhhipHDmRnyedrzDauT9T1ddcMH96pK1a" crossorigin="anonymous"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
     <link rel="icon" href="svg_favicon.svg" type="image/svg+xml">
     <link rel="icon" href="favicon.ico" sizes="48x48">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Structured Data: Organization -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Lumicello",
+        "description": "Personalized learning platform for children that helps parents discover their child's unique learning path through curiosity-driven education and hands-on exploration kits.",
+        "url": "https://lumicello.com",
+        "logo": "https://lumicello.com/assets/images/lumicello_logo.webp",
+        "sameAs": [
+            "https://web.facebook.com/LumicelloCompany/",
+            "https://web.facebook.com/share/g/1ByigscXwU/",
+            "https://lin.ee/eH1GxA5"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "url": "https://lumicello.com/contact.html"
+        }
+    }
+    </script>
+
+    <!-- Structured Data: Product Collection (Exploration Kits) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "First Year Collection - Exploration Kits",
+        "description": "Thoughtfully designed exploration kits for babies 0-12 months. Each kit supports key developmental milestones while nurturing natural curiosity.",
+        "numberOfItems": 6,
+        "itemListElement": [
+            {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                    "@type": "Product",
+                    "name": "First Gazes Kit",
+                    "description": "High-contrast black and white cards capture your newborn's developing vision. Paired with a soft comforter for sensory bonding during the earliest weeks.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_0-2.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > Sensory",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "0 months",
+                        "suggestedMaxAge": "2 months"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                    "@type": "Product",
+                    "name": "Tummy Time Discovery Kit",
+                    "description": "A tummy time mirror invites self-discovery while beaded sensory toys encourage reaching and grasping. Making floor time engaging and productive.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_3-4.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > Motor Skills",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "3 months",
+                        "suggestedMaxAge": "4 months"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                    "@type": "Product",
+                    "name": "Grasp & Spin Kit",
+                    "description": "Spinning drums and sensory balls teach cause-and-effect. A baby-safe tissue box satisfies endless pulling curiosity while building hand-eye coordination.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_5-6.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > Exploration",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "5 months",
+                        "suggestedMaxAge": "6 months"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                    "@type": "Product",
+                    "name": "Peek & Find Kit",
+                    "description": "The classic object permanence box introduces a foundational cognitive milestone: understanding that things exist even when hidden. Learning feels like magic.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_7-8.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > Cognitive",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "7 months",
+                        "suggestedMaxAge": "8 months"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                    "@type": "Product",
+                    "name": "Stack & Sort Kit",
+                    "description": "Stacking towers and shape puzzles invite early spatial reasoning. A wooden rattle encourages the pincer grasp that prepares little fingers for fine motor milestones.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_9-10.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > STEM",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "9 months",
+                        "suggestedMaxAge": "10 months"
+                    }
+                }
+            },
+            {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                    "@type": "Product",
+                    "name": "Push & Play Kit",
+                    "description": "As your baby approaches their first birthday, push toys support early mobility. Mirror puzzles and cloth books add cognitive depth to active exploration.",
+                    "image": "https://lumicello.com/assets/images/exploration_kits/box_11-12.webp",
+                    "brand": {
+                        "@type": "Brand",
+                        "name": "Lumicello"
+                    },
+                    "category": "Educational Toys > Baby Development > Milestone",
+                    "audience": {
+                        "@type": "PeopleAudience",
+                        "suggestedMinAge": "11 months",
+                        "suggestedMaxAge": "12 months"
+                    }
+                }
+            }
+        ]
+    }
+    </script>
 </head>
 <body>
     <!-- Announcement Bar -->
