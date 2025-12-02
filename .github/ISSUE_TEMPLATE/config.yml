@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 📖 Documentation
+    url: https://github.com/CommanderCrowCode/lumicello_website/blob/main/.github/ISSUE_LABELS.md
+    about: Learn about our issue labeling system
+  - name: 💬 Questions
+    url: https://github.com/CommanderCrowCode/lumicello_website/discussions
+    about: Ask questions and discuss ideas

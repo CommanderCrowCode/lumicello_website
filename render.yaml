@@ -2,48 +2,61 @@
 # Build script copies only public files to dist/ for security
 # See SECURITY_DECISIONS.md for security header rationale
 
-services:
-  - type: web
-    name: lumicello-website
-    env: static
-    buildCommand: node build.js
-    staticPublishPath: ./dist
-    headers:
-      # Security Headers - See SECURITY_DECISIONS.md for details
-      - path: /*
-        name: X-Frame-Options
-        value: DENY
-      - path: /*
-        name: X-Content-Type-Options
-        value: nosniff
-      - path: /*
-        name: X-XSS-Protection
-        value: "1; mode=block"
-      - path: /*
-        name: Referrer-Policy
-        value: strict-origin-when-cross-origin
-      - path: /*
-        name: Permissions-Policy
-        value: geolocation=(), microphone=(), camera=()
-      - path: /*
-        name: Strict-Transport-Security
-        value: max-age=31536000; includeSubDomains
-      # Content Security Policy
-      # Note: 'unsafe-inline' required for inline styles/scripts until refactored
-      - path: /*
-        name: Content-Security-Policy
-        value: >-
-          default-src 'self';
-          script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://app.kit.com;
-          style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
-          font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
-          img-src 'self' data: https:;
-          connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com;
-          form-action 'self' https://app.kit.com https://formspree.io;
-          frame-ancestors 'none';
-          base-uri 'self';
-          object-src 'none';
-    routes:
-      - type: rewrite
-        source: /*
-        destination: /404.html
+version: "1"
+projects:
+- name: Lumicello
+  environments:
+  - name: Production
+    services:
+    - type: web
+      name: Lumicello Website
+      runtime: static
+      repo: https://github.com/CommanderCrowCode/lumicello_website
+      buildCommand: node build.js
+      staticPublishPath: dist
+      domains:
+      - www.lumicello.com
+      - lumicello.com
+      autoDeployTrigger: commit
+      previews:
+        generation: automatic
+      renderSubdomainPolicy: disabled
+      headers:
+        # Security Headers - See SECURITY_DECISIONS.md for details
+        - path: /*
+          name: X-Frame-Options
+          value: DENY
+        - path: /*
+          name: X-Content-Type-Options
+          value: nosniff
+        - path: /*
+          name: X-XSS-Protection
+          value: "1; mode=block"
+        - path: /*
+          name: Referrer-Policy
+          value: strict-origin-when-cross-origin
+        - path: /*
+          name: Permissions-Policy
+          value: geolocation=(), microphone=(), camera=()
+        - path: /*
+          name: Strict-Transport-Security
+          value: max-age=31536000; includeSubDomains
+        # Content Security Policy
+        # Note: 'unsafe-inline' required for inline styles/scripts until refactored
+        - path: /*
+          name: Content-Security-Policy
+          value: >-
+            default-src 'self';
+            script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://app.kit.com;
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+            font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
+            img-src 'self' data: https:;
+            connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com;
+            form-action 'self' https://app.kit.com https://formspree.io;
+            frame-ancestors 'none';
+            base-uri 'self';
+            object-src 'none';
+      routes:
+        - type: rewrite
+          source: /*
+          destination: /404.html
