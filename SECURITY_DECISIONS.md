@@ -2,7 +2,7 @@
 
 This document captures security choices, design decisions, and troubleshooting guidance for the Lumicello website.
 
-**Last Updated:** 2024-12-01
+**Last Updated:** 2025-12-01
 **Maintained By:** Development Team
 
 ---
@@ -29,7 +29,7 @@ SRI verifies that external scripts haven't been tampered with by checking a cryp
 
 | Resource | Hash (SHA-384) | Generated |
 |----------|----------------|-----------|
-| FontAwesome Kit (bc46e65664) | `Ndyvb54bOrSvO4TpXhLQp7K9lpIkhNGHhhipHDmRnyedrzDauT9T1ddcMH96pK1a` | 2024-12-01 |
+| FontAwesome Kit (bc46e65664) | `Ndyvb54bOrSvO4TpXhLQp7K9lpIkhNGHhhipHDmRnyedrzDauT9T1ddcMH96pK1a` | 2025-12-01 |
 
 ### Files Using SRI
 - `index.html:33`
@@ -489,10 +489,10 @@ An AI-specific guidance file (emerging standard) that provides:
 | 2025-12-01 | Add theme-color meta tag to all pages | Claude |
 | 2025-12-01 | Add code formatting config (.prettierrc, .eslintrc.json) | Claude |
 | 2025-12-01 | Document JSON-LD structured data implementation | Claude |
-| 2024-12-01 | Add canonical URLs and OG locale tags to all pages | Claude |
-| 2024-12-01 | Implement email obfuscation via JavaScript assembly | Claude |
-| 2024-12-01 | Create llms.txt for AI crawler guidance | Claude |
-| 2024-12-01 | Initial security implementation: CSP, SRI, security headers, robots.txt, sitemap.xml | Claude |
+| 2025-12-01 | Add canonical URLs and OG locale tags to all pages | Claude |
+| 2025-12-01 | Implement email obfuscation via JavaScript assembly | Claude |
+| 2025-12-01 | Create llms.txt for AI crawler guidance | Claude |
+| 2025-12-01 | Initial security implementation: CSP, SRI, security headers, robots.txt, sitemap.xml | Claude |
 
 ---
 
