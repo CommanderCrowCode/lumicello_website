@@ -71,7 +71,7 @@ Then update all HTML files with the new hash.
 
 ```
 default-src 'self';
-script-src 'self' 'unsafe-inline' https://kit.fontawesome.com https://app.kit.com;
+script-src 'self' https://kit.fontawesome.com https://app.kit.com;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
 img-src 'self' data: https:;
@@ -87,7 +87,7 @@ object-src 'none';
 | Directive | Value | Why |
 |-----------|-------|-----|
 | `default-src` | `'self'` | Only load resources from our domain by default |
-| `script-src` | `'self' 'unsafe-inline' https://kit.fontawesome.com https://app.kit.com` | Allow our scripts, inline scripts (needed for scroll reveal), FontAwesome, and Kit.com newsletter |
+| `script-src` | `'self' https://kit.fontawesome.com https://app.kit.com` | Allow our scripts (external files only), FontAwesome, and Kit.com newsletter |
 | `style-src` | `'self' 'unsafe-inline' https://fonts.googleapis.com` | Allow our CSS, inline styles (used in pages), Google Fonts |
 | `font-src` | `'self' https://fonts.gstatic.com https://ka-f.fontawesome.com` | Google Fonts and FontAwesome icon fonts |
 | `img-src` | `'self' data: https:` | Our images, data URIs (SVGs), any HTTPS images |
@@ -99,9 +99,10 @@ object-src 'none';
 
 ### Known Limitations
 
-**`'unsafe-inline'` for scripts and styles:**
-- Required because pages have inline `<script>` and `<style>` blocks
-- **Future improvement:** Extract inline code to external files, use nonces or hashes
+**`'unsafe-inline'` for styles only:**
+- Required because pages use inline `<style>` blocks and style attributes
+- Scripts no longer use `'unsafe-inline'` - all JavaScript is in external files (`main.js`, `components.js`)
+- **Future improvement:** Extract inline styles to CSS files, use nonces or hashes
 
 ### Adding New External Resources
 
@@ -486,6 +487,7 @@ An AI-specific guidance file (emerging standard) that provides:
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2025-12-02 | Remove 'unsafe-inline' from script-src CSP; refactor inline scripts to main.js | Claude |
 | 2025-12-01 | Add theme-color meta tag to all pages | Claude |
 | 2025-12-01 | Add code formatting config (.prettierrc, .eslintrc.json) | Claude |
 | 2025-12-01 | Document JSON-LD structured data implementation | Claude |

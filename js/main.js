@@ -785,3 +785,110 @@ function initEmailProtection() {
 
 // Initialize email protection when DOM is ready
 document.addEventListener('DOMContentLoaded', initEmailProtection);
+
+// ============================================
+// SCROLL REVEAL ANIMATION
+// Reveals elements with .reveal and .reveal-stagger classes
+// ============================================
+
+/**
+ * Initialize scroll reveal animations for elements with .reveal and .reveal-stagger classes.
+ * Adds 'visible' class when elements enter viewport.
+ */
+function initScrollReveal() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
+    if (revealElements.length === 0) return;
+
+    const revealOnScroll = () => {
+        revealElements.forEach(el => {
+            const elementTop = el.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+
+            if (elementTop < windowHeight - 100) {
+                el.classList.add('visible');
+            }
+        });
+    };
+
+    window.addEventListener('scroll', revealOnScroll, { passive: true });
+    // Run immediately to reveal elements already in view
+    revealOnScroll();
+}
+
+// Initialize scroll reveal when DOM is ready
+document.addEventListener('DOMContentLoaded', initScrollReveal);
+
+// ============================================
+// SMOOTH SCROLL FOR ANCHOR LINKS
+// ============================================
+
+/**
+ * Initialize smooth scrolling for all anchor links (href starting with #).
+ * Provides smooth scroll behavior when clicking internal navigation links.
+ */
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            // Skip if it's just "#" or empty
+            if (!href || href === '#') return;
+
+            const target = document.querySelector(href);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Initialize smooth scroll when DOM is ready
+document.addEventListener('DOMContentLoaded', initSmoothScroll);
+
+// ============================================
+// SUCCESS MODAL (Contact Form)
+// Shows modal after form submission redirect
+// ============================================
+
+/**
+ * Initialize success modal handling for contact form.
+ * Shows modal when URL contains ?submitted=true parameter.
+ * Provides close functionality via button, overlay click, or Escape key.
+ */
+function initSuccessModal() {
+    const modal = document.getElementById('success-modal');
+    if (!modal) return;
+
+    // Check if form was just submitted
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get('submitted') === 'true') {
+        modal.classList.remove('hidden');
+        // Clean up URL without reloading
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
+
+    // Close modal function
+    window.closeSuccessModal = function() {
+        modal.classList.add('hidden');
+    };
+
+    // Close modal on overlay click
+    modal.addEventListener('click', function(e) {
+        if (e.target === this) {
+            window.closeSuccessModal();
+        }
+    });
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+            window.closeSuccessModal();
+        }
+    });
+}
+
+// Initialize success modal when DOM is ready
+document.addEventListener('DOMContentLoaded', initSuccessModal);
