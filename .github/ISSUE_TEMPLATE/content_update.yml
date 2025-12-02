@@ -1,0 +1,86 @@
+name: Content Update
+description: Update text, images, or copy on the website
+title: "[Content]: "
+labels: ["area: content", "ai-assisted"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this template for copy changes, image updates, or content revisions.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How urgent is this update?
+      options:
+        - Low (cosmetic improvement)
+        - Medium (should update soon)
+        - High (incorrect or outdated information)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: content_type
+    attributes:
+      label: Content Type
+      description: What kind of content needs updating?
+      multiple: true
+      options:
+        - Text/Copy
+        - Images
+        - Links
+        - Metadata (SEO, titles)
+        - Documentation
+    validations:
+      required: true
+
+  - type: textarea
+    id: location
+    attributes:
+      label: Location
+      description: Where on the site is this content?
+      placeholder: |
+        Page: Homepage
+        Section: Hero section
+        File: index.html (line 45)
+    validations:
+      required: true
+
+  - type: textarea
+    id: current
+    attributes:
+      label: Current Content
+      description: What's there now?
+      placeholder: |
+        "Spark curiosity in your child"
+    validations:
+      required: true
+
+  - type: textarea
+    id: new
+    attributes:
+      label: New Content
+      description: What should it say/show instead?
+      placeholder: |
+        "Discover what lights up your child's world"
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason for Change
+      description: Why make this update?
+      placeholder: "More aligned with brand voice, clearer value proposition"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: review
+    attributes:
+      label: Review Required
+      description: Does this need human approval before going live?
+      options:
+        - label: Needs human review (brand voice, messaging, legal)
+        - label: AI can implement directly (typo fix, factual update)

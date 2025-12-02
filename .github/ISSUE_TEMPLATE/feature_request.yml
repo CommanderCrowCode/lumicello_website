@@ -1,0 +1,101 @@
+name: Feature Request
+description: Suggest a new feature or enhancement
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for suggesting an improvement! Help us understand your idea.
+
+  - type: dropdown
+    id: ai_capability
+    attributes:
+      label: AI Capability
+      description: Can AI handle this autonomously?
+      options:
+        - AI-friendly (AI can implement without human input)
+        - AI-assisted (AI can help but needs human review)
+        - Needs-human (requires human decision/creativity)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How important is this feature?
+      options:
+        - Low (nice to have)
+        - Medium (would improve user experience)
+        - High (critical for business goals)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the site?
+      multiple: true
+      options:
+        - Frontend (HTML/CSS/JS)
+        - Design/UX
+        - Content
+        - Performance
+        - Accessibility
+        - Deployment
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem Statement
+      description: What problem does this solve?
+      placeholder: "Users can't easily navigate between kit collections..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      description: How should we solve it?
+      placeholder: "Add a sticky navigation bar on the kits page with category filters..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know when this is done?
+      placeholder: |
+        - [ ] Navigation bar appears on kits page
+        - [ ] Clicking categories filters visible kits
+        - [ ] Active category is highlighted
+        - [ ] Works on mobile (320px+)
+    validations:
+      required: false
+
+  - type: textarea
+    id: design
+    attributes:
+      label: Design References
+      description: Links to examples, mockups, or inspiration
+      placeholder: "Similar to: https://example.com/reference"
+    validations:
+      required: false
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Relevant Files
+      description: Which files will need changes?
+      placeholder: |
+        - index.html (add navigation)
+        - css/style.css (styling)
+        - js/main.js (filtering logic)
+    validations:
+      required: false

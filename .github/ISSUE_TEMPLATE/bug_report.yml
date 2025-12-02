@@ -1,0 +1,97 @@
+name: Bug Report
+description: Report a bug or issue with the website
+title: "[Bug]: "
+labels: ["bug", "ai-friendly"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report this bug! Please fill out the form below.
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      description: How critical is this issue?
+      options:
+        - Low (nice to fix)
+        - Medium (should fix soon)
+        - High (critical, breaks functionality)
+    validations:
+      required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      description: Which part of the site is affected?
+      options:
+        - Frontend (HTML/CSS/JS)
+        - Design/UX
+        - Content
+        - Deployment
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: Clear description of what's broken
+      placeholder: "The newsletter form doesn't submit on mobile Safari..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Go to homepage
+        2. Scroll to newsletter section
+        3. Enter email on iPhone Safari
+        4. Click submit
+        5. Nothing happens
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen instead?
+      placeholder: "Form should submit and redirect to welcome page"
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Device, browser, screen size
+      placeholder: "iPhone 13, Safari 17, 390px width"
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Relevant Files
+      description: Which files are likely involved?
+      placeholder: |
+        - index.html (line 234 - newsletter form)
+        - css/style.css (line 567 - form styles)
+        - js/main.js (form submission handler)
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional
+    attributes:
+      label: Additional Context
+      description: Screenshots, error messages, console logs
+      placeholder: "Console shows: Uncaught TypeError..."
+    validations:
+      required: false
