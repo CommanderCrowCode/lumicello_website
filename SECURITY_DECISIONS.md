@@ -2,7 +2,7 @@
 
 This document captures security choices, design decisions, and troubleshooting guidance for the Lumicello website.
 
-**Last Updated:** 2025-12-01
+**Last Updated:** 2025-12-03
 **Maintained By:** Development Team
 
 ---
@@ -16,7 +16,8 @@ This document captures security choices, design decisions, and troubleshooting g
 5. [SEO Infrastructure](#seo-infrastructure)
 6. [Structured Data (JSON-LD)](#structured-data-json-ld)
 7. [AI Crawler Policy](#ai-crawler-policy)
-8. [Troubleshooting Guide](#troubleshooting-guide)
+8. [Analytics (Umami)](#analytics-umami)
+9. [Troubleshooting Guide](#troubleshooting-guide)
 
 ---
 
@@ -71,11 +72,11 @@ Then update all HTML files with the new hash.
 
 ```
 default-src 'self';
-script-src 'self' https://kit.fontawesome.com https://app.kit.com;
+script-src 'self' https://kit.fontawesome.com https://app.kit.com https://persistence.tail4cfc3f.ts.net;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
 img-src 'self' data: https:;
-connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com;
+connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.tail4cfc3f.ts.net;
 form-action 'self' https://app.kit.com https://formspree.io;
 frame-ancestors 'none';
 base-uri 'self';
@@ -87,11 +88,11 @@ object-src 'none';
 | Directive | Value | Why |
 |-----------|-------|-----|
 | `default-src` | `'self'` | Only load resources from our domain by default |
-| `script-src` | `'self' https://kit.fontawesome.com https://app.kit.com` | Allow our scripts (external files only), FontAwesome, and Kit.com newsletter |
+| `script-src` | `'self' https://kit.fontawesome.com https://app.kit.com https://persistence.tail4cfc3f.ts.net` | Allow our scripts (external files only), FontAwesome, Kit.com newsletter, and Umami analytics |
 | `style-src` | `'self' 'unsafe-inline' https://fonts.googleapis.com` | Allow our CSS, inline styles (used in pages), Google Fonts |
 | `font-src` | `'self' https://fonts.gstatic.com https://ka-f.fontawesome.com` | Google Fonts and FontAwesome icon fonts |
 | `img-src` | `'self' data: https:` | Our images, data URIs (SVGs), any HTTPS images |
-| `connect-src` | `'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com` | AJAX/fetch to newsletter and contact form services |
+| `connect-src` | `'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.tail4cfc3f.ts.net` | AJAX/fetch to newsletter, contact form, and analytics services |
 | `form-action` | `'self' https://app.kit.com https://formspree.io` | Forms can only submit to these destinations |
 | `frame-ancestors` | `'none'` | Prevent site from being embedded in iframes (clickjacking protection) |
 | `base-uri` | `'self'` | Prevent base tag injection |
@@ -425,6 +426,82 @@ An AI-specific guidance file (emerging standard) that provides:
 
 ---
 
+## Analytics (Umami)
+
+### What It Does
+
+Umami is a privacy-focused, open-source web analytics platform. We use a self-hosted instance to track website usage without cookies or personal data collection.
+
+### Current Implementation
+
+**Umami Instance:** Self-hosted via Tailscale Funnel
+
+| Setting | Value |
+|---------|-------|
+| Script URL | `https://persistence.tail4cfc3f.ts.net/script.js` |
+| Website ID | `dd17445d-a227-413a-bcca-4c5b8f31b8cf` |
+| Dashboard | `https://persistence.tail4cfc3f.ts.net` (internal access) |
+
+**Script added to all pages:**
+```html
+<script
+    defer
+    src="https://persistence.tail4cfc3f.ts.net/script.js"
+    data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
+></script>
+```
+
+### Files with Analytics Script
+
+All 7 HTML files include the Umami script:
+- `index.html`
+- `contact.html`
+- `coming-soon.html`
+- `privacy.html`
+- `terms.html`
+- `welcome.html`
+- `404.html`
+
+### Privacy Benefits
+
+- **No cookies** - GDPR/CCPA compliant without consent banners
+- **No personal data** - Only page views, referrers, and device info
+- **Self-hosted** - Data stays on our infrastructure
+- **Lightweight** - Script is ~2KB, minimal performance impact
+
+### Infrastructure Note
+
+> **⚠️ Current Setup: Tailscale Funnel**
+>
+> The Umami instance is currently exposed to the public internet via [Tailscale Funnel](https://tailscale.com/kb/1223/funnel).
+> This configuration may change in the future.
+>
+> **If migrating to a different hosting solution:**
+> 1. Update the script URL in all 7 HTML files
+> 2. Update CSP in `render.yaml` (script-src and connect-src)
+> 3. Update this documentation
+> 4. Verify analytics continue working after deployment
+
+### CSP Requirements
+
+The following CSP directives were added for Umami:
+
+| Directive | Domain Added | Purpose |
+|-----------|--------------|---------|
+| `script-src` | `https://persistence.tail4cfc3f.ts.net` | Load tracking script |
+| `connect-src` | `https://persistence.tail4cfc3f.ts.net` | Send analytics data |
+
+### Verification
+
+After deployment, verify analytics are working:
+
+1. Visit lumicello.com
+2. Open browser DevTools → Network tab
+3. Filter by "script.js" - should load from `persistence.tail4cfc3f.ts.net`
+4. Check Umami dashboard for new page views
+
+---
+
 ## Troubleshooting Guide
 
 ### FontAwesome Icons Not Loading
@@ -487,6 +564,7 @@ An AI-specific guidance file (emerging standard) that provides:
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2025-12-03 | Add Umami Analytics (self-hosted via Tailscale Funnel); update CSP for analytics | Claude |
 | 2025-12-02 | Remove 'unsafe-inline' from script-src CSP; refactor inline scripts to main.js | Claude |
 | 2025-12-01 | Add theme-color meta tag to all pages | Claude |
 | 2025-12-01 | Add code formatting config (.prettierrc, .eslintrc.json) | Claude |

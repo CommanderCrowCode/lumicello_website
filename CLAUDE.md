@@ -189,6 +189,45 @@ Config files: `.prettierrc`, `.eslintrc.json`
 
 Reference sites: Headspace (approachable), Adaline (scientific/premium), Poketo (grid layouts)
 
+## Security Requirements
+
+### Before Committing Changes
+
+**IMPORTANT:** Before committing any work, verify security implications:
+
+1. **Adding/Updating External Scripts**
+   - Check if CSP (`render.yaml`) needs updating for new domains
+   - Add domains to `script-src` (for loading scripts) and `connect-src` (for data transmission)
+   - Document the change in `SECURITY_DECISIONS.md`
+
+2. **Adding New Third-Party Services**
+   - Identify all required CSP directives (check browser console for violations)
+   - Update `render.yaml` with minimum necessary permissions
+   - Add service documentation to this file and `SECURITY_DECISIONS.md`
+
+3. **Security Documentation**
+   - Any security-related changes MUST be reflected in `SECURITY_DECISIONS.md`
+   - Update the Change Log at the bottom of that file
+   - Update the "Last Updated" date
+
+### Key Security Files
+
+| File | Purpose |
+|------|---------|
+| `render.yaml` | CSP headers, security headers, deployment config |
+| `SECURITY_DECISIONS.md` | Security rationale, troubleshooting, change log |
+
+### Quick CSP Reference
+
+When adding a new external script:
+```yaml
+# In render.yaml, add domain to these directives:
+script-src: https://new-domain.com    # If loading JavaScript
+connect-src: https://new-domain.com   # If sending/receiving data
+font-src: https://new-domain.com      # If loading fonts
+img-src: https://new-domain.com       # If loading images
+```
+
 ## Deployment
 
 ### Render.com Static Site

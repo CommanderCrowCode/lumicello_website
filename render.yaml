@@ -47,11 +47,11 @@ projects:
           name: Content-Security-Policy
           value: >-
             default-src 'self';
-            script-src 'self' https://kit.fontawesome.com https://app.kit.com;
+            script-src 'self' https://kit.fontawesome.com https://app.kit.com https://persistence.tail4cfc3f.ts.net;
             style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
             font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
             img-src 'self' data: https:;
-            connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com;
+            connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.tail4cfc3f.ts.net;
             form-action 'self' https://app.kit.com https://formspree.io;
             frame-ancestors 'none';
             base-uri 'self';
