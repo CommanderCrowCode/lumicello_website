@@ -2,7 +2,7 @@
 
 This document captures security choices, design decisions, and troubleshooting guidance for the Lumicello website.
 
-**Last Updated:** 2025-12-03
+**Last Updated:** 2025-12-13
 **Maintained By:** Development Team
 
 ---
@@ -564,6 +564,7 @@ After deployment, verify analytics are working:
 
 | Date | Change | Author |
 |------|--------|--------|
+| 2025-12-13 | Update CSP for new Umami Tailscale domain (taild1c286) | Claude |
 | 2025-12-03 | Add Umami Analytics (self-hosted via Tailscale Funnel); update CSP for analytics | Claude |
 | 2025-12-02 | Remove 'unsafe-inline' from script-src CSP; refactor inline scripts to main.js | Claude |
 | 2025-12-01 | Add theme-color meta tag to all pages | Claude |
