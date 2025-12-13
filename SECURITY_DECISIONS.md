@@ -72,11 +72,11 @@ Then update all HTML files with the new hash.
 
 ```
 default-src 'self';
-script-src 'self' https://kit.fontawesome.com https://app.kit.com https://persistence.tail4cfc3f.ts.net;
+script-src 'self' https://kit.fontawesome.com https://app.kit.com https://persistence.taild1c286.ts.net;
 style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
 font-src 'self' https://fonts.gstatic.com https://ka-f.fontawesome.com;
 img-src 'self' data: https:;
-connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.tail4cfc3f.ts.net;
+connect-src 'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.taild1c286.ts.net;
 form-action 'self' https://app.kit.com https://formspree.io;
 frame-ancestors 'none';
 base-uri 'self';
@@ -88,11 +88,11 @@ object-src 'none';
 | Directive | Value | Why |
 |-----------|-------|-----|
 | `default-src` | `'self'` | Only load resources from our domain by default |
-| `script-src` | `'self' https://kit.fontawesome.com https://app.kit.com https://persistence.tail4cfc3f.ts.net` | Allow our scripts (external files only), FontAwesome, Kit.com newsletter, and Umami analytics |
+| `script-src` | `'self' https://kit.fontawesome.com https://app.kit.com https://persistence.taild1c286.ts.net` | Allow our scripts (external files only), FontAwesome, Kit.com newsletter, and Umami analytics |
 | `style-src` | `'self' 'unsafe-inline' https://fonts.googleapis.com` | Allow our CSS, inline styles (used in pages), Google Fonts |
 | `font-src` | `'self' https://fonts.gstatic.com https://ka-f.fontawesome.com` | Google Fonts and FontAwesome icon fonts |
 | `img-src` | `'self' data: https:` | Our images, data URIs (SVGs), any HTTPS images |
-| `connect-src` | `'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.tail4cfc3f.ts.net` | AJAX/fetch to newsletter, contact form, and analytics services |
+| `connect-src` | `'self' https://app.kit.com https://formspree.io https://ka-f.fontawesome.com https://persistence.taild1c286.ts.net` | AJAX/fetch to newsletter, contact form, and analytics services |
 | `form-action` | `'self' https://app.kit.com https://formspree.io` | Forms can only submit to these destinations |
 | `frame-ancestors` | `'none'` | Prevent site from being embedded in iframes (clickjacking protection) |
 | `base-uri` | `'self'` | Prevent base tag injection |
@@ -438,15 +438,15 @@ Umami is a privacy-focused, open-source web analytics platform. We use a self-ho
 
 | Setting | Value |
 |---------|-------|
-| Script URL | `https://persistence.tail4cfc3f.ts.net/script.js` |
+| Script URL | `https://persistence.taild1c286.ts.net/script.js` |
 | Website ID | `dd17445d-a227-413a-bcca-4c5b8f31b8cf` |
-| Dashboard | `https://persistence.tail4cfc3f.ts.net` (internal access) |
+| Dashboard | `https://persistence.taild1c286.ts.net` (internal access) |
 
 **Script added to all pages:**
 ```html
 <script
     defer
-    src="https://persistence.tail4cfc3f.ts.net/script.js"
+    src="https://persistence.taild1c286.ts.net/script.js"
     data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
 ></script>
 ```
@@ -488,8 +488,8 @@ The following CSP directives were added for Umami:
 
 | Directive | Domain Added | Purpose |
 |-----------|--------------|---------|
-| `script-src` | `https://persistence.tail4cfc3f.ts.net` | Load tracking script |
-| `connect-src` | `https://persistence.tail4cfc3f.ts.net` | Send analytics data |
+| `script-src` | `https://persistence.taild1c286.ts.net` | Load tracking script |
+| `connect-src` | `https://persistence.taild1c286.ts.net` | Send analytics data |
 
 ### Verification
 
@@ -497,7 +497,7 @@ After deployment, verify analytics are working:
 
 1. Visit lumicello.com
 2. Open browser DevTools → Network tab
-3. Filter by "script.js" - should load from `persistence.tail4cfc3f.ts.net`
+3. Filter by "script.js" - should load from `persistence.taild1c286.ts.net`
 4. Check Umami dashboard for new page views
 
 ---
