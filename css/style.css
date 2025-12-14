@@ -526,7 +526,7 @@ a {
 }
 
 .hero h1 span {
-    color: var(--color-accent);
+    color: var(--color-brick);
     font-style: italic;
     position: relative;
 }
@@ -538,7 +538,7 @@ a {
     left: 0;
     right: 0;
     height: 0.15em;
-    background: var(--color-accent);
+    background: var(--color-brick);
     opacity: 0.3;
     border-radius: var(--radius-pill);
 }
