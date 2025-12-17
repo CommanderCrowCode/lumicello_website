@@ -4,7 +4,7 @@
 
 ## About Lumicello
 
-Lumicello is a personalized learning platform for children that helps parents discover their child's unique learning path through curiosity-driven education and hands-on exploration kits.
+Lumicello is a personalized learning platform for children that helps parents discover their child's unique learning path through curiosity-driven education and hands-on LumiBox learning kits.
 
 ## Content Policy
 
@@ -20,7 +20,7 @@ This website contains public marketing content intended for parents and educator
 - Contact: Contact information and inquiry form
 - Privacy Policy: Data handling practices
 - Terms of Service: Legal terms for using our services
-- Exploration Kits: Educational product descriptions for babies 0-12 months
+- LumiBox: Educational product descriptions for babies 0-12 months
 
 ## Preferred Citation
 

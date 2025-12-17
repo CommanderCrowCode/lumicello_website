@@ -73,7 +73,7 @@
 
   * **Task 1 (Scroll Observer):**
       * Create `js/main.js`.
-      * Target the `.kit-card` (Exploration Kits) and `.hero-content` classes.
+      * Target the `.kit-card` (LumiBox) and `.hero-content` classes.
       * Apply the `cubic-bezier(0.2, 0.8, 0.2, 1)` easing defined in specs.
   * **Task 2 (Data Viz Animation):**
       * Target the `curiosity_fingerprint.webp` image.

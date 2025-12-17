@@ -325,14 +325,14 @@ Provides company/brand information:
 
 #### Product Schema (ItemList)
 
-Lists all 6 Exploration Kits with structured product data:
+Lists all 6 LumiBox kits with structured product data:
 
 ```json
 {
     "@context": "https://schema.org",
     "@type": "ItemList",
-    "name": "First Year Collection - Exploration Kits",
-    "description": "Monthly exploration kits for babies 0-12 months",
+    "name": "First Year Collection - LumiBox",
+    "description": "Monthly LumiBox learning kits for babies 0-12 months",
     "numberOfItems": 6,
     "itemListElement": [
         {

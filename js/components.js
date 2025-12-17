@@ -16,7 +16,7 @@ const getHref = anchor => (isHomepage ? anchor : `index.html${anchor}`);
 const NAV_LINKS = [
     { anchor: '#platform', text: 'Platform' },
     { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
-    { anchor: '#kits', text: 'Exploration Kits' },
+    { anchor: '#kits', text: 'LumiBox' },
     { anchor: '#about', text: 'About' },
 ];
 
@@ -25,7 +25,7 @@ const FOOTER_LINKS = {
     product: [
         { anchor: '#platform', text: 'Platform' },
         { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
-        { anchor: '#kits', text: 'Exploration Kits' },
+        { anchor: '#kits', text: 'LumiBox' },
         { href: 'coming-soon.html', text: 'For Educators' },
     ],
     company: [

@@ -15,7 +15,7 @@ Children experience Lumicello through:
 	•	A friendly, curiosity-based learning app
 	•	Personalized learning “quests”
 	•	Exploration paths based on the child’s evolving interests
-	•	Hands-on physical toy kits (“Exploration Kits”) — similar to Lovevery but tuned to each child’s curiosity development
+	•	Hands-on physical toy kits ("LumiBox") — similar to Lovevery but tuned to each child's curiosity development
 
 Lumicello is built for learners, parents, and educators, not just tech-savvy users.
 
@@ -72,7 +72,7 @@ Parents get:
 
 Tone: warm, encouraging, advisory — not technical.
 
-C. Physical Toy Boxes (“Exploration Kits”)
+C. Physical Toy Boxes ("LumiBox")
 
 A new product line, inspired by Lovevery but personalized:
 
@@ -180,7 +180,7 @@ Curiosity Fingerprint™
 	•	Explain in parent-friendly terms
 	•	Visual: constellation/radar chart with floating animation
 
-Exploration Kits (Toy Boxes)
+LumiBox (Toy Boxes)
 	•	3-column grid of physical kits
 	•	"Coming Soon" badges for pre-launch phase
 	•	Kit examples: Nature Explorer, Structural Engineer, Music Maker
@@ -220,7 +220,7 @@ Non-tech audiences must understand the product instantly.
 
 C. Conversion
 	•	Email newsletter signup
-	•	Exploration Kit purchases
+	•	LumiBox purchases
 	•	Social channel follow
 	•	Account creation
 
@@ -241,4 +241,4 @@ E. Accessibility
 
 10. One-Sentence Summary for Designers
 
-Lumicello is a warm, intelligent, personalized learning brand combining a digital curiosity-driven learning platform with physical exploration kits — and the website must feel welcoming to parents, inspiring to children, and structured enough for educators.
+Lumicello is a warm, intelligent, personalized learning brand combining a digital curiosity-driven learning platform with physical LumiBox learning kits — and the website must feel welcoming to parents, inspiring to children, and structured enough for educators.
