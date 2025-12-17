@@ -183,7 +183,7 @@ These items have been fixed in the implementation:
 ## New Features Since Last Assessment
 
 ### The First Year Collection
-A complete redesign of the Exploration Kits section featuring:
+A complete redesign of the LumiBox section featuring:
 - **6 age-specific baby development kits** (0-12 months)
 - **Age badges** on each card (e.g., "0-2 MONTHS")
 - **Taglines** for each kit (e.g., "Where curiosity begins")

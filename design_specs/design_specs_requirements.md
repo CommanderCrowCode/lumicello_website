@@ -8,7 +8,7 @@ Goal: Define the aesthetic, motion, and asset generation strategy.
 * **Core aesthetic:** Soft, fluid, and organic. No sharp 90-degree angles.
 * **The "Adaline" Influence:** Use generous whitespace and sophisticated typography. The site should feel "premium" and "fluid," not childish.
 * **The "Headspace" Influence:** Use approachable colors, rounded shapes, and "breathing" motion.
-* **The "Poketo" Influence:** Use clear, grid-based layouts (Bento grids) for the *Exploration Kits* to make products pop without feeling cluttered.
+* **The "Poketo" Influence:** Use clear, grid-based layouts (Bento grids) for *LumiBox* to make products pop without feeling cluttered.
 
 ## 2. Visual Identity & Color System
 **Rule:** Colors must be AA accessible. Do not use pure black (#000000).
@@ -46,7 +46,7 @@ Instead of hard lines separating sections, use **padding** and **background colo
 * **Spacing:** Generous. Minimum `120px` padding between major sections on desktop.
 
 ### B. The "Bento Grid" (Poketo Style)
-For the *Exploration Kits* section:
+For the *LumiBox* section:
 * Use CSS Grid.
 * Items should look like "Toy Boxes"—contained, colorful, but organized.
 * *Interaction:* On hover, the card should float up slightly (`transform: translateY(-5px)`) with a "breathing" ease.
@@ -68,7 +68,7 @@ Since we have no designer, use these exact prompts in Midjourney/DALL-E to gener
 **A. Hero Image (Abstract/Warm):**
 > *Prompt:* "Abstract 3D shapes representing curiosity and learning, soft round forms, floating in a bright airy space, warm lighting, pastel colors, sage green and soft gold, minimalism, high definition, soft focus, style of Headspace app illustrations, white background --ar 16:9"
 
-**B. Exploration Kit (Product Mockup):**
+**B. LumiBox (Product Mockup):**
 > *Prompt:* "A wooden educational toy set arranged neatly on a pastel beige surface, shot from directly above (knolling), soft natural lighting, high end product photography, colorful geometric shapes, Montessori style, zero clutter --ar 4:3"
 
 **C. "Curiosity Fingerprint" (Data Viz):**

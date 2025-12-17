@@ -19,7 +19,7 @@
 | Logo | Navigate to homepage | `index.html` |
 | Platform | Scroll to Bento Grid section | `#platform` |
 | Curiosity Fingerprint | Scroll to Fingerprint section | `#fingerprint` |
-| Exploration Kits | Scroll to Kits section | `#kits` |
+| LumiBox | Scroll to Kits section | `#kits` |
 | About | Scroll to About section | `#about` |
 | Join Community (button) | Scroll to Community section | `#community` |
 | Mobile hamburger menu | Toggle mobile nav | JS toggle |
@@ -96,7 +96,7 @@ These components are injected into subpages via JavaScript.
 | Logo | Navigate to homepage | `index.html` |
 | Platform | Navigate to homepage section | `index.html#platform` |
 | Curiosity Fingerprint | Navigate to homepage section | `index.html#fingerprint` |
-| Exploration Kits | Navigate to homepage section | `index.html#kits` |
+| LumiBox | Navigate to homepage section | `index.html#kits` |
 | About | Navigate to homepage section | `index.html#about` |
 | Join Community | Navigate to homepage section | `index.html#community` |
 
@@ -125,7 +125,7 @@ These components are injected into subpages via JavaScript.
 | Back to Home | Navigate to homepage | `index.html` |
 | Get Help | Navigate to contact page | `contact.html` |
 | Curiosity Fingerprint (suggestion) | Navigate to fingerprint section | `index.html#fingerprint` |
-| Exploration Kits (suggestion) | Navigate to kits section | `index.html#kits` |
+| LumiBox (suggestion) | Navigate to kits section | `index.html#kits` |
 | Join Community (suggestion) | Navigate to community section | `index.html#community` |
 
 ---

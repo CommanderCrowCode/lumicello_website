@@ -131,7 +131,7 @@ Config files: `.prettierrc`, `.eslintrc.json`
 4. **Bento Grid** - Value props with mixed card sizes (sage background)
 5. **Community Section** - Newsletter form (span 2) + LINE & Facebook cards, dark background
 6. **50/50 Split Section** - Image left, content right
-7. **Exploration Kits** - 6 baby kit cards (First Year Collection, 0-12 months)
+7. **LumiBox** - 6 baby kit cards (First Year Collection, 0-12 months)
 8. **Testimonials** - Single centered quote with author
 9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Facebook)
 

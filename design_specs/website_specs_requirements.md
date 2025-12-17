@@ -86,7 +86,7 @@ Do not use heavy libraries like GSAP unless necessary. Use `IntersectionObserver
 }
 ```
 
-### C. Exploration Kits (Grid Layout)
+### C. LumiBox (Grid Layout)
 
 Use CSS Grid to create the "Poketo" bento-box feel.
 
@@ -117,7 +117,7 @@ Use CSS Grid to create the "Poketo" bento-box feel.
 4.  **Curiosity Fingerprint:**
       * Visual data visualization showing the personalized learning concept.
       * Floating animation for engagement.
-5.  **The Product (Exploration Kits):**
+5.  **The Product (LumiBox):**
       * Grid of physical kits (3-column on desktop).
       * "Coming Soon" badges for pre-launch phase.
 6.  **Social Proof:**
