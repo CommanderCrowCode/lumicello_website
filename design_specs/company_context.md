@@ -7,7 +7,7 @@ Reference: internal brand & messaging document  ￼
 1. What Lumicello Is
 
 Lumicello is a personalized learning platform for children and families.
-It blends expert-led guidance, AI-driven customization, and adaptive pacing to create individualized learning journeys — digital and physical.
+It blends research-backed guidance, AI-driven customization, and adaptive pacing to create individualized learning journeys — digital and physical.
 
 Parents and educators use Lumicello to understand what truly interests a child, track progress, and support them with the right resources at the right time.
 
@@ -25,10 +25,10 @@ Lumicello is built for learners, parents, and educators, not just tech-savvy use
 
 Lumicello is built around three beliefs:
 
-1) Expert-Led
+1) Research-Backed
 
 Technology amplifies teacher wisdom, not replaces it.
-Parents and educators get insight into each child’s unique learning pattern so they can guide them better.
+Parents and educators get insight into each child's unique learning pattern so they can guide them better.
 
 2) Customized
 
@@ -173,7 +173,7 @@ Community Section (immediately after Hero)
 	•	Prioritizes community building and early engagement
 
 Value Props
-	•	3 cards: "Expert-Led," "Customized," "Right Pace"
+	•	3 cards: "Research-Backed," "Customized," "Right Pace"
 	•	Icons: Soft, colorful SVG icons
 
 Curiosity Fingerprint™

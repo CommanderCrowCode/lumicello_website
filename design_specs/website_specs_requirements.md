@@ -112,7 +112,7 @@ Use CSS Grid to create the "Poketo" bento-box feel.
       * Newsletter signup form (Name + Email).
       * Placed immediately after Hero to prioritize community building.
 3.  **Value Prop (The "Headspace" Cards):**
-      * 3 cards horizontally: "Expert-Led," "Customized," "Right Pace."
+      * 3 cards horizontally: "Research-Backed," "Customized," "Right Pace."
       * Icons: Soft, colorful SVG icons.
 4.  **Curiosity Fingerprint:**
       * Visual data visualization showing the personalized learning concept.
