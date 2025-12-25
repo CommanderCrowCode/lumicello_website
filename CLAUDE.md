@@ -231,9 +231,23 @@ img-src: https://new-domain.com       # If loading images
 ## Deployment
 
 ### Render.com Static Site
-- **Build Command:** (empty - pure static)
-- **Publish Directory:** `./` (root)
+- **Build Command:** `node build.js`
+- **Publish Directory:** `dist`
 - **Entry Point:** `index.html`
+
+### Adding New HTML Pages
+
+**IMPORTANT:** When creating a new HTML page, you MUST add it to the `PUBLIC_FILES` array in `build.js`. The build uses a whitelist approach - only files explicitly listed get deployed. If you forget this step, the page will return 404 in production.
+
+```javascript
+// In build.js, add your new page to this array:
+const PUBLIC_FILES = [
+    'index.html',
+    'contact.html',
+    // ... add your new page here
+    'your-new-page.html',
+];
+```
 
 ### Pre-deployment Checklist
 - [ ] Verify all images load (webp format)
