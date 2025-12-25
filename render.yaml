@@ -22,9 +22,9 @@ projects:
         generation: automatic
       renderSubdomainPolicy: disabled
       routes:
-        - type: rewrite
+        - type: redirect
           source: /voucher-terms
-          destination: /voucher-terms.html
+          destination: /voucher-terms/
       headers:
         # Security Headers - See SECURITY_DECISIONS.md for details
         - path: /*
