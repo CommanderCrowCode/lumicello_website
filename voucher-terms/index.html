@@ -2,6 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- Normalize URL to trailing slash (runs immediately before assets load) -->
+    <script>
+    if (!window.location.pathname.endsWith('/')) {
+        window.location.replace(window.location.pathname + '/' + window.location.search + window.location.hash);
+    }
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#1A2B4C">
     <title>Voucher Terms & Conditions | Lumicello</title>
@@ -10,7 +16,7 @@
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://lumicello.com/voucher-terms">
+    <meta property="og:url" content="https://lumicello.com/voucher-terms/">
     <meta property="og:title" content="Voucher Terms & Conditions | Lumicello">
     <meta property="og:description" content="Terms and conditions for Lumicello vouchers and promotional codes.">
     <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
@@ -19,7 +25,7 @@
     <meta property="og:locale:alternate" content="th_TH">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://lumicello.com/voucher-terms">
+    <link rel="canonical" href="https://lumicello.com/voucher-terms/">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary">
