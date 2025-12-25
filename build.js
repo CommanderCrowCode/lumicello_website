@@ -36,7 +36,8 @@ const PUBLIC_FILES = [
 const PUBLIC_FOLDERS = [
     'css',
     'js',
-    'assets'
+    'assets',
+    'voucher-terms'
 ];
 
 /**
@@ -97,18 +98,6 @@ function build() {
             console.log(`   ✓ ${folder}/`);
         } else {
             console.log(`   ⚠ ${folder}/ (not found, skipping)`);
-        }
-    }
-
-    // Create clean URL files (extensionless copies for paths like /voucher-terms)
-    console.log('\n🔗 Creating clean URL files...');
-    const cleanUrls = [
-        { source: 'voucher-terms/index.html', dest: 'voucher-terms' }
-    ];
-    for (const { source, dest } of cleanUrls) {
-        if (fs.existsSync(source)) {
-            fs.copyFileSync(source, path.join(DIST_DIR, dest));
-            console.log(`   ✓ /${dest}`);
         }
     }
 
