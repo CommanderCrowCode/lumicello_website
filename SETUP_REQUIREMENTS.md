@@ -157,9 +157,18 @@ index.html
 contact.html
 privacy.html
 terms.html
+voucher-terms.html
 404.html
 coming-soon.html
+welcome.html
+robots.txt
+sitemap.xml
+llms.txt
 favicon.ico
+favicon.png
+favicon-192.png
+apple-touch-icon.png
+svg_favicon.svg
 ```
 
 **Folders Included:**
@@ -217,8 +226,10 @@ lumicello_website/
 ├── contact.html            # Contact page with Formspree form
 ├── privacy.html            # Privacy Policy
 ├── terms.html              # Terms of Service
+├── voucher-terms.html      # Voucher T&C (unlisted)
 ├── 404.html                # Custom 404 page
 ├── coming-soon.html        # Coming Soon page (For Educators)
+├── welcome.html            # Newsletter confirmation page
 ├── favicon.ico             # Site favicon
 ├── css/
 │   ├── variables.css       # Design tokens
