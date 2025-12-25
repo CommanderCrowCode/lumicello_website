@@ -36,7 +36,8 @@ const PUBLIC_FILES = [
 const PUBLIC_FOLDERS = [
     'css',
     'js',
-    'assets'
+    'assets',
+    'voucher-terms'
 ];
 
 /**
