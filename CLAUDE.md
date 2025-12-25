@@ -235,6 +235,22 @@ img-src: https://new-domain.com       # If loading images
 - **Publish Directory:** `dist`
 - **Entry Point:** `index.html`
 
+### Render.com Limitations & Trade-offs
+
+**Trailing Slash Handling:** Render.com doesn't natively support configurable trailing slash redirects for static sites. For folder-based clean URLs (e.g., `/voucher-terms/`), we use a client-side JavaScript redirect in the HTML `<head>` to normalize URLs.
+
+| URL Pattern | Latency |
+|-------------|---------|
+| `/voucher-terms/` (with slash) | 0ms - no redirect needed |
+| `/voucher-terms` (without slash) | +50-200ms - JS redirect triggers page reload |
+
+**Self-hosting alternative:** If migrated to Nginx, Apache, or Caddy, server-side `try_files` rules can handle this with zero latency. Example Nginx config:
+```nginx
+location / {
+    try_files $uri $uri/ $uri/index.html $uri.html =404;
+}
+```
+
 ### Adding New HTML Pages
 
 **IMPORTANT:** When creating a new HTML page, you MUST add it to the `PUBLIC_FILES` array in `build.js`. The build uses a whitelist approach - only files explicitly listed get deployed. If you forget this step, the page will return 404 in production.
