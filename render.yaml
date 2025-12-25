@@ -21,10 +21,6 @@ projects:
       previews:
         generation: automatic
       renderSubdomainPolicy: disabled
-      routes:
-        - type: redirect
-          source: /voucher-terms
-          destination: /voucher-terms/
       headers:
         # Security Headers - See SECURITY_DECISIONS.md for details
         - path: /*

@@ -19,6 +19,7 @@ const PUBLIC_FILES = [
     'contact.html',
     'privacy.html',
     'terms.html',
+    'voucher-terms.html',
     '404.html',
     'coming-soon.html',
     'welcome.html',
