@@ -19,7 +19,6 @@ const PUBLIC_FILES = [
     'contact.html',
     'privacy.html',
     'terms.html',
-    'voucher-terms.html',
     '404.html',
     'coming-soon.html',
     'welcome.html',
@@ -36,8 +35,7 @@ const PUBLIC_FILES = [
 const PUBLIC_FOLDERS = [
     'css',
     'js',
-    'assets',
-    'voucher-terms'
+    'assets'
 ];
 
 /**
@@ -99,6 +97,16 @@ function build() {
         } else {
             console.log(`   ⚠ ${folder}/ (not found, skipping)`);
         }
+    }
+
+    // Create extensionless voucher-terms file for clean URL support
+    // This allows /voucher-terms to work (with Content-Type header in render.yaml)
+    console.log('\n📝 Creating clean URL files...');
+    const voucherTermsSource = 'voucher-terms/index.html';
+    const voucherTermsDest = path.join(DIST_DIR, 'voucher-terms');
+    if (fs.existsSync(voucherTermsSource)) {
+        fs.copyFileSync(voucherTermsSource, voucherTermsDest);
+        console.log('   ✓ voucher-terms (extensionless file for clean URL)');
     }
 
     // Summary

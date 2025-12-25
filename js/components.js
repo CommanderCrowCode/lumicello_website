@@ -10,7 +10,8 @@ const isHomepage =
     window.location.pathname === '';
 
 // Helper to get correct href based on current page
-const getHref = anchor => (isHomepage ? anchor : `index.html${anchor}`);
+// Use absolute paths to work from any subdirectory (e.g., /voucher-terms/)
+const getHref = anchor => (isHomepage ? anchor : `/${anchor}`);
 
 // Configuration for navigation links
 const NAV_LINKS = [
@@ -64,8 +65,8 @@ function generateNavigation() {
     return `
     <nav class="nav-wrapper">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+            <a href="/" class="logo">
+                <img src="/assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
             </a>
 
             <ul class="nav-links">
@@ -108,8 +109,8 @@ function generateFooter() {
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+                    <a href="/" class="logo">
+                        <img src="/assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
                     </a>
                     <p class="footer-tagline">Every child has a light inside. We help it shine.</p>
                 </div>

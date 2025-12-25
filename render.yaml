@@ -23,9 +23,13 @@ projects:
       renderSubdomainPolicy: disabled
       routes:
         - type: redirect
-          source: /voucher-terms
-          destination: /voucher-terms/
+          source: /voucher-terms/
+          destination: /voucher-terms
       headers:
+        # Content-Type for extensionless voucher-terms file
+        - path: /voucher-terms
+          name: Content-Type
+          value: text/html; charset=utf-8
         # Security Headers - See SECURITY_DECISIONS.md for details
         - path: /*
           name: X-Frame-Options
