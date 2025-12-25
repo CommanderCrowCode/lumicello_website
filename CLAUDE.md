@@ -249,6 +249,20 @@ const PUBLIC_FILES = [
 ];
 ```
 
+### Render.yaml Routes Warning
+
+**DO NOT** add catch-all rewrite rules to `render.yaml`. This will break static file serving:
+
+```yaml
+# ❌ WRONG - This breaks everything
+routes:
+  - type: rewrite
+    source: /*
+    destination: /404.html
+```
+
+Render automatically serves `404.html` for missing files on static sites. No custom route is needed.
+
 ### Pre-deployment Checklist
 - [ ] Verify all images load (webp format)
 - [ ] Test newsletter form submission
