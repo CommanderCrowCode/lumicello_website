@@ -26,6 +26,9 @@ projects:
           source: /voucher-terms
           destination: /voucher-terms/
       headers:
+        - path: /voucher-terms
+          name: Content-Type
+          value: text/html
         # Security Headers - See SECURITY_DECISIONS.md for details
         - path: /*
           name: X-Frame-Options

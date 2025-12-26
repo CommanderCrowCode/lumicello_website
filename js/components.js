@@ -10,7 +10,9 @@ const isHomepage =
     window.location.pathname === '';
 
 // Helper to get correct href based on current page
-const getHref = anchor => (isHomepage ? anchor : `index.html${anchor}`);
+const getHref = anchor => (isHomepage ? anchor : `/${anchor}`);
+
+const getAbsoluteHref = href => (href.startsWith('/') ? href : `/${href}`);
 
 // Configuration for navigation links
 const NAV_LINKS = [
@@ -64,8 +66,8 @@ function generateNavigation() {
     return `
     <nav class="nav-wrapper">
         <div class="nav-container">
-            <a href="index.html" class="logo">
-                <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+            <a href="/" class="logo">
+                <img src="/assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
             </a>
 
             <ul class="nav-links">
@@ -92,7 +94,7 @@ function generateNavigation() {
 function generateFooterLinks(links) {
     return links
         .map(link => {
-            const href = link.anchor ? getHref(link.anchor) : link.href;
+            const href = link.anchor ? getHref(link.anchor) : getAbsoluteHref(link.href);
             return `<li><a href="${href}">${link.text}</a></li>`;
         })
         .join('\n                        ');
@@ -108,8 +110,8 @@ function generateFooter() {
         <div class="footer-container">
             <div class="footer-grid">
                 <div class="footer-brand">
-                    <a href="index.html" class="logo">
-                        <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+                    <a href="/" class="logo">
+                        <img src="/assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
                     </a>
                     <p class="footer-tagline">Every child has a light inside. We help it shine.</p>
                 </div>

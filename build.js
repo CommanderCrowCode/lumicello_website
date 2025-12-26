@@ -19,13 +19,13 @@ const PUBLIC_FILES = [
     'contact.html',
     'privacy.html',
     'terms.html',
-    'voucher-terms.html',
     '404.html',
     'coming-soon.html',
     'welcome.html',
     'robots.txt',
     'sitemap.xml',
     'llms.txt',
+    '_redirects',
     'favicon.ico',
     'favicon.png',
     'favicon-192.png',
@@ -99,6 +99,16 @@ function build() {
         } else {
             console.log(`   ⚠ ${folder}/ (not found, skipping)`);
         }
+    }
+
+    // Create extensionless voucher terms route for /voucher-terms
+    const voucherTermsIndex = path.join('voucher-terms', 'index.html');
+    const voucherTermsRoute = path.join(DIST_DIR, 'voucher-terms');
+    if (fs.existsSync(voucherTermsIndex)) {
+        fs.copyFileSync(voucherTermsIndex, voucherTermsRoute);
+        console.log('   ✓ voucher-terms (extensionless route)');
+    } else {
+        console.log('   ⚠ voucher-terms/index.html (not found, skipping extensionless route)');
     }
 
     // Summary
