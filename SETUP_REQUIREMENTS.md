@@ -85,12 +85,7 @@ This document tracks all external integrations, deployment configuration, and se
 | Platform | Status | URL | Use For |
 |----------|--------|-----|---------|
 | LINE Official Account | [x] Done | `https://lin.ee/eH1GxA5` | All LINE links |
-| Facebook Group | [x] Done | `https://web.facebook.com/share/g/1ByigscXwU/` | Community section, engagement CTAs |
-| Facebook Page | [x] Done | `https://web.facebook.com/LumicelloCompany/` | Footer, Contact page, Support |
-
-### Important: Facebook Group vs Page
-- **Facebook Group** - For community engagement, content sharing, parent discussions
-- **Facebook Page** - For official company presence, customer support, complaints
+| Instagram | [x] Done | `https://www.instagram.com/lumicello.th` | Community section, Footer, Contact page |
 
 ---
 
@@ -256,7 +251,6 @@ lumicello_website/
 | Service | Status | ID |
 |---------|--------|-----|
 | Google Analytics 4 | [ ] Pending | G-XXXXXXXXXX |
-| Facebook Pixel | [ ] Pending | |
 | LINE Tag | [ ] Pending | |
 
 ---

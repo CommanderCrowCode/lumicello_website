@@ -129,11 +129,11 @@ Config files: `.prettierrc`, `.eslintrc.json`
 2. **Navigation** - Sticky navbar with logo image, nav-links, mobile toggle
 3. **Hero** - 2-column grid with badge, h1, floating card, decorations
 4. **Bento Grid** - Value props with mixed card sizes (sage background)
-5. **Community Section** - Newsletter form (span 2) + LINE & Facebook cards, dark background
+5. **Community Section** - Newsletter form (span 2) + LINE & Instagram cards, dark background
 6. **50/50 Split Section** - Image left, content right
 7. **LumiBox** - 6 baby kit cards (First Year Collection, 0-12 months)
 8. **Testimonials** - Single centered quote with author
-9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Facebook)
+9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Instagram)
 
 ## Third-Party Services (SaaS)
 
@@ -158,12 +158,7 @@ Config files: `.prettierrc`, `.eslintrc.json`
 
 ### Social Links
 - LINE Official: `https://lin.ee/eH1GxA5`
-
-**Facebook (two separate links):**
-- **Facebook Group** (community/engagement): `https://web.facebook.com/share/g/1ByigscXwU/`
-  - Use for: Community section, content sharing, engagement CTAs
-- **Facebook Page** (company/support): `https://web.facebook.com/LumicelloCompany/`
-  - Use for: Footer, Contact page, customer support, complaints
+- Instagram: `https://www.instagram.com/lumicello.th`
 
 ### Formspree Contact Form
 - Form ID: `xzznrzdb`

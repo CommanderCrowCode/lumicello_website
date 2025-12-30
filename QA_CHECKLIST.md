@@ -2,12 +2,12 @@
 
 > **Note:** This document is for internal QA purposes only and should not be deployed to production.
 
-## Quick Reference: Facebook Links Policy
+## Quick Reference: Social Links
 
 | Link Type | URL | Use For |
 |-----------|-----|---------|
-| **Facebook Group** | `https://web.facebook.com/share/g/1ByigscXwU/` | Community, engagement, content sharing |
-| **Facebook Page** | `https://web.facebook.com/LumicelloCompany/` | Footer, Contact, Support, Legal pages |
+| **LINE** | `https://lin.ee/eH1GxA5` | Official LINE account |
+| **Instagram** | `https://www.instagram.com/lumicello.th` | Community, engagement, all social CTAs |
 
 ---
 
@@ -36,7 +36,7 @@
 | Newsletter form | Submit to Kit.com | `https://app.kit.com/forms/8398985/subscriptions` |
 | Newsletter fields | Collect name + email | `fields[first_name]`, `email_address` |
 | LINE Card (entire card clickable) | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook Card (entire card clickable) | Open Facebook **GROUP** | `https://web.facebook.com/share/g/1ByigscXwU/` _(new tab)_ |
+| Instagram Card (entire card clickable) | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 
 ### Footer (Homepage)
 | Element | Expected Behavior | Link/Action |
@@ -46,7 +46,7 @@
 | For Educators | Coming Soon page | `coming-soon.html` |
 | Company links | Various | See footer section below |
 | Support links | Various | See footer section below |
-| Facebook icon | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
+| Instagram icon | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 | LINE icon | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 
 ---
@@ -57,7 +57,7 @@
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE Card | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook Card | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
+| Instagram Card | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 | Email link | Open mail client | `mailto:contact@lumicello.com` |
 
 ### Contact Form (Formspree)
@@ -76,13 +76,13 @@
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE link | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook link | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
+| Instagram link | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 
 ### Privacy Policy (`privacy.html`)
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | LINE link | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
-| Facebook link | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
+| Instagram link | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 
 ---
 
@@ -104,7 +104,7 @@ These components are injected into subpages via JavaScript.
 | Element | Expected Behavior | Link/Action |
 |---------|-------------------|-------------|
 | Logo | Navigate to homepage | `index.html` |
-| Facebook icon | Open Facebook **PAGE** | `https://web.facebook.com/LumicelloCompany/` _(new tab)_ |
+| Instagram icon | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
 | LINE icon | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
 
 ---
@@ -168,8 +168,7 @@ All external links should:
 | URL | Expected Destination |
 |-----|---------------------|
 | `https://lin.ee/eH1GxA5` | LINE Official Account add friend page |
-| `https://web.facebook.com/share/g/1ByigscXwU/` | Lumicello Parents Global Facebook Group |
-| `https://web.facebook.com/LumicelloCompany/` | Lumicello Facebook Company Page |
+| `https://www.instagram.com/lumicello.th` | Lumicello Instagram profile |
 | `https://app.kit.com/forms/8398985/subscriptions` | Kit.com newsletter subscription |
 
 ---
@@ -187,7 +186,7 @@ All external links should:
 
 ## Notes for QA Team
 
-1. **Facebook Group vs Page**: This is critical. Community/engagement CTAs go to the Group. Support/contact links go to the Page.
+1. **Instagram**: All Instagram links should go to @lumicello.th profile.
 
 2. **LINE links**: All LINE links should go to the same Official Account.
 

@@ -168,7 +168,7 @@ Hero Section
 	•	Primary CTA: "Join our Community"
 
 Community Section (immediately after Hero)
-	•	Social links (Line, Facebook) as prominent cards
+	•	Social links (Line, Instagram) as prominent cards
 	•	Newsletter signup form with Name + Email
 	•	Prioritizes community building and early engagement
 
