@@ -95,7 +95,7 @@ These items have been fixed in the implementation:
 
 ### 12. Footer Social Links Added
 - **Previous Issue:** Social links only in sticky sidebar and Community section
-- **Fix:** Footer now has "Connect" section with Line and Facebook icons
+- **Fix:** Footer now has "Connect" section with Line and Instagram icons
 - **Location:** `index.html:299-307`
 
 ### 13. Kits Section Redesigned
@@ -168,7 +168,7 @@ These items have been fixed in the implementation:
 | Image Format | Compliant | All images in .webp format |
 | Accessibility | Compliant | lang="en", Thai font loaded, semantic HTML |
 | Testimonial Carousel | Compliant | 3 quotes with dot navigation (but has JS bug) |
-| Footer Social Links | Compliant | Connect section with Line and Facebook |
+| Footer Social Links | Compliant | Connect section with Line and Instagram |
 
 ### Areas Needing Attention
 
@@ -198,7 +198,7 @@ A complete redesign of the LumiBox section featuring:
 
 ### Footer Enhancements
 - **New "Connect" column** with social media icons
-- **Line and Facebook** links with FontAwesome icons
+- **Line and Instagram** links with FontAwesome icons
 - **3-column grid** layout (Lumicello | Explore | Connect)
 
 ---

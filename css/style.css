@@ -2087,8 +2087,8 @@ a {
     background: var(--color-line);
 }
 
-.community-icon-facebook {
-    background: var(--color-facebook);
+.community-icon-instagram {
+    background: var(--color-instagram);
 }
 
 .community-card h3 {
@@ -2165,8 +2165,8 @@ a.community-card-link {
     color: white;
 }
 
-.social-link-facebook:hover {
-    background: var(--color-facebook);
+.social-link-instagram:hover {
+    background: var(--color-instagram);
     color: white;
 }
 
@@ -3991,33 +3991,33 @@ a.community-card-link {
     background: rgba(255, 255, 255, 0.9);
 }
 
-.contact-card.facebook {
-    background: var(--color-facebook);
+.contact-card.instagram {
+    background: var(--color-instagram);
     color: white;
 }
 
-.contact-card.facebook .contact-card-title {
+.contact-card.instagram .contact-card-title {
     color: white;
 }
 
-.contact-card.facebook .contact-card-text {
+.contact-card.instagram .contact-card-text {
     color: rgba(255, 255, 255, 0.85);
 }
 
-.contact-card.facebook .contact-icon {
+.contact-card.instagram .contact-icon {
     background: rgba(255, 255, 255, 0.15);
 }
 
-.contact-card.facebook .contact-icon svg {
+.contact-card.instagram .contact-icon svg {
     color: white;
 }
 
-.contact-card.facebook .contact-card-link {
+.contact-card.instagram .contact-card-link {
     background: white;
-    color: var(--color-facebook);
+    color: var(--color-instagram);
 }
 
-.contact-card.facebook .contact-card-link:hover {
+.contact-card.instagram .contact-card-link:hover {
     background: rgba(255, 255, 255, 0.9);
 }
 
@@ -4262,9 +4262,9 @@ a.community-card-link {
 }
 
 .faq-answer a {
-    color: var(--color-facebook);
+    color: var(--color-instagram);
     font-weight: 600;
-    background: rgba(24, 119, 242, 0.1);
+    background: rgba(228, 64, 95, 0.1);
     padding: 2px 8px;
     border-radius: 4px;
     text-decoration: none;
@@ -4272,7 +4272,7 @@ a.community-card-link {
 }
 
 .faq-answer a:hover {
-    background: var(--color-facebook);
+    background: var(--color-instagram);
     color: white;
 }
 

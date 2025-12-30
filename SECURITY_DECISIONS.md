@@ -280,7 +280,7 @@ Pages specify language/region for social sharing:
 <meta property="og:locale:alternate" content="th_TH">
 ```
 
-**Purpose:** Helps Facebook and other platforms understand the target audience (English primary, Thai alternate).
+**Purpose:** Helps social platforms understand the target audience (English primary, Thai alternate).
 
 ---
 
@@ -306,8 +306,7 @@ Provides company/brand information:
     "url": "https://lumicello.com",
     "logo": "https://lumicello.com/assets/images/lumicello_logo.webp",
     "sameAs": [
-        "https://web.facebook.com/LumicelloCompany/",
-        "https://web.facebook.com/share/g/1ByigscXwU/",
+        "https://www.instagram.com/lumicello.th",
         "https://lin.ee/eH1GxA5"
     ],
     "contactPoint": {

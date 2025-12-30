@@ -108,7 +108,7 @@ Use CSS Grid to create the "Poketo" bento-box feel.
       * Background: Soft gradient or the "Abstract 3D" AI image.
       * Primary CTA: "Join our Community"
 2.  **Community Section:**
-      * Social links (Line, Facebook) as prominent cards.
+      * Social links (Line, Instagram) as prominent cards.
       * Newsletter signup form (Name + Email).
       * Placed immediately after Hero to prioritize community building.
 3.  **Value Prop (The "Headspace" Cards):**

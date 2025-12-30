@@ -61,7 +61,7 @@
   * **Task 2 (Generate Missing Icons):**
       * The source folder is missing social icons. Generate/Fetch **monochrome** SVG icons for:
           * **Line** (Round chat bubble style).
-          * **Facebook** (Round style).
+          * **Instagram** (Round style).
           * **WhatsApp** (Round style).
       * *Style:* Color them `#1A2B4C` (Jefferson Blue) to match the brand.
   * **Task 3 (Favicon):**
