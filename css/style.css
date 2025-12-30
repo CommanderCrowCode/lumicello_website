@@ -174,7 +174,7 @@ a {
     position: sticky;
     top: 0;
     z-index: var(--z-sticky);
-    background: rgba(249, 248, 244, 0.9);
+    background: rgba(247, 244, 238, 0.9);
     backdrop-filter: blur(var(--blur-md));
     -webkit-backdrop-filter: blur(var(--blur-md));
     border-bottom: 1px solid var(--color-border-subtle);
@@ -1983,7 +1983,7 @@ a {
 .bento-visual {
     margin-top: var(--space-xl);
     padding: var(--space-xl);
-    background: rgba(26, 43, 76, 0.03);
+    background: rgba(74, 93, 75, 0.03);
     border-radius: var(--radius-lg);
 }
 
@@ -2555,10 +2555,10 @@ a.community-card-link {
     transition: all var(--duration-slow) var(--ease-out);
     /* Enhanced shadow for better definition against sage background */
     box-shadow:
-        0 2px 8px rgba(26, 43, 76, 0.06),
-        0 8px 32px rgba(26, 43, 76, 0.08);
+        0 2px 8px rgba(74, 93, 75, 0.06),
+        0 8px 32px rgba(74, 93, 75, 0.08);
     /* Slightly more visible border with warm undertone */
-    border: 1px solid rgba(26, 43, 76, 0.1);
+    border: 1px solid rgba(74, 93, 75, 0.1);
     /* Safari border-radius + overflow fix */
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
@@ -2573,8 +2573,8 @@ a.community-card-link {
     .kit-card:hover {
         transform: translateY(-10px);
         box-shadow:
-            0 4px 16px rgba(26, 43, 76, 0.08),
-            0 16px 48px rgba(26, 43, 76, 0.12);
+            0 4px 16px rgba(74, 93, 75, 0.08),
+            0 16px 48px rgba(74, 93, 75, 0.12);
     }
 }
 
@@ -2602,8 +2602,8 @@ a.community-card-link {
     background: white;
     border-radius: var(--radius-lg);
     box-shadow:
-        0 4px 20px rgba(26, 43, 76, 0.08),
-        0 8px 40px rgba(26, 43, 76, 0.04),
+        0 4px 20px rgba(74, 93, 75, 0.08),
+        0 8px 40px rgba(74, 93, 75, 0.04),
         inset 0 0 0 1px rgba(255, 255, 255, 0.8);
     z-index: 0;
 }
@@ -2665,7 +2665,7 @@ a.community-card-link {
     display: flex;
     gap: var(--space-xs);
     z-index: 10;
-    background: rgba(26, 43, 76, 0.6);
+    background: rgba(74, 93, 75, 0.6);
     backdrop-filter: blur(8px);
     padding: var(--space-xs) var(--space-sm);
     border-radius: var(--radius-pill);
@@ -2716,7 +2716,7 @@ a.community-card-link {
 .lightbox-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15, 26, 46, 0.97) 0%, rgba(26, 43, 76, 0.95) 100%);
+    background: linear-gradient(180deg, rgba(29, 37, 30, 0.97) 0%, rgba(58, 74, 59, 0.95) 100%);
     backdrop-filter: blur(20px);
 }
 
@@ -2850,7 +2850,7 @@ a.community-card-link {
     display: flex;
     gap: var(--space-sm);
     z-index: 10;
-    background: rgba(26, 43, 76, 0.7);
+    background: rgba(74, 93, 75, 0.7);
     backdrop-filter: blur(12px);
     padding: var(--space-sm) var(--space-lg);
     border-radius: var(--radius-pill);
@@ -4529,7 +4529,7 @@ a.community-card-link {
     .journey-progress-track {
         position: relative;
         height: 4px;
-        background: rgba(26, 43, 76, 0.12);
+        background: rgba(74, 93, 75, 0.12);
         border-radius: 2px;
         margin-bottom: var(--space-sm);
     }

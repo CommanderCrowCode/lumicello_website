@@ -59,15 +59,18 @@ python -m http.server 8765
 ## Design System
 
 ### Colors (from `css/variables.css`)
+MUJI-inspired palette: calm, natural, earthy tones
+
 | Token | Hex | Usage |
 |-------|-----|-------|
-| `--color-primary` | `#1A2B4C` | Jefferson Blue - text, buttons |
-| `--color-accent` | `#F2C94C` | Lumen Gold - highlights, CTAs |
-| `--color-bg-main` | `#F9F8F4` | Soft Canvas - main background |
-| `--color-bg-sage` | `#E6EBE6` | Sage Whisper - section backgrounds |
-| `--color-bg-clay` | `#F0E6DD` | Pale Clay - section backgrounds |
-| `--color-bg-mist` | `#E3F2F5` | Mist Blue - section backgrounds |
-| `--color-text-secondary` | `#5E6A71` | Secondary text |
+| `--color-primary` | `#4A5D4B` | Forest Olive - text, buttons |
+| `--color-accent` | `#D9A835` | Soft Mustard - highlights, CTAs |
+| `--color-brick` | `#B8614A` | Warm Terracotta - warm accents |
+| `--color-bg-main` | `#F7F4EE` | Warm Cream - main background |
+| `--color-bg-sage` | `#D5DDD0` | Muted Sage - section backgrounds |
+| `--color-bg-clay` | `#EAE1D7` | Soft Clay - section backgrounds |
+| `--color-bg-mist` | `#DEE5E5` | Dusty Blue - section backgrounds |
+| `--color-text-secondary` | `#6B7268` | Secondary text |
 
 ### Typography
 - **Headings:** `var(--font-heading)` - Fraunces serif
@@ -102,7 +105,7 @@ Config files: `.prettierrc`, `.eslintrc.json`
 - Use CSS custom properties from `variables.css`
 - Mobile-first responsive design
 - Breakpoints: `768px` (mobile), `1024px` (tablet/desktop)
-- Soft shadows: `box-shadow: 0 20px 60px rgba(26, 43, 76, 0.1)`
+- Soft shadows: `box-shadow: 0 20px 60px rgba(74, 93, 75, 0.1)`
 
 ### JavaScript
 - Vanilla JS only - no libraries
@@ -174,15 +177,16 @@ Config files: `.prettierrc`, `.eslintrc.json`
 
 ## Design Philosophy
 
-**"Warm Intelligence"** - The site should feel like a digital hug backed by scientific precision.
+**"Calm Nature"** - MUJI-inspired design: calm, natural, and relaxed.
 
 - **Soft & Fluid:** No sharp 90-degree angles, rounded corners everywhere
 - **Breathing Motion:** Gentle animations, smooth easing
+- **Natural Palette:** Earthy olive greens, warm terracotta, soft cream backgrounds
 - **Premium Feel:** Generous whitespace, sophisticated typography
 - **Child-friendly but not childish:** Approachable without being cartoonish
-- **Poketo-inspired:** Bento grid layouts, bold section colors, product-focused
+- **MUJI-inspired:** Minimalist, natural tones, calm and relaxed vibe
 
-Reference sites: Headspace (approachable), Adaline (scientific/premium), Poketo (grid layouts)
+Reference sites: MUJI (calm/natural), Headspace (approachable), Poketo (grid layouts)
 
 ## Security Requirements
 

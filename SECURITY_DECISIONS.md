@@ -264,10 +264,10 @@ All pages include canonical URL tags to prevent duplicate content issues:
 All pages include a theme-color meta tag for mobile browser chrome customization:
 
 ```html
-<meta name="theme-color" content="#1A2B4C">
+<meta name="theme-color" content="#4A5D4B">
 ```
 
-**Purpose:** Sets the browser toolbar/address bar color on mobile devices to match the brand (Jefferson Blue).
+**Purpose:** Sets the browser toolbar/address bar color on mobile devices to match the brand (Forest Olive).
 
 **Files with theme-color:** All 7 HTML files
 

@@ -1,49 +1,50 @@
 /* ============================================
    LUMICELLO - Design System Variables
-   "Soft Science" / "Organic Intelligence"
+   "Calm Nature" / "MUJI-Inspired" Design
    ============================================ */
 
 :root {
     /* ========================================
        PRIMARY PALETTE - Brand Anchors
+       MUJI-inspired: calm, natural, earthy
        ======================================== */
-    --color-primary: #1a2b4c; /* Jefferson Blue - deep trust */
-    --color-primary-light: #2a3d5e; /* Lighter blue for hover states */
-    --color-primary-dark: #0f1a2e; /* Darker blue for depth */
+    --color-primary: #4a5d4b; /* Forest Olive - calm, natural trust */
+    --color-primary-light: #5d7160; /* Lighter olive for hover states */
+    --color-primary-dark: #3a4a3b; /* Darker olive for depth */
 
-    --color-accent: #f2c94c; /* Lumen Gold - warmth & spark */
-    --color-accent-glow: rgba(242, 201, 76, 0.4); /* Atmospheric glow */
-    --color-accent-soft: rgba(242, 201, 76, 0.15); /* Subtle backgrounds */
-    --color-accent-dark: #d4a82d; /* Darker gold for pressed states */
+    --color-accent: #d9a835; /* Soft Mustard - warm & natural */
+    --color-accent-glow: rgba(217, 168, 53, 0.4); /* Atmospheric glow */
+    --color-accent-soft: rgba(217, 168, 53, 0.15); /* Subtle backgrounds */
+    --color-accent-dark: #c49530; /* Darker mustard for pressed states */
 
-    --color-brick: #c65d32; /* Monticello Brick - warm accent */
-    --color-brick-dark: #a84d28; /* Darker brick for pressed states */
+    --color-brick: #b8614a; /* Warm Terracotta - earthy accent */
+    --color-brick-dark: #9a5240; /* Darker terracotta for pressed states */
 
-    --color-bg-main: #f9f8f4; /* Soft Canvas - warm white */
-    --color-bg-warm: #fffdf8; /* Slightly warmer for contrast */
+    --color-bg-main: #f7f4ee; /* Warm Cream - soft, paper-like */
+    --color-bg-warm: #fffcf6; /* Slightly warmer for contrast */
 
     /* ========================================
-       SECONDARY PALETTE - Exploration Tones
+       SECONDARY PALETTE - Natural Tones
        ======================================== */
-    --color-bg-sage: #e6ebe6; /* Sage Whisper - calm, nature */
-    --color-bg-sage-deep: #d4dcd4; /* Deeper sage for hover */
+    --color-bg-sage: #d5ddd0; /* Muted Sage - calm, nature */
+    --color-bg-sage-deep: #c4cebf; /* Deeper sage for hover */
 
-    --color-bg-clay: #f0e6dd; /* Pale Clay - warm, tactile */
-    --color-bg-clay-deep: #e5d8cc; /* Deeper clay */
+    --color-bg-clay: #eae1d7; /* Soft Clay - warm, tactile */
+    --color-bg-clay-deep: #ddd2c5; /* Deeper clay */
 
-    --color-bg-mist: #e3f2f5; /* Mist Blue - curiosity, sky */
-    --color-bg-mist-deep: #d1e6eb; /* Deeper mist */
+    --color-bg-mist: #dee5e5; /* Dusty Blue - soft, tranquil */
+    --color-bg-mist-deep: #ced8d8; /* Deeper mist */
 
     /* ========================================
        FUNCTIONAL COLORS
        ======================================== */
-    --color-text-primary: #1a2b4c;
-    --color-text-secondary: #5e6a71;
-    --color-text-tertiary: #8a9199;
+    --color-text-primary: #3a4a3b;
+    --color-text-secondary: #6b7268;
+    --color-text-tertiary: #9a9e97;
     --color-text-inverse: #ffffff;
 
-    --color-border-subtle: rgba(26, 43, 76, 0.08);
-    --color-border-medium: rgba(26, 43, 76, 0.15);
+    --color-border-subtle: rgba(74, 93, 75, 0.08);
+    --color-border-medium: rgba(74, 93, 75, 0.15);
 
     /* Social brand colors */
     --color-line: #06c755;
@@ -112,12 +113,12 @@
     /* ========================================
        SHADOWS - Soft & Atmospheric
        ======================================== */
-    --shadow-xs: 0 1px 2px rgba(26, 43, 76, 0.04);
-    --shadow-sm: 0 2px 8px rgba(26, 43, 76, 0.06);
-    --shadow-md: 0 4px 16px rgba(26, 43, 76, 0.08);
-    --shadow-lg: 0 8px 32px rgba(26, 43, 76, 0.1);
-    --shadow-xl: 0 16px 48px rgba(26, 43, 76, 0.12);
-    --shadow-2xl: 0 24px 64px rgba(26, 43, 76, 0.15);
+    --shadow-xs: 0 1px 2px rgba(74, 93, 75, 0.04);
+    --shadow-sm: 0 2px 8px rgba(74, 93, 75, 0.06);
+    --shadow-md: 0 4px 16px rgba(74, 93, 75, 0.08);
+    --shadow-lg: 0 8px 32px rgba(74, 93, 75, 0.1);
+    --shadow-xl: 0 16px 48px rgba(74, 93, 75, 0.12);
+    --shadow-2xl: 0 24px 64px rgba(74, 93, 75, 0.15);
 
     /* Glow shadows for accent */
     --shadow-glow-sm: 0 4px 20px var(--color-accent-glow);
