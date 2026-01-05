@@ -128,6 +128,29 @@ These components are injected into subpages via JavaScript.
 | LumiBox (suggestion) | Navigate to kits section | `index.html#kits` |
 | Join Community (suggestion) | Navigate to community section | `index.html#community` |
 
+### Welcome Page (`welcome.html`)
+Post-newsletter signup confirmation page with confetti animation.
+
+| Element | Expected Behavior | Link/Action |
+|---------|-------------------|-------------|
+| Navigation | Shared component | See Section 4 |
+| LINE Card | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
+| Instagram Card | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
+| Curiosity Fingerprint button | Navigate to fingerprint section | `index.html#fingerprint` |
+| LumiBox button | Navigate to kits section | `index.html#kits` |
+| Footer | Shared component | See Section 4 |
+
+### Voucher Terms Page (`voucher-terms.html`)
+Terms and conditions for voucher redemption. Has `noindex, nofollow` meta tags.
+
+| Element | Expected Behavior | Link/Action |
+|---------|-------------------|-------------|
+| Navigation | Shared component | See Section 4 |
+| Back to Home link | Navigate to homepage | `index.html` |
+| LINE link (contact card) | Open LINE Official | `https://lin.ee/eH1GxA5` _(new tab)_ |
+| Instagram link (contact card) | Open Instagram | `https://www.instagram.com/lumicello.th` _(new tab)_ |
+| Footer | Shared component | See Section 4 |
+
 ---
 
 ## 6. Functional Tests
