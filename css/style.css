@@ -4702,10 +4702,10 @@ a.community-card-link {
         border-left-width: 2px;
     }
 
-    /* Hide full description on mobile - show truncated */
+    /* Show truncated description on mobile - 3 lines for readability */
     .kits-grid .kit-card > .kit-content > p:not(.kit-tagline) {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         font-size: var(--text-xs);
