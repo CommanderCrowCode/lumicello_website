@@ -17,11 +17,32 @@
     --color-accent-soft: rgba(217, 168, 53, 0.15); /* Subtle backgrounds */
     --color-accent-dark: #c49530; /* Darker mustard for pressed states */
 
-    --color-brick: #b8614a; /* Warm Terracotta - earthy accent */
-    --color-brick-dark: #9a5240; /* Darker terracotta for pressed states */
+    --color-brick: #c65d32; /* Warm Terracotta - playful warmth */
+    --color-brick-dark: #a84e2a; /* Darker terracotta for pressed states */
+    --color-brick-soft: rgba(198, 93, 50, 0.15); /* Subtle brick backgrounds */
 
     --color-bg-main: #f7f4ee; /* Warm Cream - soft, paper-like */
     --color-bg-warm: #fffcf6; /* Slightly warmer for contrast */
+
+    /* ========================================
+       EXPLORATION COLORS - Vibrant & Playful
+       Child-friendly vibrancy with MUJI warmth
+       ======================================== */
+    --color-sky: #4f91cd; /* Sky Blue - curiosity, wonder */
+    --color-sky-soft: rgba(79, 145, 205, 0.15); /* Soft sky backgrounds */
+    --color-sky-glow: rgba(79, 145, 205, 0.4); /* Sky glow effect */
+
+    --color-lawn: #5c8d4e; /* Lawn Green - growth, nature */
+    --color-lawn-soft: rgba(92, 141, 78, 0.15); /* Soft lawn backgrounds */
+    --color-lawn-glow: rgba(92, 141, 78, 0.4); /* Lawn glow effect */
+
+    --color-coral: #e8855e; /* Coral - energy, playfulness */
+    --color-coral-soft: rgba(232, 133, 94, 0.15); /* Soft coral backgrounds */
+    --color-coral-glow: rgba(232, 133, 94, 0.4); /* Coral glow effect */
+
+    --color-lavender: #9b8fc7; /* Lavender - imagination, calm */
+    --color-lavender-soft: rgba(155, 143, 199, 0.15); /* Soft lavender backgrounds */
+    --color-lavender-glow: rgba(155, 143, 199, 0.4); /* Lavender glow effect */
 
     /* ========================================
        SECONDARY PALETTE - Natural Tones
@@ -34,6 +55,12 @@
 
     --color-bg-mist: #dee5e5; /* Dusty Blue - soft, tranquil */
     --color-bg-mist-deep: #ced8d8; /* Deeper mist */
+
+    /* New vibrant section backgrounds */
+    --color-bg-sky: #e8f1f8; /* Soft sky section */
+    --color-bg-coral: #fdf0eb; /* Soft coral section */
+    --color-bg-lawn: #eef4eb; /* Soft green section */
+    --color-bg-lavender: #f3f1f8; /* Soft lavender section */
 
     /* ========================================
        FUNCTIONAL COLORS
