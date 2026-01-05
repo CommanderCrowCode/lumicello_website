@@ -91,6 +91,19 @@ Icon
 .claude-cache/
 .qa-reports/
 
+# Beads (issue tracking)
+.beads/*.db*
+.beads/redirect
+.beads/last-touched
+.beads/issues.jsonl
+.beads/metadata.json
+.beads/.local_version
+
+# Gas Town runtime
+.gt-hook
+.runtime/
+daemon.lock
+
 # MCP connection
 .mcp*
 
