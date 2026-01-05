@@ -196,4 +196,4 @@ All external links should:
 
 ---
 
-_Last updated: November 2025_
+_Last updated: January 2026_
