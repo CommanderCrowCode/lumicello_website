@@ -31,7 +31,7 @@ const FOOTER_LINKS = {
     company: [
         { anchor: '#about', text: 'About Us' },
         { href: 'coming-soon.html', text: 'Our Mission' },
-        { href: 'coming-soon.html', text: 'Careers' },
+        { href: 'careers.html', text: 'Careers' },
         { href: 'coming-soon.html', text: 'Press' },
     ],
     support: [
