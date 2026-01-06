@@ -59,7 +59,7 @@ Key features:
 	•	Adaptive learning recommendations
 	•	Interest graph & progress visualization (Constellation and Fingerprint motif)
 	•	Interactive micro-lessons
-	•	Achievement moments (Lumen Gold highlight)
+	•	Achievement moments (Soft Mustard highlight)
 
 B. Parent Experience
 
@@ -117,15 +117,15 @@ Audience
 5. Visual Identity (Simplified for Designers)
 
 Primary Colors
-	•	Jefferson Blue — #232D4B (anchor, trustworthy)
-	•	Rotunda White — #F7F6F2 (clean background)
-	•	Lumen Gold — #FFD447 (highlights, CTAs)
+	•	Forest Olive — #4A5D4B (anchor, trustworthy)
+	•	Warm Cream — #F7F4EE (clean background)
+	•	Soft Mustard — #D9A835 (highlights, CTAs)
 
 Secondary Colors
-	•	Brick (#C65D32)
-	•	Lawn Green (#5C8D4E)
-	•	Sky Blue (#4F91CD)
-	•	Slate Gray (#5E6A71)
+	•	Warm Terracotta (#B8614A)
+	•	Muted Sage (#D5DDD0)
+	•	Soft Clay (#EAE1D7)
+	•	Dusty Blue (#DEE5E5)
 
 Typography
 	•	Headlines: Noto Serif / Crimson Pro
@@ -150,7 +150,7 @@ Photography Style
 ⸻
 
 6. Motion / Interaction
-	•	Soft glows (Lumen Gold) for achievement
+	•	Soft glows (Soft Mustard) for achievement
 	•	Subtle flow animations between sections
 	•	Gentle reveals (fade + slide)
 	•	“Connection drawing” animation for constellation patterns
