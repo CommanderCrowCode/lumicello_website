@@ -685,11 +685,12 @@ a {
     animation: node-float 4s ease-in-out infinite;
 }
 
+/* Vibrant exploration nodes - lively and playful */
 .node--sage {
     width: 40px;
     height: 40px;
-    background: var(--color-bg-sage-deep);
-    box-shadow: var(--shadow-sage);
+    background: var(--color-lawn);
+    box-shadow: 0 8px 32px var(--color-lawn-glow);
     top: 15%;
     right: 20%;
     animation-delay: 0s;
@@ -698,8 +699,8 @@ a {
 .node--clay {
     width: 32px;
     height: 32px;
-    background: var(--color-bg-clay-deep);
-    box-shadow: var(--shadow-clay);
+    background: var(--color-coral);
+    box-shadow: 0 8px 32px var(--color-coral-glow);
     bottom: 20%;
     left: 15%;
     animation-delay: 1s;
@@ -708,8 +709,8 @@ a {
 .node--mist {
     width: 36px;
     height: 36px;
-    background: var(--color-bg-mist-deep);
-    box-shadow: var(--shadow-mist);
+    background: var(--color-sky);
+    box-shadow: 0 8px 32px var(--color-sky-glow);
     top: 50%;
     left: 8%;
     animation-delay: 2s;
@@ -728,8 +729,8 @@ a {
 .node--primary {
     width: 28px;
     height: 28px;
-    background: var(--color-primary);
-    opacity: 0.3;
+    background: var(--color-lavender);
+    box-shadow: 0 8px 32px var(--color-lavender-glow);
     top: 25%;
     left: 22%;
     animation-delay: 0.5s;
@@ -786,10 +787,12 @@ a {
     animation: sparkle-twinkle 2s ease-in-out infinite;
 }
 
+/* Colorful sparkles - rainbow variety */
 .sparkle--1 {
     top: 12%;
     left: 35%;
     animation-delay: 0s;
+    background: var(--color-coral);
 }
 
 .sparkle--2 {
@@ -798,6 +801,7 @@ a {
     animation-delay: 0.4s;
     width: 8px;
     height: 8px;
+    background: var(--color-sky);
 }
 
 .sparkle--3 {
@@ -806,12 +810,14 @@ a {
     animation-delay: 0.8s;
     width: 5px;
     height: 5px;
+    background: var(--color-lawn);
 }
 
 .sparkle--4 {
     bottom: 40%;
     right: 25%;
     animation-delay: 1.2s;
+    background: var(--color-lavender);
 }
 
 .sparkle--5 {
@@ -820,6 +826,7 @@ a {
     animation-delay: 1.6s;
     width: 7px;
     height: 7px;
+    background: var(--color-accent);
 }
 
 @keyframes sparkle-twinkle {
@@ -1010,6 +1017,43 @@ a {
 
 .bento-card.mist {
     background: linear-gradient(135deg, var(--color-bg-mist) 0%, white 100%);
+}
+
+/* Vibrant exploration color cards */
+.bento-card.sky {
+    background: linear-gradient(135deg, var(--color-bg-sky) 0%, white 100%);
+}
+
+.bento-card.sky .bento-icon {
+    background: var(--color-sky-soft);
+    color: var(--color-sky);
+}
+
+.bento-card.coral {
+    background: linear-gradient(135deg, var(--color-bg-coral) 0%, white 100%);
+}
+
+.bento-card.coral .bento-icon {
+    background: var(--color-coral-soft);
+    color: var(--color-coral);
+}
+
+.bento-card.lawn {
+    background: linear-gradient(135deg, var(--color-bg-lawn) 0%, white 100%);
+}
+
+.bento-card.lawn .bento-icon {
+    background: var(--color-lawn-soft);
+    color: var(--color-lawn);
+}
+
+.bento-card.lavender {
+    background: linear-gradient(135deg, var(--color-bg-lavender) 0%, white 100%);
+}
+
+.bento-card.lavender .bento-icon {
+    background: var(--color-lavender-soft);
+    color: var(--color-lavender);
 }
 
 /* Featured card - spans 2 columns */
@@ -2384,23 +2428,24 @@ a.community-card-link {
     animation: ray-pulse 3s ease-in-out infinite;
 }
 
+/* Vibrant prism rays - colorful spectrum */
 .prism-ray-1 {
     width: 70px;
-    background: var(--color-bg-sage);
+    background: linear-gradient(90deg, var(--color-coral) 0%, var(--color-coral-glow) 100%);
     transform: translate(40px, -50%) rotate(-25deg);
     animation-delay: 0s;
 }
 
 .prism-ray-2 {
     width: 80px;
-    background: var(--color-bg-mist);
+    background: linear-gradient(90deg, var(--color-sky) 0%, var(--color-sky-glow) 100%);
     transform: translate(40px, -50%) rotate(0deg);
     animation-delay: 0.2s;
 }
 
 .prism-ray-3 {
     width: 70px;
-    background: var(--color-bg-clay);
+    background: linear-gradient(90deg, var(--color-lawn) 0%, var(--color-lawn-glow) 100%);
     transform: translate(40px, -50%) rotate(25deg);
     animation-delay: 0.4s;
 }
@@ -2447,10 +2492,12 @@ a.community-card-link {
     animation: prism-float 4s ease-in-out infinite;
 }
 
+/* Vibrant floating shapes */
 .prism-float-1 {
     width: 35px;
     height: 35px;
-    background: var(--color-bg-sage);
+    background: var(--color-sky);
+    box-shadow: 0 8px 24px var(--color-sky-glow);
     top: 15px;
     left: 25px;
 }
@@ -2458,7 +2505,8 @@ a.community-card-link {
 .prism-float-2 {
     width: 28px;
     height: 28px;
-    background: var(--color-bg-clay);
+    background: var(--color-coral);
+    box-shadow: 0 8px 24px var(--color-coral-glow);
     top: 20px;
     right: 20px;
     animation-delay: 0.5s;
@@ -2467,7 +2515,8 @@ a.community-card-link {
 .prism-float-3 {
     width: 25px;
     height: 25px;
-    background: var(--color-bg-mist);
+    background: var(--color-lavender);
+    box-shadow: 0 8px 24px var(--color-lavender-glow);
     bottom: 25px;
     left: 20px;
     animation-delay: 1s;
@@ -2476,7 +2525,8 @@ a.community-card-link {
 .prism-float-4 {
     width: 30px;
     height: 30px;
-    background: var(--color-bg-sage);
+    background: var(--color-lawn);
+    box-shadow: 0 8px 24px var(--color-lawn-glow);
     bottom: 20px;
     right: 30px;
     animation-delay: 1.5s;
@@ -2973,12 +3023,45 @@ a.community-card-link {
 }
 
 .kit-category {
+    display: inline-block;
     font-size: var(--text-xs);
     font-weight: 700;
     letter-spacing: var(--tracking-wider);
     text-transform: uppercase;
-    color: var(--color-text-tertiary);
+    padding: 4px var(--space-sm);
+    border-radius: var(--radius-pill);
     margin-bottom: var(--space-xs);
+}
+
+/* Colorful kit category badges by position */
+.kit-card:nth-child(1) .kit-category {
+    background: var(--color-lavender-soft);
+    color: var(--color-lavender);
+}
+
+.kit-card:nth-child(2) .kit-category {
+    background: var(--color-lawn-soft);
+    color: var(--color-lawn);
+}
+
+.kit-card:nth-child(3) .kit-category {
+    background: var(--color-sky-soft);
+    color: var(--color-sky);
+}
+
+.kit-card:nth-child(4) .kit-category {
+    background: var(--color-coral-soft);
+    color: var(--color-coral);
+}
+
+.kit-card:nth-child(5) .kit-category {
+    background: var(--color-brick-soft);
+    color: var(--color-brick);
+}
+
+.kit-card:nth-child(6) .kit-category {
+    background: var(--color-accent-soft);
+    color: var(--color-accent-dark);
 }
 
 .kit-card h3 {
@@ -3034,10 +3117,29 @@ a.community-card-link {
 .interest-tag {
     font-size: var(--text-xs);
     padding: 4px var(--space-sm);
-    /* Use clay instead of sage - contrasts better with sage section background */
-    background: var(--color-bg-clay);
     border-radius: var(--radius-pill);
-    color: var(--color-text-secondary);
+    font-weight: 600;
+}
+
+/* Colorful interest tag variants */
+.kit-interests .interest-tag:nth-child(1) {
+    background: var(--color-sky-soft);
+    color: var(--color-sky);
+}
+
+.kit-interests .interest-tag:nth-child(2) {
+    background: var(--color-coral-soft);
+    color: var(--color-coral);
+}
+
+.kit-interests .interest-tag:nth-child(3) {
+    background: var(--color-lawn-soft);
+    color: var(--color-lawn);
+}
+
+.kit-interests .interest-tag:nth-child(4) {
+    background: var(--color-lavender-soft);
+    color: var(--color-lavender);
 }
 
 /* ============================================
@@ -4702,10 +4804,10 @@ a.community-card-link {
         border-left-width: 2px;
     }
 
-    /* Hide full description on mobile - show truncated */
+    /* Show truncated description on mobile - 3 lines for readability */
     .kits-grid .kit-card > .kit-content > p:not(.kit-tagline) {
         display: -webkit-box;
-        -webkit-line-clamp: 2;
+        -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
         font-size: var(--text-xs);

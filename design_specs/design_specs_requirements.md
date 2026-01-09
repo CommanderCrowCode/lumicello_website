@@ -14,21 +14,21 @@ Goal: Define the aesthetic, motion, and asset generation strategy.
 **Rule:** Colors must be AA accessible. Do not use pure black (#000000).
 
 ### Primary Palette (Brand Anchors)
-* **Jefferson Blue:** `#1A2B4C` (Use for primary text and strong calls-to-action to ground the design).
-* **Lumen Gold:** `#F2C94C` (Use sparingly for "spark" elements, buttons, and high-priority highlights).
-* **Soft Canvas:** `#F9F8F4` (Main background. A warm off-white, never pure white).
+* **Forest Olive:** `#4A5D4B` (Use for primary text and strong calls-to-action to ground the design).
+* **Soft Mustard:** `#D9A835` (Use sparingly for "spark" elements, buttons, and high-priority highlights).
+* **Warm Cream:** `#F7F4EE` (Main background. A warm off-white, never pure white).
 
 ### Secondary Palette (The "Exploration" Tones)
 * *Use these for section backgrounds and "Kit" cards to create separation without lines.*
-* **Sage Whisper:** `#E6EBE6` (Calm, nature-focused).
-* **Pale Clay:** `#F0E6DD` (Warm, tactile).
-* **Mist Blue:** `#E3F2F5` (Curiosity, sky).
+* **Muted Sage:** `#D5DDD0` (Calm, nature-focused).
+* **Soft Clay:** `#EAE1D7` (Warm, tactile).
+* **Dusty Blue:** `#DEE5E5` (Curiosity, sky).
 
 ### Gradients & Depth
 * **Fluid Gradients:** Very subtle background blurs using CSS filters.
-    * *Example:* `background: radial-gradient(circle at 50% 50%, #F2C94C20 0%, transparent 70%);`
+    * *Example:* `background: radial-gradient(circle at 50% 50%, #D9A83520 0%, transparent 70%);`
 * **Shadows:** Soft, diffused shadows only. No hard drop shadows.
-    * *Spec:* `box-shadow: 0 10px 40px -10px rgba(26, 43, 76, 0.08);`
+    * *Spec:* `box-shadow: 0 10px 40px -10px rgba(74, 93, 75, 0.08);`
 
 ## 3. Typography
 * **Headings (The "Warm" Voice):** A serif font that feels human and literary.
@@ -52,8 +52,8 @@ For the *LumiBox* section:
 * *Interaction:* On hover, the card should float up slightly (`transform: translateY(-5px)`) with a "breathing" ease.
 
 ### C. Buttons
-* **Primary:** Pill-shaped. Jefferson Blue background, White text.
-* **Secondary:** Ghost button with a 2px solid border (Lumen Gold) and Jefferson Blue text.
+* **Primary:** Pill-shaped. Forest Olive background, White text.
+* **Secondary:** Ghost button with a 2px solid border (Soft Mustard) and Forest Olive text.
 
 ## 5. Motion Guidelines (CSS Transitions)
 **Key Requirement:** "Variety of movements that go well together."
@@ -72,4 +72,4 @@ Since we have no designer, use these exact prompts in Midjourney/DALL-E to gener
 > *Prompt:* "A wooden educational toy set arranged neatly on a pastel beige surface, shot from directly above (knolling), soft natural lighting, high end product photography, colorful geometric shapes, Montessori style, zero clutter --ar 4:3"
 
 **C. "Curiosity Fingerprint" (Data Viz):**
-> *Prompt:* "A beautiful abstract data visualization of a radar chart, glowing lines, connecting dots, gold and navy blue, soft gradient background, minimalist UI design, looking distinct and scientific but friendly --ar 1:1"
+> *Prompt:* "A beautiful abstract data visualization of a radar chart, glowing lines, connecting dots, soft mustard and forest olive, soft gradient background, minimalist UI design, looking distinct and scientific but friendly --ar 1:1"

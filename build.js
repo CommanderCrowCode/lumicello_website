@@ -22,6 +22,7 @@ const PUBLIC_FILES = [
     'voucher-terms.html',
     '404.html',
     'coming-soon.html',
+    'careers.html',
     'welcome.html',
     'robots.txt',
     'sitemap.xml',
