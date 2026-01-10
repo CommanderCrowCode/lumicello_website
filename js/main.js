@@ -86,6 +86,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Cinematic Fingerprint Experience
     initFingerprintCinema();
+
+    // Lazy Loading for Images
+    initLazyLoading();
 });
 
 /**
@@ -887,6 +890,57 @@ function initSuccessModal() {
         if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
             window.closeSuccessModal();
         }
+    });
+}
+
+/**
+ * Initialize lazy loading for images using IntersectionObserver.
+ * Images with class "lazy-load" and data-src attribute will load when they enter the viewport.
+ * This improves initial page load time by deferring below-the-fold images.
+ */
+function initLazyLoading() {
+    // Get all images with lazy-load class
+    const lazyImages = document.querySelectorAll('img.lazy-load[data-src]');
+
+    // Exit if no lazy images found
+    if (lazyImages.length === 0) {
+        return;
+    }
+
+    // Create IntersectionObserver to load images when they enter viewport
+    const imageObserver = new IntersectionObserver(
+        (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+
+                    // Load the image
+                    img.src = img.dataset.src;
+
+                    // Remove data-src attribute
+                    img.removeAttribute('data-src');
+
+                    // Remove lazy-load class
+                    img.classList.remove('lazy-load');
+
+                    // Add loaded class for potential CSS transitions
+                    img.classList.add('lazy-loaded');
+
+                    // Stop observing this image
+                    observer.unobserve(img);
+                }
+            });
+        },
+        {
+            // Start loading 200px before the image enters viewport
+            rootMargin: '200px 0px',
+            threshold: 0.01,
+        }
+    );
+
+    // Observe all lazy images
+    lazyImages.forEach(img => {
+        imageObserver.observe(img);
     });
 }
 

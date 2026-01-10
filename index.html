@@ -29,6 +29,9 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Preload critical fonts for faster rendering -->
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
@@ -36,7 +39,6 @@
     <link rel="stylesheet" href="css/style.css">
 
     <!-- FontAwesome -->
-    <script src="https://kit.fontawesome.com/bc46e65664.js" integrity="sha384-Ndyvb54bOrSvO4TpXhLQp7K9lpIkhNGHhhipHDmRnyedrzDauT9T1ddcMH96pK1a" crossorigin="anonymous"></script>
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
@@ -647,8 +649,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit items spread" loading="lazy">
+                                <img data-src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit box" class="lazy-load">
+                                <img data-src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit items spread" class="lazy-load">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -677,8 +679,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp and Spin Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_5-6.webp" alt="Grasp and Spin Kit items spread" loading="lazy">
+                                <img data-src="assets/images/lumibox/box_5-6.webp" alt="Grasp and Spin Kit box" class="lazy-load">
+                                <img data-src="assets/images/lumibox/items_5-6.webp" alt="Grasp and Spin Kit items spread" class="lazy-load">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -707,8 +709,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_7-8.webp" alt="Peek and Find Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_7-8.webp" alt="Peek and Find Kit items spread" loading="lazy">
+                                <img data-src="assets/images/lumibox/box_7-8.webp" alt="Peek and Find Kit box" class="lazy-load">
+                                <img data-src="assets/images/lumibox/items_7-8.webp" alt="Peek and Find Kit items spread" class="lazy-load">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -737,8 +739,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_9-10.webp" alt="Stack and Sort Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_9-10.webp" alt="Stack and Sort Kit items spread" loading="lazy">
+                                <img data-src="assets/images/lumibox/box_9-10.webp" alt="Stack and Sort Kit box" class="lazy-load">
+                                <img data-src="assets/images/lumibox/items_9-10.webp" alt="Stack and Sort Kit items spread" class="lazy-load">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -767,8 +769,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_11-12.webp" alt="Push and Play Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_11-12.webp" alt="Push and Play Kit items spread" loading="lazy">
+                                <img data-src="assets/images/lumibox/box_11-12.webp" alt="Push and Play Kit box" class="lazy-load">
+                                <img data-src="assets/images/lumibox/items_11-12.webp" alt="Push and Play Kit items spread" class="lazy-load">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
