@@ -5040,3 +5040,45 @@ a.community-card-link {
         padding: var(--space-xl);
     }
 }
+
+/* =========================================================================
+   Lazy Loading
+   ========================================================================= */
+
+/**
+ * Lazy loading placeholder styles
+ * Images with .lazy-load class show a subtle loading state until loaded
+ */
+img.lazy-load {
+    /* Subtle gray background while loading */
+    background: var(--color-mist);
+
+    /* Smooth transition when image loads */
+    opacity: 0.6;
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Loaded state - full opacity */
+img.lazy-loaded {
+    opacity: 1;
+}
+
+/* Optional: Add a subtle pulse animation while loading */
+@keyframes lazy-pulse {
+    0%,
+    100% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+img.lazy-load {
+    animation: lazy-pulse 1.5s ease-in-out infinite;
+}
+
+/* Stop animation once loaded */
+img.lazy-loaded {
+    animation: none;
+}
