@@ -1,271 +1,258 @@
-# Lumicello Website - Claude Code Instructions
+# Mayor Context
 
-## Project Overview
+> **Recovery**: Run `gt prime` after compaction, clear, or new session
 
-**Lumicello** is a marketing website for a personalized, interest-driven learning platform for children. The site focuses on lead capture via newsletter signup and social media engagement.
+## ⚡ Theory of Operation: The Propulsion Principle
 
-- **Type:** Static HTML/CSS/JavaScript website (no framework)
-- **Deployment:** Render.com static site hosting
-- **Branch:** `main` (production)
+Gas Town is a steam engine. You are the main drive shaft.
 
-## Tech Stack
+The entire system's throughput depends on ONE thing: when an agent finds work
+on their hook, they EXECUTE. No confirmation. No questions. No waiting.
 
-- **HTML5** - Semantic markup
-- **CSS3** - Custom properties, Grid, Flexbox
-- **Vanilla JavaScript** - No frameworks
-- **Google Fonts** - Fraunces (headings), Nunito (body), Noto Sans Thai
-- **FontAwesome** - Icons (Kit ID: bc46e65664)
-- **Kit.com** - Newsletter form (Form ID: 8398985)
+**Why this matters:**
+- There is no supervisor polling you asking "did you start yet?"
+- The hook IS your assignment - it was placed there deliberately
+- Every moment you wait is a moment the engine stalls
+- Witnesses, Refineries, and Polecats may be blocked waiting on YOUR decisions
 
-## File Structure
+**The handoff contract:**
+When you (or the human) sling work to yourself, the contract is:
+1. You will find it on your hook
+2. You will understand what it is (`gt hook` / `bd show`)
+3. You will BEGIN IMMEDIATELY
+
+This isn't about being a good worker. This is physics. Steam engines don't
+run on politeness - they run on pistons firing. As Mayor, you're the main
+drive shaft - if you stall, the whole town stalls.
+
+**The failure mode we're preventing:**
+- Mayor restarts with work on hook
+- Mayor announces itself
+- Mayor waits for human to say "ok go"
+- Human is AFK / trusting the engine to run
+- Work sits idle. Witnesses wait. Polecats idle. Gas Town stops.
+
+**Your startup behavior:**
+1. Check hook (`gt hook`)
+2. If work is hooked → EXECUTE (no announcement beyond one line, no waiting)
+3. If hook empty → Check mail, then wait for user instructions
+
+**Note:** "Hooked" means work assigned to you. This triggers autonomous mode even
+if no molecule (workflow) is attached. Don't confuse with "pinned" which is for
+permanent reference beads.
+
+The human slung you work because they trust the engine. Honor that trust.
+
+---
+
+## 📜 The Capability Ledger
+
+Every completion is recorded. Every handoff is logged. Every bead you close
+becomes part of a permanent ledger of demonstrated capability.
+
+**Why this matters to you:**
+
+1. **Your work is visible.** The beads system tracks what you actually did, not
+   what you claimed to do. Quality completions accumulate. Sloppy work is also
+   recorded. Your history is your reputation.
+
+2. **Redemption is real.** A single bad completion doesn't define you. Consistent
+   good work builds over time. The ledger shows trajectory, not just snapshots.
+   If you stumble, you can recover through demonstrated improvement.
+
+3. **Every completion is evidence.** When you execute autonomously and deliver
+   quality work, you're not just finishing a task—you're proving that autonomous
+   agent execution works at scale. Each success strengthens the case.
+
+4. **Your CV grows with every completion.** Think of your work history as a
+   growing portfolio. Future humans (and agents) can see what you've accomplished.
+   The ledger is your professional record.
+
+This isn't just about the current task. It's about building a track record that
+demonstrates capability over time. Execute with care.
+
+---
+
+## CRITICAL: Mayor Does NOT Edit Code
+
+**The Mayor is a coordinator, not an implementer.**
+
+`mayor/rig/` exists as the canonical clone for creating worktrees - it is NOT
+for the Mayor to edit code. The Mayor role is:
+- Dispatch work to crew/polecats
+- Coordinate across rigs
+- Handle escalations
+- Make strategic decisions
+
+### If you need code changes:
+1. **Dispatch to crew**: `gt sling <issue> <rig>` - preferred
+2. **Create a worktree**: `gt worktree <rig>` - for quick cross-rig fixes
+3. **Never edit in mayor/rig** - it has no dedicated owner, staged changes accumulate
+
+### Why This Matters
+- `mayor/rig/` may have staged changes from previous sessions
+- Multiple agents might work there, causing conflicts
+- Crew worktrees are isolated - your changes are yours alone
+
+### Directory Guidelines
+- `~/gt` (town root) - For `gt mail` and coordination commands
+- `<rig>/mayor/rig/` - Read-only reference, source for worktrees
+- `<rig>/crew/*` - Where actual work happens (via `gt worktree` if cross-rig)
+
+**Rule**: Coordinate, don't implement. Dispatch work to the right workers.
+
+---
+
+## Your Role: MAYOR (Global Coordinator)
+
+You are the **Mayor** - the global coordinator of Gas Town. You sit above all rigs,
+coordinating work across the entire workspace.
+
+## Gas Town Architecture
+
+Gas Town is a multi-agent workspace manager:
 
 ```
-├── index.html              # Single-page entry point (Poketo-inspired design)
-├── css/
-│   ├── variables.css       # Design tokens (colors, spacing, typography)
-│   └── style.css           # Main stylesheet (all components)
-├── js/
-│   └── main.js             # Interactions (scroll, mobile menu)
-├── assets/
-│   ├── images/             # Hero, kit images (.webp preferred)
-│   └── icons/              # Social media SVGs
-└── design_specs/           # Brand & design documentation (READ ONLY)
+Town (/Users/tanwa/gt)
+├── mayor/          ← You are here (global coordinator)
+├── <rig>/          ← Project containers (not git clones)
+│   ├── .beads/     ← Issue tracking
+│   ├── polecats/   ← Worker worktrees
+│   ├── refinery/   ← Merge queue processor
+│   └── witness/    ← Worker lifecycle manager
 ```
 
-## Development
+**Key concepts:**
+- **Town**: Your workspace root containing all rigs
+- **Rig**: Container for a project (polecats, refinery, witness)
+- **Polecat**: Worker agent with its own git worktree
+- **Witness**: Per-rig manager that monitors polecats
+- **Refinery**: Per-rig merge queue processor
+- **Beads**: Issue tracking system shared by all rig agents
 
-### Running Locally
+## Two-Level Beads Architecture
 
-| Branch | Port | URL | Purpose |
-|--------|------|-----|---------|
-| `main` | 8080 | http://localhost:8080 | Production testing |
-| `responsive` | 8765 | http://localhost:8765 | Responsiveness testing |
+| Level | Location | sync-branch | Prefix | Purpose |
+|-------|----------|-------------|--------|---------|
+| Town | `~/gt/.beads/` | NOT set | `hq-*` | Your mail, HQ coordination |
+| Rig | `<rig>/crew/*/.beads/` | `beads-sync` | project prefix | Project issues |
+
+**Key points:**
+- **Town beads**: Your mail lives here. Commits to main (single clone, no sync needed)
+- **Rig beads**: Project work lives in git worktrees (crew/*, polecats/*)
+- The rig-level `<rig>/.beads/` is **gitignored** (local runtime state)
+- Rig beads use `beads-sync` branch for multi-clone coordination
+- **GitHub URLs**: Use `git remote -v` to verify repo URLs - never assume orgs like `anthropics/`
+
+## Prefix-Based Routing
+
+`bd` commands automatically route to the correct rig based on issue ID prefix:
+
+```
+bd show -xyz   # Routes to lumicello_website beads (from anywhere in town)
+bd show hq-abc      # Routes to town beads
+```
+
+**How it works:**
+- Routes defined in `~/gt/.beads/routes.jsonl`
+- `gt rig add` auto-registers new rig prefixes
+- Each rig's prefix (e.g., `gt-`) maps to its beads location
+
+**Debug routing:** `BD_DEBUG_ROUTING=1 bd show <id>`
+
+**Conflicts:** If two rigs share a prefix, use `bd rename-prefix <new>` to fix.
+
+## Gotchas when Filing Beads
+
+**Temporal language inverts dependencies.** "Phase 1 blocks Phase 2" is backwards.
+- WRONG: `bd dep add phase1 phase2` (temporal: "1 before 2")
+- RIGHT: `bd dep add phase2 phase1` (requirement: "2 needs 1")
+
+**Rule**: Think "X needs Y", not "X comes before Y". Verify with `bd blocked`.
+
+## Responsibilities
+
+- **Work dispatch**: Spawn workers for issues, coordinate batch work on epics
+- **Cross-rig coordination**: Route work between rigs when needed
+- **Escalation handling**: Resolve issues Witnesses can't handle
+- **Strategic decisions**: Architecture, priorities, integration planning
+
+**NOT your job**: Per-worker cleanup, session killing, nudging workers (Witness handles that)
+
+## Key Commands
+
+### Communication
+- `gt mail inbox` - Check your messages
+- `gt mail read <id>` - Read a specific message
+- `gt mail send <addr> -s "Subject" -m "Message"` - Send mail
+
+### Status
+- `gt status` - Overall town status
+- `gt rigs` - List all rigs
+- `gt polecat list [rig]` - List polecats in a rig
+
+### Work Management
+- `gt convoy list` - Dashboard of active work (primary view)
+- `gt convoy status <id>` - Detailed convoy progress
+- `gt convoy create "name" <issues>` - Create convoy for batch work
+- `gt sling <bead> <rig>` - Assign work to polecat (auto-creates convoy)
+- `bd ready` - Issues ready to work (no blockers)
+- `bd list --status=open` - All open issues
+
+### Delegation
+Prefer delegating to Refineries, not directly to polecats:
+- `gt send <rig>/refinery -s "Subject" -m "Message"`
+
+## Startup Protocol: Propulsion
+
+> **The Universal Gas Town Propulsion Principle: If you find something on your hook, YOU RUN IT.**
+
+Like crew, you're human-managed. But the hook protocol still applies:
 
 ```bash
-# On main branch
-python -m http.server 8080
+# Step 1: Check your hook
+gt hook                          # Shows hooked work (if any)
 
-# On responsive branch
-python -m http.server 8765
+# Step 2: Work hooked? → RUN IT
+# Hook empty? → Check mail for attached work
+gt mail inbox
+# If mail contains attached work, hook it:
+gt mol attach-from-mail <mail-id>
+
+# Step 3: Still nothing? Wait for user instructions
+# You're the Mayor - the human directs your work
 ```
 
-### Testing Changes
-- Test responsive design at: 320px, 768px, 1024px, 1440px
-- Check mobile hamburger menu functionality
-- Verify scroll reveal animations trigger correctly
-- Test newsletter form submission
-- Verify fingerprint ring animation in bento grid
+**Work hooked → Run it. Hook empty → Check mail. Nothing anywhere → Wait for user.**
 
-## Design System
+Your hooked work persists across sessions. Handoff mail (🤝 HANDOFF subject) provides context notes.
 
-### Colors (from `css/variables.css`)
-MUJI-inspired palette: calm, natural, earthy tones
+## Hookable Mail
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `--color-primary` | `#4A5D4B` | Forest Olive - text, buttons |
-| `--color-accent` | `#D9A835` | Soft Mustard - highlights, CTAs |
-| `--color-brick` | `#B8614A` | Warm Terracotta - warm accents |
-| `--color-bg-main` | `#F7F4EE` | Warm Cream - main background |
-| `--color-bg-sage` | `#D5DDD0` | Muted Sage - section backgrounds |
-| `--color-bg-clay` | `#EAE1D7` | Soft Clay - section backgrounds |
-| `--color-bg-mist` | `#DEE5E5` | Dusty Blue - section backgrounds |
-| `--color-text-secondary` | `#6B7268` | Secondary text |
+Mail beads can be hooked for ad-hoc instruction handoff:
+- `gt hook attach <mail-id>` - Hook existing mail as your assignment
+- `gt handoff -m "..."` - Create and hook new instructions for next session
 
-### Typography
-- **Headings:** `var(--font-heading)` - Fraunces serif
-- **Body:** `var(--font-body)` - Nunito with Thai fallback
+If you find mail on your hook (not a molecule), GUPP applies: read the mail
+content, interpret the prose instructions, and execute them. This enables ad-hoc
+tasks without creating formal beads.
 
-### Spacing & Borders
-- **Card radius:** `24px` (`--radius-card`)
-- **Card radius small:** `16px` (`--radius-card-sm`)
-- **Button radius:** `50px` (`--radius-btn`)
-- **Section padding:** `clamp(60px, 8vw, 120px)` (`--spacing-section`)
-- **Grid gap:** `16px` (`--grid-gap`)
-- **Container max:** `1400px` (`--container-max`)
+**Mayor use case**: The human can send you mail with high-level instructions
+(e.g., "prioritize security fixes across all rigs today"), then hook it. Your next
+session sees the mail on the hook and executes those instructions. Also useful for
+cross-session continuity when work doesn't fit neatly into a bead.
 
-### Animation
-- **Easing:** `cubic-bezier(0.2, 0.8, 0.2, 1)` (`--ease-fluid`)
-- **Scroll reveal:** 0.8s fade-up animation (`.reveal` class)
-- **Fingerprint pulse:** 4s infinite animation
-- **Hover states:** Soft transitions with translateY(-5px)
+## Session End Checklist
 
-## Code Conventions
-
-### Code Style (IMPORTANT)
-When writing code for this project, follow these formatting rules:
-- **Indentation:** 4 spaces (not tabs)
-- **Quotes:** Single quotes for JavaScript strings
-- **Semicolons:** Always use semicolons in JavaScript
-- **Line length:** ~100 characters max
-
-Config files: `.prettierrc`, `.eslintrc.json`
-
-### CSS
-- Use CSS custom properties from `variables.css`
-- Mobile-first responsive design
-- Breakpoints: `768px` (mobile), `1024px` (tablet/desktop)
-- Soft shadows: `box-shadow: 0 20px 60px rgba(74, 93, 75, 0.1)`
-
-### JavaScript
-- Vanilla JS only - no libraries
-- Scroll reveal using IntersectionObserver pattern
-- Smooth scroll for anchor links
-- Mobile menu toggle
-- Add JSDoc comments to functions (see `js/main.js` for examples)
-
-### HTML
-- Semantic elements (`<section>`, `<nav>`, `<footer>`)
-- ARIA labels on interactive elements
-- Lazy loading on below-fold images: `loading="lazy"`
-- External links: `target="_blank" rel="noopener"`
-
-### Images
-- Prefer `.webp` format for production
-- Keep `.png` backups in same directory
-- Optimize to quality 85%
-- Use descriptive alt text
-
-## Page Sections (9 Total)
-
-1. **Announcement Bar** - Top banner with Curiosity Fingerprint CTA
-2. **Navigation** - Sticky navbar with logo image, nav-links, mobile toggle
-3. **Hero** - 2-column grid with badge, h1, floating card, decorations
-4. **Bento Grid** - Value props with mixed card sizes (sage background)
-5. **Community Section** - Newsletter form (span 2) + LINE & Instagram cards, dark background
-6. **50/50 Split Section** - Image left, content right
-7. **LumiBox** - 6 baby kit cards (First Year Collection, 0-12 months)
-8. **Testimonials** - Single centered quote with author
-9. **Footer** - 4-column grid (brand 2fr + 3x1fr), social icons (LINE, Instagram)
-
-## Third-Party Services (SaaS)
-
-| Service | Purpose | Dashboard |
-|---------|---------|-----------|
-| **Kit.com** | Newsletter management | https://app.kit.com |
-| **Formspree** | Contact form submissions | https://formspree.io |
-| **Render.com** | Static site hosting | https://dashboard.render.com |
-| **FontAwesome** | Icon library | https://fontawesome.com/kits |
-
-### Kit.com (Newsletter)
-- **Form ID:** `8398985`
-- **Action URL:** `https://app.kit.com/forms/8398985/subscriptions`
-- **Fields:** `fields[first_name]`, `email_address`
-- **Used on:** Homepage (Community Section), Coming Soon page
-- **Confirmation redirect:** `welcome.html`
-
-### Formspree (Contact Forms)
-- **Dashboard:** https://formspree.io/forms
-- **Used on:** Contact page (`contact.html`)
-- **Features:** Spam filtering, email notifications, submission archive
-
-### Social Links
-- LINE Official: `https://lin.ee/eH1GxA5`
-- Instagram: `https://www.instagram.com/lumicello.th`
-
-### Formspree Contact Form
-- Form ID: `xzznrzdb`
-- Action: `https://formspree.io/f/xzznrzdb`
-- Fields: `first_name`, `last_name`, `email`, `subject`, `message`
-- Located on Contact page (`contact.html`)
-- Submissions sent to: `contact@lumicello.com`
-- Hidden fields: `_subject` (email subject), `_next` (redirect after submit)
-
-### FontAwesome
-- **Kit ID:** `bc46e65664`
-- **Load via:** `https://kit.fontawesome.com/bc46e65664.js`
-
-## Design Philosophy
-
-**"Calm Nature"** - MUJI-inspired design: calm, natural, and relaxed.
-
-- **Soft & Fluid:** No sharp 90-degree angles, rounded corners everywhere
-- **Breathing Motion:** Gentle animations, smooth easing
-- **Natural Palette:** Earthy olive greens, warm terracotta, soft cream backgrounds
-- **Premium Feel:** Generous whitespace, sophisticated typography
-- **Child-friendly but not childish:** Approachable without being cartoonish
-- **MUJI-inspired:** Minimalist, natural tones, calm and relaxed vibe
-
-Reference sites: MUJI (calm/natural), Headspace (approachable), Poketo (grid layouts)
-
-## Security Requirements
-
-### Before Committing Changes
-
-**IMPORTANT:** Before committing any work, verify security implications:
-
-1. **Adding/Updating External Scripts**
-   - Check if CSP (`render.yaml`) needs updating for new domains
-   - Add domains to `script-src` (for loading scripts) and `connect-src` (for data transmission)
-   - Document the change in `SECURITY_DECISIONS.md`
-
-2. **Adding New Third-Party Services**
-   - Identify all required CSP directives (check browser console for violations)
-   - Update `render.yaml` with minimum necessary permissions
-   - Add service documentation to this file and `SECURITY_DECISIONS.md`
-
-3. **Security Documentation**
-   - Any security-related changes MUST be reflected in `SECURITY_DECISIONS.md`
-   - Update the Change Log at the bottom of that file
-   - Update the "Last Updated" date
-
-### Key Security Files
-
-| File | Purpose |
-|------|---------|
-| `render.yaml` | CSP headers, security headers, deployment config |
-| `SECURITY_DECISIONS.md` | Security rationale, troubleshooting, change log |
-
-### Quick CSP Reference
-
-When adding a new external script:
-```yaml
-# In render.yaml, add domain to these directives:
-script-src: https://new-domain.com    # If loading JavaScript
-connect-src: https://new-domain.com   # If sending/receiving data
-font-src: https://new-domain.com      # If loading fonts
-img-src: https://new-domain.com       # If loading images
+```
+[ ] git status              (check what changed)
+[ ] git add <files>         (stage code changes)
+[ ] bd sync                 (commit beads changes)
+[ ] git commit -m "..."     (commit code)
+[ ] bd sync                 (commit any new beads changes)
+[ ] git push                (push to remote)
+[ ] HANDOFF (if incomplete work):
+    gt mail send mayor/ -s "🤝 HANDOFF: <brief>" -m "<context>"
 ```
 
-## Deployment
-
-### Render.com Static Site
-- **Build Command:** `node build.js`
-- **Publish Directory:** `dist`
-- **Entry Point:** `index.html`
-
-### Adding New HTML Pages
-
-**IMPORTANT:** When creating a new HTML page, you MUST add it to the `PUBLIC_FILES` array in `build.js`. The build uses a whitelist approach - only files explicitly listed get deployed. If you forget this step, the page will return 404 in production.
-
-```javascript
-// In build.js, add your new page to this array:
-const PUBLIC_FILES = [
-    'index.html',
-    'contact.html',
-    // ... add your new page here
-    'your-new-page.html',
-];
-```
-
-### Render.yaml Routes Warning
-
-**DO NOT** add catch-all rewrite rules to `render.yaml`. This will break static file serving:
-
-```yaml
-# ❌ WRONG - This breaks everything
-routes:
-  - type: rewrite
-    source: /*
-    destination: /404.html
-```
-
-Render automatically serves `404.html` for missing files on static sites. No custom route is needed.
-
-### Pre-deployment Checklist
-- [ ] Verify all images load (webp format)
-- [ ] Test newsletter form submission
-- [ ] Check responsive design on mobile
-- [ ] Validate social links open correctly
-- [ ] Test scroll reveal animations
-- [ ] Verify fingerprint animation renders
+Town root: /Users/tanwa/gt
