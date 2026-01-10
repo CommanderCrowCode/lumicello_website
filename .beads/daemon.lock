@@ -1,7 +1,7 @@
 {
-  "pid": 38662,
-  "parent_pid": 38647,
+  "pid": 36864,
+  "parent_pid": 36846,
   "database": "/Users/tanwa/gt/lumicello_website/mayor/rig/.beads/beads.db",
-  "version": "0.43.0",
-  "started_at": "2026-01-05T06:27:51.294206Z"
+  "version": "0.46.0",
+  "started_at": "2026-01-09T13:44:43.752752Z"
 }
