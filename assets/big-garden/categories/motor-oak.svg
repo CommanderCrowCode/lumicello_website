@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Category: Motor Skills - Sturdy Oak Tree -->
+  <defs>
+    <radialGradient id="oakSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="trunkGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6B4423"/>
+      <stop offset="50%" style="stop-color:#8B5A2B"/>
+      <stop offset="100%" style="stop-color:#6B4423"/>
+    </linearGradient>
+    <radialGradient id="foliageGradient" cx="40%" cy="40%" r="60%">
+      <stop offset="0%" style="stop-color:#A8C5AB"/>
+      <stop offset="100%" style="stop-color:#5A7D5E"/>
+    </radialGradient>
+    <radialGradient id="foliageHighlight" cx="30%" cy="30%" r="50%">
+      <stop offset="0%" style="stop-color:#C5DBC8"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </radialGradient>
+  </defs>
+  <!-- Ground/soil -->
+  <ellipse cx="40" cy="72" rx="28" ry="6" fill="url(#oakSoilGradient)"/>
+  <!-- Tree trunk -->
+  <path d="M36 68 L34 50 L33 40 Q32 35 35 30 L35 30 L45 30 Q48 35 47 40 L46 50 L44 68 Z" fill="url(#trunkGradient)"/>
+  <!-- Trunk texture lines -->
+  <path d="M38 65 L37 55" stroke="#5D4E37" stroke-width="1" opacity="0.4"/>
+  <path d="M42 65 L43 52" stroke="#5D4E37" stroke-width="1" opacity="0.4"/>
+  <!-- Main foliage (sturdy, round shape for motor/physical strength) -->
+  <ellipse cx="40" cy="22" rx="26" ry="20" fill="url(#foliageGradient)"/>
+  <!-- Foliage highlights -->
+  <ellipse cx="30" cy="18" rx="12" ry="10" fill="url(#foliageHighlight)" opacity="0.7"/>
+  <ellipse cx="50" cy="25" rx="10" ry="8" fill="url(#foliageHighlight)" opacity="0.5"/>
+  <!-- Foliage texture (leaf clusters) -->
+  <circle cx="25" cy="22" r="8" fill="#7A9E7E" opacity="0.6"/>
+  <circle cx="40" cy="12" r="9" fill="#8FB892" opacity="0.5"/>
+  <circle cx="55" cy="20" r="7" fill="#7A9E7E" opacity="0.6"/>
+  <circle cx="35" cy="30" r="6" fill="#6B8F6E" opacity="0.5"/>
+  <circle cx="48" cy="32" r="5" fill="#6B8F6E" opacity="0.5"/>
+  <!-- Coral accent (motor/physical domain color) -->
+  <circle cx="32" cy="15" r="3" fill="#D97B64" opacity="0.8"/>
+  <circle cx="48" cy="18" r="2.5" fill="#D97B64" opacity="0.7"/>
+  <circle cx="40" cy="28" r="2" fill="#D97B64" opacity="0.6"/>
+</svg>

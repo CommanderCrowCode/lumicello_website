@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Category: Language/Communication - Speaking Plant with Speech Elements -->
+  <defs>
+    <radialGradient id="langSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="langVineGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <radialGradient id="langPetalGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FBE4B8"/>
+      <stop offset="100%" style="stop-color:#F5C87A"/>
+    </radialGradient>
+    <radialGradient id="langCenterGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D97B64"/>
+      <stop offset="100%" style="stop-color:#C4654E"/>
+    </radialGradient>
+  </defs>
+  <!-- Soil -->
+  <ellipse cx="40" cy="72" rx="18" ry="6" fill="url(#langSoilGradient)"/>
+  <!-- Main vine (curving upward like sound waves) -->
+  <path d="M40 68 Q35 55 40 45 Q45 38 40 30" stroke="url(#langVineGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Curling tendril vines (like sound emanating) -->
+  <path d="M40 50 Q55 45 58 52" stroke="#7A9E7E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <path d="M40 42 Q25 38 22 44" stroke="#7A9E7E" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <!-- Leaves -->
+  <path d="M38 58 Q28 54 26 58 Q28 62 38 58" fill="#7A9E7E"/>
+  <path d="M42 48 Q52 44 54 48 Q52 52 42 48" fill="#A8C5AB"/>
+  <!-- Main flower (mouth-like, open shape) -->
+  <ellipse cx="40" cy="22" rx="12" ry="8" fill="url(#langPetalGradient)"/>
+  <!-- Upper petals (like open lips/mouth) -->
+  <path d="M28 20 Q32 10 40 8 Q48 10 52 20" fill="url(#langPetalGradient)"/>
+  <!-- Lower petal -->
+  <path d="M28 24 Q32 32 40 34 Q48 32 52 24" fill="url(#langPetalGradient)"/>
+  <!-- Center (tongue-like) -->
+  <ellipse cx="40" cy="22" rx="6" ry="5" fill="url(#langCenterGradient)"/>
+  <!-- Speech bubbles / sound waves emanating -->
+  <g fill="none" stroke="#F5C87A" stroke-width="2" stroke-linecap="round" opacity="0.8">
+    <path d="M56 18 Q60 16 58 12"/>
+    <path d="M60 22 Q65 20 64 15"/>
+    <path d="M62 28 Q68 26 68 20"/>
+  </g>
+  <!-- Small speech dots -->
+  <circle cx="66" cy="14" r="2" fill="#F5C87A" opacity="0.9"/>
+  <circle cx="70" cy="20" r="1.5" fill="#F5C87A" opacity="0.7"/>
+  <circle cx="72" cy="26" r="1" fill="#F5C87A" opacity="0.5"/>
+  <!-- Small decorative buds on tendrils -->
+  <circle cx="58" cy="52" r="3" fill="#D97B64" opacity="0.8"/>
+  <circle cx="22" cy="44" r="3" fill="#D97B64" opacity="0.8"/>
+</svg>
