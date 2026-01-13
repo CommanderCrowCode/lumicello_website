@@ -10,9 +10,12 @@
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://lumicello.com/lumibox.html">
-    <meta property="og:title" content="LumiBox - Thoughtfully Designed Learning Kits">
-    <meta property="og:description" content="Thoughtfully designed kits for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
-    <meta property="og:image" content="https://lumicello.com/assets/images/lumibox/box_0-2.webp">
+    <meta property="og:title" content="LumiBox - The First Year Collection">
+    <meta property="og:description" content="Six beautifully designed kits for baby's first year. Each box unlocks a new chapter of discovery - from first gazes to first words.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumibox/items_0-2.webp">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="LumiBox First Gazes Kit - beautifully designed sensory toys and high-contrast cards for newborns">
     <meta property="og:site_name" content="Lumicello">
 
     <!-- Canonical URL -->
@@ -20,9 +23,10 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LumiBox - Thoughtfully Designed Learning Kits">
-    <meta name="twitter:description" content="Thoughtfully designed kits for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
-    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumibox/box_0-2.webp">
+    <meta name="twitter:title" content="LumiBox - The First Year Collection">
+    <meta name="twitter:description" content="Six beautifully designed kits for baby's first year. Each box unlocks a new chapter of discovery.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumibox/items_0-2.webp">
+    <meta name="twitter:image:alt" content="LumiBox learning kit contents - premium sensory toys for baby development">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -74,31 +78,52 @@
     <!-- Navigation (Shared Component) -->
     <div id="nav-placeholder"></div>
 
-    <!-- LumiBox Hero Section -->
+    <!-- LumiBox Hero Section - Premium Unboxing Reveal -->
     <section class="lumibox-hero">
         <div class="lumibox-hero-container">
             <!-- Text Content -->
             <div class="lumibox-hero-content">
+                <span class="lumibox-hero-eyebrow reveal">The First Year Collection</span>
                 <h1 class="lumibox-hero-title">LumiBox</h1>
-                <p class="lumibox-hero-subtitle">Thoughtfully designed kits for baby's first year</p>
-                <a href="#collection" class="btn btn-accent lumibox-hero-cta">Explore the Collection</a>
+                <p class="lumibox-hero-subtitle">Thoughtfully designed kits for baby's first year. Each box unlocks a new chapter of discovery.</p>
+                <div class="lumibox-hero-cta-group">
+                    <a href="#collection" class="btn btn-accent lumibox-hero-cta">Explore the Collection</a>
+                    <a href="#journey" class="btn btn-outline lumibox-hero-cta-secondary">See the Journey</a>
+                </div>
             </div>
 
-            <!-- Hero Visual - Box Stack -->
+            <!-- Hero Visual - Dramatic Kit Reveal -->
             <div class="lumibox-hero-visual">
-                <div class="lumibox-stack">
-                    <!-- Floating boxes with gentle animation -->
-                    <div class="lumibox-box lumibox-box-1">
-                        <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit - 0-2 months" loading="eager">
+                <div class="lumibox-reveal-stage">
+                    <!-- Main featured box with lid animation -->
+                    <div class="lumibox-featured">
+                        <div class="lumibox-featured-box">
+                            <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit - The beginning of your baby's discovery journey" loading="eager">
+                        </div>
+                        <!-- Kit items floating out -->
+                        <div class="lumibox-items-spread">
+                            <img src="assets/images/lumibox/items_0-2.webp" alt="Kit contents - High contrast cards, sensory toys, and parent guide" class="lumibox-items-img" loading="eager">
+                        </div>
                     </div>
-                    <div class="lumibox-box lumibox-box-2">
-                        <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit - 3-4 months" loading="eager">
+
+                    <!-- Secondary boxes orbiting -->
+                    <div class="lumibox-orbit">
+                        <div class="lumibox-orbit-item lumibox-orbit-1">
+                            <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit" loading="lazy">
+                        </div>
+                        <div class="lumibox-orbit-item lumibox-orbit-2">
+                            <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit" loading="lazy">
+                        </div>
+                        <div class="lumibox-orbit-item lumibox-orbit-3">
+                            <img src="assets/images/lumibox/box_7-8.webp" alt="Sit & Explore Kit" loading="lazy">
+                        </div>
                     </div>
-                    <div class="lumibox-box lumibox-box-3">
-                        <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit - 5-6 months" loading="eager">
+
+                    <!-- Ambient glow effects -->
+                    <div class="lumibox-ambient">
+                        <div class="lumibox-glow lumibox-glow-primary"></div>
+                        <div class="lumibox-glow lumibox-glow-secondary"></div>
                     </div>
-                    <!-- Decorative glow -->
-                    <div class="lumibox-glow"></div>
                 </div>
             </div>
         </div>
@@ -107,17 +132,279 @@
         <div class="lumibox-hero-bg">
             <div class="lumibox-bg-circle lumibox-bg-circle-1"></div>
             <div class="lumibox-bg-circle lumibox-bg-circle-2"></div>
+            <div class="lumibox-bg-circle lumibox-bg-circle-3"></div>
         </div>
     </section>
 
-    <!-- Collection Section Placeholder -->
+    <!-- Collection Section - Premium Product Cards -->
     <section class="lumibox-collection" id="collection">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header reveal">
                 <h2>First Year Collection</h2>
                 <p>Six developmental stages, thoughtfully curated to support your baby's journey of discovery.</p>
             </div>
-            <!-- Kit cards will go here in future tasks -->
+
+            <!-- Premium Product Grid -->
+            <div class="lumibox-product-grid">
+                <!-- Kit 1: 0-2 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="0-2">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">0-2 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_0-2.webp" alt="First Gazes Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>First Gazes</h3>
+                        <p class="lumibox-card-focus">Visual Development</p>
+                        <p class="lumibox-card-desc">High-contrast cards and gentle sensory toys designed for newborn eyes discovering the world.</p>
+                    </div>
+                </article>
+
+                <!-- Kit 2: 3-4 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="3-4">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">3-4 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>Tummy Time Discovery</h3>
+                        <p class="lumibox-card-focus">Core Strength & Tracking</p>
+                        <p class="lumibox-card-desc">Engaging props that make tummy time fun while building essential muscles and visual tracking skills.</p>
+                    </div>
+                </article>
+
+                <!-- Kit 3: 5-6 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="5-6">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">5-6 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_5-6.webp" alt="Grasp & Spin Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>Grasp & Spin</h3>
+                        <p class="lumibox-card-focus">Fine Motor Skills</p>
+                        <p class="lumibox-card-desc">Colorful manipulatives that encourage reaching, grasping, and the joy of cause-and-effect discovery.</p>
+                    </div>
+                </article>
+
+                <!-- Kit 4: 7-8 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="7-8">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">7-8 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_7-8.webp" alt="Sit & Explore Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_7-8.webp" alt="Sit & Explore Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>Sit & Explore</h3>
+                        <p class="lumibox-card-focus">Object Permanence</p>
+                        <p class="lumibox-card-desc">Interactive toys that reward curiosity and help babies understand that objects exist even when hidden.</p>
+                    </div>
+                </article>
+
+                <!-- Kit 5: 9-10 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="9-10">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">9-10 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_9-10.webp" alt="Stand & Move Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_9-10.webp" alt="Stand & Move Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>Stand & Move</h3>
+                        <p class="lumibox-card-focus">Gross Motor & Balance</p>
+                        <p class="lumibox-card-desc">Supportive tools that encourage pulling up, cruising, and those exciting first steps toward independence.</p>
+                    </div>
+                </article>
+
+                <!-- Kit 6: 11-12 Months -->
+                <article class="lumibox-product-card reveal-stagger" data-age="11-12">
+                    <div class="lumibox-card-visual">
+                        <div class="lumibox-card-badge">11-12 months</div>
+                        <div class="lumibox-card-image-wrapper">
+                            <img src="assets/images/lumibox/box_11-12.webp" alt="First Words Kit" class="lumibox-card-box" loading="lazy">
+                            <img src="assets/images/lumibox/items_11-12.webp" alt="First Words Kit contents" class="lumibox-card-items" loading="lazy">
+                        </div>
+                        <div class="lumibox-card-glow"></div>
+                    </div>
+                    <div class="lumibox-card-content">
+                        <h3>First Words</h3>
+                        <p class="lumibox-card-focus">Language & Communication</p>
+                        <p class="lumibox-card-desc">Language-rich materials that spark those magical first words and meaningful two-way communication.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Journey Timeline Section -->
+    <section class="lumibox-journey" id="journey">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>A Year of Wonder</h2>
+                <p>Watch your little one grow through six carefully designed developmental stages.</p>
+            </div>
+
+            <div class="lumibox-timeline">
+                <div class="lumibox-timeline-track"></div>
+
+                <!-- Timeline Milestones -->
+                <div class="lumibox-milestone reveal" data-month="0">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">Birth</span>
+                        <h4>First Gazes</h4>
+                        <p>Eyes begin to focus, recognizing faces and high-contrast patterns.</p>
+                    </div>
+                </div>
+
+                <div class="lumibox-milestone reveal" data-month="3">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">3 months</span>
+                        <h4>Tummy Time</h4>
+                        <p>Building core strength and discovering the world from new angles.</p>
+                    </div>
+                </div>
+
+                <div class="lumibox-milestone reveal" data-month="5">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">5 months</span>
+                        <h4>Reaching Out</h4>
+                        <p>Those tiny hands start grasping everything within reach.</p>
+                    </div>
+                </div>
+
+                <div class="lumibox-milestone reveal" data-month="7">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">7 months</span>
+                        <h4>Sitting Strong</h4>
+                        <p>A whole new perspective opens up from sitting independently.</p>
+                    </div>
+                </div>
+
+                <div class="lumibox-milestone reveal" data-month="9">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">9 months</span>
+                        <h4>On the Move</h4>
+                        <p>Crawling, pulling up, and those thrilling first cruising steps.</p>
+                    </div>
+                </div>
+
+                <div class="lumibox-milestone reveal" data-month="12">
+                    <div class="lumibox-milestone-marker">
+                        <span class="lumibox-milestone-dot"></span>
+                    </div>
+                    <div class="lumibox-milestone-content">
+                        <span class="lumibox-milestone-age">12 months</span>
+                        <h4>First Words</h4>
+                        <p>The magic of communication begins with those precious first words.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals / Testimonials Section -->
+    <section class="lumibox-trust">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Loved by Parents</h2>
+                <p>Join thousands of families who've made LumiBox part of their first year journey.</p>
+            </div>
+
+            <div class="lumibox-testimonials">
+                <blockquote class="lumibox-testimonial reveal-stagger">
+                    <p>"Every month we look forward to opening the new box together. It's become our special ritual."</p>
+                    <footer>
+                        <cite>Sarah M.</cite>
+                        <span>Mother of 8-month-old Mia</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="lumibox-testimonial reveal-stagger">
+                    <p>"The quality is incredible. These aren't just toys - they're beautifully designed learning tools."</p>
+                    <footer>
+                        <cite>James & Priya K.</cite>
+                        <span>Parents of twin boys</span>
+                    </footer>
+                </blockquote>
+
+                <blockquote class="lumibox-testimonial reveal-stagger">
+                    <p>"I gave this as a baby shower gift and the parents were in tears. It's the gift that keeps giving all year."</p>
+                    <footer>
+                        <cite>Linda T.</cite>
+                        <span>Proud aunt</span>
+                    </footer>
+                </blockquote>
+            </div>
+
+            <!-- Trust badges -->
+            <div class="lumibox-trust-badges reveal">
+                <div class="lumibox-badge">
+                    <span class="lumibox-badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                        </svg>
+                    </span>
+                    <span class="lumibox-badge-text">Safety Certified</span>
+                </div>
+                <div class="lumibox-badge">
+                    <span class="lumibox-badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                    </span>
+                    <span class="lumibox-badge-text">Made in Thailand</span>
+                </div>
+                <div class="lumibox-badge">
+                    <span class="lumibox-badge-icon">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                        </svg>
+                    </span>
+                    <span class="lumibox-badge-text">Expert Designed</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="lumibox-cta">
+        <div class="container">
+            <div class="lumibox-cta-content reveal">
+                <h2>Start Your Baby's Journey</h2>
+                <p>The perfect gift for expecting parents or your own little one. Each box arrives at exactly the right moment.</p>
+                <a href="contact.html" class="btn btn-accent btn-lg">Get in Touch</a>
+            </div>
         </div>
     </section>
 
