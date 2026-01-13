@@ -1,5 +1,5 @@
 # Lumicello Website - Robots.txt
-# Last updated: 2024-12-01
+# Last updated: 2025-01-13
 # See SECURITY_DECISIONS.md for rationale
 
 User-agent: *
@@ -7,6 +7,10 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://lumicello.com/sitemap.xml
+
+# AI/LLM Crawler Information
+# For detailed guidance, visit: https://lumicello.com/ai-info.html
+# Raw text version: https://lumicello.com/llms.txt
 
 # Block internal/development files (defense in depth - these are also not deployed)
 Disallow: /design_specs/

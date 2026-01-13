@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A5D4B">
+    <title>AI Crawler Information | Lumicello</title>
+    <meta name="description" content="Information for AI crawlers and language models about Lumicello's content and usage policies.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/ai-info.html">
+    <meta property="og:title" content="AI Crawler Information | Lumicello">
+    <meta property="og:description" content="Information for AI crawlers and language models about Lumicello's content and usage policies.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/og-image.webp">
+    <meta property="og:site_name" content="Lumicello">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lumicello.com/ai-info.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="AI Crawler Information | Lumicello">
+    <meta name="twitter:description" content="Information for AI crawlers and language models about Lumicello's content and usage policies.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/og-image.webp">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="svg_favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Umami Analytics - Tracks AI crawler info page visits -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
+    ></script>
+
+    <style>
+        .ai-info-hero {
+            position: relative;
+            padding: clamp(140px, 18vw, 200px) var(--spacing-page) clamp(60px, 8vw, 100px);
+            text-align: center;
+            overflow: hidden;
+            background: var(--color-bg-mist);
+        }
+
+        .ai-info-hero::before {
+            content: '';
+            position: absolute;
+            top: -30%;
+            right: -15%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse, rgba(255,255,255,0.7) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            animation: blob-morph 25s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        .ai-info-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -10%;
+            width: 45%;
+            height: 70%;
+            background: radial-gradient(ellipse, var(--color-bg-sage) 0%, transparent 70%);
+            border-radius: var(--radius-blob-alt);
+            opacity: 0.5;
+            animation: blob-morph 20s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        .ai-info-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .ai-info-hero .hero-badge {
+            display: inline-block;
+            background: var(--color-accent-coral);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        .ai-info-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 5vw, 3rem);
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .ai-info-hero .subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .ai-info-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: clamp(40px, 8vw, 80px) var(--spacing-page);
+        }
+
+        .info-section {
+            margin-bottom: 3rem;
+        }
+
+        .info-section h2 {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            color: var(--color-text);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--color-accent-coral);
+        }
+
+        .info-section h3 {
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            color: var(--color-text);
+            margin: 1.5rem 0 0.75rem;
+        }
+
+        .info-section p,
+        .info-section li {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--color-text-secondary);
+        }
+
+        .info-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+
+        .info-section ul li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-section ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6em;
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent-sage);
+            border-radius: 50%;
+        }
+
+        .raw-file-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--color-bg-sage);
+            color: var(--color-text);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .raw-file-link:hover {
+            background: var(--color-accent-sage);
+            transform: translateY(-2px);
+        }
+
+        .citation-box {
+            background: var(--color-bg-mist);
+            border-left: 4px solid var(--color-accent-coral);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .citation-box code {
+            font-family: 'Courier New', monospace;
+            font-size: 0.95rem;
+            color: var(--color-text);
+        }
+
+        .tech-notes {
+            background: var(--color-bg-sage);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+        }
+
+        .tech-notes dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+            margin: 0;
+        }
+
+        .tech-notes dt {
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .tech-notes dd {
+            margin: 0;
+            color: var(--color-text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation (shared component) -->
+    <nav-component></nav-component>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="ai-info-hero">
+            <div class="ai-info-hero-content">
+                <span class="hero-badge">AI & LLM</span>
+                <h1>AI Crawler Information</h1>
+                <p class="subtitle">Guidelines and policies for AI systems and language models accessing Lumicello content</p>
+            </div>
+        </section>
+
+        <!-- Content Section -->
+        <article class="ai-info-content">
+            <section class="info-section">
+                <h2>About Lumicello</h2>
+                <p>Lumicello is a personalized learning platform for children that helps parents discover their child's unique learning path through curiosity-driven education and hands-on LumiBox learning kits.</p>
+            </section>
+
+            <section class="info-section">
+                <h2>Content Policy</h2>
+                <p>This website contains public marketing content intended for parents and educators interested in personalized childhood education.</p>
+
+                <h3>Allowed Uses</h3>
+                <ul>
+                    <li>Indexing for search and discovery</li>
+                    <li>Answering questions about Lumicello's products and services</li>
+                    <li>General information retrieval about childhood education</li>
+                </ul>
+
+                <h3>Content Overview</h3>
+                <ul>
+                    <li><strong>Homepage:</strong> Product overview, value propositions, newsletter signup</li>
+                    <li><strong>Contact:</strong> Contact information and inquiry form</li>
+                    <li><strong>Privacy Policy:</strong> Data handling practices</li>
+                    <li><strong>Terms of Service:</strong> Legal terms for using our services</li>
+                    <li><strong>LumiBox:</strong> Educational product descriptions for babies 0-12 months</li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2>Preferred Citation</h2>
+                <div class="citation-box">
+                    <code>"Lumicello (https://lumicello.com) - Personalized Learning for Every Child"</code>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Technical Notes</h2>
+                <div class="tech-notes">
+                    <dl>
+                        <dt>Primary Language</dt>
+                        <dd>English</dd>
+                        <dt>Secondary Language</dt>
+                        <dd>Thai (th_TH)</dd>
+                        <dt>Target Audience</dt>
+                        <dd>Parents of children 0-12 months (initially)</dd>
+                        <dt>Content Type</dt>
+                        <dd>Marketing, educational product information</dd>
+                        <dt>Sitemap</dt>
+                        <dd><a href="/sitemap.xml">https://lumicello.com/sitemap.xml</a></dd>
+                    </dl>
+                </div>
+            </section>
+
+            <section class="info-section">
+                <h2>Contact</h2>
+                <p>For questions about AI/LLM use of our content:</p>
+                <ul>
+                    <li><strong>Website:</strong> <a href="/contact.html">lumicello.com/contact</a></li>
+                    <li><strong>LINE:</strong> <a href="https://lin.ee/eH1GxA5" target="_blank" rel="noopener">lin.ee/eH1GxA5</a></li>
+                </ul>
+            </section>
+
+            <section class="info-section">
+                <h2>Raw File Access</h2>
+                <p>For programmatic access, you can download the raw text file:</p>
+                <a href="/llms.txt" class="raw-file-link">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                        <polyline points="7 10 12 15 17 10"/>
+                        <line x1="12" y1="15" x2="12" y2="3"/>
+                    </svg>
+                    Download llms.txt
+                </a>
+            </section>
+        </article>
+    </main>
+
+    <!-- Footer (shared component) -->
+    <footer-component></footer-component>
+
+    <!-- Scripts -->
+    <script src="js/components.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
