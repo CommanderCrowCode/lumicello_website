@@ -17,6 +17,7 @@ const NAV_LINKS = [
     { anchor: '#platform', text: 'Platform' },
     { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
     { anchor: '#kits', text: 'LumiBox' },
+    { href: 'big-garden.html', text: 'Big Garden' },
     { anchor: '#about', text: 'About' },
 ];
 
@@ -26,6 +27,7 @@ const FOOTER_LINKS = {
         { anchor: '#platform', text: 'Platform' },
         { anchor: '#fingerprint', text: 'Curiosity Fingerprint' },
         { anchor: '#kits', text: 'LumiBox' },
+        { href: 'big-garden.html', text: 'Big Garden' },
         { href: 'coming-soon.html', text: 'For Educators' },
     ],
     company: [
@@ -53,9 +55,10 @@ const SOCIAL_LINKS = {
  * @returns {string} Navigation HTML
  */
 function generateNavigation() {
-    const navLinksHTML = NAV_LINKS.map(
-        link => `<li><a href="${getHref(link.anchor)}">${link.text}</a></li>`
-    ).join('\n                ');
+    const navLinksHTML = NAV_LINKS.map(link => {
+        const href = link.anchor ? getHref(link.anchor) : link.href;
+        return `<li><a href="${href}">${link.text}</a></li>`;
+    }).join('\n                ');
 
     const communityHref = getHref('#community');
 
