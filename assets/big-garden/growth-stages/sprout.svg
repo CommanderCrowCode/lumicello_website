@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Growth Stage: Sprout - Simple green stem with 2 leaves -->
+  <defs>
+    <radialGradient id="sproutSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="stemGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <linearGradient id="leafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A8C5AB"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+  </defs>
+  <!-- Soil mound -->
+  <ellipse cx="32" cy="52" rx="18" ry="8" fill="url(#sproutSoilGradient)"/>
+  <!-- Stem -->
+  <path d="M32 48 Q32 38 32 28" stroke="url(#stemGradient)" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Left leaf -->
+  <path d="M32 36 Q24 32 20 36 Q24 40 32 36" fill="url(#leafGradient)"/>
+  <!-- Right leaf -->
+  <path d="M32 32 Q40 28 44 32 Q40 36 32 32" fill="url(#leafGradient)"/>
+  <!-- Leaf veins -->
+  <path d="M32 36 L24 36" stroke="#5A7D5E" stroke-width="0.5" opacity="0.5"/>
+  <path d="M32 32 L40 32" stroke="#5A7D5E" stroke-width="0.5" opacity="0.5"/>
+</svg>

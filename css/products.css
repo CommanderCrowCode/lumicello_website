@@ -933,3 +933,433 @@
         animation: none;
     }
 }
+
+/* ============================================
+   AGE PROGRESSION TIMELINE COMPONENT
+   For LumiBox age milestone visualization
+   ============================================ */
+.age-timeline {
+    position: relative;
+    padding: var(--space-xl) 0;
+}
+
+/* Desktop: Horizontal timeline */
+.age-timeline__track {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* The connecting line */
+.age-timeline__line {
+    position: absolute;
+    top: 28px;
+    left: var(--space-lg);
+    right: var(--space-lg);
+    height: 4px;
+    background: linear-gradient(
+        90deg,
+        var(--color-brick) 0%,
+        var(--env-primary, var(--color-accent)) 50%,
+        var(--color-brick) 100%
+    );
+    border-radius: var(--radius-pill);
+    z-index: 0;
+}
+
+/* Individual milestone */
+.age-timeline__milestone {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    max-width: 180px;
+    cursor: pointer;
+    outline: none;
+}
+
+/* Milestone dot */
+.age-timeline__dot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--color-primary);
+    border: 4px solid var(--color-bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-normal) var(--ease-out);
+    box-shadow: var(--shadow-md);
+}
+
+.age-timeline__dot-inner {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-bg-main);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+/* Hover state */
+.age-timeline__milestone:hover .age-timeline__dot {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Focus state for accessibility */
+.age-timeline__milestone:focus-visible .age-timeline__dot {
+    outline: 3px solid var(--env-primary, var(--color-accent));
+    outline-offset: 4px;
+}
+
+/* Active state */
+.age-timeline__milestone.is-active .age-timeline__dot {
+    background: var(--env-primary, var(--color-accent));
+    transform: scale(1.15);
+    box-shadow: var(--shadow-glow-md);
+}
+
+.age-timeline__milestone.is-active .age-timeline__dot-inner {
+    background: var(--color-primary);
+}
+
+/* Age badge */
+.age-timeline__badge {
+    margin-top: var(--space-md);
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-bg-clay);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-small);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.age-timeline__milestone.is-active .age-timeline__badge {
+    background: var(--env-primary, var(--color-accent));
+    color: var(--color-primary);
+}
+
+/* Kit info below dot */
+.age-timeline__info {
+    margin-top: var(--space-sm);
+    text-align: center;
+    padding: 0 var(--space-xs);
+}
+
+.age-timeline__kit-name {
+    font-family: var(--font-heading);
+    font-size: var(--text-body);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    line-height: var(--leading-snug);
+    margin-bottom: var(--space-xs);
+}
+
+.age-timeline__focus {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-normal);
+}
+
+/* Box thumbnail */
+.age-timeline__thumbnail {
+    width: 60px;
+    height: 60px;
+    margin-top: var(--space-sm);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-clay);
+    overflow: hidden;
+    opacity: 0.7;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.age-timeline__milestone:hover .age-timeline__thumbnail,
+.age-timeline__milestone.is-active .age-timeline__thumbnail {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.age-timeline__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ============================================
+   EXPANDED CONTENT PANEL
+   Shows kit contents when milestone is active
+   ============================================ */
+.age-timeline__panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-slow) var(--ease-out),
+                opacity var(--duration-normal) var(--ease-out),
+                padding var(--duration-slow) var(--ease-out);
+    opacity: 0;
+    background: #ffffff;
+    border-radius: var(--radius-lg);
+    margin-top: var(--space-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+.age-timeline__panel.is-open {
+    max-height: 800px;
+    opacity: 1;
+    padding: var(--space-xl);
+}
+
+.age-timeline__panel-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-lg);
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.age-timeline__panel-image {
+    width: 120px;
+    height: 120px;
+    border-radius: var(--radius-md);
+    background: var(--color-bg-clay);
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.age-timeline__panel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.age-timeline__panel-title {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+}
+
+.age-timeline__panel-subtitle {
+    font-size: var(--text-body-lg);
+    color: var(--env-primary, var(--color-accent));
+    font-weight: 600;
+    margin-bottom: var(--space-sm);
+}
+
+.age-timeline__panel-description {
+    font-size: var(--text-body);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Kit contents grid */
+.age-timeline__contents {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+}
+
+.age-timeline__item {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-bg-main);
+    border-radius: var(--radius-md);
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.age-timeline__item:hover {
+    background: var(--color-bg-clay);
+    transform: translateY(-2px);
+}
+
+.age-timeline__item-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-sm);
+    background: var(--env-bg-section, var(--color-bg-clay));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.age-timeline__item-content {
+    flex: 1;
+}
+
+.age-timeline__item-name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-xs);
+    font-size: var(--text-body);
+}
+
+.age-timeline__item-desc {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* Close button */
+.age-timeline__close {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: var(--color-bg-main);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--duration-normal) var(--ease-out);
+}
+
+.age-timeline__close:hover {
+    background: var(--color-bg-clay);
+    transform: scale(1.1);
+}
+
+.age-timeline__close:focus-visible {
+    outline: 2px solid var(--env-primary, var(--color-accent));
+    outline-offset: 2px;
+}
+
+.age-timeline__close svg {
+    width: 20px;
+    height: 20px;
+    color: var(--color-text-secondary);
+}
+
+/* Panel wrapper for positioning */
+.age-timeline__panel-wrapper {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}
+
+/* ============================================
+   MOBILE RESPONSIVE - Vertical Cards
+   ============================================ */
+@media (max-width: 968px) {
+    .age-timeline__track {
+        flex-direction: column;
+        align-items: stretch;
+        gap: var(--space-md);
+    }
+
+    .age-timeline__line {
+        display: none;
+    }
+
+    /* Mobile: vertical line */
+    .age-timeline__track::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: calc(var(--space-lg) + 28px);
+        width: 4px;
+        background: linear-gradient(
+            180deg,
+            var(--color-brick) 0%,
+            var(--env-primary, var(--color-accent)) 50%,
+            var(--color-brick) 100%
+        );
+        border-radius: var(--radius-pill);
+        z-index: 0;
+    }
+
+    .age-timeline__milestone {
+        flex-direction: row;
+        align-items: center;
+        max-width: none;
+        padding: var(--space-md);
+        background: #ffffff;
+        border-radius: var(--radius-lg);
+        box-shadow: var(--shadow-sm);
+        gap: var(--space-md);
+    }
+
+    .age-timeline__milestone.is-active {
+        box-shadow: var(--shadow-md);
+        background: var(--color-bg-main);
+    }
+
+    .age-timeline__dot {
+        width: 48px;
+        height: 48px;
+        flex-shrink: 0;
+    }
+
+    .age-timeline__info {
+        text-align: left;
+        margin-top: 0;
+        flex: 1;
+    }
+
+    .age-timeline__badge {
+        margin-top: 0;
+        margin-bottom: var(--space-xs);
+        display: inline-block;
+    }
+
+    .age-timeline__thumbnail {
+        display: none;
+    }
+
+    /* Mobile panel */
+    .age-timeline__panel {
+        margin-top: var(--space-md);
+        border-radius: var(--radius-md);
+    }
+
+    .age-timeline__panel.is-open {
+        padding: var(--space-lg);
+    }
+
+    .age-timeline__panel-header {
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .age-timeline__panel-image {
+        width: 100%;
+        height: 160px;
+    }
+
+    .age-timeline__contents {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .age-timeline__panel-title {
+        font-size: var(--text-h3);
+    }
+
+    .age-timeline__item {
+        padding: var(--space-sm);
+    }
+
+    .age-timeline__item-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.25rem;
+    }
+}

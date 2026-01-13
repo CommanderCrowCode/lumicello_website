@@ -1,0 +1,349 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 560" width="280" height="560">
+  <!-- Big Garden Skill Flow Graphic - Phone Mockup Display -->
+  <!-- Shows 9 developmental skill domains as flowers growing in a garden -->
+  <defs>
+    <!-- Background gradient - soft sky -->
+    <linearGradient id="skyBg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F4F8"/>
+      <stop offset="40%" style="stop-color:#F0F5F1"/>
+      <stop offset="100%" style="stop-color:#E1EBE2"/>
+    </linearGradient>
+
+    <!-- Soil gradient -->
+    <radialGradient id="soilGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+
+    <!-- Stem gradient -->
+    <linearGradient id="stemGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+
+    <!-- Leaf gradient -->
+    <linearGradient id="leafGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A8C5AB"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+
+    <!-- 9 Domain Colors - from Big Garden app -->
+    <!-- 1. Gross Motor - #E8927C - Sunflower -->
+    <radialGradient id="grossMotorGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#F4B8A8"/>
+      <stop offset="100%" style="stop-color:#E8927C"/>
+    </radialGradient>
+
+    <!-- 2. Fine Motor - #7A9E7E - Cherry Blossom -->
+    <radialGradient id="fineMotorGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFE4E6"/>
+      <stop offset="100%" style="stop-color:#FFC0CB"/>
+    </radialGradient>
+
+    <!-- 3. Linguistic - #A8D5E5 - Tulip -->
+    <radialGradient id="lingGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#D4EAF2"/>
+      <stop offset="100%" style="stop-color:#A8D5E5"/>
+    </radialGradient>
+
+    <!-- 4. Cognitive - #D4C4E6 - Hyacinth -->
+    <radialGradient id="cogGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#EAE4F2"/>
+      <stop offset="100%" style="stop-color:#D4C4E6"/>
+    </radialGradient>
+
+    <!-- 5. Social - #F5C87A - Daisy -->
+    <radialGradient id="socialGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FBE4B8"/>
+      <stop offset="100%" style="stop-color:#F5C87A"/>
+    </radialGradient>
+
+    <!-- 6. Emotional - #F48FB1 - Rose -->
+    <radialGradient id="emotionalGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFD5DC"/>
+      <stop offset="100%" style="stop-color:#F48FB1"/>
+    </radialGradient>
+
+    <!-- 7. Feeding - #FFAB91 - Apple -->
+    <radialGradient id="feedingGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFCCBC"/>
+      <stop offset="100%" style="stop-color:#FFAB91"/>
+    </radialGradient>
+
+    <!-- 8. Self-Care - #B2DFDB - Rosette -->
+    <radialGradient id="selfCareGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#E0F2F1"/>
+      <stop offset="100%" style="stop-color:#B2DFDB"/>
+    </radialGradient>
+
+    <!-- 9. Sensory - #80DEEA - Hibiscus -->
+    <radialGradient id="sensoryGrad" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#B2EBF2"/>
+      <stop offset="100%" style="stop-color:#80DEEA"/>
+    </radialGradient>
+
+    <!-- Flower center -->
+    <radialGradient id="centerGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FBE4B8"/>
+      <stop offset="100%" style="stop-color:#F5C87A"/>
+    </radialGradient>
+
+    <!-- Flow path gradient -->
+    <linearGradient id="flowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#A8C5AB" stop-opacity="0.3"/>
+      <stop offset="50%" style="stop-color:#7A9E7E" stop-opacity="0.6"/>
+      <stop offset="100%" style="stop-color:#A8C5AB" stop-opacity="0.3"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2" result="glow"/>
+      <feMerge>
+        <feMergeNode in="glow"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Subtle shadow -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="1.5" flood-color="#5D4E37" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="280" height="560" fill="url(#skyBg)"/>
+
+  <!-- Decorative clouds -->
+  <g fill="white" opacity="0.5">
+    <ellipse cx="50" cy="35" rx="22" ry="10"/>
+    <ellipse cx="72" cy="30" rx="16" ry="8"/>
+    <ellipse cx="210" cy="45" rx="20" ry="9"/>
+    <ellipse cx="230" cy="40" rx="15" ry="7"/>
+  </g>
+
+  <!-- Sun -->
+  <g transform="translate(245, 25)">
+    <circle cx="0" cy="0" r="18" fill="#FBE4B8" opacity="0.7"/>
+    <circle cx="0" cy="0" r="12" fill="#F5C87A" opacity="0.8"/>
+  </g>
+
+  <!-- Ground/soil layer -->
+  <path d="M0 485 Q70 470 140 480 Q210 490 280 475 L280 560 L0 560 Z" fill="#7A9E7E"/>
+  <path d="M0 505 Q70 495 140 503 Q210 511 280 500 L280 560 L0 560 Z" fill="#5D4E37" opacity="0.5"/>
+
+  <!-- Flowing vine connections -->
+  <g fill="none" stroke="url(#flowGrad)" stroke-width="3" stroke-linecap="round" opacity="0.6">
+    <!-- Main central vine -->
+    <path d="M140 515 Q130 450 140 380 Q150 310 140 240 Q130 170 140 100 Q145 60 140 40"/>
+    <!-- Left branches -->
+    <path d="M140 450 Q90 430 55 390"/>
+    <path d="M140 350 Q80 330 50 280"/>
+    <path d="M140 250 Q85 235 55 190"/>
+    <!-- Right branches -->
+    <path d="M140 400 Q190 380 225 340"/>
+    <path d="M140 300 Q195 280 230 230"/>
+    <path d="M140 200 Q200 180 230 130"/>
+    <!-- Top branches -->
+    <path d="M140 150 Q95 125 70 85"/>
+    <path d="M140 150 Q185 125 210 85"/>
+  </g>
+
+  <!-- Decorative leaves along vines -->
+  <g fill="url(#leafGrad)" opacity="0.7">
+    <path d="M138 480 Q125 475 122 482 Q128 488 138 480"/>
+    <path d="M142 420 Q155 415 158 422 Q152 428 142 420"/>
+    <path d="M138 360 Q125 355 122 362 Q128 368 138 360"/>
+    <path d="M142 300 Q155 295 158 302 Q152 308 142 300"/>
+    <path d="M138 240 Q125 235 122 242 Q128 248 138 240"/>
+    <path d="M142 180 Q155 175 158 182 Q152 188 142 180"/>
+    <path d="M138 120 Q125 115 122 122 Q128 128 138 120"/>
+  </g>
+
+  <!-- ========================================= -->
+  <!-- 9 SKILL FLOWERS - Each domain -->
+  <!-- ========================================= -->
+
+  <!-- 1. GROSS MOTOR (Coral #E8927C) - Sunflower - Bottom Left -->
+  <g transform="translate(55, 390)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="18" ry="5" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 5" stroke="url(#stemGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M-1 22 Q-10 18 -11 24 Q-8 27 -1 22" fill="url(#leafGrad)"/>
+    <!-- Sunflower petals -->
+    <ellipse cx="0" cy="-8" rx="7" ry="12" fill="url(#grossMotorGrad)"/>
+    <ellipse cx="-10" cy="-2" rx="6" ry="10" fill="url(#grossMotorGrad)" transform="rotate(-55 -10 -2)"/>
+    <ellipse cx="10" cy="-2" rx="6" ry="10" fill="url(#grossMotorGrad)" transform="rotate(55 10 -2)"/>
+    <ellipse cx="-8" cy="10" rx="6" ry="10" fill="url(#grossMotorGrad)" transform="rotate(-110 -8 10)"/>
+    <ellipse cx="8" cy="10" rx="6" ry="10" fill="url(#grossMotorGrad)" transform="rotate(110 8 10)"/>
+    <circle cx="0" cy="2" r="7" fill="url(#soilGrad)"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Gross Motor</text>
+  </g>
+
+  <!-- 2. FINE MOTOR (Green #7A9E7E) - Cherry Blossom - Bottom Right -->
+  <g transform="translate(225, 340)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="16" ry="5" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 5" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M1 20 Q10 16 11 22 Q8 25 1 20" fill="url(#leafGrad)"/>
+    <!-- Cherry blossom petals -->
+    <ellipse cx="0" cy="-6" rx="8" ry="6" fill="url(#fineMotorGrad)"/>
+    <ellipse cx="-7" cy="0" rx="8" ry="6" fill="url(#fineMotorGrad)" transform="rotate(-72 -7 0)"/>
+    <ellipse cx="7" cy="0" rx="8" ry="6" fill="url(#fineMotorGrad)" transform="rotate(72 7 0)"/>
+    <ellipse cx="-5" cy="7" rx="8" ry="6" fill="url(#fineMotorGrad)" transform="rotate(-144 -5 7)"/>
+    <ellipse cx="5" cy="7" rx="8" ry="6" fill="url(#fineMotorGrad)" transform="rotate(144 5 7)"/>
+    <circle cx="0" cy="2" r="5" fill="#D97B64" opacity="0.8"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Fine Motor</text>
+  </g>
+
+  <!-- 3. LINGUISTIC (Sky #A8D5E5) - Tulip - Middle Left -->
+  <g transform="translate(50, 280)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-1 20 Q-10 16 -11 22 Q-8 25 -1 20" fill="url(#leafGrad)"/>
+    <!-- Tulip shape -->
+    <path d="M-10 -5 Q-12 -20 0 -25 Q12 -20 10 -5 Q5 2 0 5 Q-5 2 -10 -5" fill="url(#lingGrad)"/>
+    <path d="M-5 -10 Q0 -18 5 -10" fill="#D4EAF2" opacity="0.5"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Linguistic</text>
+  </g>
+
+  <!-- 4. COGNITIVE (Lavender #D4C4E6) - Hyacinth - Middle Right -->
+  <g transform="translate(230, 230)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M1 22 Q10 18 11 24 Q8 27 1 22" fill="url(#leafGrad)"/>
+    <!-- Hyacinth cluster -->
+    <circle cx="0" cy="-5" r="5" fill="url(#cogGrad)"/>
+    <circle cx="-6" cy="-2" r="4" fill="url(#cogGrad)"/>
+    <circle cx="6" cy="-2" r="4" fill="url(#cogGrad)"/>
+    <circle cx="-4" cy="4" r="4" fill="url(#cogGrad)"/>
+    <circle cx="4" cy="4" r="4" fill="url(#cogGrad)"/>
+    <circle cx="0" cy="-12" r="4" fill="url(#cogGrad)"/>
+    <circle cx="-5" cy="-9" r="3" fill="url(#cogGrad)"/>
+    <circle cx="5" cy="-9" r="3" fill="url(#cogGrad)"/>
+    <circle cx="0" cy="-18" r="3" fill="#EAE4F2"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Cognitive</text>
+  </g>
+
+  <!-- 5. SOCIAL (Gold #F5C87A) - Daisy - Top Center -->
+  <g transform="translate(140, 100)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="16" ry="5" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <path d="M-1 18 Q-10 14 -11 20 Q-8 23 -1 18" fill="url(#leafGrad)"/>
+    <path d="M1 24 Q10 20 11 26 Q8 29 1 24" fill="url(#leafGrad)"/>
+    <!-- Daisy petals -->
+    <ellipse cx="0" cy="-10" rx="4" ry="10" fill="url(#socialGrad)"/>
+    <ellipse cx="-7" cy="-7" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(-45 -7 -7)"/>
+    <ellipse cx="7" cy="-7" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(45 7 -7)"/>
+    <ellipse cx="-10" cy="0" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(-90 -10 0)"/>
+    <ellipse cx="10" cy="0" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(90 10 0)"/>
+    <ellipse cx="-7" cy="7" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(-135 -7 7)"/>
+    <ellipse cx="7" cy="7" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(135 7 7)"/>
+    <ellipse cx="0" cy="10" rx="4" ry="10" fill="url(#socialGrad)" transform="rotate(180 0 10)"/>
+    <circle cx="0" cy="0" r="6" fill="url(#centerGrad)"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Social</text>
+  </g>
+
+  <!-- 6. EMOTIONAL (Pink #F48FB1) - Rose - Top Left -->
+  <g transform="translate(70, 85)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-1 22 Q-10 18 -11 24 Q-8 27 -1 22" fill="url(#leafGrad)"/>
+    <!-- Rose spiral petals -->
+    <ellipse cx="0" cy="-2" rx="10" ry="8" fill="url(#emotionalGrad)"/>
+    <ellipse cx="-4" cy="-5" rx="7" ry="6" fill="#FFD5DC"/>
+    <ellipse cx="3" cy="-4" rx="6" ry="5" fill="#F48FB1" opacity="0.8"/>
+    <ellipse cx="0" cy="-6" rx="4" ry="3" fill="#FFD5DC"/>
+    <circle cx="0" cy="-4" r="2" fill="#D97B64" opacity="0.6"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Emotional</text>
+  </g>
+
+  <!-- 7. FEEDING (Peach #FFAB91) - Apple - Far Left -->
+  <g transform="translate(55, 190)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 8" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Apple shape -->
+    <ellipse cx="-4" cy="-2" rx="9" ry="10" fill="url(#feedingGrad)"/>
+    <ellipse cx="4" cy="-2" rx="9" ry="10" fill="url(#feedingGrad)"/>
+    <ellipse cx="0" cy="-4" rx="6" ry="8" fill="#FFCCBC" opacity="0.5"/>
+    <!-- Stem and leaf -->
+    <path d="M0 -10 Q0 -15 2 -16" stroke="#5D4E37" stroke-width="2" fill="none" stroke-linecap="round"/>
+    <path d="M2 -15 Q8 -18 10 -14 Q6 -12 2 -15" fill="url(#leafGrad)"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Feeding</text>
+  </g>
+
+  <!-- 8. SELF-CARE (Teal #B2DFDB) - Rosette - Top Right -->
+  <g transform="translate(210, 85)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M1 22 Q10 18 11 24 Q8 27 1 22" fill="url(#leafGrad)"/>
+    <!-- Rosette circular pattern -->
+    <circle cx="0" cy="0" r="12" fill="url(#selfCareGrad)"/>
+    <circle cx="0" cy="-6" r="4" fill="#E0F2F1"/>
+    <circle cx="5" cy="-3" r="4" fill="#E0F2F1"/>
+    <circle cx="5" cy="3" r="4" fill="#E0F2F1"/>
+    <circle cx="0" cy="6" r="4" fill="#E0F2F1"/>
+    <circle cx="-5" cy="3" r="4" fill="#E0F2F1"/>
+    <circle cx="-5" cy="-3" r="4" fill="#E0F2F1"/>
+    <circle cx="0" cy="0" r="5" fill="url(#centerGrad)"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Self-Care</text>
+  </g>
+
+  <!-- 9. SENSORY (Cyan #80DEEA) - Hibiscus - Far Right -->
+  <g transform="translate(230, 130)" filter="url(#softShadow)">
+    <ellipse cx="0" cy="32" rx="14" ry="4" fill="url(#soilGrad)"/>
+    <path d="M0 28 Q-2 18 0 2" stroke="url(#stemGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M-1 22 Q-10 18 -11 24 Q-8 27 -1 22" fill="url(#leafGrad)"/>
+    <!-- Hibiscus petals -->
+    <ellipse cx="0" cy="-8" rx="6" ry="12" fill="url(#sensoryGrad)"/>
+    <ellipse cx="-9" cy="-3" rx="6" ry="12" fill="url(#sensoryGrad)" transform="rotate(-72 -9 -3)"/>
+    <ellipse cx="9" cy="-3" rx="6" ry="12" fill="url(#sensoryGrad)" transform="rotate(72 9 -3)"/>
+    <ellipse cx="-6" cy="8" rx="6" ry="12" fill="url(#sensoryGrad)" transform="rotate(-144 -6 8)"/>
+    <ellipse cx="6" cy="8" rx="6" ry="12" fill="url(#sensoryGrad)" transform="rotate(144 6 8)"/>
+    <!-- Stamen -->
+    <path d="M0 2 Q0 -10 0 -15" stroke="#D97B64" stroke-width="2" fill="none"/>
+    <circle cx="0" cy="-16" r="2" fill="#F5C87A"/>
+    <text x="0" y="50" text-anchor="middle" font-family="system-ui" font-size="7" font-weight="600" fill="#4A5D4B">Sensory</text>
+  </g>
+
+  <!-- Central hub glow at bottom -->
+  <g transform="translate(140, 500)">
+    <circle cx="0" cy="0" r="20" fill="#F5C87A" opacity="0.25" filter="url(#softGlow)"/>
+    <circle cx="0" cy="0" r="12" fill="#F5C87A" opacity="0.4"/>
+    <circle cx="0" cy="0" r="6" fill="#FBE4B8" opacity="0.7"/>
+    <ellipse cx="0" cy="0" rx="8" ry="6" fill="url(#soilGrad)" opacity="0.8"/>
+    <ellipse cx="-1" cy="-1" rx="2" ry="1.5" fill="white" opacity="0.25"/>
+  </g>
+
+  <!-- Small decorative butterflies -->
+  <g transform="translate(180, 440)" opacity="0.6">
+    <ellipse cx="-4" cy="0" rx="4" ry="2.5" fill="#F48FB1"/>
+    <ellipse cx="4" cy="0" rx="4" ry="2.5" fill="#F48FB1"/>
+    <ellipse cx="-3" cy="-3" rx="2.5" ry="1.5" fill="#FFD5DC"/>
+    <ellipse cx="3" cy="-3" rx="2.5" ry="1.5" fill="#FFD5DC"/>
+    <ellipse cx="0" cy="1" rx="1" ry="3" fill="#5D4E37"/>
+  </g>
+
+  <g transform="translate(100, 320)" opacity="0.5">
+    <ellipse cx="-3" cy="0" rx="3" ry="2" fill="#A8D5E5"/>
+    <ellipse cx="3" cy="0" rx="3" ry="2" fill="#A8D5E5"/>
+    <ellipse cx="-2" cy="-2" rx="2" ry="1.2" fill="#D4EAF2"/>
+    <ellipse cx="2" cy="-2" rx="2" ry="1.2" fill="#D4EAF2"/>
+    <ellipse cx="0" cy="0.5" rx="0.8" ry="2" fill="#5D4E37"/>
+  </g>
+
+  <!-- Floating sparkles -->
+  <g fill="#F5C87A" opacity="0.5">
+    <circle cx="25" cy="140" r="2"/>
+    <circle cx="255" cy="280" r="2"/>
+    <circle cx="30" cy="350" r="1.5"/>
+    <circle cx="250" cy="400" r="1.5"/>
+    <circle cx="115" cy="160" r="1.5"/>
+    <circle cx="165" cy="55" r="2"/>
+  </g>
+
+  <!-- Small grass tufts -->
+  <g stroke="#5A7D5E" stroke-width="2" stroke-linecap="round" fill="none" opacity="0.4">
+    <path d="M15 535 Q13 528 15 520"/>
+    <path d="M20 535 Q22 530 20 522"/>
+    <path d="M260 530 Q258 524 260 516"/>
+    <path d="M265 530 Q267 526 265 518"/>
+  </g>
+</svg>

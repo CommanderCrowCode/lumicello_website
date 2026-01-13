@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Growth Stage: Seed - Small seed nestled in soil -->
+  <defs>
+    <radialGradient id="seedSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="seedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7A9E7E"/>
+      <stop offset="100%" style="stop-color:#5A7D5E"/>
+    </linearGradient>
+  </defs>
+  <!-- Soil mound -->
+  <ellipse cx="32" cy="48" rx="22" ry="10" fill="url(#seedSoilGradient)"/>
+  <!-- Seed -->
+  <ellipse cx="32" cy="40" rx="8" ry="6" fill="url(#seedGradient)" transform="rotate(-15 32 40)"/>
+  <!-- Seed highlight -->
+  <ellipse cx="30" cy="38" rx="3" ry="2" fill="white" opacity="0.3" transform="rotate(-15 30 38)"/>
+</svg>
