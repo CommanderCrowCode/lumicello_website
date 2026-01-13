@@ -1,0 +1,858 @@
+/* ============================================
+   LUMICELLO - Product Pages Design System
+   Shared components and environment styling
+   ============================================ */
+
+/* ============================================
+   PRODUCT ENVIRONMENTS
+   Each product gets unique color tokens
+   ============================================ */
+
+/* --- Lumibox Environment (Warm/Playful) --- */
+.env-lumibox {
+    --env-primary: var(--color-accent);       /* Mustard */
+    --env-primary-light: #f0d078;
+    --env-secondary: var(--color-brick);      /* Terracotta */
+    --env-secondary-light: #d87a5c;
+    --env-bg-hero: linear-gradient(
+        180deg,
+        #fffbf5 0%,
+        #fff5e6 50%,
+        var(--color-bg-clay) 100%
+    );
+    --env-bg-section: var(--color-bg-clay);
+    --env-bg-section-alt: #faf3eb;
+    --env-text-accent: var(--color-brick);
+    --env-shadow-glow: 0 8px 40px rgba(217, 168, 53, 0.3);
+}
+
+/* --- Big Garden Environment (Calm/Natural) --- */
+.env-big-garden {
+    /* Primary palette from Big Garden app */
+    --env-sage: #7A9E7E;
+    --env-sage-light: #A8C5AB;
+    --env-sage-dark: #5A7D5E;
+    --env-sage-50: #F0F5F1;
+    --env-sage-100: #E1EBE2;
+
+    /* Accent colors */
+    --env-coral-bloom: #D97B64;
+    --env-coral-light: #F4B8A8;
+    --env-coral-dark: #C4654E;
+    --env-honey-glow: #F5C87A;
+    --env-honey-light: #FBE4B8;
+    --env-sky-soft: #A8D5E5;
+    --env-sky-light: #D4EAF2;
+
+    /* Sky-to-grass garden gradient */
+    --env-bg-hero: linear-gradient(
+        180deg,
+        #E8F4F8 0%,        /* Soft sky blue */
+        #D4EAF2 25%,       /* Sky transition */
+        #C8E6C9 60%,       /* Grass begins */
+        #A8C5AB 85%,       /* Sage grass */
+        #7A9E7E 100%       /* Deep sage */
+    );
+
+    --env-bg-section: var(--env-sage-50);
+    --env-bg-section-alt: #f8faf8;
+    --env-text-accent: var(--env-sage-dark);
+    --env-shadow-glow: 0 8px 40px rgba(122, 158, 126, 0.3);
+
+    /* Garden-specific shadows */
+    --env-shadow-sage: 0 8px 32px rgba(122, 158, 126, 0.2);
+    --env-shadow-coral: 0 8px 32px rgba(217, 123, 100, 0.2);
+}
+
+/* ============================================
+   PRODUCT HERO SECTION
+   Full-width hero with gradient background
+   ============================================ */
+
+.product-hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--env-bg-hero);
+    overflow: hidden;
+    padding: var(--space-4xl) var(--space-lg);
+}
+
+.product-hero__background {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.product-hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: var(--container-narrow);
+    text-align: center;
+}
+
+.product-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-xs) var(--space-md);
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: var(--radius-pill);
+    font-size: var(--text-small);
+    font-weight: 600;
+    color: var(--env-text-accent, var(--color-primary));
+    margin-bottom: var(--space-lg);
+    box-shadow: var(--shadow-sm);
+}
+
+.product-hero__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-hero);
+    line-height: var(--leading-tight);
+    letter-spacing: var(--tracking-tight);
+    margin-bottom: var(--space-lg);
+}
+
+.env-big-garden .product-hero__title {
+    color: var(--env-sage-dark);
+}
+
+.env-lumibox .product-hero__title {
+    color: var(--color-brick);
+}
+
+.product-hero__subtitle {
+    font-family: var(--font-body);
+    font-size: var(--text-h3);
+    font-weight: 400;
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-2xl);
+    max-width: 600px;
+    margin-inline: auto;
+}
+
+.product-hero__cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+}
+
+/* Device mockup in hero */
+.product-hero__device {
+    position: relative;
+    z-index: 1;
+    margin-top: var(--space-3xl);
+}
+
+.product-hero__mockup {
+    max-width: 320px;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-2xl);
+}
+
+/* ============================================
+   GARDEN HERO - ANIMATED ELEMENTS
+   ============================================ */
+
+/* Cloud layer */
+.garden-clouds {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 40%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    filter: blur(2px);
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: inherit;
+    border-radius: 50%;
+}
+
+.cloud-1 {
+    width: 120px;
+    height: 40px;
+    top: 15%;
+    left: -10%;
+    animation: cloud-drift 45s linear infinite;
+}
+
+.cloud-1::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud-1::after {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 55px;
+}
+
+.cloud-2 {
+    width: 100px;
+    height: 35px;
+    top: 8%;
+    left: -15%;
+    animation: cloud-drift 60s linear infinite;
+    animation-delay: -20s;
+}
+
+.cloud-2::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 15px;
+}
+
+.cloud-2::after {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 50px;
+}
+
+.cloud-3 {
+    width: 80px;
+    height: 30px;
+    top: 22%;
+    left: -8%;
+    animation: cloud-drift 50s linear infinite;
+    animation-delay: -10s;
+}
+
+.cloud-3::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 12px;
+}
+
+.cloud-3::after {
+    width: 35px;
+    height: 35px;
+    top: -18px;
+    left: 40px;
+}
+
+@keyframes cloud-drift {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(100vw + 150px));
+    }
+}
+
+/* Floating app mockup */
+.garden-app-float {
+    animation: gentle-float 6s ease-in-out infinite;
+}
+
+@keyframes gentle-float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Garden grass foreground */
+.garden-grass {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 20%;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--env-sage-light) 60%,
+        var(--env-sage) 100%
+    );
+    pointer-events: none;
+}
+
+/* Grass blades container */
+.grass-blades {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100px;
+    overflow: hidden;
+}
+
+.grass-blade {
+    position: absolute;
+    bottom: 0;
+    width: 4px;
+    background: linear-gradient(
+        180deg,
+        var(--env-sage-light) 0%,
+        var(--env-sage) 100%
+    );
+    border-radius: 2px 2px 0 0;
+    transform-origin: bottom center;
+}
+
+.grass-blade:nth-child(odd) {
+    animation: grass-sway 4s ease-in-out infinite;
+}
+
+.grass-blade:nth-child(even) {
+    animation: grass-sway 4s ease-in-out infinite reverse;
+    animation-delay: -1s;
+}
+
+@keyframes grass-sway {
+    0%, 100% {
+        transform: rotate(-3deg);
+    }
+    50% {
+        transform: rotate(3deg);
+    }
+}
+
+/* Flower decorations */
+.garden-flower {
+    position: absolute;
+    animation: flower-sway 5s ease-in-out infinite;
+}
+
+.garden-flower--coral {
+    color: var(--env-coral-bloom);
+}
+
+.garden-flower--honey {
+    color: var(--env-honey-glow);
+}
+
+.garden-flower--sky {
+    color: var(--env-sky-soft);
+}
+
+@keyframes flower-sway {
+    0%, 100% {
+        transform: rotate(-5deg) scale(1);
+    }
+    25% {
+        transform: rotate(2deg) scale(1.02);
+    }
+    50% {
+        transform: rotate(5deg) scale(1);
+    }
+    75% {
+        transform: rotate(-2deg) scale(0.98);
+    }
+}
+
+/* Butterfly decoration */
+.garden-butterfly {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    animation: butterfly-path 20s ease-in-out infinite;
+}
+
+.garden-butterfly__wings {
+    animation: wing-flap 0.3s ease-in-out infinite;
+}
+
+@keyframes butterfly-path {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(100px, -50px) rotate(10deg);
+    }
+    50% {
+        transform: translate(50px, -100px) rotate(-5deg);
+    }
+    75% {
+        transform: translate(-50px, -60px) rotate(15deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
+@keyframes wing-flap {
+    0%, 100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(0.3);
+    }
+}
+
+/* ============================================
+   PRODUCT SECTION
+   Consistent section styling
+   ============================================ */
+
+.product-section {
+    padding: var(--spacing-section) var(--space-lg);
+    background: var(--env-bg-section, var(--color-bg-main));
+}
+
+.product-section--alt {
+    background: var(--env-bg-section-alt, var(--color-bg-warm));
+}
+
+.product-section__header {
+    text-align: center;
+    max-width: var(--container-narrow);
+    margin: 0 auto var(--space-3xl);
+}
+
+.product-section__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-h1);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.product-section__subtitle {
+    font-size: var(--text-body-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   FEATURE GRID
+   Responsive feature cards
+   ============================================ */
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-xl);
+    max-width: var(--container-max);
+    margin: 0 auto;
+}
+
+.feature-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--duration-normal) var(--ease-out),
+                box-shadow var(--duration-normal) var(--ease-out);
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-card__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-md);
+    margin-bottom: var(--space-md);
+}
+
+.env-big-garden .feature-card__icon {
+    background: var(--env-sage-100);
+    color: var(--env-sage-dark);
+}
+
+.env-lumibox .feature-card__icon {
+    background: var(--color-accent-soft);
+    color: var(--color-brick);
+}
+
+.feature-card__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-h3);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-sm);
+}
+
+.feature-card__description {
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   DEVICE MOCKUP
+   Phone/tablet frames
+   ============================================ */
+
+.device-mockup {
+    position: relative;
+    display: inline-block;
+}
+
+.device-mockup--phone {
+    max-width: 320px;
+}
+
+.device-mockup--tablet {
+    max-width: 500px;
+}
+
+.device-mockup__frame {
+    position: relative;
+    background: #1a1a1a;
+    border-radius: 40px;
+    padding: 12px;
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.device-mockup__screen {
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.device-mockup__screen img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.device-mockup__notch {
+    position: absolute;
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 24px;
+    background: #1a1a1a;
+    border-radius: 0 0 16px 16px;
+}
+
+/* ============================================
+   TESTIMONIAL CARD
+   Social proof styling
+   ============================================ */
+
+.testimonial-card {
+    background: white;
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    box-shadow: var(--shadow-md);
+}
+
+.testimonial-card__quote {
+    font-size: var(--text-body-lg);
+    font-style: italic;
+    color: var(--color-text-primary);
+    line-height: var(--leading-relaxed);
+    margin-bottom: var(--space-lg);
+}
+
+.testimonial-card__author {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.testimonial-card__avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.testimonial-card__name {
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.testimonial-card__role {
+    font-size: var(--text-small);
+    color: var(--color-text-secondary);
+}
+
+/* ============================================
+   CTA BLOCK
+   Prominent call-to-action
+   ============================================ */
+
+.cta-block {
+    text-align: center;
+    padding: var(--space-4xl) var(--space-lg);
+    border-radius: var(--radius-xl);
+    margin: var(--spacing-section) auto;
+    max-width: var(--container-narrow);
+}
+
+.env-big-garden .cta-block {
+    background: linear-gradient(
+        135deg,
+        var(--env-sage-100) 0%,
+        var(--env-sage-50) 100%
+    );
+}
+
+.env-lumibox .cta-block {
+    background: linear-gradient(
+        135deg,
+        var(--color-bg-clay) 0%,
+        #fdf5ed 100%
+    );
+}
+
+.cta-block__title {
+    font-family: var(--font-heading);
+    font-size: var(--text-h2);
+    color: var(--color-text-primary);
+    margin-bottom: var(--space-md);
+}
+
+.cta-block__text {
+    font-size: var(--text-body-lg);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-xl);
+    max-width: 500px;
+    margin-inline: auto;
+}
+
+/* ============================================
+   FAQ ACCORDION
+   Expandable Q&A
+   ============================================ */
+
+.faq-accordion {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.faq-item:last-child {
+    border-bottom: none;
+}
+
+.faq-question {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--space-lg) 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: var(--text-body-lg);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    transition: color var(--duration-fast);
+}
+
+.faq-question:hover {
+    color: var(--env-text-accent, var(--color-primary));
+}
+
+.faq-question__icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+    transition: transform var(--duration-normal) var(--ease-out);
+}
+
+.faq-item.active .faq-question__icon {
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height var(--duration-normal) var(--ease-out);
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+}
+
+.faq-answer__content {
+    padding-bottom: var(--space-lg);
+    color: var(--color-text-secondary);
+    line-height: var(--leading-relaxed);
+}
+
+/* ============================================
+   SECTION DIVIDERS
+   Decorative separators
+   ============================================ */
+
+.section-divider {
+    position: relative;
+    height: 80px;
+    overflow: hidden;
+}
+
+.section-divider--wave {
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--env-bg-section) 100%
+    );
+}
+
+.section-divider--wave::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--env-bg-section);
+    border-radius: 100% 100% 0 0;
+}
+
+.section-divider--garden {
+    height: 120px;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        var(--env-sage-50) 100%
+    );
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+
+.bg-gradient-sage {
+    background: linear-gradient(
+        135deg,
+        var(--env-sage-50) 0%,
+        var(--env-sage-100) 100%
+    );
+}
+
+.bg-gradient-warm {
+    background: linear-gradient(
+        135deg,
+        #fffbf5 0%,
+        var(--color-bg-clay) 100%
+    );
+}
+
+.accent-glow {
+    box-shadow: var(--env-shadow-glow, var(--shadow-glow-md));
+}
+
+.text-sage {
+    color: var(--env-sage-dark);
+}
+
+.text-coral {
+    color: var(--env-coral-bloom);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+
+@media (max-width: 768px) {
+    .product-hero {
+        min-height: 80vh;
+        padding: var(--space-3xl) var(--space-md);
+    }
+
+    .product-hero__title {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .product-hero__subtitle {
+        font-size: var(--text-body-lg);
+    }
+
+    .product-hero__device {
+        margin-top: var(--space-2xl);
+    }
+
+    .product-hero__mockup {
+        max-width: 260px;
+    }
+
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .cloud-1,
+    .cloud-2,
+    .cloud-3 {
+        transform: scale(0.7);
+    }
+}
+
+@media (max-width: 480px) {
+    .product-hero {
+        min-height: 70vh;
+    }
+
+    .product-hero__cta {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .product-hero__cta .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .cloud-1,
+    .cloud-2,
+    .cloud-3 {
+        animation: none;
+    }
+
+    .garden-app-float {
+        animation: none;
+    }
+
+    .grass-blade {
+        animation: none;
+    }
+
+    .garden-flower {
+        animation: none;
+    }
+
+    .garden-butterfly {
+        animation: none;
+    }
+
+    .garden-butterfly__wings {
+        animation: none;
+    }
+}
