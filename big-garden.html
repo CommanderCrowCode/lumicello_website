@@ -1254,6 +1254,237 @@
         }
 
         /* ============================================
+           APP EXPERIENCE VIGNETTES SECTION
+           Cropped, styled UI screenshots showing the feel
+           ============================================ */
+        .vignettes-section {
+            padding: var(--spacing-section) 0;
+            background: linear-gradient(180deg, #FDFCFA 0%, var(--color-bg-lawn) 50%, #FDFCFA 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vignettes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .vignettes-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .vignettes-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .vignettes-header h2 .accent {
+            color: var(--color-sage);
+            font-style: italic;
+        }
+
+        .vignettes-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Vignette Grid - Masonry-style scattered layout */
+        .vignettes-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: var(--space-xl);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Individual Vignette Card */
+        .vignette {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.08),
+                0 8px 24px rgba(0,0,0,0.04);
+            transition: transform var(--duration-normal) var(--ease-out),
+                        box-shadow var(--duration-normal) var(--ease-out);
+        }
+
+        .vignette:hover {
+            transform: translateY(-8px) rotate(0deg) !important;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.12),
+                0 12px 32px rgba(0,0,0,0.06);
+        }
+
+        /* Vignette positioning - scattered magazine feel */
+        .vignette-1 {
+            grid-column: 1 / 6;
+            grid-row: 1;
+            transform: rotate(-2deg);
+        }
+
+        .vignette-2 {
+            grid-column: 6 / 13;
+            grid-row: 1;
+            transform: rotate(1.5deg);
+        }
+
+        .vignette-3 {
+            grid-column: 2 / 7;
+            grid-row: 2;
+            transform: rotate(1deg);
+        }
+
+        .vignette-4 {
+            grid-column: 7 / 12;
+            grid-row: 2;
+            transform: rotate(-1.5deg);
+        }
+
+        /* Vignette inner content */
+        .vignette-frame {
+            padding: var(--space-md);
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .vignette-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+
+        /* Vignette caption */
+        .vignette-caption {
+            padding: var(--space-lg) var(--space-xl);
+            text-align: center;
+            background: white;
+        }
+
+        .vignette-emoji {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+            display: block;
+        }
+
+        .vignette-title {
+            font-size: var(--text-body);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-2xs);
+        }
+
+        .vignette-subtitle {
+            font-size: var(--text-small);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-normal);
+        }
+
+        /* Device frame overlay effect */
+        .vignette-frame::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        /* Soft glow behind vignettes */
+        .vignette::after {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(ellipse at center, var(--color-sage-soft) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--duration-normal);
+        }
+
+        .vignette:hover::after {
+            opacity: 1;
+        }
+
+        /* Vignettes responsive */
+        @media (max-width: 1024px) {
+            .vignettes-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                gap: var(--space-lg);
+            }
+
+            .vignette-1,
+            .vignette-2,
+            .vignette-3,
+            .vignette-4 {
+                grid-column: auto;
+                grid-row: auto;
+                transform: none;
+            }
+
+            .vignette {
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .vignettes-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .vignettes-section {
+                padding: var(--space-4xl) 0;
+            }
+
+            .vignette-caption {
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            .vignette-emoji {
+                font-size: 1.5rem;
+            }
+
+            .vignette-title {
+                font-size: var(--text-small);
+            }
+
+            .vignette-subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Scroll animations for vignettes */
+        .vignettes-section [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+
+        .vignettes-section [data-animate].in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vignettes-section [data-animate="delay-1"] { transition-delay: 0.1s; }
+        .vignettes-section [data-animate="delay-2"] { transition-delay: 0.2s; }
+        .vignettes-section [data-animate="delay-3"] { transition-delay: 0.3s; }
+        .vignettes-section [data-animate="delay-4"] { transition-delay: 0.4s; }
+
+        /* ============================================
            SOCIAL PROOF SECTION
            ============================================ */
         .social-proof-section {
@@ -2122,6 +2353,93 @@
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Experience Vignettes Section -->
+        <section class="vignettes-section" id="experience">
+            <div class="vignettes-container">
+                <div class="vignettes-header" data-animate>
+                    <h2>Experience the <span class="accent">Joy</span></h2>
+                    <p>
+                        See what it feels like to watch your child's skills bloom.
+                        Every tap, every milestone, every moment of celebration.
+                    </p>
+                </div>
+
+                <div class="vignettes-grid">
+                    <!-- Vignette 1: Activity Detail - The "aha" moment -->
+                    <div class="vignette vignette-1" data-animate="delay-1">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/activity.webp" type="image/webp">
+                                <img src="assets/images/big-garden/activity.png"
+                                     alt="Activity detail screen showing Hopping in Place skill with mastery requirements and training methods"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🎯</span>
+                            <div class="vignette-title">Clear guidance</div>
+                            <div class="vignette-subtitle">Know exactly what to practice</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 2: Garden View - Progress visualization -->
+                    <div class="vignette vignette-2" data-animate="delay-2">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/garden-view.webp" type="image/webp">
+                                <img src="assets/images/big-garden/garden-view.png"
+                                     alt="Garden view showing skills organized by category with mastered skills blooming as flowers"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌸</span>
+                            <div class="vignette-title">Watch skills bloom</div>
+                            <div class="vignette-subtitle">Beautiful garden visualization</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 3: Progress Dashboard - Achievement -->
+                    <div class="vignette vignette-3" data-animate="delay-3">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/skill-tree.webp" type="image/webp">
+                                <img src="assets/images/big-garden/skill-tree.png"
+                                     alt="Skill tree dashboard showing 89% progress with 134 mastered skills and child's development stage"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌟</span>
+                            <div class="vignette-title">Track progress</div>
+                            <div class="vignette-subtitle">See how far you've come</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 4: Next Up - Discovery -->
+                    <div class="vignette vignette-4" data-animate="delay-4">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/progress.webp" type="image/webp">
+                                <img src="assets/images/big-garden/progress.png"
+                                     alt="Progress screen showing next skills to work on with prerequisites and recommendations"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌱</span>
+                            <div class="vignette-title">What's next</div>
+                            <div class="vignette-subtitle">Personalized recommendations</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
