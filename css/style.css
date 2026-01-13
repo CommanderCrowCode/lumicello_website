@@ -4,6 +4,31 @@
    ============================================ */
 
 /* ============================================
+   PERFORMANCE: GPU ACCELERATION
+   Add will-change to continuously animated elements
+   ============================================ */
+.constellation-core,
+.constellation-core::before,
+.orbital-ring,
+.constellation-node,
+.sparkle,
+.voices-track,
+.hero-floating-card,
+.fp-glow,
+.fp-core,
+.fp-data,
+.prism-ray,
+.prism-float,
+.prism-sparkle {
+    will-change: transform, opacity;
+}
+
+/* Lazy-load image placeholder to prevent layout shift */
+img.lazy-load {
+    background: var(--color-bg-sage);
+}
+
+/* ============================================
    RESET & FOUNDATIONS
    ============================================ */
 *,

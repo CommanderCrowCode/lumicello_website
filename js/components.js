@@ -63,7 +63,7 @@ function generateNavigation() {
     <nav class="nav-wrapper">
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+                <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image" width="977" height="333" fetchpriority="high">
             </a>
 
             <ul class="nav-links">
@@ -107,7 +107,7 @@ function generateFooter() {
             <div class="footer-grid">
                 <div class="footer-brand">
                     <a href="index.html" class="logo">
-                        <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image">
+                        <img src="assets/images/lumicello_logo.webp" alt="Lumicello" class="logo-image" width="977" height="333" loading="lazy">
                     </a>
                     <p class="footer-tagline">Every child has a light inside. We help it shine.</p>
                 </div>

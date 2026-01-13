@@ -26,12 +26,17 @@
     <meta name="twitter:description" content="You're officially part of the Lumicello family! Get ready for weekly inspiration, early access, and honest parenting conversations.">
     <meta name="twitter:image" content="https://lumicello.com/assets/images/og-image.webp">
 
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://analytics.lumicello.com">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload critical fonts for faster rendering -->
     <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Preload logo for faster LCP -->
+    <link rel="preload" href="assets/images/lumicello_logo.webp" as="image" type="image/webp">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
@@ -939,6 +944,6 @@
     </div>
 
     <!-- Shared Components Script -->
-    <script src="js/components.js"></script>
+    <script src="js/components.js" defer></script>
 </body>
 </html>
