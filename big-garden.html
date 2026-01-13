@@ -853,6 +853,13 @@
             margin: 0 auto var(--space-lg);
         }
 
+        .journey-panel-illustration img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: var(--radius-lg);
+        }
+
         .journey-panel h3 {
             font-size: var(--text-h3);
             color: var(--color-text-primary);
@@ -1698,28 +1705,12 @@
                     <div class="journey-panel before">
                         <span class="journey-panel-label">Before</span>
                         <div class="journey-panel-illustration">
-                            <svg viewBox="0 0 200 200" fill="none">
-                                <!-- Worried parent figure -->
-                                <circle cx="100" cy="70" r="35" fill="#9a9e97" opacity="0.3"/>
-                                <circle cx="100" cy="70" r="30" fill="#9a9e97" opacity="0.5"/>
-                                <!-- Worried eyes -->
-                                <ellipse cx="88" cy="65" rx="5" ry="6" fill="#6b7268"/>
-                                <ellipse cx="112" cy="65" rx="5" ry="6" fill="#6b7268"/>
-                                <!-- Worried eyebrows -->
-                                <path d="M80 55 Q88 52 95 58" stroke="#6b7268" stroke-width="2" fill="none"/>
-                                <path d="M105 58 Q112 52 120 55" stroke="#6b7268" stroke-width="2" fill="none"/>
-                                <!-- Frown -->
-                                <path d="M88 82 Q100 76 112 82" stroke="#6b7268" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <!-- Question marks floating -->
-                                <text x="50" y="130" font-size="24" fill="#9a9e97" opacity="0.6">?</text>
-                                <text x="140" y="120" font-size="20" fill="#9a9e97" opacity="0.5">?</text>
-                                <text x="70" y="160" font-size="18" fill="#9a9e97" opacity="0.4">?</text>
-                                <text x="120" y="155" font-size="22" fill="#9a9e97" opacity="0.5">?</text>
-                                <!-- Scattered seeds (unfocused) -->
-                                <ellipse cx="60" cy="180" rx="8" ry="4" fill="#6b7268" opacity="0.3"/>
-                                <ellipse cx="100" cy="185" rx="6" ry="3" fill="#6b7268" opacity="0.3"/>
-                                <ellipse cx="140" cy="178" rx="7" ry="3" fill="#6b7268" opacity="0.3"/>
-                            </svg>
+                            <picture>
+                                <source srcset="assets/images/big-garden/before_parent.webp" type="image/webp">
+                                <img src="assets/images/big-garden/before_parent.png"
+                                     alt="Parent surrounded by question marks, looking uncertain about their child's development"
+                                     loading="lazy">
+                            </picture>
                         </div>
                         <h3>Scattered Worries</h3>
                         <p>Random checklists. Endless comparisons. The nagging question: "Am I doing enough?"</p>
@@ -1737,37 +1728,12 @@
                     <div class="journey-panel after">
                         <span class="journey-panel-label">After</span>
                         <div class="journey-panel-illustration">
-                            <svg viewBox="0 0 200 200" fill="none">
-                                <!-- Happy parent figure -->
-                                <circle cx="100" cy="70" r="35" fill="#7A9E7E" opacity="0.2"/>
-                                <circle cx="100" cy="70" r="30" fill="#7A9E7E" opacity="0.4"/>
-                                <!-- Happy eyes -->
-                                <path d="M83 62 Q88 68 93 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <path d="M107 62 Q112 68 117 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <!-- Big smile -->
-                                <path d="M85 80 Q100 95 115 80" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
-                                <!-- Hearts floating -->
-                                <path d="M45 120 C45 115 50 110 55 115 C60 110 65 115 65 120 C65 128 55 135 55 135 C55 135 45 128 45 120" fill="#E8855E" opacity="0.6"/>
-                                <path d="M135 110 C135 106 138 103 141 106 C144 103 147 106 147 110 C147 115 141 120 141 120 C141 120 135 115 135 110" fill="#D9A835" opacity="0.5"/>
-                                <!-- Flourishing garden below -->
-                                <ellipse cx="100" cy="190" rx="80" ry="20" fill="#7A9E7E" opacity="0.3"/>
-                                <!-- Blooming flowers -->
-                                <g transform="translate(60, 160)">
-                                    <line x1="0" y1="0" x2="0" y2="25" stroke="#5A7E5E" stroke-width="3"/>
-                                    <circle cx="0" cy="-5" r="8" fill="#E8855E"/>
-                                    <circle cx="0" cy="-5" r="4" fill="#D9A835"/>
-                                </g>
-                                <g transform="translate(100, 150)">
-                                    <line x1="0" y1="0" x2="0" y2="35" stroke="#5A7E5E" stroke-width="4"/>
-                                    <circle cx="0" cy="-8" r="12" fill="#D9A835"/>
-                                    <circle cx="0" cy="-8" r="6" fill="#8B7355"/>
-                                </g>
-                                <g transform="translate(140, 155)">
-                                    <line x1="0" y1="0" x2="0" y2="30" stroke="#5A7E5E" stroke-width="3"/>
-                                    <circle cx="0" cy="-5" r="10" fill="#9B8FC7"/>
-                                    <circle cx="0" cy="-5" r="5" fill="#E8855E"/>
-                                </g>
-                            </svg>
+                            <picture>
+                                <source srcset="assets/images/big-garden/after_parent.webp" type="image/webp">
+                                <img src="assets/images/big-garden/after_parent.png"
+                                     alt="Happy parent with heart symbols, confident and joyful about their child's growth"
+                                     loading="lazy">
+                            </picture>
                         </div>
                         <h3>A Thriving Garden</h3>
                         <p>Clear progress. Joyful discovery. Celebrating every small bloom together.</p>
