@@ -110,6 +110,7 @@
     /* ========================================
        SPACING - Generous & Breathing
        ======================================== */
+    --space-2xs: 0.25rem; /* 4px */
     --space-xs: 0.5rem; /* 8px */
     --space-sm: 0.75rem; /* 12px */
     --space-md: 1rem; /* 16px */
