@@ -753,33 +753,47 @@
         }
 
         /* ============================================
-           SHAREABLE JOURNEY SECTION - Social Media Ready
+           SHAREABLE JOURNEY SECTION - Magazine Split Layout
+           Designed for emotional impact & social sharing
            ============================================ */
         .journey-section {
-            padding: var(--spacing-section) var(--space-lg);
-            background: linear-gradient(180deg, #FDFCFA 0%, #F8F5F0 100%);
+            padding: var(--spacing-section) 0;
+            background: #FDFCFA;
             position: relative;
             overflow: hidden;
         }
 
         .journey-container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 var(--space-lg);
             position: relative;
             z-index: 1;
         }
 
         .journey-header {
             text-align: center;
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto var(--space-3xl);
         }
 
         .journey-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
+            font-size: clamp(2.25rem, 6vw, 3.5rem);
             margin-bottom: var(--space-md);
             color: var(--color-text-primary);
-            line-height: 1.2;
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .journey-header h2 .accent-worry {
+            color: #8B8178;
+        }
+
+        .journey-header h2 .accent-wonder {
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .journey-header p {
@@ -788,210 +802,298 @@
             line-height: var(--leading-relaxed);
         }
 
-        /* Shareable Card - Designed for social media screenshots */
+        /* Shareable Card - Horizontal Split Design */
         .journey-shareable-card {
             background: white;
-            border-radius: 24px;
-            padding: var(--space-3xl) var(--space-2xl);
-            box-shadow: 0 8px 40px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
-            max-width: 520px;
+            border-radius: 32px;
+            box-shadow:
+                0 25px 80px rgba(0,0,0,0.08),
+                0 10px 30px rgba(0,0,0,0.05),
+                0 0 0 1px rgba(0,0,0,0.02);
+            max-width: 960px;
             margin: 0 auto var(--space-2xl);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Split Screen Layout */
+        .journey-split {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            min-height: 480px;
+        }
+
+        /* Panel Shared Styles */
+        .journey-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-3xl) var(--space-2xl);
+            text-align: center;
             position: relative;
         }
 
-        /* Decorative corner accents */
-        .journey-shareable-card::before,
-        .journey-shareable-card::after {
+        /* Before Panel - Heavy, Muted, Anxious */
+        .journey-panel.before {
+            background: linear-gradient(160deg, #E8E4DF 0%, #D9D4CD 50%, #CAC4BC 100%);
+        }
+
+        .journey-panel.before::before {
             content: "";
             position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            opacity: 0.4;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(139, 129, 120, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(139, 129, 120, 0.1) 0%, transparent 40%);
             pointer-events: none;
         }
 
-        .journey-shareable-card::before {
-            top: -20px;
-            left: -20px;
-            background: radial-gradient(circle, var(--color-coral) 0%, transparent 70%);
-        }
-
-        .journey-shareable-card::after {
-            bottom: -20px;
-            right: -20px;
-            background: radial-gradient(circle, var(--color-sage) 0%, transparent 70%);
-        }
-
-        /* Before/After Flow - Vertical Stack */
-        .journey-flow {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: var(--space-lg);
-        }
-
-        /* Individual Panels */
-        .journey-panel {
-            width: 100%;
-            text-align: center;
-            padding: var(--space-xl) var(--space-lg);
-            border-radius: 16px;
-            position: relative;
-            transition: transform var(--duration-normal) var(--ease-out);
-        }
-
-        .journey-panel.before {
-            background: linear-gradient(135deg, #F5F3F0 0%, #EBE8E3 100%);
-        }
-
+        /* After Panel - Light, Hopeful, Joyful */
         .journey-panel.after {
-            background: linear-gradient(135deg, rgba(122, 158, 126, 0.12) 0%, rgba(122, 158, 126, 0.06) 100%);
+            background: linear-gradient(160deg, #F0F7F1 0%, #E5F0E7 50%, #D8EAD9 100%);
         }
 
+        .journey-panel.after::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 30% 20%, rgba(122, 158, 126, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(122, 158, 126, 0.15) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        /* Panel Labels */
         .journey-panel-label {
             display: inline-block;
-            padding: 6px 16px;
+            padding: 8px 20px;
             border-radius: var(--radius-pill);
             font-size: 11px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: var(--space-md);
+            letter-spacing: 0.2em;
+            margin-bottom: var(--space-lg);
+            position: relative;
+            z-index: 1;
         }
 
         .journey-panel.before .journey-panel-label {
-            background: #9A9590;
+            background: #8B8178;
             color: white;
+            box-shadow: 0 4px 12px rgba(139, 129, 120, 0.4);
         }
 
         .journey-panel.after .journey-panel-label {
-            background: var(--color-sage);
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
             color: white;
+            box-shadow: 0 4px 12px rgba(122, 158, 126, 0.5);
         }
 
+        /* Illustrations */
         .journey-panel-illustration {
-            width: 240px;
-            height: 240px;
-            margin: 0 auto var(--space-lg);
+            width: 220px;
+            height: 220px;
+            margin-bottom: var(--space-xl);
             position: relative;
+            z-index: 1;
         }
 
         .journey-panel-illustration img {
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: drop-shadow(0 4px 12px rgba(0,0,0,0.1));
+            transition: transform var(--duration-normal) var(--ease-out);
         }
 
+        .journey-panel.before .journey-panel-illustration img {
+            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
+        }
+
+        .journey-panel.after .journey-panel-illustration img {
+            filter: drop-shadow(0 8px 24px rgba(122, 158, 126, 0.3));
+        }
+
+        .journey-panel:hover .journey-panel-illustration img {
+            transform: scale(1.05);
+        }
+
+        /* Panel Text */
         .journey-panel h3 {
-            font-size: clamp(1.25rem, 4vw, 1.5rem);
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-xs);
+            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            margin-bottom: var(--space-sm);
             font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-panel.before h3 {
+            color: #5C544C;
+        }
+
+        .journey-panel.after h3 {
+            color: var(--color-sage-dark);
         }
 
         .journey-panel p {
             font-size: var(--text-body);
-            color: var(--color-text-secondary);
             line-height: var(--leading-relaxed);
-            max-width: 280px;
+            max-width: 260px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
 
-        /* Transformation Arrow - Dramatic */
-        .journey-transformation {
+        .journey-panel.before p {
+            color: #706860;
+        }
+
+        .journey-panel.after p {
+            color: #4A6A4D;
+        }
+
+        /* Center Divider - The Transformation Bridge */
+        .journey-divider {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 8px;
-            padding: var(--space-md) 0;
+            justify-content: center;
+            width: 80px;
+            background: linear-gradient(180deg, #D9D4CD 0%, #E5F0E7 100%);
             position: relative;
+            z-index: 2;
         }
 
-        .journey-transformation-line {
+        .journey-divider::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            bottom: 0;
             width: 3px;
-            height: 40px;
-            background: linear-gradient(180deg, #9A9590 0%, var(--color-sage) 100%);
-            border-radius: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg,
+                #8B8178 0%,
+                #A09589 25%,
+                var(--color-sage) 75%,
+                #5A8A5E 100%
+            );
         }
 
-        .journey-transformation-badge {
+        .journey-divider-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+            background: white;
+            padding: 16px 12px;
+            border-radius: 40px;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.15),
+                0 0 0 3px rgba(122, 158, 126, 0.2);
+            position: relative;
+            z-index: 3;
+        }
+
+        .journey-divider-arrow {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            gap: 8px;
-            background: linear-gradient(135deg, var(--color-sage) 0%, var(--color-sage-dark) 100%);
-            color: white;
-            padding: 10px 20px;
-            border-radius: var(--radius-pill);
-            font-size: 12px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            box-shadow: 0 4px 16px rgba(122, 158, 126, 0.4);
+            justify-content: center;
+            animation: pulse-glow 2s ease-in-out infinite;
         }
 
-        .journey-transformation-badge svg {
+        .journey-divider-arrow svg {
             width: 18px;
             height: 18px;
-            animation: bounce-down 1.5s ease-in-out infinite;
+            color: white;
+            transform: rotate(90deg);
         }
 
-        @keyframes bounce-down {
-            0%, 100% { transform: translateY(-2px); }
-            50% { transform: translateY(4px); }
+        .journey-divider-text {
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--color-sage-dark);
+            transform: rotate(180deg);
         }
 
-        /* Tagline at bottom of card */
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(122, 158, 126, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 8px rgba(122, 158, 126, 0);
+            }
+        }
+
+        /* Bottom Section - Tagline & Share */
+        .journey-bottom {
+            background: linear-gradient(180deg, #FAFBFA 0%, #F5F7F5 100%);
+            padding: var(--space-xl) var(--space-2xl);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: var(--space-lg);
+            border-top: 1px solid rgba(122, 158, 126, 0.15);
+        }
+
         .journey-tagline {
-            text-align: center;
-            margin-top: var(--space-xl);
-            padding-top: var(--space-lg);
-            border-top: 1px solid rgba(0,0,0,0.06);
+            flex: 1;
         }
 
         .journey-tagline p {
             font-family: var(--font-heading);
-            font-size: clamp(1rem, 3vw, 1.125rem);
+            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
             color: var(--color-sage-dark);
             font-style: italic;
-            margin: 0;
+            margin: 0 0 4px 0;
+            line-height: 1.3;
         }
 
         .journey-tagline .brand {
-            display: block;
-            margin-top: var(--space-sm);
-            font-size: 13px;
+            font-size: 12px;
             font-weight: 700;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.1em;
             color: var(--color-sage);
             font-style: normal;
+            text-transform: uppercase;
         }
 
-        /* Share Buttons for Journey Card */
+        /* Share Buttons */
         .journey-share-row {
             display: flex;
-            justify-content: center;
-            gap: var(--space-sm);
-            margin-top: var(--space-lg);
+            gap: 10px;
         }
 
         .journey-share-btn {
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 44px;
-            height: 44px;
+            width: 42px;
+            height: 42px;
             border-radius: 50%;
             border: none;
             cursor: pointer;
             transition: transform var(--duration-fast), box-shadow var(--duration-fast);
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
         }
 
         .journey-share-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+            transform: scale(1.12) translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
         }
 
         .journey-share-btn.facebook { background: #1877F2; }
@@ -1022,20 +1124,20 @@
             display: inline-flex;
             align-items: center;
             gap: var(--space-sm);
-            background: var(--color-sage);
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
             color: white;
-            padding: 14px 28px;
+            padding: 16px 32px;
             border-radius: var(--radius-pill);
             font-weight: 700;
             font-size: var(--text-body);
             text-decoration: none;
             transition: transform var(--duration-fast), box-shadow var(--duration-fast);
-            box-shadow: 0 4px 16px rgba(122, 158, 126, 0.3);
+            box-shadow: 0 6px 24px rgba(122, 158, 126, 0.4);
         }
 
         .journey-cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 24px rgba(122, 158, 126, 0.4);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 36px rgba(122, 158, 126, 0.5);
         }
 
         .journey-cta-btn svg {
@@ -1043,38 +1145,351 @@
             height: 20px;
         }
 
-        /* Responsive Adjustments */
-        @media (min-width: 640px) {
-            .journey-panel-illustration {
-                width: 280px;
-                height: 280px;
-            }
-
-            .journey-shareable-card {
-                padding: var(--space-4xl) var(--space-3xl);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .journey-shareable-card {
-                padding: var(--space-2xl) var(--space-lg);
-                border-radius: 20px;
+        /* Responsive - Tablet */
+        @media (min-width: 768px) and (max-width: 1023px) {
+            .journey-split {
+                min-height: 420px;
             }
 
             .journey-panel {
-                padding: var(--space-lg) var(--space-md);
+                padding: var(--space-2xl) var(--space-xl);
             }
 
             .journey-panel-illustration {
-                width: 200px;
-                height: 200px;
+                width: 180px;
+                height: 180px;
             }
 
-            .journey-transformation-badge {
-                padding: 8px 16px;
-                font-size: 11px;
+            .journey-divider {
+                width: 60px;
             }
         }
+
+        /* Responsive - Mobile: Stack vertically */
+        @media (max-width: 767px) {
+            .journey-shareable-card {
+                border-radius: 24px;
+                margin-left: var(--space-md);
+                margin-right: var(--space-md);
+            }
+
+            .journey-split {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto auto auto;
+                min-height: auto;
+            }
+
+            .journey-panel {
+                padding: var(--space-2xl) var(--space-lg);
+            }
+
+            .journey-panel-illustration {
+                width: 180px;
+                height: 180px;
+                margin-bottom: var(--space-lg);
+            }
+
+            .journey-panel h3 {
+                font-size: 1.3rem;
+            }
+
+            /* Horizontal divider on mobile */
+            .journey-divider {
+                width: 100%;
+                height: 70px;
+                flex-direction: row;
+                background: linear-gradient(90deg, #D9D4CD 0%, #E5F0E7 100%);
+            }
+
+            .journey-divider::before {
+                top: 50%;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                width: auto;
+                height: 3px;
+                transform: translateY(-50%);
+                background: linear-gradient(90deg,
+                    #8B8178 0%,
+                    #A09589 25%,
+                    var(--color-sage) 75%,
+                    #5A8A5E 100%
+                );
+            }
+
+            .journey-divider-badge {
+                flex-direction: row;
+                padding: 12px 20px;
+                border-radius: 30px;
+            }
+
+            .journey-divider-arrow svg {
+                transform: rotate(0deg);
+            }
+
+            .journey-divider-text {
+                writing-mode: horizontal-tb;
+                transform: none;
+            }
+
+            .journey-bottom {
+                flex-direction: column;
+                text-align: center;
+                padding: var(--space-lg);
+            }
+
+            .journey-tagline {
+                margin-bottom: var(--space-sm);
+            }
+        }
+
+        /* Very small screens */
+        @media (max-width: 400px) {
+            .journey-panel {
+                padding: var(--space-xl) var(--space-md);
+            }
+
+            .journey-panel-illustration {
+                width: 150px;
+                height: 150px;
+            }
+
+            .journey-share-btn {
+                width: 38px;
+                height: 38px;
+            }
+        }
+
+        /* ============================================
+           APP EXPERIENCE VIGNETTES SECTION
+           Cropped, styled UI screenshots showing the feel
+           ============================================ */
+        .vignettes-section {
+            padding: var(--spacing-section) 0;
+            background: linear-gradient(180deg, #FDFCFA 0%, var(--color-bg-lawn) 50%, #FDFCFA 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .vignettes-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+        }
+
+        .vignettes-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .vignettes-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            font-weight: 700;
+        }
+
+        .vignettes-header h2 .accent {
+            color: var(--color-sage);
+            font-style: italic;
+        }
+
+        .vignettes-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Vignette Grid - Masonry-style scattered layout */
+        .vignettes-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            grid-template-rows: auto auto auto;
+            gap: var(--space-xl);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Individual Vignette Card */
+        .vignette {
+            position: relative;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.08),
+                0 8px 24px rgba(0,0,0,0.04);
+            transition: transform var(--duration-normal) var(--ease-out),
+                        box-shadow var(--duration-normal) var(--ease-out);
+        }
+
+        .vignette:hover {
+            transform: translateY(-8px) rotate(0deg) !important;
+            box-shadow:
+                0 30px 80px rgba(0,0,0,0.12),
+                0 12px 32px rgba(0,0,0,0.06);
+        }
+
+        /* Vignette positioning - scattered magazine feel */
+        .vignette-1 {
+            grid-column: 1 / 6;
+            grid-row: 1;
+            transform: rotate(-2deg);
+        }
+
+        .vignette-2 {
+            grid-column: 6 / 13;
+            grid-row: 1;
+            transform: rotate(1.5deg);
+        }
+
+        .vignette-3 {
+            grid-column: 2 / 7;
+            grid-row: 2;
+            transform: rotate(1deg);
+        }
+
+        .vignette-4 {
+            grid-column: 7 / 12;
+            grid-row: 2;
+            transform: rotate(-1.5deg);
+        }
+
+        /* Vignette inner content */
+        .vignette-frame {
+            padding: var(--space-md);
+            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+        }
+
+        .vignette-image {
+            width: 100%;
+            height: auto;
+            border-radius: 16px;
+            display: block;
+        }
+
+        /* Vignette caption */
+        .vignette-caption {
+            padding: var(--space-lg) var(--space-xl);
+            text-align: center;
+            background: white;
+        }
+
+        .vignette-emoji {
+            font-size: 2rem;
+            margin-bottom: var(--space-xs);
+            display: block;
+        }
+
+        .vignette-title {
+            font-size: var(--text-body);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-2xs);
+        }
+
+        .vignette-subtitle {
+            font-size: var(--text-small);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-normal);
+        }
+
+        /* Device frame overlay effect */
+        .vignette-frame::before {
+            content: "";
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: rgba(0,0,0,0.1);
+            border-radius: 2px;
+            z-index: 2;
+        }
+
+        /* Soft glow behind vignettes */
+        .vignette::after {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            background: radial-gradient(ellipse at center, var(--color-sage-soft) 0%, transparent 70%);
+            z-index: -1;
+            opacity: 0;
+            transition: opacity var(--duration-normal);
+        }
+
+        .vignette:hover::after {
+            opacity: 1;
+        }
+
+        /* Vignettes responsive */
+        @media (max-width: 1024px) {
+            .vignettes-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: auto;
+                gap: var(--space-lg);
+            }
+
+            .vignette-1,
+            .vignette-2,
+            .vignette-3,
+            .vignette-4 {
+                grid-column: auto;
+                grid-row: auto;
+                transform: none;
+            }
+
+            .vignette {
+                border-radius: 20px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .vignettes-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .vignettes-section {
+                padding: var(--space-4xl) 0;
+            }
+
+            .vignette-caption {
+                padding: var(--space-md) var(--space-lg);
+            }
+
+            .vignette-emoji {
+                font-size: 1.5rem;
+            }
+
+            .vignette-title {
+                font-size: var(--text-small);
+            }
+
+            .vignette-subtitle {
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Scroll animations for vignettes */
+        .vignettes-section [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+
+        .vignettes-section [data-animate].in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .vignettes-section [data-animate="delay-1"] { transition-delay: 0.1s; }
+        .vignettes-section [data-animate="delay-2"] { transition-delay: 0.2s; }
+        .vignettes-section [data-animate="delay-3"] { transition-delay: 0.3s; }
+        .vignettes-section [data-animate="delay-4"] { transition-delay: 0.4s; }
 
         /* ============================================
            SOCIAL PROOF SECTION
@@ -1715,21 +2130,22 @@
             </div>
         </section>
 
-        <!-- Shareable Journey Section - Before/After Comparison -->
+        <!-- Shareable Journey Section - Magazine Split Layout -->
         <section class="journey-section" id="transformation">
             <div class="journey-container">
                 <div class="journey-header" data-animate>
-                    <h2>From Worry to Wonder</h2>
+                    <h2>From <span class="accent-worry">Worry</span> to <span class="accent-wonder">Wonder</span></h2>
                     <p>
                         Every parent wonders: "Is my child developing normally?"
                         Big Garden turns that anxiety into joyful discovery.
                     </p>
                 </div>
 
-                <!-- Shareable Card - Designed for social media screenshots -->
+                <!-- Shareable Card - Horizontal Split Design -->
                 <div class="journey-shareable-card" data-animate="delay-1">
-                    <div class="journey-flow">
-                        <!-- Before Panel -->
+                    <!-- Split Screen: Before | Divider | After -->
+                    <div class="journey-split">
+                        <!-- Before Panel - Heavy, Muted -->
                         <div class="journey-panel before">
                             <span class="journey-panel-label">Before</span>
                             <div class="journey-panel-illustration">
@@ -1744,19 +2160,19 @@
                             <p>Endless comparisons. Random checklists. The nagging question: "Am I doing enough?"</p>
                         </div>
 
-                        <!-- Transformation Indicator -->
-                        <div class="journey-transformation">
-                            <div class="journey-transformation-line"></div>
-                            <div class="journey-transformation-badge">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                                    <path d="M12 5v14M5 12l7 7 7-7"/>
-                                </svg>
-                                With Big Garden
+                        <!-- Center Divider - Transformation Bridge -->
+                        <div class="journey-divider">
+                            <div class="journey-divider-badge">
+                                <div class="journey-divider-arrow">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </div>
+                                <span class="journey-divider-text">Big Garden</span>
                             </div>
-                            <div class="journey-transformation-line"></div>
                         </div>
 
-                        <!-- After Panel -->
+                        <!-- After Panel - Light, Hopeful -->
                         <div class="journey-panel after">
                             <span class="journey-panel-label">After</span>
                             <div class="journey-panel-illustration">
@@ -1772,29 +2188,30 @@
                         </div>
                     </div>
 
-                    <!-- Tagline -->
-                    <div class="journey-tagline">
-                        <p>"Every child blooms in their own time."</p>
-                        <span class="brand">Big Garden</span>
-                    </div>
+                    <!-- Bottom: Tagline + Share -->
+                    <div class="journey-bottom">
+                        <div class="journey-tagline">
+                            <p>"Every child blooms in their own time."</p>
+                            <span class="brand">Big Garden</span>
+                        </div>
 
-                    <!-- Share buttons -->
-                    <div class="journey-share-row">
-                        <button class="journey-share-btn facebook" onclick="shareJourney('facebook')" title="Share on Facebook">
-                            <img src="assets/icons/facebook.svg" alt="Facebook">
-                        </button>
-                        <button class="journey-share-btn twitter" onclick="shareJourney('twitter')" title="Share on X">
-                            <img src="assets/icons/twitter-x.svg" alt="X">
-                        </button>
-                        <button class="journey-share-btn line" onclick="shareJourney('line')" title="Share on LINE">
-                            <img src="assets/icons/line.svg" alt="LINE">
-                        </button>
-                        <button class="journey-share-btn copy" onclick="shareJourney('copy')" title="Copy link">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                            </svg>
-                        </button>
+                        <div class="journey-share-row">
+                            <button class="journey-share-btn facebook" onclick="shareJourney('facebook')" title="Share on Facebook">
+                                <img src="assets/icons/facebook.svg" alt="Facebook">
+                            </button>
+                            <button class="journey-share-btn twitter" onclick="shareJourney('twitter')" title="Share on X">
+                                <img src="assets/icons/twitter-x.svg" alt="X">
+                            </button>
+                            <button class="journey-share-btn line" onclick="shareJourney('line')" title="Share on LINE">
+                                <img src="assets/icons/line.svg" alt="LINE">
+                            </button>
+                            <button class="journey-share-btn copy" onclick="shareJourney('copy')" title="Copy link">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                                </svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -1807,6 +2224,93 @@
                             <path d="M5 12h14M12 5l7 7-7 7"/>
                         </svg>
                     </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Experience Vignettes Section -->
+        <section class="vignettes-section" id="experience">
+            <div class="vignettes-container">
+                <div class="vignettes-header" data-animate>
+                    <h2>Experience the <span class="accent">Joy</span></h2>
+                    <p>
+                        See what it feels like to watch your child's skills bloom.
+                        Every tap, every milestone, every moment of celebration.
+                    </p>
+                </div>
+
+                <div class="vignettes-grid">
+                    <!-- Vignette 1: Activity Detail - The "aha" moment -->
+                    <div class="vignette vignette-1" data-animate="delay-1">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/activity.webp" type="image/webp">
+                                <img src="assets/images/big-garden/activity.png"
+                                     alt="Activity detail screen showing Hopping in Place skill with mastery requirements and training methods"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🎯</span>
+                            <div class="vignette-title">Clear guidance</div>
+                            <div class="vignette-subtitle">Know exactly what to practice</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 2: Garden View - Progress visualization -->
+                    <div class="vignette vignette-2" data-animate="delay-2">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/garden-view.webp" type="image/webp">
+                                <img src="assets/images/big-garden/garden-view.png"
+                                     alt="Garden view showing skills organized by category with mastered skills blooming as flowers"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌸</span>
+                            <div class="vignette-title">Watch skills bloom</div>
+                            <div class="vignette-subtitle">Beautiful garden visualization</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 3: Progress Dashboard - Achievement -->
+                    <div class="vignette vignette-3" data-animate="delay-3">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/skill-tree.webp" type="image/webp">
+                                <img src="assets/images/big-garden/skill-tree.png"
+                                     alt="Skill tree dashboard showing 89% progress with 134 mastered skills and child's development stage"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌟</span>
+                            <div class="vignette-title">Track progress</div>
+                            <div class="vignette-subtitle">See how far you've come</div>
+                        </div>
+                    </div>
+
+                    <!-- Vignette 4: Next Up - Discovery -->
+                    <div class="vignette vignette-4" data-animate="delay-4">
+                        <div class="vignette-frame">
+                            <picture>
+                                <source srcset="assets/images/big-garden/progress.webp" type="image/webp">
+                                <img src="assets/images/big-garden/progress.png"
+                                     alt="Progress screen showing next skills to work on with prerequisites and recommendations"
+                                     class="vignette-image"
+                                     loading="lazy">
+                            </picture>
+                        </div>
+                        <div class="vignette-caption">
+                            <span class="vignette-emoji">🌱</span>
+                            <div class="vignette-title">What's next</div>
+                            <div class="vignette-subtitle">Personalized recommendations</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
