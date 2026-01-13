@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- Growth Stage: Growing - Taller stem with multiple leaves and buds -->
+  <defs>
+    <radialGradient id="growingSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="growStemGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <linearGradient id="growLeafGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#A8C5AB"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <radialGradient id="budGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#F5C87A"/>
+      <stop offset="100%" style="stop-color:#D97B64"/>
+    </radialGradient>
+  </defs>
+  <!-- Soil mound -->
+  <ellipse cx="32" cy="56" rx="16" ry="6" fill="url(#growingSoilGradient)"/>
+  <!-- Main stem -->
+  <path d="M32 52 Q30 40 32 20" stroke="url(#growStemGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Lower left leaf -->
+  <path d="M31 44 Q20 40 16 44 Q20 50 31 44" fill="url(#growLeafGradient)"/>
+  <!-- Lower right leaf -->
+  <path d="M33 40 Q44 36 48 40 Q44 46 33 40" fill="url(#growLeafGradient)"/>
+  <!-- Upper left leaf -->
+  <path d="M31 32 Q22 28 18 32 Q22 38 31 32" fill="url(#growLeafGradient)"/>
+  <!-- Upper right leaf -->
+  <path d="M33 28 Q42 24 46 28 Q42 34 33 28" fill="url(#growLeafGradient)"/>
+  <!-- Bud at top -->
+  <ellipse cx="32" cy="18" rx="5" ry="6" fill="url(#budGradient)"/>
+  <!-- Bud petals hint -->
+  <path d="M29 16 Q32 12 35 16" stroke="#E8927C" stroke-width="1" fill="none"/>
+</svg>

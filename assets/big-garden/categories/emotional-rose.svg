@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Category: Emotional - Rose (heart/feelings) -->
+  <defs>
+    <radialGradient id="emoSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="emoStemGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <radialGradient id="rosePetalGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#FFD5DC"/>
+      <stop offset="100%" style="stop-color:#F48FB1"/>
+    </radialGradient>
+    <radialGradient id="roseCenterGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#D97B64"/>
+      <stop offset="100%" style="stop-color:#B85C4D"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soil -->
+  <ellipse cx="40" cy="74" rx="22" ry="5" fill="url(#emoSoilGradient)"/>
+
+  <!-- Stem -->
+  <path d="M40 68 Q38 50 40 30" stroke="url(#emoStemGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Thorns -->
+  <path d="M39 55 Q35 53 34 56" stroke="#5A7D5E" stroke-width="2" fill="none"/>
+  <path d="M41 45 Q45 43 46 46" stroke="#5A7D5E" stroke-width="2" fill="none"/>
+
+  <!-- Leaves -->
+  <path d="M38 58 Q26 54 24 60 Q28 66 38 58" fill="#7A9E7E"/>
+  <path d="M42 48 Q54 44 56 50 Q52 56 42 48" fill="#A8C5AB"/>
+
+  <!-- Rose flower - layered petals -->
+  <g transform="translate(40, 22)">
+    <!-- Outer petals -->
+    <ellipse cx="-10" cy="2" rx="12" ry="10" fill="url(#rosePetalGradient)"/>
+    <ellipse cx="10" cy="2" rx="12" ry="10" fill="url(#rosePetalGradient)"/>
+    <ellipse cx="0" cy="-8" rx="10" ry="12" fill="url(#rosePetalGradient)"/>
+    <ellipse cx="-8" cy="8" rx="10" ry="8" fill="url(#rosePetalGradient)"/>
+    <ellipse cx="8" cy="8" rx="10" ry="8" fill="url(#rosePetalGradient)"/>
+    <!-- Inner petals -->
+    <ellipse cx="-5" cy="-2" rx="8" ry="7" fill="#FFD5DC"/>
+    <ellipse cx="5" cy="-2" rx="8" ry="7" fill="#FFD5DC"/>
+    <ellipse cx="0" cy="3" rx="7" ry="6" fill="#F48FB1" opacity="0.8"/>
+    <!-- Center swirl -->
+    <ellipse cx="0" cy="-1" rx="5" ry="4" fill="#FFD5DC"/>
+    <circle cx="0" cy="0" r="3" fill="url(#roseCenterGradient)"/>
+    <!-- Heart shape in center -->
+    <path d="M0 -1 Q-2 -3 -3 -2 Q-3 0 0 2 Q3 0 3 -2 Q2 -3 0 -1" fill="#D97B64" opacity="0.6"/>
+  </g>
+</svg>
