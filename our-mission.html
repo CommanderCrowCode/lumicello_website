@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4A5D4B">
+    <title>Our Mission - Why We Built Lumicello</title>
+    <meta name="description" content="Every child has a light inside. Lumicello helps it shine. Learn why we're building personalized, research-backed learning experiences for every child.">
+
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/our-mission.html">
+    <meta property="og:title" content="Our Mission - Why We Built Lumicello">
+    <meta property="og:description" content="Every child has a light inside. Lumicello helps it shine. Learn why we're building personalized learning experiences.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta property="og:site_name" content="Lumicello">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lumicello.com/our-mission.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Our Mission - Why We Built Lumicello">
+    <meta name="twitter:description" content="Every child has a light inside. Lumicello helps it shine.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://analytics.lumicello.com">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/images/lumicello_logo.webp" as="image" type="image/webp">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/variables.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="svg_favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+    <!-- Umami Analytics -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
+    ></script>
+
+    <style>
+        .mission-page {
+            background: var(--color-bg-main);
+        }
+
+        /* Hero Section */
+        .mission-hero {
+            padding: clamp(140px, 18vw, 200px) 24px clamp(80px, 10vw, 120px);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -15%;
+            width: 60%;
+            height: 80%;
+            background: radial-gradient(ellipse, var(--color-bg-sage) 0%, transparent 70%);
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            z-index: 0;
+        }
+
+        .mission-hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 50%;
+            height: 70%;
+            background: radial-gradient(ellipse, var(--color-bg-mist) 0%, transparent 70%);
+            border-radius: 60% 40% 50% 60% / 50% 60% 40% 50%;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .mission-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-tagline {
+            display: inline-block;
+            padding: 10px 24px;
+            background: white;
+            border-radius: var(--radius-btn);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 28px;
+            box-shadow: var(--shadow-soft);
+        }
+
+        .mission-hero h1 {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            color: var(--color-primary);
+            margin-bottom: 24px;
+            line-height: 1.2;
+        }
+
+        .mission-hero-subtitle {
+            font-size: var(--text-xl);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* Story Section */
+        .mission-story {
+            padding: clamp(60px, 8vw, 100px) 24px;
+            background: white;
+        }
+
+        .mission-story-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .story-section {
+            margin-bottom: 60px;
+        }
+
+        .story-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-section h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .story-section h2::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 24px;
+            background: var(--color-accent);
+            border-radius: 3px;
+        }
+
+        .story-section p {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.9;
+            margin-bottom: 20px;
+        }
+
+        .story-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .story-highlight {
+            background: var(--color-bg-sage);
+            border-radius: var(--radius-card);
+            padding: 32px 36px;
+            margin: 32px 0;
+        }
+
+        .story-highlight p {
+            font-size: var(--text-lg);
+            color: var(--color-primary);
+            font-style: italic;
+            margin: 0;
+        }
+
+        /* Values Section */
+        .mission-values {
+            padding: clamp(60px, 8vw, 100px) 24px;
+            background: var(--color-bg-main);
+        }
+
+        .mission-values-container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .mission-values h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: var(--color-primary);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        .mission-values-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+        }
+
+        .value-card {
+            background: white;
+            border-radius: var(--radius-card);
+            padding: 40px 32px;
+            box-shadow: var(--shadow-soft);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-medium);
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-bg-sage);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+        }
+
+        .value-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--color-primary);
+        }
+
+        .value-card h3 {
+            font-family: var(--font-heading);
+            font-size: var(--text-xl);
+            color: var(--color-primary);
+            margin-bottom: 12px;
+        }
+
+        .value-card p {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Vision Section */
+        .mission-vision {
+            padding: clamp(80px, 10vw, 120px) 24px;
+            background: var(--color-primary);
+            text-align: center;
+        }
+
+        .mission-vision-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .mission-vision h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-3xl);
+            color: white;
+            margin-bottom: 24px;
+        }
+
+        .mission-vision p {
+            font-size: var(--text-xl);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .mission-vision .btn {
+            background: white;
+            color: var(--color-primary);
+        }
+
+        .mission-vision .btn:hover {
+            background: var(--color-accent);
+            color: var(--color-primary);
+        }
+
+        /* CTA Section */
+        .mission-cta {
+            padding: clamp(60px, 8vw, 100px) 24px;
+            background: white;
+            text-align: center;
+        }
+
+        .mission-cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .mission-cta h2 {
+            font-family: var(--font-heading);
+            font-size: var(--text-2xl);
+            color: var(--color-primary);
+            margin-bottom: 16px;
+        }
+
+        .mission-cta p {
+            font-size: var(--text-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: 32px;
+        }
+
+        .mission-cta-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mission-hero {
+                padding: 120px 20px 60px;
+            }
+
+            .story-highlight {
+                padding: 24px;
+            }
+
+            .value-card {
+                padding: 32px 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mission-page">
+        <!-- Navigation (Shared Component) -->
+        <div id="nav-placeholder"></div>
+
+        <!-- Hero Section -->
+        <section class="mission-hero">
+            <div class="mission-hero-content">
+                <span class="mission-tagline">Our Mission</span>
+                <h1>Every Child Has a Light Inside</h1>
+                <p class="mission-hero-subtitle">
+                    We help it shine. Lumicello exists to make personalized, interest-driven learning
+                    accessible to every child, everywhere.
+                </p>
+            </div>
+        </section>
+
+        <!-- Story Section -->
+        <section class="mission-story">
+            <div class="mission-story-container">
+                <div class="story-section">
+                    <h2>Why We Started</h2>
+                    <p>
+                        It began with a simple observation: every child is curious, but not every child
+                        learns the same way. We watched children struggle in rigid educational systems
+                        that expected them to fit a mold, rather than celebrating their unique paths to discovery.
+                    </p>
+                    <p>
+                        We saw parents overwhelmed by conflicting advice, endless checklists, and the
+                        constant worry: "Am I doing enough?" We saw teachers stretched thin, unable to
+                        give each child the individual attention they deserved.
+                    </p>
+                    <div class="story-highlight">
+                        <p>
+                            "What if technology could amplify teacher wisdom, not replace it? What if we could
+                            help every parent understand their child's unique learning pattern?"
+                        </p>
+                    </div>
+                    <p>
+                        These questions became the foundation of Lumicello.
+                    </p>
+                </div>
+
+                <div class="story-section">
+                    <h2>What We Believe</h2>
+                    <p>
+                        We believe every child has what we call a <strong>Curiosity Fingerprint</strong> —
+                        a unique combination of interests, learning styles, and developmental rhythms that
+                        makes them who they are. No two fingerprints are alike, and that's beautiful.
+                    </p>
+                    <p>
+                        We believe education should adapt to the child, not the other way around. When
+                        learning follows curiosity, children stay challenged, confident, and excited —
+                        never overwhelmed, never bored.
+                    </p>
+                    <p>
+                        We believe parents and educators know their children best. Our role is to give
+                        them insights and tools, not to replace their judgment with algorithms.
+                    </p>
+                </div>
+
+                <div class="story-section">
+                    <h2>What We're Building</h2>
+                    <p>
+                        Lumicello combines research-backed guidance, AI-driven customization, and adaptive
+                        pacing to create individualized learning journeys — both digital and physical.
+                    </p>
+                    <p>
+                        Through our platform, parents and educators discover what truly interests a child,
+                        track their progress across developmental domains, and support them with the right
+                        resources at the right time.
+                    </p>
+                    <p>
+                        With <strong>Big Garden</strong>, families watch skills bloom like plants in a garden.
+                        With <strong>LumiBox</strong>, children receive curated physical toys and activities
+                        matched to their evolving interests. Every piece works together to nurture the
+                        whole child.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values Section -->
+        <section class="mission-values">
+            <div class="mission-values-container">
+                <h2>Our Core Philosophy</h2>
+                <p class="mission-values-subtitle">
+                    Three principles guide everything we build.
+                </p>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                            </svg>
+                        </div>
+                        <h3>Research-Backed</h3>
+                        <p>
+                            Technology amplifies teacher wisdom, not replaces it. Every recommendation
+                            is grounded in developmental science and refined by real educator insights.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/>
+                                <path d="M2 12h20"/>
+                            </svg>
+                        </div>
+                        <h3>Customized</h3>
+                        <p>
+                            Each child's Curiosity Fingerprint evolves over time, informing recommended
+                            activities, learning styles, interest clusters, and depth of engagement.
+                        </p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <h3>Right Pace</h3>
+                        <p>
+                            Children develop at different speeds. Lumicello adapts difficulty, exploration
+                            depth, and learning tempo dynamically — no rushing, no holding back.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Section -->
+        <section class="mission-vision">
+            <div class="mission-vision-container">
+                <h2>Our Vision</h2>
+                <p>
+                    A world where education adapts to the child, not the other way around.
+                    Where every child's curiosity is nurtured, every parent feels supported,
+                    and every educator has the tools to help each student thrive.
+                </p>
+                <a href="index.html#community" class="btn btn-primary">Join Our Community</a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="mission-cta">
+            <div class="mission-cta-container">
+                <h2>Ready to Start the Journey?</h2>
+                <p>
+                    Explore how Lumicello can help your child's light shine brighter.
+                </p>
+                <div class="mission-cta-buttons">
+                    <a href="big-garden.html" class="btn btn-primary">Explore Big Garden</a>
+                    <a href="index.html#kits" class="btn btn-secondary">Discover LumiBox</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (Shared Component) -->
+        <div id="footer-placeholder"></div>
+    </div>
+
+    <!-- Shared Components Script -->
+    <script src="js/components.js" defer></script>
+</body>
+</html>
