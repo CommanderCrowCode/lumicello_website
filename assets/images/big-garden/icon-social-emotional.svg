@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Social-Emotional - Warm Sunflower -->
+  <defs>
+    <style>
+      .social-sway { animation: socialSway 5s ease-in-out infinite; transform-origin: 40px 75px; }
+      @keyframes socialSway { 0%, 100% { transform: rotate(-1.5deg); } 50% { transform: rotate(1.5deg); } }
+    </style>
+  </defs>
+  <g class="social-sway">
+    <!-- Stem -->
+    <line x1="40" y1="75" x2="40" y2="38" stroke="#5A7E5E" stroke-width="6" stroke-linecap="round"/>
+    <!-- Leaf -->
+    <ellipse cx="28" cy="60" rx="12" ry="6" fill="#7A9E7E" transform="rotate(-30 28 60)"/>
+    <!-- Sunflower head -->
+    <g transform="translate(40, 25)">
+      <!-- Center seed area -->
+      <circle cx="0" cy="0" r="12" fill="#8B7355"/>
+      <!-- Petals -->
+      <g fill="#D9A835">
+        <ellipse cx="0" cy="-24" rx="8" ry="14"/>
+        <ellipse cx="17" cy="-17" rx="8" ry="14" transform="rotate(45 17 -17)"/>
+        <ellipse cx="24" cy="0" rx="8" ry="14" transform="rotate(90 24 0)"/>
+        <ellipse cx="17" cy="17" rx="8" ry="14" transform="rotate(135 17 17)"/>
+        <ellipse cx="0" cy="24" rx="8" ry="14" transform="rotate(180 0 24)"/>
+        <ellipse cx="-17" cy="17" rx="8" ry="14" transform="rotate(-135 -17 17)"/>
+        <ellipse cx="-24" cy="0" rx="8" ry="14" transform="rotate(-90 -24 0)"/>
+        <ellipse cx="-17" cy="-17" rx="8" ry="14" transform="rotate(-45 -17 -17)"/>
+      </g>
+    </g>
+  </g>
+</svg>

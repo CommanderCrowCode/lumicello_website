@@ -12,7 +12,9 @@
     <meta property="og:url" content="https://lumicello.com/big-garden.html">
     <meta property="og:title" content="Big Garden - Watch Your Child Grow | Lumicello">
     <meta property="og:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
-    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta property="og:image" content="https://lumicello.com/assets/images/big-garden/og-big-garden.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Lumicello">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="th_TH">
@@ -24,7 +26,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Big Garden - Watch Your Child Grow | Lumicello">
     <meta name="twitter:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
-    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/big-garden/og-big-garden.png">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1813,6 +1815,163 @@
         .quotable-section [data-animate="delay-1"] {
             transition-delay: 0.2s;
         }
+
+        /* ============================================
+           SHAREABLE GRAPHICS SECTION
+           ============================================ */
+        .graphics-section {
+            padding: var(--spacing-section) var(--space-lg);
+            background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-lawn) 30%, var(--color-bg-main) 100%);
+            position: relative;
+        }
+
+        .graphics-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .graphics-header {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .graphics-header h2 {
+            font-size: var(--text-h2);
+            margin-bottom: var(--space-sm);
+            color: var(--color-text-primary);
+        }
+
+        .graphics-header p {
+            font-size: var(--text-body);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        .graphics-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-xl);
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .graphic-card {
+            position: relative;
+            background: white;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal);
+        }
+
+        .graphic-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .graphic-preview {
+            aspect-ratio: 1200 / 630;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .graphic-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--duration-slow) var(--ease-out);
+        }
+
+        .graphic-card:hover .graphic-preview img {
+            transform: scale(1.03);
+        }
+
+        .graphic-info {
+            padding: var(--space-lg);
+        }
+
+        .graphic-info h3 {
+            font-size: var(--text-h3);
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .graphic-info p {
+            font-size: var(--text-small);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-md);
+        }
+
+        .graphic-actions {
+            display: flex;
+            gap: var(--space-sm);
+        }
+
+        .graphic-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            padding: var(--space-sm) var(--space-md);
+            border-radius: var(--radius-sm);
+            font-size: var(--text-small);
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: all var(--duration-normal) var(--ease-out);
+            text-decoration: none;
+        }
+
+        .graphic-btn-primary {
+            background: var(--color-sage);
+            color: white;
+        }
+
+        .graphic-btn-primary:hover {
+            background: var(--color-sage-dark);
+        }
+
+        .graphic-btn-secondary {
+            background: var(--color-sage-soft);
+            color: var(--color-sage-dark);
+        }
+
+        .graphic-btn-secondary:hover {
+            background: var(--color-sage-light);
+            color: white;
+        }
+
+        .graphic-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .graphics-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+
+        .graphics-section [data-animate] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+        }
+
+        .graphics-section [data-animate].in-view {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .graphics-section [data-animate="delay-1"] {
+            transition-delay: 0.1s;
+        }
+
+        .graphics-section [data-animate="delay-2"] {
+            transition-delay: 0.2s;
+        }
     </style>
 </head>
 <body>
@@ -2547,6 +2706,102 @@
             </div>
         </section>
 
+        <!-- Shareable Graphics Section -->
+        <section class="graphics-section">
+            <div class="graphics-container">
+                <div class="graphics-header" data-animate>
+                    <h2>Share the Garden Joy</h2>
+                    <p>Download these beautiful graphics to share on social media. Spread the message of nurturing growth with fellow parents.</p>
+                </div>
+
+                <div class="graphics-grid">
+                    <!-- Growth Journey Graphic -->
+                    <div class="graphic-card" data-animate="delay-1">
+                        <div class="graphic-preview">
+                            <img src="assets/images/big-garden/social-growth-journey.webp" alt="Growth Journey - From seed to bloom" loading="lazy" width="1200" height="630">
+                        </div>
+                        <div class="graphic-info">
+                            <h3>The Growth Journey</h3>
+                            <p>Every skill is a seed waiting to bloom</p>
+                            <div class="graphic-actions">
+                                <a href="assets/images/big-garden/social-growth-journey.png" download="big-garden-growth-journey.png" class="graphic-btn graphic-btn-primary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nurturing Parent Graphic -->
+                    <div class="graphic-card" data-animate="delay-1">
+                        <div class="graphic-preview">
+                            <img src="assets/images/big-garden/social-nurturing-parent.webp" alt="Nurturing Parent - Be your child's sunshine" loading="lazy" width="1200" height="630">
+                        </div>
+                        <div class="graphic-info">
+                            <h3>Be Their Sunshine</h3>
+                            <p>Nurture their growth with patience and love</p>
+                            <div class="graphic-actions">
+                                <a href="assets/images/big-garden/social-nurturing-parent.png" download="big-garden-nurturing.png" class="graphic-btn graphic-btn-primary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nine Skills Graphic -->
+                    <div class="graphic-card" data-animate="delay-2">
+                        <div class="graphic-preview">
+                            <img src="assets/images/big-garden/social-nine-skills.webp" alt="9 Skill Domains - Every garden has unique blooms" loading="lazy" width="1200" height="630">
+                        </div>
+                        <div class="graphic-info">
+                            <h3>9 Skill Domains</h3>
+                            <p>Every child's garden has unique blooms</p>
+                            <div class="graphic-actions">
+                                <a href="assets/images/big-garden/social-nine-skills.png" download="big-garden-skills.png" class="graphic-btn graphic-btn-primary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Celebrate Progress Graphic -->
+                    <div class="graphic-card" data-animate="delay-2">
+                        <div class="graphic-preview">
+                            <img src="assets/images/big-garden/social-celebrate-progress.webp" alt="Celebrate Progress - Each milestone is a moment of joy" loading="lazy" width="1200" height="630">
+                        </div>
+                        <div class="graphic-info">
+                            <h3>Celebrate Every Bloom</h3>
+                            <p>Each milestone is a moment of joy</p>
+                            <div class="graphic-actions">
+                                <a href="assets/images/big-garden/social-celebrate-progress.png" download="big-garden-celebrate.png" class="graphic-btn graphic-btn-primary">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                        <polyline points="7 10 12 15 17 10"/>
+                                        <line x1="12" y1="15" x2="12" y2="3"/>
+                                    </svg>
+                                    Download
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Footer (Shared Component) -->
         <div id="footer-placeholder"></div>
     </div>
@@ -2649,7 +2904,7 @@
             }
 
             // Extended scroll animation for all new sections
-            const allAnimatedElements = document.querySelectorAll('.journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate]');
+            const allAnimatedElements = document.querySelectorAll('.journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate], .graphics-section [data-animate]');
             allAnimatedElements.forEach(el => {
                 gardenObserver.observe(el);
             });

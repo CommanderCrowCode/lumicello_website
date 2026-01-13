@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Motor Skills - Strong Oak Tree -->
+  <defs>
+    <style>
+      .motor-sway { animation: motorSway 5s ease-in-out infinite; transform-origin: 40px 70px; }
+      @keyframes motorSway { 0%, 100% { transform: rotate(-1deg); } 50% { transform: rotate(1deg); } }
+    </style>
+  </defs>
+  <g class="motor-sway">
+    <!-- Trunk -->
+    <path d="M40,70 L40,45 Q32,38 25,32 Q40,22 55,32 Q48,38 40,45" fill="#8B7355"/>
+    <!-- Foliage -->
+    <ellipse cx="25" cy="25" rx="20" ry="25" fill="#5A7E5E"/>
+    <ellipse cx="55" cy="25" rx="20" ry="25" fill="#7A9E7E"/>
+    <ellipse cx="40" cy="15" rx="25" ry="30" fill="#6B8E6F"/>
+  </g>
+</svg>

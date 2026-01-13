@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Self-Care - Serene Lotus -->
+  <defs>
+    <style>
+      .lotus-float { animation: lotusFloat 6s ease-in-out infinite; }
+      @keyframes lotusFloat { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+    </style>
+  </defs>
+  <g class="lotus-float">
+    <!-- Water reflection -->
+    <ellipse cx="40" cy="65" rx="30" ry="10" fill="#87CEEB" opacity="0.3"/>
+    <!-- Lotus petals -->
+    <g transform="translate(40, 40)">
+      <g fill="#87CEEB">
+        <!-- Center petal -->
+        <ellipse cx="0" cy="-8" rx="10" ry="18"/>
+        <!-- Inner side petals -->
+        <ellipse cx="-15" cy="5" rx="9" ry="15" transform="rotate(-25 -15 5)"/>
+        <ellipse cx="15" cy="5" rx="9" ry="15" transform="rotate(25 15 5)"/>
+        <!-- Outer side petals -->
+        <ellipse cx="-25" cy="12" rx="8" ry="13" transform="rotate(-40 -25 12)"/>
+        <ellipse cx="25" cy="12" rx="8" ry="13" transform="rotate(40 25 12)"/>
+      </g>
+      <!-- Center -->
+      <circle cx="0" cy="5" r="6" fill="#D9A835"/>
+      <g fill="#D9A835" opacity="0.6">
+        <circle cx="-3" cy="2" r="2"/>
+        <circle cx="3" cy="2" r="2"/>
+        <circle cx="0" cy="6" r="2"/>
+      </g>
+    </g>
+    <!-- Lily pad hint -->
+    <ellipse cx="40" cy="58" rx="25" ry="8" fill="#7A9E7E" opacity="0.4"/>
+  </g>
+</svg>

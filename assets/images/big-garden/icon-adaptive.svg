@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Adaptive/Daily Living - Flexible Bamboo (adaptability) -->
+  <defs>
+    <style>
+      .bamboo-sway { animation: bambooSway 3s ease-in-out infinite; transform-origin: 40px 75px; }
+      @keyframes bambooSway { 0%, 100% { transform: rotate(-3deg); } 50% { transform: rotate(3deg); } }
+    </style>
+  </defs>
+  <g class="bamboo-sway">
+    <!-- Main bamboo stalk -->
+    <rect x="36" y="20" width="8" height="55" rx="4" fill="#7A9E7E"/>
+    <!-- Segments -->
+    <rect x="34" y="30" width="12" height="4" rx="2" fill="#5A7E5E"/>
+    <rect x="34" y="45" width="12" height="4" rx="2" fill="#5A7E5E"/>
+    <rect x="34" y="60" width="12" height="4" rx="2" fill="#5A7E5E"/>
+    <!-- Leaves (flexible, adaptive) -->
+    <g fill="#6B8E6F">
+      <ellipse cx="22" cy="28" rx="16" ry="5" transform="rotate(-50 22 28)"/>
+      <ellipse cx="18" cy="38" rx="14" ry="4" transform="rotate(-40 18 38)"/>
+      <ellipse cx="58" cy="32" rx="16" ry="5" transform="rotate(50 58 32)"/>
+      <ellipse cx="62" cy="45" rx="14" ry="4" transform="rotate(45 62 45)"/>
+    </g>
+    <g fill="#8AB88E">
+      <ellipse cx="25" cy="22" rx="12" ry="4" transform="rotate(-60 25 22)"/>
+      <ellipse cx="55" cy="25" rx="12" ry="4" transform="rotate(55 55 25)"/>
+    </g>
+    <!-- Growth tip -->
+    <ellipse cx="40" cy="15" rx="6" ry="10" fill="#8AB88E"/>
+  </g>
+</svg>
