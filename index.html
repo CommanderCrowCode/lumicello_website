@@ -26,12 +26,18 @@
     <meta name="twitter:description" content="Lumicello helps every child discover their unique learning path through curiosity-driven education and hands-on LumiBox learning kits.">
     <meta name="twitter:image" content="https://lumicello.com/assets/images/og-image.webp">
 
+    <!-- Resource Hints -->
+    <link rel="dns-prefetch" href="https://analytics.lumicello.com">
+    <link rel="dns-prefetch" href="https://app.kit.com">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Preload critical fonts for faster rendering -->
     <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- Preload logo for faster LCP -->
+    <link rel="preload" href="assets/images/lumicello_logo.webp" as="image" type="image/webp">
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
@@ -576,6 +582,44 @@
         </div>
     </section>
 
+    <!-- Products Showcase Section -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header reveal">
+                <h2>Our Products</h2>
+                <p>Two ways to nurture your child's natural curiosity and unlock their unique potential.</p>
+            </div>
+
+            <div class="products-grid reveal">
+                <!-- LumiBox Card -->
+                <article class="product-card product-card--lumibox">
+                    <div class="product-card__image">
+                        <img src="assets/images/lumibox/box_0-2.webp" alt="LumiBox developmental learning kit" width="600" height="600" loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__badge">Physical Kits</span>
+                        <h3 class="product-card__title">LumiBox</h3>
+                        <p class="product-card__tagline">Developmental kits for baby's first year. Thoughtfully designed toys that support key milestones while nurturing natural curiosity.</p>
+                        <a href="#kits" class="product-card__cta">Explore Kits &rarr;</a>
+                    </div>
+                </article>
+
+                <!-- Big Garden Card -->
+                <article class="product-card product-card--big-garden">
+                    <div class="product-card__image">
+                        <img src="assets/images/lumibox/box_3-4.webp" alt="Big Garden digital learning experience" width="600" height="600" loading="lazy">
+                    </div>
+                    <div class="product-card__content">
+                        <span class="product-card__badge">Coming Soon</span>
+                        <h3 class="product-card__title">Big Garden</h3>
+                        <p class="product-card__tagline">A digital garden where curiosity grows. Interactive learning adventures that adapt to your child's unique interests.</p>
+                        <a href="#community" class="product-card__cta">Join Waitlist &rarr;</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
     <!-- LumiBox Section -->
     <section class="kits-section" id="kits">
         <div class="container">
@@ -619,8 +663,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit box" loading="lazy">
-                                <img src="assets/images/lumibox/items_0-2.webp" alt="First Gazes Kit items spread" loading="lazy">
+                                <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit box" width="600" height="600" loading="lazy">
+                                <img src="assets/images/lumibox/items_0-2.webp" alt="First Gazes Kit items spread" width="600" height="600" loading="lazy">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -649,8 +693,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img data-src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit box" class="lazy-load">
-                                <img data-src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit items spread" class="lazy-load">
+                                <img data-src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit box" class="lazy-load" width="600" height="600">
+                                <img data-src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit items spread" class="lazy-load" width="600" height="600">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -679,8 +723,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img data-src="assets/images/lumibox/box_5-6.webp" alt="Grasp and Spin Kit box" class="lazy-load">
-                                <img data-src="assets/images/lumibox/items_5-6.webp" alt="Grasp and Spin Kit items spread" class="lazy-load">
+                                <img data-src="assets/images/lumibox/box_5-6.webp" alt="Grasp and Spin Kit box" class="lazy-load" width="600" height="600">
+                                <img data-src="assets/images/lumibox/items_5-6.webp" alt="Grasp and Spin Kit items spread" class="lazy-load" width="600" height="600">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -709,8 +753,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img data-src="assets/images/lumibox/box_7-8.webp" alt="Peek and Find Kit box" class="lazy-load">
-                                <img data-src="assets/images/lumibox/items_7-8.webp" alt="Peek and Find Kit items spread" class="lazy-load">
+                                <img data-src="assets/images/lumibox/box_7-8.webp" alt="Peek and Find Kit box" class="lazy-load" width="600" height="600">
+                                <img data-src="assets/images/lumibox/items_7-8.webp" alt="Peek and Find Kit items spread" class="lazy-load" width="600" height="600">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -739,8 +783,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img data-src="assets/images/lumibox/box_9-10.webp" alt="Stack and Sort Kit box" class="lazy-load">
-                                <img data-src="assets/images/lumibox/items_9-10.webp" alt="Stack and Sort Kit items spread" class="lazy-load">
+                                <img data-src="assets/images/lumibox/box_9-10.webp" alt="Stack and Sort Kit box" class="lazy-load" width="600" height="600">
+                                <img data-src="assets/images/lumibox/items_9-10.webp" alt="Stack and Sort Kit items spread" class="lazy-load" width="600" height="600">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -769,8 +813,8 @@
                     <div class="kit-image">
                         <div class="kit-carousel">
                             <div class="kit-carousel-track">
-                                <img data-src="assets/images/lumibox/box_11-12.webp" alt="Push and Play Kit box" class="lazy-load">
-                                <img data-src="assets/images/lumibox/items_11-12.webp" alt="Push and Play Kit items spread" class="lazy-load">
+                                <img data-src="assets/images/lumibox/box_11-12.webp" alt="Push and Play Kit box" class="lazy-load" width="600" height="600">
+                                <img data-src="assets/images/lumibox/items_11-12.webp" alt="Push and Play Kit items spread" class="lazy-load" width="600" height="600">
                             </div>
                             <div class="kit-carousel-dots">
                                 <button class="kit-dot active" aria-label="View box image"></button>
@@ -943,7 +987,7 @@
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
-    <script src="js/components.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/components.js" defer></script>
+    <script src="js/main.js" defer></script>
 </body>
 </html>
