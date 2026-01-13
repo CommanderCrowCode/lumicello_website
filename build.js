@@ -25,6 +25,8 @@ const PUBLIC_FILES = [
     'careers.html',
     'welcome.html',
     'big-garden.html',
+    'our-mission.html',
+    'lumibox.html',
     'ai-info.html',
     'robots.txt',
     'sitemap.xml',
