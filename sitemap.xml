@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- Lumicello Website Sitemap -->
-  <!-- Last updated: 2024-12-01 -->
+  <!-- Last updated: 2025-01-13 -->
   <!-- See SECURITY_DECISIONS.md for rationale -->
 
   <!-- Homepage - Highest priority -->
@@ -49,6 +49,14 @@
     <lastmod>2024-12-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
+  </url>
+
+  <!-- AI Crawler Information page -->
+  <url>
+    <loc>https://lumicello.com/ai-info.html</loc>
+    <lastmod>2025-01-13</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 
   <!-- Note: 404.html intentionally excluded from sitemap -->

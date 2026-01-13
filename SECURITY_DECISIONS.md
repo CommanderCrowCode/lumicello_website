@@ -238,6 +238,7 @@ Disallow: /*.md$
 | `/welcome.html` | 0.6 | monthly |
 | `/privacy.html` | 0.5 | yearly |
 | `/terms.html` | 0.5 | yearly |
+| `/ai-info.html` | 0.4 | yearly |
 | `/coming-soon.html` | 0.3 | monthly |
 
 **Excluded:** `404.html` (intentionally not indexed)
@@ -452,7 +453,7 @@ Umami is a privacy-focused, open-source web analytics platform. We use a self-ho
 
 ### Files with Analytics Script
 
-All 7 HTML files include the Umami script:
+All 8 HTML files include the Umami script:
 - `index.html`
 - `contact.html`
 - `coming-soon.html`
@@ -460,6 +461,7 @@ All 7 HTML files include the Umami script:
 - `terms.html`
 - `welcome.html`
 - `404.html`
+- `ai-info.html`
 
 ### Privacy Benefits
 
@@ -498,6 +500,36 @@ After deployment, verify analytics are working:
 2. Open browser DevTools → Network tab
 3. Filter by "script.js" - should load from `persistence.taild1c286.ts.net`
 4. Check Umami dashboard for new page views
+
+### Tracking Static .txt Files (robots.txt, llms.txt)
+
+**Challenge:** Static text files cannot include JavaScript tracking. They're served as `text/plain` without executing code.
+
+**Solution Implemented (2025-01-13):**
+
+| File | Tracking Approach | Notes |
+|------|-------------------|-------|
+| `robots.txt` | **Not tracked** | Must remain at exact path for crawlers. SEO requirement. |
+| `llms.txt` | **Indirect via ai-info.html** | HTML page with same content, trackable via Umami |
+
+**How it works:**
+- `ai-info.html` - Formatted HTML version of llms.txt with Umami tracking
+- Both `robots.txt` and `llms.txt` reference `ai-info.html` for visitors
+- AI crawlers that process the reference will visit the HTML page (tracked)
+- Direct .txt file access remains untracked (acceptable trade-off)
+
+**Why robots.txt cannot be tracked:**
+- Search engines require `/robots.txt` at exact path
+- Must be served as plain text (`text/plain`)
+- Redirecting would break crawler behavior
+
+**Alternative options considered but not implemented:**
+- Cloudflare Analytics (requires Cloudflare setup)
+- Render.com logs (not available for static sites)
+- Server-side Umami API (requires backend, not a static site)
+
+**Files added:**
+- `ai-info.html` - Trackable HTML version of llms.txt content
 
 ---
 

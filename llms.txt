@@ -1,6 +1,9 @@
 # Lumicello - AI Crawler Guidance
 # https://lumicello.com
-# Last updated: 2024-12-01
+# Last updated: 2025-01-13
+#
+# For a formatted HTML version with full context, visit:
+# https://lumicello.com/ai-info.html
 
 ## About Lumicello
 

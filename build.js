@@ -24,6 +24,7 @@ const PUBLIC_FILES = [
     'coming-soon.html',
     'careers.html',
     'welcome.html',
+    'ai-info.html',
     'robots.txt',
     'sitemap.xml',
     'llms.txt',
