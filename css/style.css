@@ -5259,3 +5259,29 @@ img.lazy-loaded {
         font-size: calc(var(--text-h3) * 0.9);
     }
 }
+
+/* ============================================
+   PRODUCTS SHOWCASE SECTION
+   Grid layout for product cards on home page
+   ============================================ */
+
+.products-section {
+    padding: var(--spacing-section) 0;
+    background: var(--color-bg-warm);
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Responsive: Stack on mobile */
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}
