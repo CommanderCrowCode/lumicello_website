@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Category: Self-Care - Rosette (achievement, pride) -->
+  <defs>
+    <radialGradient id="selfSoilGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#8B6914"/>
+      <stop offset="100%" style="stop-color:#5D4E37"/>
+    </radialGradient>
+    <linearGradient id="selfStemGradient" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" style="stop-color:#5A7D5E"/>
+      <stop offset="100%" style="stop-color:#7A9E7E"/>
+    </linearGradient>
+    <radialGradient id="rosetteGradient" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" style="stop-color:#E0F2F1"/>
+      <stop offset="100%" style="stop-color:#B2DFDB"/>
+    </radialGradient>
+    <radialGradient id="rosetteCenterGradient" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" style="stop-color:#FBE4B8"/>
+      <stop offset="100%" style="stop-color:#F5C87A"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Soil -->
+  <ellipse cx="40" cy="74" rx="22" ry="5" fill="url(#selfSoilGradient)"/>
+
+  <!-- Stem -->
+  <path d="M40 68 Q38 50 40 32" stroke="url(#selfStemGradient)" stroke-width="4" fill="none" stroke-linecap="round"/>
+
+  <!-- Leaves -->
+  <path d="M38 58 Q26 54 24 60 Q28 66 38 58" fill="#7A9E7E"/>
+  <path d="M42 50 Q54 46 56 52 Q52 58 42 50" fill="#A8C5AB"/>
+
+  <!-- Rosette flower -->
+  <g transform="translate(40, 22)">
+    <!-- Outer ring of circular petals -->
+    <circle cx="0" cy="-12" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="10" cy="-7" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="12" cy="4" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="7" cy="12" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="-7" cy="12" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="-12" cy="4" r="6" fill="url(#rosetteGradient)"/>
+    <circle cx="-10" cy="-7" r="6" fill="url(#rosetteGradient)"/>
+    <!-- Inner ring -->
+    <circle cx="0" cy="-8" r="5" fill="#E0F2F1"/>
+    <circle cx="7" cy="-4" r="5" fill="#E0F2F1"/>
+    <circle cx="7" cy="4" r="5" fill="#E0F2F1"/>
+    <circle cx="0" cy="8" r="5" fill="#E0F2F1"/>
+    <circle cx="-7" cy="4" r="5" fill="#E0F2F1"/>
+    <circle cx="-7" cy="-4" r="5" fill="#E0F2F1"/>
+    <!-- Center circle (golden) -->
+    <circle cx="0" cy="0" r="8" fill="url(#rosetteCenterGradient)"/>
+    <!-- Star in center -->
+    <path d="M0 -5 L1.5 -1.5 L5 0 L1.5 1.5 L0 5 L-1.5 1.5 L-5 0 L-1.5 -1.5 Z" fill="#F5C87A" opacity="0.8"/>
+  </g>
+</svg>
