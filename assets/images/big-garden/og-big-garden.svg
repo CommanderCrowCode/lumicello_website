@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="ogSky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.5"/>
+      <stop offset="50%" stop-color="#E8F5E9" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#f7f4ee"/>
+    </linearGradient>
+    <linearGradient id="ogGrass" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7A9E7E"/>
+      <stop offset="100%" stop-color="#5A7E5E"/>
+    </linearGradient>
+    <linearGradient id="ogSoil" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#8B7355"/>
+      <stop offset="100%" stop-color="#6B5340"/>
+    </linearGradient>
+    <filter id="ogShadow">
+      <feDropShadow dx="0" dy="6" stdDeviation="12" flood-color="#4a5d4b" flood-opacity="0.18"/>
+    </filter>
+    <filter id="ogGlow">
+      <feGaussianBlur stdDeviation="10"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#ogSky)"/>
+
+  <!-- Sun -->
+  <circle cx="1050" cy="100" r="80" fill="#D9A835" opacity="0.8">
+    <animate attributeName="opacity" values="0.7;0.9;0.7" dur="4s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="1050" cy="100" r="60" fill="#D9A835"/>
+
+  <!-- Clouds -->
+  <g fill="white" opacity="0.8">
+    <ellipse cx="200" cy="100" rx="100" ry="45"/>
+    <ellipse cx="290" cy="90" rx="70" ry="35"/>
+    <ellipse cx="240" cy="120" rx="60" ry="30"/>
+
+    <ellipse cx="700" cy="80" rx="90" ry="40"/>
+    <ellipse cx="780" cy="70" rx="65" ry="32"/>
+  </g>
+
+  <!-- Ground -->
+  <ellipse cx="600" cy="590" rx="700" ry="100" fill="url(#ogGrass)"/>
+  <rect x="100" y="480" width="1000" height="90" rx="25" fill="url(#ogSoil)"/>
+
+  <!-- Garden scene with various growth stages -->
+
+  <!-- Seed -->
+  <g transform="translate(200, 470)">
+    <ellipse cx="0" cy="30" rx="20" ry="10" fill="#5A4A3A"/>
+    <ellipse cx="0" cy="28" rx="16" ry="8" fill="#6B5340"/>
+  </g>
+
+  <!-- Sprout -->
+  <g transform="translate(350, 470)">
+    <line x1="0" y1="30" x2="0" y2="-30" stroke="#5A7E5E" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-18" cy="-10" rx="18" ry="9" fill="#7A9E7E" transform="rotate(-30 -18 -10)"/>
+    <ellipse cx="18" cy="-25" rx="18" ry="9" fill="#6B8E6F" transform="rotate(30 18 -25)"/>
+    <ellipse cx="0" cy="-45" rx="12" ry="18" fill="#8AB88E"/>
+  </g>
+
+  <!-- Growing plant -->
+  <g transform="translate(500, 470)">
+    <line x1="0" y1="30" x2="0" y2="-80" stroke="#5A7E5E" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="-28" cy="-20" rx="26" ry="12" fill="#7A9E7E" transform="rotate(-40 -28 -20)"/>
+    <ellipse cx="28" cy="-45" rx="26" ry="12" fill="#6B8E6F" transform="rotate(40 28 -45)"/>
+    <ellipse cx="-22" cy="-70" rx="20" ry="10" fill="#8AB88E" transform="rotate(-30 -22 -70)"/>
+    <!-- Bud -->
+    <ellipse cx="0" cy="-100" rx="18" ry="28" fill="#E8855E" opacity="0.85"/>
+    <ellipse cx="0" cy="-105" rx="12" ry="20" fill="#D97B64"/>
+  </g>
+
+  <!-- Full bloom sunflower -->
+  <g transform="translate(680, 470)">
+    <line x1="0" y1="30" x2="0" y2="-110" stroke="#5A7E5E" stroke-width="12" stroke-linecap="round"/>
+    <ellipse cx="-38" cy="-10" rx="35" ry="15" fill="#7A9E7E" transform="rotate(-35 -38 -10)"/>
+    <ellipse cx="38" cy="-40" rx="35" ry="15" fill="#6B8E6F" transform="rotate(35 38 -40)"/>
+    <ellipse cx="-32" cy="-75" rx="28" ry="12" fill="#8AB88E" transform="rotate(-25 -32 -75)"/>
+    <ellipse cx="32" cy="-95" rx="26" ry="11" fill="#7A9E7E" transform="rotate(25 32 -95)"/>
+    <!-- Sunflower -->
+    <g transform="translate(0, -130)">
+      <circle cx="0" cy="0" r="18" fill="#8B7355"/>
+      <g fill="#D9A835">
+        <ellipse cx="0" cy="-32" rx="12" ry="22"/>
+        <ellipse cx="30" cy="-10" rx="12" ry="22" transform="rotate(72 30 -10)"/>
+        <ellipse cx="19" cy="26" rx="12" ry="22" transform="rotate(144 19 26)"/>
+        <ellipse cx="-19" cy="26" rx="12" ry="22" transform="rotate(-144 -19 26)"/>
+        <ellipse cx="-30" cy="-10" rx="12" ry="22" transform="rotate(-72 -30 -10)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Colorful flower -->
+  <g transform="translate(880, 470)">
+    <line x1="0" y1="30" x2="0" y2="-90" stroke="#5A7E5E" stroke-width="10" stroke-linecap="round"/>
+    <ellipse cx="-25" cy="-30" rx="22" ry="10" fill="#7A9E7E" transform="rotate(-35 -25 -30)"/>
+    <ellipse cx="25" cy="-55" rx="22" ry="10" fill="#6B8E6F" transform="rotate(35 25 -55)"/>
+    <!-- Flower -->
+    <g transform="translate(0, -110)">
+      <g fill="#E8855E">
+        <ellipse cx="0" cy="-22" rx="12" ry="20"/>
+        <ellipse cx="21" cy="-7" rx="12" ry="20" transform="rotate(72 21 -7)"/>
+        <ellipse cx="13" cy="18" rx="12" ry="20" transform="rotate(144 13 18)"/>
+        <ellipse cx="-13" cy="18" rx="12" ry="20" transform="rotate(-144 -13 18)"/>
+        <ellipse cx="-21" cy="-7" rx="12" ry="20" transform="rotate(-72 -21 -7)"/>
+      </g>
+      <circle cx="0" cy="0" r="10" fill="#D9A835"/>
+    </g>
+  </g>
+
+  <!-- Lavender cluster -->
+  <g transform="translate(1020, 470)">
+    <line x1="0" y1="30" x2="0" y2="-60" stroke="#5A7E5E" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="-12" cy="-20" rx="12" ry="6" fill="#7A9E7E" transform="rotate(-20 -12 -20)"/>
+    <g fill="#9B8FC7">
+      <ellipse cx="0" cy="-70" rx="8" ry="12"/>
+      <ellipse cx="-8" cy="-60" rx="7" ry="10"/>
+      <ellipse cx="8" cy="-55" rx="7" ry="10"/>
+      <ellipse cx="-5" cy="-80" rx="6" ry="9"/>
+      <ellipse cx="6" cy="-75" rx="6" ry="9"/>
+    </g>
+  </g>
+
+  <!-- Butterflies -->
+  <g transform="translate(420, 250)">
+    <ellipse cx="0" cy="0" rx="5" ry="12" fill="#9B8FC7"/>
+    <ellipse cx="-15" cy="-3" rx="15" ry="9" fill="#9B8FC7" opacity="0.8"/>
+    <ellipse cx="15" cy="-3" rx="15" ry="9" fill="#9B8FC7" opacity="0.8"/>
+  </g>
+  <g transform="translate(800, 300)">
+    <ellipse cx="0" cy="0" rx="5" ry="12" fill="#E8855E"/>
+    <ellipse cx="-15" cy="-3" rx="15" ry="9" fill="#E8855E" opacity="0.8"/>
+    <ellipse cx="15" cy="-3" rx="15" ry="9" fill="#E8855E" opacity="0.8"/>
+  </g>
+
+  <!-- Small flowers in grass -->
+  <g fill="#D9A835" opacity="0.6">
+    <circle cx="150" cy="550" r="6"/>
+    <circle cx="280" cy="560" r="5"/>
+    <circle cx="420" cy="555" r="6"/>
+    <circle cx="580" cy="565" r="5"/>
+    <circle cx="750" cy="550" r="6"/>
+    <circle cx="920" cy="560" r="5"/>
+    <circle cx="1050" cy="555" r="6"/>
+  </g>
+
+  <!-- Main title card -->
+  <rect x="80" y="60" width="550" height="180" rx="24" fill="white" filter="url(#ogShadow)" opacity="0.97"/>
+
+  <!-- Big Garden badge -->
+  <g transform="translate(110, 90)">
+    <rect x="0" y="0" width="120" height="32" rx="16" fill="#7A9E7E"/>
+    <text x="60" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" letter-spacing="1">BIG GARDEN</text>
+  </g>
+
+  <!-- Main text -->
+  <text x="110" y="170" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#3a4a3b">Watch Your Child</text>
+  <text x="110" y="225" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#7A9E7E" font-style="italic">Grow</text>
+
+  <!-- Lumicello logo area -->
+  <g transform="translate(520, 95)">
+    <circle cx="0" cy="0" r="35" fill="#f7f4ee"/>
+    <text x="0" y="8" text-anchor="middle" font-family="Georgia, serif" font-size="14" font-weight="600" fill="#3a4a3b">Lumicello</text>
+  </g>
+
+  <!-- URL -->
+  <text x="600" y="610" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#6b7268">lumicello.com/big-garden</text>
+</svg>

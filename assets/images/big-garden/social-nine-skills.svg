@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f7f4ee"/>
+      <stop offset="50%" stop-color="#E8F5E9" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#f7f4ee"/>
+    </linearGradient>
+    <linearGradient id="centerGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7A9E7E" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#7A9E7E" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Skill domain colors -->
+    <!-- Motor: Earthy brown/terracotta -->
+    <!-- Cognitive: Coral/orange -->
+    <!-- Language: Green -->
+    <!-- Social: Yellow/gold -->
+    <!-- Creative: Lavender -->
+    <!-- Self-care: Sky blue -->
+    <!-- Sensory: Pink coral -->
+    <!-- Math/Logic: Teal -->
+    <!-- Physical: Brown -->
+
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#4a5d4b" flood-opacity="0.12"/>
+    </filter>
+    <filter id="glowFilter">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+
+  <!-- Central garden circle -->
+  <circle cx="600" cy="350" r="200" fill="url(#centerGlow)"/>
+  <circle cx="600" cy="350" r="120" fill="white" opacity="0.5"/>
+
+  <!-- Center "garden" label -->
+  <text x="600" y="340" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="600" fill="#3a4a3b">Your Child's</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="700" fill="#7A9E7E">Garden</text>
+
+  <!-- 9 Skill Domain Flower Icons arranged in circle -->
+
+  <!-- 1. Motor Skills (Top) - Oak tree -->
+  <g transform="translate(600, 130)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 5)">
+      <path d="M0,25 L0,5 Q-5,0 -10,-5 Q0,-12 10,-5 Q5,0 0,5" fill="#8B7355"/>
+      <ellipse cx="-12" cy="-12" rx="15" ry="18" fill="#5A7E5E"/>
+      <ellipse cx="12" cy="-12" rx="15" ry="18" fill="#7A9E7E"/>
+      <ellipse cx="0" cy="-20" rx="18" ry="22" fill="#6B8E6F"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Motor</text>
+  </g>
+
+  <!-- 2. Cognitive (Top-Right) - Colorful flower -->
+  <g transform="translate(780, 180)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0)">
+      <line x1="0" y1="25" x2="0" y2="5" stroke="#5A7E5E" stroke-width="4"/>
+      <g fill="#E8855E">
+        <ellipse cx="0" cy="-12" rx="6" ry="10"/>
+        <ellipse cx="9" cy="-4" rx="6" ry="10" transform="rotate(72 9 -4)"/>
+        <ellipse cx="6" cy="8" rx="6" ry="10" transform="rotate(144 6 8)"/>
+        <ellipse cx="-6" cy="8" rx="6" ry="10" transform="rotate(-144 -6 8)"/>
+        <ellipse cx="-9" cy="-4" rx="6" ry="10" transform="rotate(-72 -9 -4)"/>
+      </g>
+      <circle cx="0" cy="0" r="6" fill="#D9A835"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Cognitive</text>
+  </g>
+
+  <!-- 3. Language (Right) - Vine -->
+  <g transform="translate(870, 350)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0)">
+      <path d="M0,25 Q-8,15 0,5 Q8,-5 0,-15 Q-8,-25 0,-30" fill="none" stroke="#7A9E7E" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="-12" cy="8" rx="10" ry="5" fill="#5A7E5E" transform="rotate(-15 -12 8)"/>
+      <ellipse cx="12" cy="-10" rx="10" ry="5" fill="#6B8E6F" transform="rotate(15 12 -10)"/>
+      <ellipse cx="-10" cy="-25" rx="8" ry="4" fill="#5A7E5E" transform="rotate(-10 -10 -25)"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Language</text>
+  </g>
+
+  <!-- 4. Social-Emotional (Bottom-Right) - Sunflower -->
+  <g transform="translate(780, 520)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 5)">
+      <line x1="0" y1="25" x2="0" y2="8" stroke="#5A7E5E" stroke-width="4"/>
+      <circle cx="0" cy="0" r="10" fill="#8B7355"/>
+      <g fill="#D9A835">
+        <ellipse cx="0" cy="-18" rx="5" ry="10"/>
+        <ellipse cx="13" cy="-13" rx="5" ry="10" transform="rotate(45 13 -13)"/>
+        <ellipse cx="18" cy="0" rx="5" ry="10" transform="rotate(90 18 0)"/>
+        <ellipse cx="13" cy="13" rx="5" ry="10" transform="rotate(135 13 13)"/>
+        <ellipse cx="0" cy="18" rx="5" ry="10" transform="rotate(180 0 18)"/>
+        <ellipse cx="-13" cy="13" rx="5" ry="10" transform="rotate(-135 -13 13)"/>
+        <ellipse cx="-18" cy="0" rx="5" ry="10" transform="rotate(-90 -18 0)"/>
+        <ellipse cx="-13" cy="-13" rx="5" ry="10" transform="rotate(-45 -13 -13)"/>
+      </g>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Social</text>
+  </g>
+
+  <!-- 5. Creative (Bottom) - Abstract flower -->
+  <g transform="translate(600, 570)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0)">
+      <line x1="0" y1="25" x2="0" y2="5" stroke="#5A7E5E" stroke-width="4"/>
+      <g fill="#9B8FC7">
+        <circle cx="0" cy="-8" r="8"/>
+        <circle cx="-10" cy="2" r="7"/>
+        <circle cx="10" cy="2" r="7"/>
+        <circle cx="-6" cy="-15" r="6"/>
+        <circle cx="6" cy="-15" r="6"/>
+      </g>
+      <circle cx="0" cy="-3" r="5" fill="#E8855E"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Creative</text>
+  </g>
+
+  <!-- 6. Self-Care (Bottom-Left) - Lotus -->
+  <g transform="translate(420, 520)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 5)">
+      <ellipse cx="0" cy="15" rx="20" ry="8" fill="#87CEEB" opacity="0.3"/>
+      <g fill="#87CEEB">
+        <ellipse cx="0" cy="-5" rx="8" ry="15"/>
+        <ellipse cx="-12" cy="5" rx="7" ry="12" transform="rotate(-20 -12 5)"/>
+        <ellipse cx="12" cy="5" rx="7" ry="12" transform="rotate(20 12 5)"/>
+        <ellipse cx="-18" cy="10" rx="6" ry="10" transform="rotate(-35 -18 10)"/>
+        <ellipse cx="18" cy="10" rx="6" ry="10" transform="rotate(35 18 10)"/>
+      </g>
+      <circle cx="0" cy="0" r="5" fill="#D9A835"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Self-Care</text>
+  </g>
+
+  <!-- 7. Sensory (Left) - Rose -->
+  <g transform="translate(330, 350)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0)">
+      <line x1="0" y1="25" x2="0" y2="8" stroke="#5A7E5E" stroke-width="4"/>
+      <ellipse cx="-12" cy="15" rx="10" ry="5" fill="#5A7E5E" transform="rotate(-25 -12 15)"/>
+      <!-- Rose petals (spiral) -->
+      <g fill="#E8855E">
+        <circle cx="0" cy="0" r="6"/>
+        <ellipse cx="0" cy="-10" rx="8" ry="6" transform="rotate(0 0 -10)"/>
+        <ellipse cx="9" cy="-3" rx="8" ry="6" transform="rotate(72 9 -3)"/>
+        <ellipse cx="6" cy="8" rx="8" ry="6" transform="rotate(144 6 8)"/>
+        <ellipse cx="-6" cy="8" rx="8" ry="6" transform="rotate(-144 -6 8)"/>
+        <ellipse cx="-9" cy="-3" rx="8" ry="6" transform="rotate(-72 -9 -3)"/>
+      </g>
+      <circle cx="0" cy="0" r="4" fill="#D97B64"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Sensory</text>
+  </g>
+
+  <!-- 8. Math/Logic (Top-Left) - Geometric flower -->
+  <g transform="translate(420, 180)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="55" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0)">
+      <line x1="0" y1="25" x2="0" y2="5" stroke="#5A7E5E" stroke-width="4"/>
+      <!-- Geometric petals -->
+      <g fill="#4f91cd">
+        <polygon points="0,-20 -8,-5 8,-5"/>
+        <polygon points="0,-20 -8,-5 8,-5" transform="rotate(72 0 0)"/>
+        <polygon points="0,-20 -8,-5 8,-5" transform="rotate(144 0 0)"/>
+        <polygon points="0,-20 -8,-5 8,-5" transform="rotate(-144 0 0)"/>
+        <polygon points="0,-20 -8,-5 8,-5" transform="rotate(-72 0 0)"/>
+      </g>
+      <circle cx="0" cy="0" r="6" fill="#D9A835"/>
+    </g>
+    <text x="0" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#6b7268">Logic</text>
+  </g>
+
+  <!-- 9. Physical Health (Far top-left) - Strong plant -->
+  <g transform="translate(270, 280)" filter="url(#glowFilter)">
+    <circle cx="0" cy="0" r="45" fill="white" filter="url(#cardShadow)"/>
+    <g transform="translate(0, 0) scale(0.8)">
+      <line x1="0" y1="25" x2="0" y2="-10" stroke="#5A7E5E" stroke-width="6"/>
+      <ellipse cx="-15" cy="5" rx="14" ry="6" fill="#7A9E7E" transform="rotate(-30 -15 5)"/>
+      <ellipse cx="15" cy="-5" rx="14" ry="6" fill="#6B8E6F" transform="rotate(30 15 -5)"/>
+      <circle cx="0" cy="-18" r="10" fill="#5c8d4e"/>
+      <path d="M-5,-15 L0,-25 L5,-15" fill="#7A9E7E"/>
+    </g>
+    <text x="0" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#6b7268">Physical</text>
+  </g>
+
+  <!-- Connecting lines (dashed, subtle) -->
+  <g stroke="#7A9E7E" stroke-width="2" stroke-dasharray="5,5" opacity="0.3">
+    <line x1="600" y1="230" x2="600" y2="185"/>
+    <line x1="700" y1="270" x2="725" y2="235"/>
+    <line x1="750" y1="350" x2="815" y2="350"/>
+    <line x1="700" y1="430" x2="725" y2="465"/>
+    <line x1="600" y1="470" x2="600" y2="515"/>
+    <line x1="500" y1="430" x2="475" y2="465"/>
+    <line x1="450" y1="350" x2="385" y2="350"/>
+    <line x1="500" y1="270" x2="475" y2="235"/>
+  </g>
+
+  <!-- Header -->
+  <text x="100" y="60" font-family="Georgia, serif" font-size="36" font-weight="600" fill="#3a4a3b">9 Skill Domains</text>
+  <text x="100" y="95" font-family="Arial, sans-serif" font-size="20" fill="#6b7268">Every child's garden has unique blooms</text>
+
+  <!-- Subtitle -->
+  <text x="100" y="600" font-family="Georgia, serif" font-size="16" fill="#7A9E7E" font-style="italic">Big Garden tracks 250+ developmental milestones across all domains</text>
+
+  <!-- Lumicello branding -->
+  <text x="1100" y="600" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#6b7268">lumicello.com</text>
+</svg>

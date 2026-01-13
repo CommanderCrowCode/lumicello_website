@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Creative - Whimsical Abstract Flower -->
+  <defs>
+    <style>
+      .creative-sway { animation: creativeSway 4s ease-in-out infinite; transform-origin: 40px 75px; }
+      @keyframes creativeSway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+    </style>
+  </defs>
+  <g class="creative-sway">
+    <!-- Stem -->
+    <line x1="40" y1="75" x2="40" y2="45" stroke="#5A7E5E" stroke-width="5" stroke-linecap="round"/>
+    <!-- Leaf -->
+    <ellipse cx="52" cy="58" rx="10" ry="5" fill="#7A9E7E" transform="rotate(20 52 58)"/>
+    <!-- Abstract bubble flower -->
+    <g transform="translate(40, 28)">
+      <g fill="#9B8FC7">
+        <circle cx="0" cy="-10" r="10"/>
+        <circle cx="-12" cy="2" r="9"/>
+        <circle cx="12" cy="2" r="9"/>
+        <circle cx="-7" cy="-18" r="7"/>
+        <circle cx="7" cy="-18" r="7"/>
+        <circle cx="0" cy="12" r="8"/>
+      </g>
+      <!-- Center highlight -->
+      <circle cx="0" cy="-3" r="6" fill="#E8855E"/>
+    </g>
+  </g>
+</svg>

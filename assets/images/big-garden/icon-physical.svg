@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" width="80" height="80">
+  <!-- Physical Health - Strong Sprout with Growth Arrow -->
+  <defs>
+    <style>
+      .phys-grow { animation: physGrow 3s ease-in-out infinite; transform-origin: 40px 75px; }
+      @keyframes physGrow { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.03); } }
+    </style>
+  </defs>
+  <g class="phys-grow">
+    <!-- Strong stem -->
+    <line x1="40" y1="75" x2="40" y2="30" stroke="#5A7E5E" stroke-width="8" stroke-linecap="round"/>
+    <!-- Healthy leaves -->
+    <ellipse cx="24" cy="55" rx="16" ry="8" fill="#7A9E7E" transform="rotate(-35 24 55)"/>
+    <ellipse cx="56" cy="45" rx="16" ry="8" fill="#6B8E6F" transform="rotate(35 56 45)"/>
+    <ellipse cx="26" cy="38" rx="14" ry="7" fill="#8AB88E" transform="rotate(-25 26 38)"/>
+    <!-- Growth tip (arrow-like, upward energy) -->
+    <g transform="translate(40, 18)">
+      <circle cx="0" cy="0" r="14" fill="#5c8d4e"/>
+      <polygon points="0,-20 -8,-5 8,-5" fill="#7A9E7E"/>
+      <!-- Inner vitality -->
+      <circle cx="0" cy="2" r="6" fill="#8AB88E"/>
+    </g>
+    <!-- Energy lines (growth) -->
+    <g stroke="#D9A835" stroke-width="2" opacity="0.5">
+      <line x1="55" y1="20" x2="62" y2="12"/>
+      <line x1="58" y1="28" x2="68" y2="25"/>
+      <line x1="25" y1="18" x2="18" y2="10"/>
+    </g>
+  </g>
+</svg>

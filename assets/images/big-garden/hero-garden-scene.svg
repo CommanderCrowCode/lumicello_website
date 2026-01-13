@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <!-- Gradients -->
+    <linearGradient id="heroSkyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#87CEEB" stop-opacity="0.35"/>
+      <stop offset="70%" stop-color="#E8F5E9" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#f7f4ee" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="heroGrassGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7A9E7E"/>
+      <stop offset="100%" stop-color="#5A7E5E"/>
+    </linearGradient>
+    <radialGradient id="heroSunGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#D9A835"/>
+      <stop offset="70%" stop-color="#D9A835" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#D9A835" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Filters -->
+    <filter id="heroGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Plant sway animation -->
+    <style>
+      .sway { animation: sway 4s ease-in-out infinite; transform-origin: bottom center; }
+      .sway-slow { animation: sway 6s ease-in-out infinite; transform-origin: bottom center; }
+      .sway-fast { animation: sway 3s ease-in-out infinite; transform-origin: bottom center; }
+      @keyframes sway {
+        0%, 100% { transform: rotate(-2deg); }
+        50% { transform: rotate(2deg); }
+      }
+      .float { animation: float 5s ease-in-out infinite; }
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+      }
+    </style>
+  </defs>
+
+  <!-- Background circle -->
+  <circle cx="250" cy="250" r="240" fill="url(#heroSkyGrad)"/>
+
+  <!-- Sun with glow -->
+  <circle cx="400" cy="100" r="60" fill="url(#heroSunGrad)" filter="url(#heroGlow)"/>
+  <circle cx="400" cy="100" r="40" fill="#D9A835" opacity="0.9"/>
+
+  <!-- Clouds -->
+  <g fill="white" opacity="0.7">
+    <ellipse cx="120" cy="80" rx="50" ry="22"/>
+    <ellipse cx="160" cy="70" rx="35" ry="18"/>
+    <ellipse cx="140" cy="90" rx="30" ry="15"/>
+
+    <ellipse cx="320" cy="60" rx="40" ry="18"/>
+    <ellipse cx="350" cy="55" rx="30" ry="14"/>
+  </g>
+
+  <!-- Ground/grass -->
+  <ellipse cx="250" cy="420" rx="220" ry="70" fill="url(#heroGrassGrad)"/>
+
+  <!-- Soil bed -->
+  <rect x="80" y="370" width="340" height="60" rx="15" fill="#8B7355"/>
+  <rect x="80" y="370" width="340" height="45" rx="15" fill="#6B5340" opacity="0.7"/>
+
+  <!-- Motor Skills - Oak Tree (left) -->
+  <g transform="translate(130, 320)" class="sway-slow">
+    <path d="M0,50 L0,20 Q-8,10 -20,0 Q0,-15 20,0 Q8,10 0,20" fill="#8B7355"/>
+    <ellipse cx="-25" cy="-10" rx="30" ry="35" fill="#5A7E5E"/>
+    <ellipse cx="25" cy="-10" rx="30" ry="35" fill="#7A9E7E"/>
+    <ellipse cx="0" cy="-25" rx="35" ry="42" fill="#6B8E6F"/>
+  </g>
+
+  <!-- Cognitive - Colorful Flower (center-left) -->
+  <g transform="translate(220, 330)" class="sway">
+    <line x1="0" y1="40" x2="0" y2="-20" stroke="#5A7E5E" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="-18" cy="15" rx="15" ry="7" fill="#7A9E7E" transform="rotate(-30 -18 15)"/>
+    <ellipse cx="18" cy="5" rx="13" ry="6" fill="#6B8E6F" transform="rotate(25 18 5)"/>
+    <!-- Flower -->
+    <g transform="translate(0, -35)">
+      <g fill="#E8855E">
+        <ellipse cx="0" cy="-18" rx="10" ry="16"/>
+        <ellipse cx="17" cy="-6" rx="10" ry="16" transform="rotate(72 17 -6)"/>
+        <ellipse cx="10" cy="15" rx="10" ry="16" transform="rotate(144 10 15)"/>
+        <ellipse cx="-10" cy="15" rx="10" ry="16" transform="rotate(-144 -10 15)"/>
+        <ellipse cx="-17" cy="-6" rx="10" ry="16" transform="rotate(-72 -17 -6)"/>
+      </g>
+      <circle cx="0" cy="0" r="8" fill="#D9A835"/>
+    </g>
+  </g>
+
+  <!-- Social-Emotional - Sunflower (center) -->
+  <g transform="translate(300, 310)" class="sway-slow">
+    <line x1="0" y1="60" x2="0" y2="-30" stroke="#5A7E5E" stroke-width="8" stroke-linecap="round"/>
+    <ellipse cx="-22" cy="25" rx="18" ry="8" fill="#7A9E7E" transform="rotate(-35 -22 25)"/>
+    <ellipse cx="22" cy="10" rx="16" ry="7" fill="#6B8E6F" transform="rotate(30 22 10)"/>
+    <!-- Sunflower head -->
+    <g transform="translate(0, -50)">
+      <circle cx="0" cy="0" r="14" fill="#8B7355"/>
+      <g fill="#D9A835">
+        <ellipse cx="0" cy="-26" rx="9" ry="16"/>
+        <ellipse cx="18" cy="-18" rx="9" ry="16" transform="rotate(45 18 -18)"/>
+        <ellipse cx="26" cy="0" rx="9" ry="16" transform="rotate(90 26 0)"/>
+        <ellipse cx="18" cy="18" rx="9" ry="16" transform="rotate(135 18 18)"/>
+        <ellipse cx="0" cy="26" rx="9" ry="16" transform="rotate(180 0 26)"/>
+        <ellipse cx="-18" cy="18" rx="9" ry="16" transform="rotate(-135 -18 18)"/>
+        <ellipse cx="-26" cy="0" rx="9" ry="16" transform="rotate(-90 -26 0)"/>
+        <ellipse cx="-18" cy="-18" rx="9" ry="16" transform="rotate(-45 -18 -18)"/>
+      </g>
+    </g>
+  </g>
+
+  <!-- Language - Climbing Vine (right) -->
+  <g transform="translate(380, 320)" class="sway-fast">
+    <path d="M0,50 Q-15,30 0,15 Q15,0 0,-15 Q-15,-30 0,-45 Q10,-55 5,-65"
+          fill="none" stroke="#7A9E7E" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="-15" cy="25" rx="14" ry="7" fill="#5A7E5E" transform="rotate(-20 -15 25)"/>
+    <ellipse cx="15" cy="0" rx="14" ry="7" fill="#6B8E6F" transform="rotate(20 15 0)"/>
+    <ellipse cx="-12" cy="-30" rx="12" ry="6" fill="#5A7E5E" transform="rotate(-15 -12 -30)"/>
+    <ellipse cx="10" cy="-55" rx="10" ry="5" fill="#7A9E7E" transform="rotate(10 10 -55)"/>
+    <!-- Small flower at top -->
+    <g transform="translate(5, -75)">
+      <g fill="#9B8FC7">
+        <ellipse cx="0" cy="-8" rx="5" ry="8"/>
+        <ellipse cx="7" cy="-2" rx="5" ry="8" transform="rotate(72 7 -2)"/>
+        <ellipse cx="4" cy="6" rx="5" ry="8" transform="rotate(144 4 6)"/>
+        <ellipse cx="-4" cy="6" rx="5" ry="8" transform="rotate(-144 -4 6)"/>
+        <ellipse cx="-7" cy="-2" rx="5" ry="8" transform="rotate(-72 -7 -2)"/>
+      </g>
+      <circle cx="0" cy="0" r="4" fill="#E8855E"/>
+    </g>
+  </g>
+
+  <!-- Small sprouts (emerging skills) -->
+  <g transform="translate(100, 380)">
+    <ellipse cx="0" cy="5" rx="10" ry="5" fill="#5A4A3A"/>
+    <path d="M0,0 Q-3,-12 0,-18" stroke="#7A9E7E" stroke-width="3" fill="none" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(180, 385)">
+    <ellipse cx="0" cy="5" rx="8" ry="4" fill="#5A4A3A"/>
+  </g>
+  <g transform="translate(400, 380)">
+    <ellipse cx="0" cy="5" rx="8" ry="4" fill="#5A4A3A"/>
+    <path d="M0,0 L0,-15" stroke="#5A7E5E" stroke-width="3" stroke-linecap="round"/>
+    <ellipse cx="-8" cy="-12" rx="8" ry="4" fill="#7A9E7E" transform="rotate(-25 -8 -12)"/>
+    <ellipse cx="8" cy="-14" rx="7" ry="4" fill="#6B8E6F" transform="rotate(25 8 -14)"/>
+  </g>
+
+  <!-- Butterflies -->
+  <g transform="translate(170, 180)" class="float">
+    <ellipse cx="0" cy="0" rx="4" ry="10" fill="#9B8FC7"/>
+    <ellipse cx="-12" cy="-2" rx="12" ry="7" fill="#9B8FC7" opacity="0.8"/>
+    <ellipse cx="12" cy="-2" rx="12" ry="7" fill="#9B8FC7" opacity="0.8"/>
+  </g>
+  <g transform="translate(350, 200)" class="float" style="animation-delay: -2s;">
+    <ellipse cx="0" cy="0" rx="3" ry="8" fill="#E8855E"/>
+    <ellipse cx="-10" cy="-2" rx="10" ry="6" fill="#E8855E" opacity="0.8"/>
+    <ellipse cx="10" cy="-2" rx="10" ry="6" fill="#E8855E" opacity="0.8"/>
+  </g>
+
+  <!-- Small flowers in grass -->
+  <g fill="#D9A835" opacity="0.6">
+    <circle cx="90" cy="440" r="5"/>
+    <circle cx="200" cy="450" r="4"/>
+    <circle cx="300" cy="445" r="5"/>
+    <circle cx="400" cy="448" r="4"/>
+  </g>
+  <g fill="#E8855E" opacity="0.5">
+    <circle cx="140" cy="455" r="4"/>
+    <circle cx="250" cy="458" r="3"/>
+    <circle cx="350" cy="455" r="4"/>
+  </g>
+</svg>
