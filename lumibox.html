@@ -3,147 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LumiBox - Thoughtfully designed developmental kits for baby's first year. Age-appropriate toys and materials from 0-12 months.">
-    <title>LumiBox - Developmental Kits | Lumicello</title>
+    <meta name="theme-color" content="#4A5D4B">
+    <title>LumiBox - Thoughtfully Designed Learning Kits | Lumicello</title>
+    <meta name="description" content="LumiBox learning kits are thoughtfully designed for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
 
-    <!-- Preconnect to Google Fonts -->
+    <!-- Open Graph / Social Sharing -->
+    <meta property="og:type" content="product">
+    <meta property="og:url" content="https://lumicello.com/lumibox.html">
+    <meta property="og:title" content="LumiBox - Thoughtfully Designed Learning Kits">
+    <meta property="og:description" content="Thoughtfully designed kits for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumibox/box_0-2.webp">
+    <meta property="og:site_name" content="Lumicello">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://lumicello.com/lumibox.html">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="LumiBox - Thoughtfully Designed Learning Kits">
+    <meta name="twitter:description" content="Thoughtfully designed kits for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumibox/box_0-2.webp">
+
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:wght@400;600;700&family=Noto+Sans+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
 
-    <!-- Stylesheets -->
+    <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/products.css">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="svg_favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="favicon.ico" sizes="48x48">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="LumiBox - Developmental Kits | Lumicello">
-    <meta property="og:description" content="Thoughtfully designed kits for baby's first year. Age-appropriate toys and materials supporting developmental milestones.">
-    <meta property="og:type" content="product">
-    <meta property="og:url" content="https://lumicello.com/lumibox.html">
+    <!-- Umami Analytics -->
+    <script
+        defer
+        src="https://analytics.lumicello.com/script.js"
+        data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
+    ></script>
+
+    <!-- Structured Data: Product -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "LumiBox First Year Collection",
+        "description": "Thoughtfully designed learning kits for babies 0-12 months. Each kit supports key developmental milestones while nurturing natural curiosity.",
+        "brand": {
+            "@type": "Brand",
+            "name": "Lumicello"
+        },
+        "image": "https://lumicello.com/assets/images/lumibox/box_0-2.webp",
+        "category": "Educational Toys > Baby Development",
+        "audience": {
+            "@type": "PeopleAudience",
+            "suggestedMinAge": "0 months",
+            "suggestedMaxAge": "12 months"
+        }
+    }
+    </script>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Navigation (Shared Component) -->
     <div id="nav-placeholder"></div>
 
-    <!-- Main Content -->
-    <main class="env-lumibox">
-        <!-- Hero Section -->
-        <section class="product-hero">
-            <div class="product-hero__container">
-                <div class="product-hero__content">
-                    <span class="product-hero__badge">For Ages 0-12 Months</span>
-                    <h1 class="product-hero__title">
-                        <span>LumiBox</span>
-                    </h1>
-                    <p class="product-hero__subtitle">
-                        Thoughtfully designed developmental kits for baby's first year. Each box contains age-appropriate toys and materials carefully selected to support natural growth.
-                    </p>
-                    <div class="product-hero__actions">
-                        <a href="#timeline" class="btn btn--env-primary">Explore the Collection</a>
-                        <a href="#philosophy" class="btn btn--env-outline">Our Approach</a>
+    <!-- LumiBox Hero Section -->
+    <section class="lumibox-hero">
+        <div class="lumibox-hero-container">
+            <!-- Text Content -->
+            <div class="lumibox-hero-content">
+                <h1 class="lumibox-hero-title">LumiBox</h1>
+                <p class="lumibox-hero-subtitle">Thoughtfully designed kits for baby's first year</p>
+                <a href="#collection" class="btn btn-accent lumibox-hero-cta">Explore the Collection</a>
+            </div>
+
+            <!-- Hero Visual - Box Stack -->
+            <div class="lumibox-hero-visual">
+                <div class="lumibox-stack">
+                    <!-- Floating boxes with gentle animation -->
+                    <div class="lumibox-box lumibox-box-1">
+                        <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit - 0-2 months" loading="eager">
                     </div>
-                </div>
-                <div class="product-hero__visual">
-                    <div class="device-mockup" style="width:320px;">
-                        <div style="
-                            width: 100%;
-                            aspect-ratio: 1;
-                            background: var(--color-bg-clay);
-                            border-radius: var(--radius-xl);
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            font-size: 8rem;
-                            box-shadow: var(--shadow-xl);
-                        ">
-                            📦
-                        </div>
+                    <div class="lumibox-box lumibox-box-2">
+                        <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit - 3-4 months" loading="eager">
                     </div>
+                    <div class="lumibox-box lumibox-box-3">
+                        <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit - 5-6 months" loading="eager">
+                    </div>
+                    <!-- Decorative glow -->
+                    <div class="lumibox-glow"></div>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- Age Progression Timeline Section -->
-        <section class="product-section product-section--alt" id="timeline">
-            <div class="product-section__container">
-                <div class="product-section__header">
-                    <span class="product-section__eyebrow">The Journey</span>
-                    <h2 class="product-section__title">6 Kits for 6 Milestones</h2>
-                    <p class="product-section__description">
-                        Each LumiBox is designed for a specific developmental window, supporting your baby's natural curiosity and growth from birth through their first year.
-                    </p>
-                </div>
+        <!-- Background decorations -->
+        <div class="lumibox-hero-bg">
+            <div class="lumibox-bg-circle lumibox-bg-circle-1"></div>
+            <div class="lumibox-bg-circle lumibox-bg-circle-2"></div>
+        </div>
+    </section>
 
-                <!-- Timeline Component Container -->
-                <div id="age-timeline-container"></div>
+    <!-- Collection Section Placeholder -->
+    <section class="lumibox-collection" id="collection">
+        <div class="container">
+            <div class="section-header">
+                <h2>First Year Collection</h2>
+                <p>Six developmental stages, thoughtfully curated to support your baby's journey of discovery.</p>
             </div>
-        </section>
+            <!-- Kit cards will go here in future tasks -->
+        </div>
+    </section>
 
-        <!-- Philosophy Section (placeholder) -->
-        <section class="product-section" id="philosophy">
-            <div class="product-section__container">
-                <div class="product-section__header">
-                    <span class="product-section__eyebrow">Our Philosophy</span>
-                    <h2 class="product-section__title">Simple Materials, Profound Learning</h2>
-                    <p class="product-section__description">
-                        Inspired by MUJI's minimalist approach and Montessori principles, we believe in quality over quantity. Natural materials, thoughtful design, and age-appropriate challenges.
-                    </p>
-                </div>
-
-                <div class="feature-grid feature-grid--3-col">
-                    <div class="feature-card">
-                        <div class="feature-card__icon">🌿</div>
-                        <h3 class="feature-card__title">Natural Materials</h3>
-                        <p class="feature-card__description">
-                            Wood, organic cotton, and non-toxic finishes. Safe for curious mouths and gentle on growing hands.
-                        </p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon">🎯</div>
-                        <h3 class="feature-card__title">Purposeful Design</h3>
-                        <p class="feature-card__description">
-                            Every item serves a developmental purpose. No distracting bells or flashing lights - just focused play.
-                        </p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon">📚</div>
-                        <h3 class="feature-card__title">Parent Guides</h3>
-                        <p class="feature-card__description">
-                            Each kit includes guidance on activities, milestones to watch for, and ways to extend the learning.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="product-section">
-            <div class="product-section__container">
-                <div class="cta-block">
-                    <h2 class="cta-block__title">Ready to Start the Journey?</h2>
-                    <p class="cta-block__description">
-                        Subscribe to receive each kit as your baby reaches the next milestone, or explore individual boxes.
-                    </p>
-                    <div class="cta-block__actions">
-                        <a href="contact.html" class="btn btn-primary btn-lg">Get Started</a>
-                        <a href="index.html#community" class="btn btn-secondary btn-lg">Join Community</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
+    <!-- Footer (Shared Component) -->
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
     <script src="js/components.js"></script>
-    <script src="js/age-timeline.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
