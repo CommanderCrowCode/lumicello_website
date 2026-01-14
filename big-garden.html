@@ -1817,160 +1817,495 @@
         }
 
         /* ============================================
-           SHAREABLE GRAPHICS SECTION
+           APP PREVIEW SECTION - UI Vignettes
+           Real app UI components for marketing showcase
            ============================================ */
-        .graphics-section {
+        .app-preview-section {
             padding: var(--spacing-section) var(--space-lg);
-            background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-lawn) 30%, var(--color-bg-main) 100%);
+            background: linear-gradient(180deg, var(--color-bg-main) 0%, rgba(122, 158, 126, 0.08) 50%, var(--color-bg-main) 100%);
             position: relative;
+            overflow: hidden;
         }
 
-        .graphics-container {
+        .app-preview-container {
             max-width: var(--container-max);
             margin: 0 auto;
         }
 
-        .graphics-header {
+        .app-preview-header {
             text-align: center;
-            max-width: 650px;
-            margin: 0 auto var(--space-3xl);
+            max-width: 700px;
+            margin: 0 auto var(--space-4xl);
         }
 
-        .graphics-header h2 {
-            font-size: var(--text-h2);
-            margin-bottom: var(--space-sm);
+        .app-preview-header h2 {
+            font-size: var(--text-display);
+            margin-bottom: var(--space-md);
             color: var(--color-text-primary);
         }
 
-        .graphics-header p {
-            font-size: var(--text-body);
+        .app-preview-header p {
+            font-size: var(--text-body-lg);
             color: var(--color-text-secondary);
             line-height: var(--leading-relaxed);
         }
 
-        .graphics-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: var(--space-xl);
-            max-width: 1000px;
-            margin: 0 auto;
+        /* Phone Frame Container */
+        .phone-mockup {
+            max-width: 380px;
+            margin: 0 auto var(--space-3xl);
+            position: relative;
         }
 
-        .graphic-card {
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
             position: relative;
+        }
+
+        .phone-frame::before {
+            content: "";
+            position: absolute;
+            top: 12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 24px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            z-index: 10;
+        }
+
+        .phone-screen {
+            background: #FAF8F5;
+            border-radius: 30px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* App Preview HUD (Dashboard Header) */
+        .preview-hud {
             background: white;
-            border-radius: var(--radius-xl);
+            padding: 16px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .preview-hud-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .preview-hud-row + .preview-hud-row {
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .preview-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd5dc, #c0aede);
             overflow: hidden;
-            box-shadow: var(--shadow-lg);
-            transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal);
+            flex-shrink: 0;
         }
 
-        .graphic-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .graphic-preview {
-            aspect-ratio: 1200 / 630;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .graphic-preview img {
+        .preview-avatar img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform var(--duration-slow) var(--ease-out);
         }
 
-        .graphic-card:hover .graphic-preview img {
-            transform: scale(1.03);
+        .preview-identity {
+            flex: 1;
+            min-width: 0;
         }
 
-        .graphic-info {
-            padding: var(--space-lg);
-        }
-
-        .graphic-info h3 {
-            font-size: var(--text-h3);
+        .preview-name {
+            font-family: var(--font-heading);
+            font-size: 16px;
+            font-weight: 700;
             color: var(--color-text-primary);
-            margin-bottom: var(--space-xs);
+            margin: 0;
         }
 
-        .graphic-info p {
-            font-size: var(--text-small);
+        .preview-meta {
+            font-size: 11px;
             color: var(--color-text-secondary);
-            margin-bottom: var(--space-md);
+            margin: 2px 0 0;
         }
 
-        .graphic-actions {
+        .preview-archetype {
             display: flex;
-            gap: var(--space-sm);
-        }
-
-        .graphic-btn {
-            display: inline-flex;
             align-items: center;
-            gap: var(--space-xs);
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--radius-sm);
-            font-size: var(--text-small);
-            font-weight: 600;
-            cursor: pointer;
-            border: none;
-            transition: all var(--duration-normal) var(--ease-out);
-            text-decoration: none;
-        }
-
-        .graphic-btn-primary {
-            background: var(--color-sage);
-            color: white;
-        }
-
-        .graphic-btn-primary:hover {
-            background: var(--color-sage-dark);
-        }
-
-        .graphic-btn-secondary {
+            gap: 6px;
             background: var(--color-sage-soft);
+            padding: 6px 10px;
+            border-radius: 20px;
+        }
+
+        .preview-archetype-icon {
+            font-size: 16px;
+        }
+
+        .preview-archetype-text {
+            font-size: 11px;
+            font-weight: 600;
             color: var(--color-sage-dark);
         }
 
-        .graphic-btn-secondary:hover {
-            background: var(--color-sage-light);
+        .preview-progress {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .preview-progress-bar {
+            flex: 1;
+            height: 8px;
+            background: rgba(122, 158, 126, 0.2);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .preview-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-sage-light));
+            border-radius: 4px;
+            transition: width 1s ease-out;
+        }
+
+        .preview-progress-text {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--color-sage-dark);
+            min-width: 40px;
+        }
+
+        .preview-legend {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .preview-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 10px;
+            color: var(--color-text-secondary);
+            background: rgba(0, 0, 0, 0.03);
+            padding: 4px 8px;
+            border-radius: 12px;
+        }
+
+        .preview-legend-emoji {
+            font-size: 12px;
+        }
+
+        .preview-legend-count {
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        /* App Preview Garden View */
+        .preview-garden {
+            position: relative;
+            height: 320px;
+            background: linear-gradient(180deg, #E8F4FC 0%, #C5E8C9 70%, #A8C5AB 100%);
+            overflow: hidden;
+        }
+
+        /* Timeline bar at top of garden */
+        .preview-timeline {
+            display: flex;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .preview-era {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 9px;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .preview-era:last-child {
+            border-right: none;
+        }
+
+        .preview-era-name {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .preview-era-range {
+            font-size: 8px;
+            color: var(--color-text-secondary);
+        }
+
+        /* NOW indicator */
+        .preview-now-indicator {
+            position: absolute;
+            top: 32px;
+            left: 45%;
+            width: 3px;
+            height: calc(100% - 32px);
+            background: linear-gradient(180deg, #F5C87A 0%, rgba(245, 200, 122, 0.3) 100%);
+            z-index: 20;
+        }
+
+        .preview-now-label {
+            position: absolute;
+            top: -18px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #F5C87A;
+            color: var(--color-text-primary);
+            font-size: 8px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        /* Domain rows */
+        .preview-domain-rows {
+            position: absolute;
+            top: 32px;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .preview-domain-row {
+            position: relative;
+            height: 72px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+            display: flex;
+            align-items: center;
+        }
+
+        .preview-domain-label {
+            position: absolute;
+            left: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 80%, transparent 100%);
+            padding: 4px 8px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            z-index: 10;
+        }
+
+        .preview-domain-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+
+        .preview-domain-name {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        /* Domain-specific colors */
+        .preview-domain-row.gross-motor { background: rgba(232, 146, 124, 0.15); }
+        .preview-domain-row.fine-motor { background: rgba(122, 158, 126, 0.15); }
+        .preview-domain-row.linguistic { background: rgba(168, 213, 229, 0.15); }
+        .preview-domain-row.cognitive { background: rgba(212, 196, 230, 0.15); }
+
+        .preview-domain-row.gross-motor .preview-domain-icon { background: rgba(232, 146, 124, 0.3); }
+        .preview-domain-row.fine-motor .preview-domain-icon { background: rgba(122, 158, 126, 0.3); }
+        .preview-domain-row.linguistic .preview-domain-icon { background: rgba(168, 213, 229, 0.3); }
+        .preview-domain-row.cognitive .preview-domain-icon { background: rgba(212, 196, 230, 0.3); }
+
+        /* Skill plant cards */
+        .preview-skill-plant {
+            position: absolute;
+            width: 52px;
+            height: 56px;
+            background: white;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .preview-skill-plant:hover {
+            transform: scale(1.1);
+        }
+
+        .preview-skill-emoji {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .preview-skill-name {
+            font-size: 7px;
+            font-weight: 500;
+            color: var(--color-text-primary);
+            text-align: center;
+            margin-top: 2px;
+            max-width: 48px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .preview-skill-status {
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 7px;
+            font-weight: 600;
+            padding: 1px 5px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* Skill states */
+        .preview-skill-plant.mastered {
+            background: linear-gradient(135deg, #F0FFF4 0%, #C6F6D5 100%);
+            border: 2px solid #68D391;
+        }
+
+        .preview-skill-plant.mastered .preview-skill-status {
+            background: #38A169;
             color: white;
         }
 
-        .graphic-btn svg {
-            width: 16px;
-            height: 16px;
+        .preview-skill-plant.in-progress {
+            background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
+            border: 2px solid #63B3ED;
         }
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .graphics-grid {
-                grid-template-columns: 1fr;
-                max-width: 500px;
-            }
+        .preview-skill-plant.in-progress .preview-skill-status {
+            background: #3182CE;
+            color: white;
         }
 
-        .graphics-section [data-animate] {
+        .preview-skill-plant.ready {
+            background: linear-gradient(135deg, #FFF8F0 0%, #FFEDD5 100%);
+            border: 2px solid #F6AD55;
+        }
+
+        .preview-skill-plant.ready .preview-skill-status {
+            background: #ED8936;
+            color: white;
+        }
+
+        .preview-skill-plant.locked {
+            background: linear-gradient(135deg, #E8EAED 0%, #DDE0E4 100%);
+            border: 1px solid #C4C9CF;
+            opacity: 0.7;
+        }
+
+        .preview-skill-plant.locked .preview-skill-emoji {
+            filter: grayscale(60%);
+        }
+
+        .preview-skill-plant.locked .preview-skill-status {
+            background: #A0AEC0;
+            color: white;
+        }
+
+        /* Feature cards below phone */
+        .app-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .app-feature-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: var(--space-xl);
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal);
+        }
+
+        .app-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .app-feature-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto var(--space-md);
+            background: var(--color-sage-soft);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
+
+        .app-feature-card h4 {
+            font-size: var(--text-h3);
+            margin-bottom: var(--space-xs);
+            color: var(--color-text-primary);
+        }
+
+        .app-feature-card p {
+            font-size: var(--text-small);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-normal);
+        }
+
+        /* Animation classes */
+        .app-preview-section [data-animate] {
             opacity: 0;
             transform: translateY(30px);
             transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
         }
 
-        .graphics-section [data-animate].in-view {
+        .app-preview-section [data-animate].in-view {
             opacity: 1;
             transform: translateY(0);
         }
 
-        .graphics-section [data-animate="delay-1"] {
-            transition-delay: 0.1s;
-        }
+        .app-preview-section [data-animate="delay-1"] { transition-delay: 0.1s; }
+        .app-preview-section [data-animate="delay-2"] { transition-delay: 0.2s; }
+        .app-preview-section [data-animate="delay-3"] { transition-delay: 0.3s; }
 
-        .graphics-section [data-animate="delay-2"] {
-            transition-delay: 0.2s;
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .app-features-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+            }
+
+            .phone-mockup {
+                max-width: 320px;
+            }
         }
     </style>
 </head>
@@ -2289,8 +2624,217 @@
             </div>
         </section>
 
-        <!-- Shareable Journey Section - Magazine Split Layout -->
-        <section class="journey-section" id="transformation">
+        <!-- App Preview Section - Real UI Vignettes -->
+        <section class="app-preview-section">
+            <div class="app-preview-container">
+                <div class="app-preview-header" data-animate>
+                    <h2>See the App in Action</h2>
+                    <p>
+                        Big Garden transforms developmental tracking into a beautiful,
+                        intuitive experience. Here's what your child's garden will look like.
+                    </p>
+                </div>
+
+                <!-- Phone Mockup with Real UI -->
+                <div class="phone-mockup" data-animate="delay-1">
+                    <div class="phone-frame">
+                        <div class="phone-screen">
+                            <!-- HUD (Dashboard Header) -->
+                            <div class="preview-hud">
+                                <div class="preview-hud-row">
+                                    <div class="preview-avatar">
+                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mia&backgroundColor=ffd5dc,c0aede&backgroundType=gradientLinear&hair=long16&skinColor=ecad80" alt="Child avatar">
+                                    </div>
+                                    <div class="preview-identity">
+                                        <h3 class="preview-name">Mia's Garden</h3>
+                                        <p class="preview-meta">18 months · Toddler</p>
+                                    </div>
+                                    <div class="preview-archetype">
+                                        <span class="preview-archetype-icon">🌟</span>
+                                        <span class="preview-archetype-text">Explorer</span>
+                                    </div>
+                                </div>
+                                <div class="preview-hud-row">
+                                    <div class="preview-progress">
+                                        <div class="preview-progress-bar">
+                                            <div class="preview-progress-fill" style="width: 42%"></div>
+                                        </div>
+                                        <span class="preview-progress-text">42%</span>
+                                    </div>
+                                </div>
+                                <div class="preview-hud-row">
+                                    <div class="preview-legend">
+                                        <span class="preview-legend-item">
+                                            <span class="preview-legend-emoji">🌻</span>
+                                            <span class="preview-legend-count">24</span>
+                                        </span>
+                                        <span class="preview-legend-item">
+                                            <span class="preview-legend-emoji">🪴</span>
+                                            <span class="preview-legend-count">8</span>
+                                        </span>
+                                        <span class="preview-legend-item">
+                                            <span class="preview-legend-emoji">🌱</span>
+                                            <span class="preview-legend-count">12</span>
+                                        </span>
+                                        <span class="preview-legend-item">
+                                            <span class="preview-legend-emoji">🪨</span>
+                                            <span class="preview-legend-count">32</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Garden View -->
+                            <div class="preview-garden">
+                                <!-- Timeline -->
+                                <div class="preview-timeline">
+                                    <div class="preview-era">
+                                        <span class="preview-era-name">Baby</span>
+                                        <span class="preview-era-range">6-12mo</span>
+                                    </div>
+                                    <div class="preview-era">
+                                        <span class="preview-era-name">Toddler</span>
+                                        <span class="preview-era-range">12-24mo</span>
+                                    </div>
+                                    <div class="preview-era">
+                                        <span class="preview-era-name">Preschool</span>
+                                        <span class="preview-era-range">2-6yrs</span>
+                                    </div>
+                                </div>
+
+                                <!-- NOW Indicator -->
+                                <div class="preview-now-indicator">
+                                    <span class="preview-now-label">NOW · 18mo</span>
+                                </div>
+
+                                <!-- Domain Rows with Skill Plants -->
+                                <div class="preview-domain-rows">
+                                    <!-- Gross Motor Row -->
+                                    <div class="preview-domain-row gross-motor">
+                                        <div class="preview-domain-label">
+                                            <span class="preview-domain-icon">🏃</span>
+                                            <span class="preview-domain-name">Gross Motor</span>
+                                        </div>
+                                        <!-- Skill Plants -->
+                                        <div class="preview-skill-plant mastered" style="left: 15%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌻</span>
+                                            <span class="preview-skill-name">Crawling</span>
+                                            <span class="preview-skill-status">Done</span>
+                                        </div>
+                                        <div class="preview-skill-plant mastered" style="left: 32%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌻</span>
+                                            <span class="preview-skill-name">Walking</span>
+                                            <span class="preview-skill-status">Done</span>
+                                        </div>
+                                        <div class="preview-skill-plant in-progress" style="left: 50%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪴</span>
+                                            <span class="preview-skill-name">Running</span>
+                                            <span class="preview-skill-status">Learning</span>
+                                        </div>
+                                        <div class="preview-skill-plant locked" style="left: 75%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪨</span>
+                                            <span class="preview-skill-name">Jumping</span>
+                                            <span class="preview-skill-status">Soon</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Fine Motor Row -->
+                                    <div class="preview-domain-row fine-motor">
+                                        <div class="preview-domain-label">
+                                            <span class="preview-domain-icon">✋</span>
+                                            <span class="preview-domain-name">Fine Motor</span>
+                                        </div>
+                                        <div class="preview-skill-plant mastered" style="left: 20%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌸</span>
+                                            <span class="preview-skill-name">Grasping</span>
+                                            <span class="preview-skill-status">Done</span>
+                                        </div>
+                                        <div class="preview-skill-plant ready" style="left: 42%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌱</span>
+                                            <span class="preview-skill-name">Stacking</span>
+                                            <span class="preview-skill-status">Ready</span>
+                                        </div>
+                                        <div class="preview-skill-plant locked" style="left: 68%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪨</span>
+                                            <span class="preview-skill-name">Drawing</span>
+                                            <span class="preview-skill-status">Soon</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Linguistic Row -->
+                                    <div class="preview-domain-row linguistic">
+                                        <div class="preview-domain-label">
+                                            <span class="preview-domain-icon">💬</span>
+                                            <span class="preview-domain-name">Linguistic</span>
+                                        </div>
+                                        <div class="preview-skill-plant mastered" style="left: 18%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌷</span>
+                                            <span class="preview-skill-name">Babbling</span>
+                                            <span class="preview-skill-status">Done</span>
+                                        </div>
+                                        <div class="preview-skill-plant in-progress" style="left: 38%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪴</span>
+                                            <span class="preview-skill-name">First Words</span>
+                                            <span class="preview-skill-status">Learning</span>
+                                        </div>
+                                        <div class="preview-skill-plant ready" style="left: 58%; top: 8px;">
+                                            <span class="preview-skill-emoji">🌱</span>
+                                            <span class="preview-skill-name">2-Word</span>
+                                            <span class="preview-skill-status">Ready</span>
+                                        </div>
+                                    </div>
+
+                                    <!-- Cognitive Row -->
+                                    <div class="preview-domain-row cognitive">
+                                        <div class="preview-domain-label">
+                                            <span class="preview-domain-icon">🧠</span>
+                                            <span class="preview-domain-name">Cognitive</span>
+                                        </div>
+                                        <div class="preview-skill-plant mastered" style="left: 22%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪻</span>
+                                            <span class="preview-skill-name">Object</span>
+                                            <span class="preview-skill-status">Done</span>
+                                        </div>
+                                        <div class="preview-skill-plant in-progress" style="left: 45%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪴</span>
+                                            <span class="preview-skill-name">Sorting</span>
+                                            <span class="preview-skill-status">Learning</span>
+                                        </div>
+                                        <div class="preview-skill-plant locked" style="left: 72%; top: 8px;">
+                                            <span class="preview-skill-emoji">🪨</span>
+                                            <span class="preview-skill-name">Counting</span>
+                                            <span class="preview-skill-status">Soon</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature Cards -->
+                <div class="app-features-grid" data-animate="delay-2">
+                    <div class="app-feature-card">
+                        <div class="app-feature-icon">🌱</div>
+                        <h4>Track Progress</h4>
+                        <p>See every skill grow from seed to bloom with visual progress indicators.</p>
+                    </div>
+                    <div class="app-feature-card">
+                        <div class="app-feature-icon">📊</div>
+                        <h4>9 Domains</h4>
+                        <p>Monitor development across motor, language, cognitive, social, and more.</p>
+                    </div>
+                    <div class="app-feature-card">
+                        <div class="app-feature-icon">✨</div>
+                        <h4>Celebrate Wins</h4>
+                        <p>Every mastered skill is a celebration. Watch your garden flourish!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Shareable Journey Section - Before/After Comparison -->
+        <section class="journey-section">
             <div class="journey-container">
                 <div class="journey-header" data-animate>
                     <h2>From <span class="accent-worry">Worry</span> to <span class="accent-wonder">Wonder</span></h2>
@@ -2904,7 +3448,7 @@
             }
 
             // Extended scroll animation for all new sections
-            const allAnimatedElements = document.querySelectorAll('.journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate], .graphics-section [data-animate]');
+            const allAnimatedElements = document.querySelectorAll('.app-preview-section [data-animate], .journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate]');
             allAnimatedElements.forEach(el => {
                 gardenObserver.observe(el);
             });
