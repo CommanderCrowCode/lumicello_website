@@ -538,6 +538,11 @@
             border-radius: var(--radius-md);
         }
 
+        /* Carousel dots - hidden by default (desktop), shown on mobile */
+        .carousel-dots {
+            display: none;
+        }
+
         /* Garden message */
         .garden-message {
             text-align: center;
@@ -651,9 +656,66 @@
                 display: none;
             }
 
+            /* Mobile Carousel for Skill Plants */
             .skill-plants {
-                grid-template-columns: 1fr;
-                max-width: 350px;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                -webkit-overflow-scrolling: touch;
+                gap: var(--space-md);
+                max-width: 100%;
+                padding: var(--space-md) var(--space-lg);
+                margin: 0 calc(-1 * var(--space-lg));
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE/Edge */
+            }
+
+            .skill-plants::-webkit-scrollbar {
+                display: none; /* Chrome/Safari */
+            }
+
+            .skill-plants .skill-plant {
+                flex: 0 0 280px;
+                scroll-snap-align: center;
+                min-width: 280px;
+            }
+
+            /* First and last item padding for centering */
+            .skill-plants .skill-plant:first-child {
+                margin-left: calc(50vw - 140px);
+            }
+
+            .skill-plants .skill-plant:last-child {
+                margin-right: calc(50vw - 140px);
+            }
+
+            /* Carousel Dot Indicators - Mobile Only */
+            .carousel-dots {
+                display: flex;
+                justify-content: center;
+                gap: 8px;
+                margin-top: var(--space-lg);
+                padding: var(--space-sm) 0;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: var(--color-sand);
+                border: none;
+                padding: 0;
+                cursor: pointer;
+                transition: all var(--duration-fast) var(--ease-out);
+            }
+
+            .carousel-dot.active {
+                background: var(--color-sage);
+                transform: scale(1.2);
+            }
+
+            .carousel-dot:hover {
+                background: var(--color-sage-light);
             }
 
             .garden-scene {
@@ -1741,6 +1803,19 @@
                     </div>
                 </div>
 
+                <!-- Carousel Dot Indicators (Mobile Only) -->
+                <div class="carousel-dots" aria-label="Skill domains navigation">
+                    <button class="carousel-dot active" data-index="0" aria-label="Gross Motor"></button>
+                    <button class="carousel-dot" data-index="1" aria-label="Fine Motor"></button>
+                    <button class="carousel-dot" data-index="2" aria-label="Linguistic"></button>
+                    <button class="carousel-dot" data-index="3" aria-label="Cognitive"></button>
+                    <button class="carousel-dot" data-index="4" aria-label="Social"></button>
+                    <button class="carousel-dot" data-index="5" aria-label="Emotional"></button>
+                    <button class="carousel-dot" data-index="6" aria-label="Feeding"></button>
+                    <button class="carousel-dot" data-index="7" aria-label="Self-Care"></button>
+                    <button class="carousel-dot" data-index="8" aria-label="Sensory"></button>
+                </div>
+
                 <!-- Garden Message -->
                 <div class="garden-message" data-animate="delay-4">
                     <p>"Your child's garden grows with every milestone. Every seed planted is a skill waiting to bloom."</p>
@@ -2233,6 +2308,71 @@
             }, { threshold: 0.5 });
 
             proofStats.forEach(stat => statsObserver.observe(stat));
+
+            // Skill Plants Carousel (Mobile Only)
+            const skillPlantsCarousel = document.querySelector('.skill-plants');
+            const carouselDots = document.querySelectorAll('.carousel-dot');
+            const skillPlants = document.querySelectorAll('.skill-plant');
+
+            if (skillPlantsCarousel && carouselDots.length > 0) {
+                // Update active dot based on scroll position
+                const updateActiveDot = () => {
+                    // Only update on mobile (when carousel is active)
+                    if (window.innerWidth > 768) return;
+
+                    const scrollLeft = skillPlantsCarousel.scrollLeft;
+                    const containerWidth = skillPlantsCarousel.offsetWidth;
+
+                    // Calculate which item is most centered
+                    let closestIndex = 0;
+                    let closestDistance = Infinity;
+
+                    skillPlants.forEach((plant, index) => {
+                        const plantCenter = plant.offsetLeft + plant.offsetWidth / 2;
+                        const viewportCenter = scrollLeft + containerWidth / 2;
+                        const distance = Math.abs(plantCenter - viewportCenter);
+
+                        if (distance < closestDistance) {
+                            closestDistance = distance;
+                            closestIndex = index;
+                        }
+                    });
+
+                    // Update dot states
+                    carouselDots.forEach((dot, index) => {
+                        dot.classList.toggle('active', index === closestIndex);
+                    });
+                };
+
+                // Listen for scroll events (debounced)
+                let scrollTimeout;
+                skillPlantsCarousel.addEventListener('scroll', () => {
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(updateActiveDot, 50);
+                }, { passive: true });
+
+                // Click on dot to scroll to that item
+                carouselDots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        const targetPlant = skillPlants[index];
+                        if (targetPlant && window.innerWidth <= 768) {
+                            const containerWidth = skillPlantsCarousel.offsetWidth;
+                            const scrollPosition = targetPlant.offsetLeft - (containerWidth / 2) + (targetPlant.offsetWidth / 2);
+
+                            skillPlantsCarousel.scrollTo({
+                                left: scrollPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    });
+                });
+
+                // Initial update
+                updateActiveDot();
+
+                // Update on resize
+                window.addEventListener('resize', updateActiveDot, { passive: true });
+            }
         });
     </script>
 </body>
