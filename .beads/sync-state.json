@@ -1,0 +1,7 @@
+{
+  "last_failure": "2026-01-14T06:49:45.708836+07:00",
+  "failure_count": 2,
+  "backoff_until": "2026-01-14T06:50:45.708836+07:00",
+  "needs_manual_sync": false,
+  "failure_reason": "git pull failed: exit status 128\nFrom github.com:CommanderCrowCode/lumicello_website\n * branch            main       -\u003e FETCH_HEAD\nwarning: fetch updated the current branch head.\nfast-forwarding your working tree from\ncommit f517810851403f845e7550dd82bf2d8d824ed676.\nerror: Your local changes to the following files would be overwritten by merge:\n\tbuild.js\n\tjs/components.js\nPlease commit your changes or stash them before you merge.\nerror: The following untracked working tree files would be overwritten by merge:\n\tour-mission.html\nPlease move or remove them before you merge.\nAborting\nfatal: Cannot fast-forward your working tree.\nAfter making sure that you saved anything precious from\n$ git diff f517810851403f845e7550dd82bf2d8d824ed676\noutput, run\n$ git reset --hard\nto recover.\n"
+}
