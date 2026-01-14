@@ -1,28 +1,30 @@
 <!DOCTYPE html>
-<html lang="en" class="env-big-garden">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#7A9E7E">
-    <title>Big Garden - Watch Your Child's Skills Bloom | Lumicello</title>
-    <meta name="description" content="Big Garden is a visual child development tracker that helps parents see their child's skills grow like a beautiful garden. Track milestones across 9 developmental domains.">
+    <title>Big Garden - Watch Your Child Grow | Lumicello</title>
+    <meta name="description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden with our playful, research-backed approach.">
 
     <!-- Open Graph / Social Sharing -->
-    <meta property="og:type" content="product">
-    <meta property="og:url" content="https://lumicello.com/big-garden">
-    <meta property="og:title" content="Big Garden - Watch Your Child's Skills Bloom">
-    <meta property="og:description" content="A visual child development tracker that transforms milestones into a growing garden. See your child's skills bloom across 9 developmental domains.">
-    <meta property="og:image" content="https://lumicello.com/assets/images/big-garden-og.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lumicello.com/big-garden.html">
+    <meta property="og:title" content="Big Garden - Watch Your Child Grow | Lumicello">
+    <meta property="og:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
+    <meta property="og:image" content="https://lumicello.com/assets/images/og-image.webp">
     <meta property="og:site_name" content="Lumicello">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:locale:alternate" content="th_TH">
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://lumicello.com/big-garden">
+    <link rel="canonical" href="https://lumicello.com/big-garden.html">
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Big Garden - Watch Your Child's Skills Bloom">
-    <meta name="twitter:description" content="A visual child development tracker that transforms milestones into a growing garden.">
-    <meta name="twitter:image" content="https://lumicello.com/assets/images/big-garden-og.webp">
+    <meta name="twitter:title" content="Big Garden - Watch Your Child Grow | Lumicello">
+    <meta name="twitter:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/og-image.webp">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +36,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/products.css">
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
@@ -49,236 +50,1410 @@
         data-website-id="dd17445d-a227-413a-bcca-4c5b8f31b8cf"
     ></script>
 
-    <!-- Structured Data: Product -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Big Garden",
-        "applicationCategory": "LifestyleApplication",
-        "operatingSystem": "iOS, Android, Web",
-        "description": "A visual child development tracker that helps parents see their child's skills grow like a beautiful garden. Track milestones across 9 developmental domains.",
-        "offers": {
-            "@type": "Offer",
-            "price": "0",
-            "priceCurrency": "THB",
-            "availability": "https://schema.org/ComingSoon"
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Lumicello",
-            "url": "https://lumicello.com"
-        }
-    }
-    </script>
-
     <style>
-        /* Page-specific hero animations */
-        .big-garden-hero {
-            position: relative;
-            min-height: 100vh;
-            overflow: hidden;
+        /* ============================================
+           BIG GARDEN PAGE - Custom Variables
+           ============================================ */
+        :root {
+            --color-sage: #7A9E7E;
+            --color-sage-light: #9AB89D;
+            --color-sage-dark: #5A7E5E;
+            --color-sage-soft: rgba(122, 158, 126, 0.15);
+            --color-coral-garden: #D97B64;
+            --color-soil: #8B7355;
+            --color-soil-dark: #6B5340;
+            --color-sky-garden: #87CEEB;
         }
 
-        /* Sky gradient background */
-        .garden-sky {
+        /* ============================================
+           PAGE CONTAINER
+           ============================================ */
+        .big-garden-page {
+            min-height: 100vh;
+            background: var(--color-bg-main);
+            overflow-x: hidden;
+        }
+
+        /* ============================================
+           HERO SECTION - Dancing Garden
+           ============================================ */
+        .garden-hero {
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background: linear-gradient(180deg, var(--color-sage-soft) 0%, var(--color-bg-main) 100%);
+        }
+
+        .garden-hero::before {
+            content: "";
             position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                #E8F4F8 0%,
-                #D4EAF2 20%,
-                #B8E0EB 40%,
-                #C8E6C9 60%,
-                #A8C5AB 80%,
-                #7A9E7E 100%
-            );
+            width: 800px;
+            height: 800px;
+            top: -200px;
+            right: -200px;
+            background: radial-gradient(ellipse, var(--color-sage-soft) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            animation: blob-morph 20s ease-in-out infinite;
             z-index: 0;
         }
 
-        /* Animated clouds layer */
-        .clouds-layer {
+        .garden-hero::after {
+            content: "";
             position: absolute;
-            top: 0;
+            width: 600px;
+            height: 600px;
+            bottom: -150px;
+            left: -100px;
+            background: radial-gradient(ellipse, var(--color-bg-lawn) 0%, transparent 70%);
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+            animation: blob-morph 25s ease-in-out infinite reverse;
+            z-index: 0;
+        }
+
+        @keyframes blob-morph {
+            0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+            50% { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+        }
+
+        .garden-hero-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: var(--space-3xl) var(--space-lg);
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-3xl);
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .garden-hero-content {
+            max-width: 550px;
+        }
+
+        .garden-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-xs);
+            background: white;
+            padding: var(--space-xs) var(--space-md);
+            border-radius: var(--radius-pill);
+            font-size: var(--text-xs);
+            font-weight: 700;
+            letter-spacing: var(--tracking-wider);
+            text-transform: uppercase;
+            margin-bottom: var(--space-lg);
+            color: var(--color-sage-dark);
+            box-shadow: var(--shadow-sm);
+            animation: fade-up var(--duration-slower) var(--ease-out) both;
+        }
+
+        .garden-badge::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background: var(--color-sage);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.3); opacity: 0.7; }
+        }
+
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .garden-hero h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            line-height: 1.1;
+            margin-bottom: var(--space-lg);
+            animation: fade-up var(--duration-slower) var(--ease-out) 0.1s both;
+        }
+
+        .garden-hero h1 .accent {
+            color: var(--color-sage);
+            font-style: italic;
+            position: relative;
+        }
+
+        .garden-hero h1 .accent::after {
+            content: "";
+            position: absolute;
+            bottom: 0.1em;
             left: 0;
             right: 0;
-            height: 50%;
-            z-index: 1;
-            pointer-events: none;
-            overflow: hidden;
+            height: 0.15em;
+            background: var(--color-sage);
+            opacity: 0.3;
+            border-radius: var(--radius-pill);
         }
 
-        /* Hero content positioning */
-        .big-garden-hero .product-hero__content {
-            position: relative;
-            z-index: 10;
-            padding-top: 120px;
+        .garden-hero p {
+            font-size: var(--text-body-lg);
+            line-height: var(--leading-relaxed);
+            margin-bottom: var(--space-xl);
+            color: var(--color-text-secondary);
+            animation: fade-up var(--duration-slower) var(--ease-out) 0.2s both;
         }
 
-        /* App mockup container */
-        .hero-app-container {
+        .garden-hero-buttons {
+            display: flex;
+            gap: var(--space-md);
+            flex-wrap: wrap;
+            animation: fade-up var(--duration-slower) var(--ease-out) 0.3s both;
+        }
+
+        .btn-garden {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: var(--radius-pill);
+            font-weight: 600;
+            font-size: var(--text-body);
+            transition: all var(--duration-normal) var(--ease-out);
+            cursor: pointer;
+            border: none;
+            text-decoration: none;
+        }
+
+        .btn-garden-primary {
+            background: var(--color-sage);
+            color: white;
+            box-shadow: 0 4px 20px rgba(122, 158, 126, 0.4);
+        }
+
+        .btn-garden-primary:hover {
+            background: var(--color-sage-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(122, 158, 126, 0.5);
+        }
+
+        .btn-garden-secondary {
+            background: white;
+            color: var(--color-sage-dark);
+            border: 2px solid var(--color-sage-soft);
+        }
+
+        .btn-garden-secondary:hover {
+            background: var(--color-sage-soft);
+            transform: translateY(-3px);
+        }
+
+        /* Hero Visual - Dancing Garden Animation */
+        .garden-hero-visual {
             position: relative;
-            z-index: 5;
             display: flex;
             justify-content: center;
-            margin-top: var(--space-2xl);
+            align-items: center;
+            animation: fade-up var(--duration-slowest) var(--ease-out) 0.4s both;
         }
 
-        /* Ground/grass layer */
-        .garden-ground {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 25%;
-            z-index: 3;
+        .hero-garden-svg {
+            width: 100%;
+            max-width: 450px;
+            height: auto;
+        }
+
+        .hero-garden-svg .plant {
+            transform-origin: bottom center;
+            animation: gentle-sway 4s ease-in-out infinite;
+        }
+
+        .hero-garden-svg .plant:nth-child(2) { animation-delay: 0.5s; }
+        .hero-garden-svg .plant:nth-child(3) { animation-delay: 1s; }
+        .hero-garden-svg .plant:nth-child(4) { animation-delay: 1.5s; }
+
+        @keyframes gentle-sway {
+            0%, 100% { transform: rotate(-2deg); }
+            50% { transform: rotate(2deg); }
+        }
+
+        /* ============================================
+           JOURNEY SECTION - Before/After Emotional
+           ============================================ */
+        .journey-section {
+            padding: var(--space-4xl) 0;
+            background: #FDFCFA;
+            position: relative;
             overflow: hidden;
         }
 
-        .ground-gradient {
+        .journey-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--space-lg);
+            position: relative;
+            z-index: 1;
+        }
+
+        .journey-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .journey-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+            line-height: 1.1;
+            font-weight: 800;
+        }
+
+        .journey-header h2 .accent-worry {
+            color: #8B8178;
+        }
+
+        .journey-header h2 .accent-wonder {
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .journey-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Shareable Card */
+        .journey-shareable-card {
+            background: white;
+            border-radius: 24px;
+            box-shadow:
+                0 20px 60px rgba(0,0,0,0.08),
+                0 8px 24px rgba(0,0,0,0.05);
+            max-width: 900px;
+            margin: 0 auto var(--space-2xl);
+            overflow: hidden;
+        }
+
+        .journey-split {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            min-height: 380px;
+        }
+
+        .journey-panel {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: var(--space-2xl) var(--space-xl);
+            text-align: center;
+            position: relative;
+        }
+
+        .journey-panel.before {
+            background: linear-gradient(160deg, #E8E4DF 0%, #D9D4CD 50%, #CAC4BC 100%);
+        }
+
+        .journey-panel.after {
+            background: linear-gradient(160deg, #F0F7F1 0%, #E5F0E7 50%, #D8EAD9 100%);
+        }
+
+        .journey-panel-label {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: var(--radius-pill);
+            font-size: 10px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: var(--space-md);
+        }
+
+        .journey-panel.before .journey-panel-label {
+            background: #8B8178;
+            color: white;
+        }
+
+        .journey-panel.after .journey-panel-label {
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            color: white;
+        }
+
+        .journey-panel-illustration {
+            width: 180px;
+            height: 180px;
+            margin-bottom: var(--space-lg);
+        }
+
+        .journey-panel-illustration svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .journey-panel h3 {
+            font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+            margin-bottom: var(--space-xs);
+            font-weight: 700;
+        }
+
+        .journey-panel.before h3 { color: #5C544C; }
+        .journey-panel.after h3 { color: var(--color-sage-dark); }
+
+        .journey-panel p {
+            font-size: var(--text-small);
+            line-height: var(--leading-relaxed);
+            max-width: 240px;
+        }
+
+        .journey-panel.before p { color: #706860; }
+        .journey-panel.after p { color: #4A6A4D; }
+
+        /* Center Divider */
+        .journey-divider {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            background: linear-gradient(180deg, #D9D4CD 0%, #E5F0E7 100%);
+            position: relative;
+        }
+
+        .journey-divider::before {
+            content: "";
             position: absolute;
-            inset: 0;
-            background: linear-gradient(
-                180deg,
-                transparent 0%,
-                rgba(168, 197, 171, 0.5) 30%,
-                var(--env-sage) 100%
-            );
+            top: 0;
+            left: 50%;
+            bottom: 0;
+            width: 2px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #8B8178 0%, var(--color-sage) 100%);
         }
 
-        /* Decorative flowers */
-        .garden-decorations {
+        .journey-divider-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            background: white;
+            padding: 12px 8px;
+            border-radius: 30px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+            z-index: 3;
+        }
+
+        .journey-divider-arrow {
+            width: 28px;
+            height: 28px;
+            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .journey-divider-arrow svg {
+            width: 16px;
+            height: 16px;
+            stroke: white;
+        }
+
+        .journey-divider-text {
+            font-size: 9px;
+            font-weight: 800;
+            color: var(--color-sage-dark);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+        }
+
+        /* Journey Bottom */
+        .journey-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--space-md) var(--space-xl);
+            background: #FAFAFA;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .journey-tagline p {
+            font-size: var(--text-body);
+            font-style: italic;
+            color: var(--color-text-primary);
+            margin: 0;
+        }
+
+        .journey-tagline .brand {
+            font-size: var(--text-small);
+            color: var(--color-sage);
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .journey-share-row {
+            display: flex;
+            gap: var(--space-xs);
+        }
+
+        .journey-share-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform var(--duration-fast), box-shadow var(--duration-fast);
+        }
+
+        .journey-share-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .journey-share-btn.facebook { background: #1877F2; }
+        .journey-share-btn.twitter { background: #000; }
+        .journey-share-btn.line { background: #00B900; }
+        .journey-share-btn.copy { background: var(--color-sage); }
+
+        .journey-share-btn svg {
+            width: 18px;
+            height: 18px;
+            fill: white;
+            stroke: white;
+        }
+
+        /* ============================================
+           APP PREVIEW SECTION - Floating Phone
+           ============================================ */
+        .app-preview-section {
+            padding: var(--space-4xl) var(--space-lg);
+            background: linear-gradient(180deg, var(--color-bg-main) 0%, rgba(122, 158, 126, 0.08) 50%, var(--color-bg-main) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .app-preview-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .app-preview-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .app-preview-header h2 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
+        .app-preview-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        /* Phone Frame */
+        .phone-mockup {
+            max-width: 360px;
+            margin: 0 auto var(--space-2xl);
+            position: relative;
+            animation: float-phone 6s ease-in-out infinite;
+        }
+
+        @keyframes float-phone {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .phone-frame {
+            background: #1a1a1a;
+            border-radius: 36px;
+            padding: 10px;
+            box-shadow:
+                0 25px 50px rgba(0, 0, 0, 0.25),
+                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+            position: relative;
+        }
+
+        .phone-frame::before {
+            content: "";
             position: absolute;
-            inset: 0;
-            z-index: 4;
-            pointer-events: none;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 20px;
+            background: #1a1a1a;
+            border-radius: 10px;
+            z-index: 10;
         }
 
-        .flower-cluster {
+        .phone-screen {
+            background: #FAF8F5;
+            border-radius: 28px;
+            overflow: hidden;
+        }
+
+        /* App Preview HUD */
+        .preview-hud {
+            background: white;
+            padding: 14px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .preview-hud-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .preview-hud-row + .preview-hud-row {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px solid rgba(0, 0, 0, 0.04);
+        }
+
+        .preview-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ffd5dc, #c0aede);
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .preview-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .preview-identity { flex: 1; min-width: 0; }
+
+        .preview-name {
+            font-family: var(--font-heading);
+            font-size: 15px;
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin: 0;
+        }
+
+        .preview-meta {
+            font-size: 10px;
+            color: var(--color-text-secondary);
+            margin: 2px 0 0;
+        }
+
+        .preview-archetype {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--color-sage-soft);
+            padding: 5px 8px;
+            border-radius: 16px;
+        }
+
+        .preview-archetype-icon { font-size: 14px; }
+        .preview-archetype-text {
+            font-size: 10px;
+            font-weight: 600;
+            color: var(--color-sage-dark);
+        }
+
+        .preview-progress {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+        }
+
+        .preview-progress-bar {
+            flex: 1;
+            height: 6px;
+            background: rgba(122, 158, 126, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .preview-progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--color-sage), var(--color-sage-light));
+            border-radius: 3px;
+        }
+
+        .preview-progress-text {
+            font-size: 13px;
+            font-weight: 700;
+            color: var(--color-sage-dark);
+        }
+
+        .preview-legend {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .preview-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            font-size: 9px;
+            color: var(--color-text-secondary);
+            background: rgba(0, 0, 0, 0.03);
+            padding: 3px 6px;
+            border-radius: 10px;
+        }
+
+        .preview-legend-emoji { font-size: 11px; }
+        .preview-legend-count {
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        /* Garden View in Phone */
+        .preview-garden {
+            position: relative;
+            height: 280px;
+            background: linear-gradient(180deg, #E8F4FC 0%, #C5E8C9 70%, #A8C5AB 100%);
+            overflow: hidden;
+        }
+
+        .preview-timeline {
+            display: flex;
+            height: 28px;
+            background: rgba(255, 255, 255, 0.5);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .preview-era {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            border-right: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .preview-era:last-child { border-right: none; }
+
+        .preview-era-name {
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .preview-era-range {
+            font-size: 7px;
+            color: var(--color-text-secondary);
+        }
+
+        .preview-now-indicator {
             position: absolute;
+            top: 28px;
+            left: 45%;
+            width: 2px;
+            height: calc(100% - 28px);
+            background: linear-gradient(180deg, #F5C87A 0%, rgba(245, 200, 122, 0.3) 100%);
+            z-index: 20;
         }
 
-        .flower-cluster--left {
-            bottom: 15%;
-            left: 5%;
+        .preview-now-label {
+            position: absolute;
+            top: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #F5C87A;
+            color: white;
+            font-size: 7px;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 8px;
+            white-space: nowrap;
         }
 
-        .flower-cluster--right {
-            bottom: 20%;
-            right: 8%;
+        /* Domain Rows */
+        .preview-domain-rows {
+            position: relative;
+            height: calc(100% - 28px);
+            padding: 8px;
         }
 
-        /* Headline animation */
-        .hero-title-animated {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: title-reveal 1s var(--ease-out) 0.3s forwards;
+        .preview-domain-row {
+            position: relative;
+            height: 56px;
+            margin-bottom: 4px;
+            background: rgba(255,255,255,0.3);
+            border-radius: 8px;
+            padding: 4px 8px;
         }
 
-        .hero-subtitle-animated {
+        .preview-domain-label {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            position: absolute;
+            top: 4px;
+            left: 8px;
+            z-index: 5;
+        }
+
+        .preview-domain-icon { font-size: 12px; }
+        .preview-domain-name {
+            font-size: 9px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+
+        .preview-skill-plant {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2px 4px;
+            border-radius: 6px;
+            background: rgba(255,255,255,0.8);
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+            transition: transform var(--duration-fast);
+        }
+
+        .preview-skill-plant:hover { transform: scale(1.05); }
+
+        .preview-skill-emoji { font-size: 16px; }
+        .preview-skill-name {
+            font-size: 7px;
+            font-weight: 600;
+            color: var(--color-text-primary);
+        }
+        .preview-skill-status {
+            font-size: 6px;
+            color: var(--color-text-secondary);
+        }
+
+        /* App Features Grid */
+        .app-features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-lg);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .app-feature-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: transform var(--duration-normal), box-shadow var(--duration-normal);
+        }
+
+        .app-feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .app-feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-sm);
+        }
+
+        .app-feature-card h4 {
+            font-size: var(--text-body);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .app-feature-card p {
+            font-size: var(--text-small);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-normal);
+        }
+
+        /* ============================================
+           DOMAINS SECTION - 9 Growth Domains
+           ============================================ */
+        .domains-section {
+            padding: var(--space-4xl) var(--space-lg);
+            background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-lawn) 50%, var(--color-bg-main) 100%);
+        }
+
+        .domains-container {
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .domains-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--space-3xl);
+        }
+
+        .domains-header h2 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
+        .domains-header p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            line-height: var(--leading-relaxed);
+        }
+
+        .domains-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--space-md);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .domain-card {
+            text-align: center;
+            padding: var(--space-lg);
+            background: white;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-sm);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .domain-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .domain-icon {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-xs);
+        }
+
+        .domain-card h4 {
+            font-size: var(--text-body);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: var(--space-xs);
+        }
+
+        .domain-card p {
+            font-size: var(--text-xs);
+            color: var(--color-text-secondary);
+        }
+
+        /* ============================================
+           CTA SECTION
+           ============================================ */
+        .garden-cta-section {
+            padding: var(--space-4xl) var(--space-lg);
+            background: linear-gradient(135deg, var(--color-sage-soft) 0%, rgba(232, 133, 94, 0.1) 100%);
+            text-align: center;
+        }
+
+        .garden-cta-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .garden-cta-container h2 {
+            font-size: clamp(2rem, 5vw, 2.75rem);
+            margin-bottom: var(--space-md);
+            color: var(--color-text-primary);
+        }
+
+        .garden-cta-container p {
+            font-size: var(--text-body-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-xl);
+            line-height: var(--leading-relaxed);
+        }
+
+        .garden-cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--space-sm);
+            padding: var(--space-md) var(--space-2xl);
+            background: var(--color-sage);
+            color: white;
+            font-weight: 700;
+            font-size: var(--text-body-lg);
+            border-radius: var(--radius-pill);
+            text-decoration: none;
+            box-shadow: 0 6px 24px rgba(122, 158, 126, 0.4);
+            transition: all var(--duration-normal) var(--ease-out);
+        }
+
+        .garden-cta-btn:hover {
+            background: var(--color-sage-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 36px rgba(122, 158, 126, 0.5);
+        }
+
+        .garden-cta-btn svg {
+            width: 20px;
+            height: 20px;
+            stroke: currentColor;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 900px) {
+            .garden-hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .garden-hero-content {
+                max-width: 100%;
+            }
+
+            .garden-hero-buttons {
+                justify-content: center;
+            }
+
+            .journey-split {
+                grid-template-columns: 1fr;
+            }
+
+            .journey-divider {
+                width: 100%;
+                height: 60px;
+                flex-direction: row;
+            }
+
+            .journey-divider::before {
+                top: 50%;
+                left: 0;
+                right: 0;
+                bottom: auto;
+                width: 100%;
+                height: 2px;
+                transform: translateY(-50%);
+            }
+
+            .journey-divider-badge {
+                flex-direction: row;
+                padding: 10px 16px;
+            }
+
+            .journey-divider-text {
+                writing-mode: horizontal-tb;
+            }
+
+            .journey-bottom {
+                flex-direction: column;
+                gap: var(--space-md);
+            }
+
+            .app-features-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+
+            .domains-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: var(--space-sm);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .domains-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .domain-card {
+                padding: var(--space-md);
+            }
+
+            .domain-icon {
+                font-size: 2rem;
+            }
+
+            .domain-card h4 {
+                font-size: var(--text-small);
+            }
+        }
+
+        /* Animation classes for intersection observer */
+        [data-animate] {
             opacity: 0;
             transform: translateY(20px);
-            animation: title-reveal 1s var(--ease-out) 0.5s forwards;
+            transition: opacity 0.6s ease, transform 0.6s ease;
         }
 
-        .hero-cta-animated {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: title-reveal 1s var(--ease-out) 0.7s forwards;
+        [data-animate].in-view {
+            opacity: 1;
+            transform: translateY(0);
         }
 
-        .hero-device-animated {
-            opacity: 0;
-            transform: translateY(40px);
-            animation: title-reveal 1.2s var(--ease-out) 0.9s forwards;
-        }
-
-        @keyframes title-reveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Coming soon badge pulse */
-        .badge-pulse {
-            animation: badge-glow 2s ease-in-out infinite;
-        }
-
-        @keyframes badge-glow {
-            0%, 100% {
-                box-shadow: 0 2px 8px rgba(122, 158, 126, 0.2);
-            }
-            50% {
-                box-shadow: 0 4px 20px rgba(122, 158, 126, 0.4);
-            }
-        }
+        [data-animate="delay-1"] { transition-delay: 0.1s; }
+        [data-animate="delay-2"] { transition-delay: 0.2s; }
+        [data-animate="delay-3"] { transition-delay: 0.3s; }
     </style>
 </head>
-<body>
-    <!-- Navigation (Shared Component) -->
+
+<body class="big-garden-page">
+    <!-- NAVIGATION (shared component) -->
     <div id="nav-placeholder"></div>
 
-    <main>
-        <!-- Hero Section -->
-        <section class="big-garden-hero product-hero">
-            <!-- Animated sky background -->
-            <div class="garden-sky"></div>
-
-            <!-- Floating clouds -->
-            <div class="clouds-layer">
-                <div class="garden-clouds">
-                    <div class="cloud cloud-1"></div>
-                    <div class="cloud cloud-2"></div>
-                    <div class="cloud cloud-3"></div>
+    <!-- HERO SECTION - Dancing Garden -->
+    <section class="garden-hero">
+        <div class="garden-hero-container">
+            <div class="garden-hero-content">
+                <span class="garden-badge">Developmental Tracking</span>
+                <h1>Watch Your Child's Skills <span class="accent">Bloom</span></h1>
+                <p>
+                    Big Garden transforms milestone tracking into a beautiful journey.
+                    See your child's development unfold like a garden growing through the seasons.
+                </p>
+                <div class="garden-hero-buttons">
+                    <a href="#transformation" class="btn-garden btn-garden-primary">
+                        See the Journey
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                    <a href="#domains" class="btn-garden btn-garden-secondary">
+                        Explore 9 Domains
+                    </a>
                 </div>
             </div>
 
-            <!-- Hero content -->
-            <div class="product-hero__content">
-                <span class="product-hero__badge badge-pulse">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
-                    </svg>
-                    Coming Soon
-                </span>
+            <div class="garden-hero-visual">
+                <!-- Dancing Garden SVG -->
+                <svg class="hero-garden-svg" viewBox="0 0 400 350" fill="none">
+                    <!-- Ground -->
+                    <ellipse cx="200" cy="320" rx="180" ry="30" fill="#7A9E7E" opacity="0.3"/>
 
-                <h1 class="product-hero__title hero-title-animated">Big Garden</h1>
+                    <!-- Plant 1 - Sunflower (Gross Motor) -->
+                    <g class="plant" transform="translate(80, 180)">
+                        <line x1="0" y1="0" x2="0" y2="120" stroke="#5A7E5E" stroke-width="6"/>
+                        <ellipse cx="-20" cy="60" rx="15" ry="8" fill="#7A9E7E" transform="rotate(-30)"/>
+                        <ellipse cx="20" cy="40" rx="15" ry="8" fill="#7A9E7E" transform="rotate(30)"/>
+                        <circle cx="0" cy="-20" r="35" fill="#F5C87A"/>
+                        <circle cx="0" cy="-20" r="20" fill="#8B7355"/>
+                        <!-- Petals -->
+                        <ellipse cx="0" cy="-50" rx="8" ry="15" fill="#F5C87A"/>
+                        <ellipse cx="25" cy="-40" rx="8" ry="15" fill="#F5C87A" transform="rotate(40 0 -20)"/>
+                        <ellipse cx="-25" cy="-40" rx="8" ry="15" fill="#F5C87A" transform="rotate(-40 0 -20)"/>
+                        <ellipse cx="30" cy="-20" rx="8" ry="15" fill="#F5C87A" transform="rotate(90 0 -20)"/>
+                        <ellipse cx="-30" cy="-20" rx="8" ry="15" fill="#F5C87A" transform="rotate(-90 0 -20)"/>
+                    </g>
 
-                <p class="product-hero__subtitle hero-subtitle-animated">
-                    Watch your child's skills bloom
+                    <!-- Plant 2 - Tulip (Linguistic) -->
+                    <g class="plant" transform="translate(160, 200)">
+                        <line x1="0" y1="0" x2="0" y2="100" stroke="#5A7E5E" stroke-width="5"/>
+                        <ellipse cx="-15" cy="50" rx="12" ry="6" fill="#7A9E7E" transform="rotate(-25)"/>
+                        <path d="M-20 -30 Q0 -60 20 -30 Q0 0 -20 -30" fill="#9B8FC7"/>
+                        <ellipse cx="0" cy="-25" rx="10" ry="8" fill="#7B6FB0"/>
+                    </g>
+
+                    <!-- Plant 3 - Cherry Blossom (Fine Motor) -->
+                    <g class="plant" transform="translate(240, 190)">
+                        <line x1="0" y1="0" x2="0" y2="110" stroke="#5A7E5E" stroke-width="5"/>
+                        <ellipse cx="18" cy="55" rx="12" ry="6" fill="#7A9E7E" transform="rotate(25)"/>
+                        <circle cx="0" cy="-15" r="25" fill="#FFB7C5"/>
+                        <circle cx="-20" cy="-25" r="18" fill="#FFB7C5"/>
+                        <circle cx="20" cy="-25" r="18" fill="#FFB7C5"/>
+                        <circle cx="0" cy="-35" r="15" fill="#FFB7C5"/>
+                        <circle cx="0" cy="-18" r="6" fill="#FF8FA3"/>
+                    </g>
+
+                    <!-- Plant 4 - Small sprout (emerging skill) -->
+                    <g class="plant" transform="translate(320, 260)">
+                        <line x1="0" y1="0" x2="0" y2="50" stroke="#5A7E5E" stroke-width="4"/>
+                        <ellipse cx="-8" cy="15" rx="10" ry="5" fill="#9AB89D" transform="rotate(-20)"/>
+                        <ellipse cx="8" cy="5" rx="10" ry="5" fill="#9AB89D" transform="rotate(20)"/>
+                    </g>
+
+                    <!-- Floating particles -->
+                    <circle cx="50" cy="100" r="3" fill="#F5C87A" opacity="0.5">
+                        <animate attributeName="cy" values="100;80;100" dur="4s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="350" cy="120" r="2" fill="#7A9E7E" opacity="0.4">
+                        <animate attributeName="cy" values="120;95;120" dur="5s" repeatCount="indefinite"/>
+                    </circle>
+                    <circle cx="180" cy="80" r="2.5" fill="#FFB7C5" opacity="0.5">
+                        <animate attributeName="cy" values="80;60;80" dur="3.5s" repeatCount="indefinite"/>
+                    </circle>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- JOURNEY SECTION - Emotional Before/After -->
+    <section class="journey-section" id="transformation">
+        <div class="journey-container">
+            <div class="journey-header" data-animate>
+                <h2>From <span class="accent-worry">Worry</span> to <span class="accent-wonder">Wonder</span></h2>
+                <p>
+                    Every parent wonders: "Is my child developing normally?"
+                    Big Garden turns that anxiety into joyful discovery.
                 </p>
+            </div>
 
-                <div class="product-hero__cta hero-cta-animated">
-                    <a href="#notify" class="btn btn-primary">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
-                            <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
-                        </svg>
-                        Get Notified
-                    </a>
-                    <a href="#features" class="btn btn-outline">
-                        Learn More
-                    </a>
+            <div class="journey-shareable-card" data-animate="delay-1">
+                <div class="journey-split">
+                    <!-- Before Panel -->
+                    <div class="journey-panel before">
+                        <span class="journey-panel-label">Before</span>
+                        <div class="journey-panel-illustration">
+                            <svg viewBox="0 0 200 200" fill="none">
+                                <!-- Worried parent figure -->
+                                <circle cx="100" cy="70" r="35" fill="#9a9e97" opacity="0.3"/>
+                                <circle cx="100" cy="70" r="30" fill="#9a9e97" opacity="0.5"/>
+                                <!-- Worried eyes -->
+                                <ellipse cx="88" cy="65" rx="5" ry="6" fill="#6b7268"/>
+                                <ellipse cx="112" cy="65" rx="5" ry="6" fill="#6b7268"/>
+                                <!-- Worried eyebrows -->
+                                <path d="M80 55 Q88 52 95 58" stroke="#6b7268" stroke-width="2" fill="none"/>
+                                <path d="M105 58 Q112 52 120 55" stroke="#6b7268" stroke-width="2" fill="none"/>
+                                <!-- Frown -->
+                                <path d="M88 82 Q100 76 112 82" stroke="#6b7268" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Question marks floating -->
+                                <text x="50" y="130" font-size="24" fill="#9a9e97" opacity="0.6">?</text>
+                                <text x="140" y="120" font-size="20" fill="#9a9e97" opacity="0.5">?</text>
+                                <text x="70" y="160" font-size="18" fill="#9a9e97" opacity="0.4">?</text>
+                                <text x="120" y="155" font-size="22" fill="#9a9e97" opacity="0.5">?</text>
+                                <!-- Scattered seeds -->
+                                <ellipse cx="60" cy="180" rx="8" ry="4" fill="#6b7268" opacity="0.3"/>
+                                <ellipse cx="100" cy="185" rx="6" ry="3" fill="#6b7268" opacity="0.3"/>
+                                <ellipse cx="140" cy="178" rx="7" ry="3" fill="#6b7268" opacity="0.3"/>
+                            </svg>
+                        </div>
+                        <h3>Scattered Worries</h3>
+                        <p>Endless comparisons. Random checklists. The nagging question: "Am I doing enough?"</p>
+                    </div>
+
+                    <!-- Divider -->
+                    <div class="journey-divider">
+                        <div class="journey-divider-badge">
+                            <div class="journey-divider-arrow">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
+                                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                                </svg>
+                            </div>
+                            <span class="journey-divider-text">Big Garden</span>
+                        </div>
+                    </div>
+
+                    <!-- After Panel -->
+                    <div class="journey-panel after">
+                        <span class="journey-panel-label">After</span>
+                        <div class="journey-panel-illustration">
+                            <svg viewBox="0 0 200 200" fill="none">
+                                <!-- Happy parent figure -->
+                                <circle cx="100" cy="70" r="35" fill="#7A9E7E" opacity="0.2"/>
+                                <circle cx="100" cy="70" r="30" fill="#7A9E7E" opacity="0.4"/>
+                                <!-- Happy eyes -->
+                                <path d="M83 62 Q88 68 93 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M107 62 Q112 68 117 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Big smile -->
+                                <path d="M85 80 Q100 95 115 80" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Hearts floating -->
+                                <path d="M45 120 C45 115 50 110 55 115 C60 110 65 115 65 120 C65 128 55 135 55 135 C55 135 45 128 45 120" fill="#E8855E" opacity="0.6"/>
+                                <path d="M135 110 C135 106 138 103 141 106 C144 103 147 106 147 110 C147 115 141 120 141 120 C141 120 135 115 135 110" fill="#D9A835" opacity="0.5"/>
+                                <!-- Garden below -->
+                                <ellipse cx="100" cy="190" rx="80" ry="20" fill="#7A9E7E" opacity="0.3"/>
+                                <!-- Blooming flowers -->
+                                <g transform="translate(60, 160)">
+                                    <line x1="0" y1="0" x2="0" y2="25" stroke="#5A7E5E" stroke-width="3"/>
+                                    <circle cx="0" cy="-5" r="8" fill="#E8855E"/>
+                                    <circle cx="0" cy="-5" r="4" fill="#D9A835"/>
+                                </g>
+                                <g transform="translate(100, 150)">
+                                    <line x1="0" y1="0" x2="0" y2="35" stroke="#5A7E5E" stroke-width="4"/>
+                                    <circle cx="0" cy="-8" r="12" fill="#D9A835"/>
+                                    <circle cx="0" cy="-8" r="6" fill="#8B7355"/>
+                                </g>
+                                <g transform="translate(140, 155)">
+                                    <line x1="0" y1="0" x2="0" y2="30" stroke="#5A7E5E" stroke-width="3"/>
+                                    <circle cx="0" cy="-5" r="10" fill="#9B8FC7"/>
+                                    <circle cx="0" cy="-5" r="5" fill="#E8855E"/>
+                                </g>
+                            </svg>
+                        </div>
+                        <h3>A Thriving Garden</h3>
+                        <p>Clear progress. Joyful discovery. Celebrating every small bloom together.</p>
+                    </div>
                 </div>
 
-                <!-- Floating app mockup -->
-                <div class="hero-app-container hero-device-animated">
-                    <div class="product-hero__device garden-app-float">
-                        <div class="device-mockup device-mockup--phone">
-                            <div class="device-mockup__frame">
-                                <div class="device-mockup__notch"></div>
-                                <div class="device-mockup__screen">
-                                    <!-- Garden view screenshot -->
-                                    <picture>
-                                        <source srcset="assets/images/big-garden/garden-view.webp" type="image/webp">
-                                        <img src="assets/images/big-garden/garden-view.png"
-                                             alt="Big Garden app showing your skill garden with plants representing different abilities"
-                                             width="280"
-                                             height="560"
-                                             style="width: 280px; height: 560px; object-fit: cover; border-radius: 4px;"
-                                             loading="lazy">
-                                    </picture>
+                <!-- Bottom: Tagline + Share -->
+                <div class="journey-bottom">
+                    <div class="journey-tagline">
+                        <p>"Every child blooms in their own time."</p>
+                        <span class="brand">Big Garden</span>
+                    </div>
+                    <div class="journey-share-row">
+                        <button class="journey-share-btn facebook" onclick="shareJourney('facebook')" title="Share on Facebook">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.15 5.96C15.21 5.96 16.12 6.04 16.39 6.08V8.7H14.86C13.64 8.7 13.4 9.28 13.4 10.12V12.06H16.34L15.86 14.96H13.4V21.96C18.19 21.21 21.86 17.06 21.86 12.06C21.86 6.53 17.35 2.04 12 2.04Z"/>
+                            </svg>
+                        </button>
+                        <button class="journey-share-btn twitter" onclick="shareJourney('twitter')" title="Share on X">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                            </svg>
+                        </button>
+                        <button class="journey-share-btn line" onclick="shareJourney('line')" title="Share on LINE">
+                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+                            </svg>
+                        </button>
+                        <button class="journey-share-btn copy" onclick="shareJourney('copy')" title="Copy link">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="9" y="9" width="13" height="13" rx="2"/>
+                                <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- APP PREVIEW SECTION - Floating Phone -->
+    <section class="app-preview-section" id="app-preview">
+        <div class="app-preview-container">
+            <div class="app-preview-header" data-animate>
+                <h2>See the App in Action</h2>
+                <p>
+                    Big Garden transforms developmental tracking into a beautiful,
+                    intuitive experience. Here's what your child's garden will look like.
+                </p>
+            </div>
+
+            <!-- Phone Mockup -->
+            <div class="phone-mockup" data-animate="delay-1">
+                <div class="phone-frame">
+                    <div class="phone-screen">
+                        <!-- HUD -->
+                        <div class="preview-hud">
+                            <div class="preview-hud-row">
+                                <div class="preview-avatar">
+                                    <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mia&backgroundColor=ffd5dc,c0aede&backgroundType=gradientLinear&hair=long16&skinColor=ecad80" alt="Child avatar" loading="lazy">
+                                </div>
+                                <div class="preview-identity">
+                                    <h3 class="preview-name">Mia's Garden</h3>
+                                    <p class="preview-meta">18 months - Toddler</p>
+                                </div>
+                                <div class="preview-archetype">
+                                    <span class="preview-archetype-icon">&#11088;</span>
+                                    <span class="preview-archetype-text">Explorer</span>
+                                </div>
+                            </div>
+                            <div class="preview-hud-row">
+                                <div class="preview-progress">
+                                    <div class="preview-progress-bar">
+                                        <div class="preview-progress-fill" style="width: 42%"></div>
+                                    </div>
+                                    <span class="preview-progress-text">42%</span>
+                                </div>
+                            </div>
+                            <div class="preview-hud-row">
+                                <div class="preview-legend">
+                                    <span class="preview-legend-item">
+                                        <span class="preview-legend-emoji">&#127803;</span>
+                                        <span class="preview-legend-count">24</span>
+                                    </span>
+                                    <span class="preview-legend-item">
+                                        <span class="preview-legend-emoji">&#129716;</span>
+                                        <span class="preview-legend-count">8</span>
+                                    </span>
+                                    <span class="preview-legend-item">
+                                        <span class="preview-legend-emoji">&#127793;</span>
+                                        <span class="preview-legend-count">12</span>
+                                    </span>
+                                    <span class="preview-legend-item">
+                                        <span class="preview-legend-emoji">&#129704;</span>
+                                        <span class="preview-legend-count">32</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Garden View -->
+                        <div class="preview-garden">
+                            <div class="preview-timeline">
+                                <div class="preview-era">
+                                    <span class="preview-era-name">Baby</span>
+                                    <span class="preview-era-range">6-12mo</span>
+                                </div>
+                                <div class="preview-era">
+                                    <span class="preview-era-name">Toddler</span>
+                                    <span class="preview-era-range">12-24mo</span>
+                                </div>
+                                <div class="preview-era">
+                                    <span class="preview-era-name">Preschool</span>
+                                    <span class="preview-era-range">2-6yrs</span>
+                                </div>
+                            </div>
+
+                            <div class="preview-now-indicator">
+                                <span class="preview-now-label">NOW</span>
+                            </div>
+
+                            <div class="preview-domain-rows">
+                                <!-- Gross Motor Row -->
+                                <div class="preview-domain-row">
+                                    <div class="preview-domain-label">
+                                        <span class="preview-domain-icon">&#127939;</span>
+                                        <span class="preview-domain-name">Gross Motor</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 15%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#127803;</span>
+                                        <span class="preview-skill-name">Walking</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 40%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#129716;</span>
+                                        <span class="preview-skill-name">Running</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 70%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#129704;</span>
+                                        <span class="preview-skill-name">Jumping</span>
+                                    </div>
+                                </div>
+
+                                <!-- Fine Motor Row -->
+                                <div class="preview-domain-row">
+                                    <div class="preview-domain-label">
+                                        <span class="preview-domain-icon">&#9995;</span>
+                                        <span class="preview-domain-name">Fine Motor</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 20%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#127800;</span>
+                                        <span class="preview-skill-name">Grasping</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 50%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#127793;</span>
+                                        <span class="preview-skill-name">Stacking</span>
+                                    </div>
+                                </div>
+
+                                <!-- Linguistic Row -->
+                                <div class="preview-domain-row">
+                                    <div class="preview-domain-label">
+                                        <span class="preview-domain-icon">&#128172;</span>
+                                        <span class="preview-domain-name">Linguistic</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 18%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#127799;</span>
+                                        <span class="preview-skill-name">Babbling</span>
+                                    </div>
+                                    <div class="preview-skill-plant" style="left: 45%; top: 20px;">
+                                        <span class="preview-skill-emoji">&#129716;</span>
+                                        <span class="preview-skill-name">Words</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -286,135 +1461,157 @@
                 </div>
             </div>
 
-            <!-- Garden ground with grass -->
-            <div class="garden-ground">
-                <div class="ground-gradient"></div>
-                <div class="grass-blades" id="grass-blades">
-                    <!-- Grass blades generated by JS -->
+            <!-- Feature Cards -->
+            <div class="app-features-grid" data-animate="delay-2">
+                <div class="app-feature-card">
+                    <div class="app-feature-icon">&#127793;</div>
+                    <h4>Track Progress</h4>
+                    <p>See every skill grow from seed to bloom with visual progress indicators.</p>
+                </div>
+                <div class="app-feature-card">
+                    <div class="app-feature-icon">&#128202;</div>
+                    <h4>9 Domains</h4>
+                    <p>Monitor development across motor, language, cognitive, social, and more.</p>
+                </div>
+                <div class="app-feature-card">
+                    <div class="app-feature-icon">&#10024;</div>
+                    <h4>Celebrate Wins</h4>
+                    <p>Every mastered skill is a celebration. Watch your garden flourish!</p>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <!-- Decorative flower clusters -->
-            <div class="garden-decorations">
-                <div class="flower-cluster flower-cluster--left">
-                    <svg class="garden-flower garden-flower--coral" width="40" height="60" viewBox="0 0 40 60" style="animation-delay: 0s;">
-                        <path d="M20 60 L20 35" stroke="#7A9E7E" stroke-width="3" fill="none"/>
-                        <circle cx="20" cy="25" r="12" fill="currentColor"/>
-                        <circle cx="20" cy="25" r="6" fill="#F5C87A"/>
-                    </svg>
-                    <svg class="garden-flower garden-flower--honey" width="30" height="50" viewBox="0 0 30 50" style="animation-delay: 0.5s; margin-left: -10px;">
-                        <path d="M15 50 L15 30" stroke="#7A9E7E" stroke-width="2" fill="none"/>
-                        <circle cx="15" cy="20" r="10" fill="currentColor"/>
-                        <circle cx="15" cy="20" r="5" fill="#fff"/>
-                    </svg>
-                </div>
-                <div class="flower-cluster flower-cluster--right">
-                    <svg class="garden-flower garden-flower--sky" width="35" height="55" viewBox="0 0 35 55" style="animation-delay: 0.3s;">
-                        <path d="M17.5 55 L17.5 32" stroke="#7A9E7E" stroke-width="2.5" fill="none"/>
-                        <circle cx="17.5" cy="22" r="11" fill="currentColor"/>
-                        <circle cx="17.5" cy="22" r="5.5" fill="#F5C87A"/>
-                    </svg>
-                    <svg class="garden-flower garden-flower--coral" width="25" height="45" viewBox="0 0 25 45" style="animation-delay: 0.8s; margin-left: -8px;">
-                        <path d="M12.5 45 L12.5 28" stroke="#7A9E7E" stroke-width="2" fill="none"/>
-                        <circle cx="12.5" cy="18" r="8" fill="currentColor"/>
-                        <circle cx="12.5" cy="18" r="4" fill="#fff"/>
-                    </svg>
-                </div>
-            </div>
-        </section>
-
-        <!-- Features Section Placeholder -->
-        <section class="product-section" id="features">
-            <div class="product-section__header">
-                <h2 class="product-section__title">A Garden of Growth</h2>
-                <p class="product-section__subtitle">
-                    Track your child's development across 9 key domains, visualized as a beautiful garden that grows with them.
+    <!-- DOMAINS SECTION - 9 Growth Domains -->
+    <section class="domains-section" id="domains">
+        <div class="domains-container">
+            <div class="domains-header" data-animate>
+                <h2>9 Growth Domains</h2>
+                <p>
+                    Big Garden tracks your child's development across all key areas,
+                    each represented by a unique plant that grows as they learn.
                 </p>
             </div>
 
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card__title">9 Developmental Domains</h3>
-                    <p class="feature-card__description">
-                        From gross motor to social-emotional, track progress across all areas of child development.
-                    </p>
+            <div class="domains-grid" data-animate="delay-1">
+                <div class="domain-card">
+                    <div class="domain-icon">&#127803;</div>
+                    <h4>Gross Motor</h4>
+                    <p>Running, jumping, climbing</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <path d="M12 6v6l4 2"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card__title">Age-Appropriate Milestones</h3>
-                    <p class="feature-card__description">
-                        Research-backed milestones from 0-6 years, organized by developmental stage.
-                    </p>
+                <div class="domain-card">
+                    <div class="domain-icon">&#127800;</div>
+                    <h4>Fine Motor</h4>
+                    <p>Grasping, drawing, building</p>
                 </div>
-
-                <div class="feature-card">
-                    <div class="feature-card__icon">
-                        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="feature-card__title">Activity Suggestions</h3>
-                    <p class="feature-card__description">
-                        Get personalized activity ideas to help nurture skills that are ready to bloom.
-                    </p>
+                <div class="domain-card">
+                    <div class="domain-icon">&#127799;</div>
+                    <h4>Linguistic</h4>
+                    <p>Speaking, listening, reading</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#129467;</div>
+                    <h4>Cognitive</h4>
+                    <p>Problem-solving, memory</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#127802;</div>
+                    <h4>Social</h4>
+                    <p>Sharing, friendship, empathy</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#129344;</div>
+                    <h4>Emotional</h4>
+                    <p>Self-regulation, expression</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#127774;</div>
+                    <h4>Self-Care</h4>
+                    <p>Dressing, eating, hygiene</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#127912;</div>
+                    <h4>Creative</h4>
+                    <p>Art, music, imagination</p>
+                </div>
+                <div class="domain-card">
+                    <div class="domain-icon">&#129716;</div>
+                    <h4>Nature</h4>
+                    <p>Curiosity, exploration</p>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Notification Signup -->
-        <section class="product-section product-section--alt" id="notify">
-            <div class="cta-block">
-                <h2 class="cta-block__title">Be the First to Know</h2>
-                <p class="cta-block__text">
-                    Big Garden is launching soon. Join our waitlist to get early access and special founding member benefits.
-                </p>
-                <form action="https://app.kit.com/forms/8398985/subscriptions" method="post" class="newsletter-form" style="max-width: 400px; margin: 0 auto;">
-                    <div class="floating-field" style="margin-bottom: var(--space-md);">
-                        <input type="email" id="notify-email" name="email_address" placeholder=" " required style="width: 100%; padding: var(--space-md); border: 2px solid var(--env-sage-100); border-radius: var(--radius-md); font-size: var(--text-body);">
-                        <label for="notify-email" style="position: absolute; left: var(--space-md); top: 50%; transform: translateY(-50%); color: var(--color-text-tertiary); pointer-events: none; transition: all 0.2s;">Your email</label>
-                    </div>
-                    <input type="hidden" name="tags[]" value="big-garden-waitlist">
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
-                        Join the Waitlist
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
+    <!-- CTA SECTION -->
+    <section class="garden-cta-section">
+        <div class="garden-cta-container" data-animate>
+            <h2>Start Your Garden Today</h2>
+            <p>
+                Join thousands of families who've transformed milestone tracking
+                into a joyful journey of discovery.
+            </p>
+            <a href="/contact.html" class="garden-cta-btn">
+                Get Started
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+            </a>
+        </div>
+    </section>
 
-    <!-- Footer (Shared Component) -->
+    <!-- FOOTER (shared component) -->
     <div id="footer-placeholder"></div>
 
     <!-- Scripts -->
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+
+    <!-- Page Scripts -->
     <script>
-        // Generate grass blades
-        document.addEventListener('DOMContentLoaded', function() {
-            const grassContainer = document.getElementById('grass-blades');
-            if (grassContainer) {
-                const bladeCount = Math.floor(window.innerWidth / 8);
-                for (let i = 0; i < bladeCount; i++) {
-                    const blade = document.createElement('div');
-                    blade.className = 'grass-blade';
-                    blade.style.left = `${(i / bladeCount) * 100}%`;
-                    blade.style.height = `${40 + Math.random() * 40}px`;
-                    blade.style.animationDelay = `${Math.random() * 2}s`;
-                    grassContainer.appendChild(blade);
+        // Intersection Observer for animations
+        const animatedElements = document.querySelectorAll('[data-animate]');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('in-view');
                 }
-            }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
         });
+
+        animatedElements.forEach(el => observer.observe(el));
+
+        // Social sharing
+        function shareJourney(platform) {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent('Every child blooms in their own time. Big Garden helps you see it happen.');
+
+            let shareUrl;
+            switch(platform) {
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+                    break;
+                case 'twitter':
+                    shareUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+                    break;
+                case 'line':
+                    shareUrl = `https://social-plugins.line.me/lineit/share?url=${url}`;
+                    break;
+                case 'copy':
+                    navigator.clipboard.writeText(window.location.href).then(() => {
+                        alert('Link copied to clipboard!');
+                    });
+                    return;
+            }
+
+            if (shareUrl) {
+                window.open(shareUrl, '_blank', 'width=600,height=400');
+            }
+        }
     </script>
 </body>
 </html>
