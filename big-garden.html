@@ -12,9 +12,7 @@
     <meta property="og:url" content="https://lumicello.com/big-garden.html">
     <meta property="og:title" content="Big Garden - Watch Your Child Grow | Lumicello">
     <meta property="og:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
-    <meta property="og:image" content="https://lumicello.com/assets/images/big-garden/og-big-garden.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
+    <meta property="og:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
     <meta property="og:site_name" content="Lumicello">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="th_TH">
@@ -26,7 +24,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Big Garden - Watch Your Child Grow | Lumicello">
     <meta name="twitter:description" content="Track your child's developmental milestones through the Big Garden app. Watch skills bloom like plants in a garden.">
-    <meta name="twitter:image" content="https://lumicello.com/assets/images/big-garden/og-big-garden.png">
+    <meta name="twitter:image" content="https://lumicello.com/assets/images/lumicello_logo.webp">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -241,13 +239,6 @@
             animation: fade-up var(--duration-slowest) var(--ease-out) 0.4s both;
         }
 
-        .garden-hero-illustration {
-            max-width: 100%;
-            height: auto;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-lg);
-        }
-
         /* ============================================
            GARDEN METAPHOR SECTION
            ============================================ */
@@ -296,13 +287,6 @@
         .garden-scene-svg {
             width: 100%;
             height: 100%;
-        }
-
-        .garden-scene-img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
         }
 
         /* Particles container */
@@ -554,11 +538,6 @@
             border-radius: var(--radius-md);
         }
 
-        /* Carousel dots - hidden by default (desktop), shown on mobile */
-        .carousel-dots {
-            display: none;
-        }
-
         /* Garden message */
         .garden-message {
             text-align: center;
@@ -672,66 +651,9 @@
                 display: none;
             }
 
-            /* Mobile Carousel for Skill Plants */
             .skill-plants {
-                display: flex;
-                overflow-x: auto;
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
-                gap: var(--space-md);
-                max-width: 100%;
-                padding: var(--space-md) var(--space-lg);
-                margin: 0 calc(-1 * var(--space-lg));
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none; /* IE/Edge */
-            }
-
-            .skill-plants::-webkit-scrollbar {
-                display: none; /* Chrome/Safari */
-            }
-
-            .skill-plants .skill-plant {
-                flex: 0 0 280px;
-                scroll-snap-align: center;
-                min-width: 280px;
-            }
-
-            /* First and last item padding for centering */
-            .skill-plants .skill-plant:first-child {
-                margin-left: calc(50vw - 140px);
-            }
-
-            .skill-plants .skill-plant:last-child {
-                margin-right: calc(50vw - 140px);
-            }
-
-            /* Carousel Dot Indicators - Mobile Only */
-            .carousel-dots {
-                display: flex;
-                justify-content: center;
-                gap: 8px;
-                margin-top: var(--space-lg);
-                padding: var(--space-sm) 0;
-            }
-
-            .carousel-dot {
-                width: 10px;
-                height: 10px;
-                border-radius: 50%;
-                background: var(--color-sand);
-                border: none;
-                padding: 0;
-                cursor: pointer;
-                transition: all var(--duration-fast) var(--ease-out);
-            }
-
-            .carousel-dot.active {
-                background: var(--color-sage);
-                transform: scale(1.2);
-            }
-
-            .carousel-dot:hover {
-                background: var(--color-sage-light);
+                grid-template-columns: 1fr;
+                max-width: 350px;
             }
 
             .garden-scene {
@@ -817,20 +739,30 @@
         }
 
         /* ============================================
-           SHAREABLE JOURNEY SECTION - Magazine Split Layout
-           Designed for emotional impact & social sharing
+           SHAREABLE JOURNEY SECTION
            ============================================ */
         .journey-section {
-            padding: var(--spacing-section) 0;
-            background: #FDFCFA;
+            padding: var(--spacing-section) var(--space-lg);
+            background: linear-gradient(180deg, var(--color-bg-main) 0%, var(--color-bg-warm) 50%, var(--color-bg-main) 100%);
             position: relative;
             overflow: hidden;
         }
 
+        .journey-section::before {
+            content: "";
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            top: -100px;
+            left: -150px;
+            background: radial-gradient(ellipse, var(--color-accent-soft) 0%, transparent 70%);
+            border-radius: var(--radius-blob);
+            z-index: 0;
+        }
+
         .journey-container {
-            max-width: 1200px;
+            max-width: var(--container-max);
             margin: 0 auto;
-            padding: 0 var(--space-lg);
             position: relative;
             z-index: 1;
         }
@@ -838,26 +770,13 @@
         .journey-header {
             text-align: center;
             max-width: 700px;
-            margin: 0 auto var(--space-3xl);
+            margin: 0 auto var(--space-4xl);
         }
 
         .journey-header h2 {
-            font-size: clamp(2.25rem, 6vw, 3.5rem);
+            font-size: var(--text-display);
             margin-bottom: var(--space-md);
             color: var(--color-text-primary);
-            line-height: 1.1;
-            font-weight: 800;
-        }
-
-        .journey-header h2 .accent-worry {
-            color: #8B8178;
-        }
-
-        .journey-header h2 .accent-wonder {
-            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
 
         .journey-header p {
@@ -866,694 +785,106 @@
             line-height: var(--leading-relaxed);
         }
 
-        /* Shareable Card - Horizontal Split Design */
-        .journey-shareable-card {
-            background: white;
-            border-radius: 32px;
-            box-shadow:
-                0 25px 80px rgba(0,0,0,0.08),
-                0 10px 30px rgba(0,0,0,0.05),
-                0 0 0 1px rgba(0,0,0,0.02);
-            max-width: 960px;
-            margin: 0 auto var(--space-2xl);
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Split Screen Layout */
-        .journey-split {
+        /* Before/After Comparison */
+        .journey-comparison {
             display: grid;
             grid-template-columns: 1fr auto 1fr;
-            min-height: 480px;
+            gap: var(--space-xl);
+            align-items: center;
+            max-width: 1000px;
+            margin: 0 auto var(--space-4xl);
         }
 
-        /* Panel Shared Styles */
         .journey-panel {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: var(--space-3xl) var(--space-2xl);
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: var(--space-2xl);
+            box-shadow: var(--shadow-lg);
             text-align: center;
             position: relative;
+            overflow: hidden;
+            transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal);
         }
 
-        /* Before Panel - Heavy, Muted, Anxious */
+        .journey-panel:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
         .journey-panel.before {
-            background: linear-gradient(160deg, #E8E4DF 0%, #D9D4CD 50%, #CAC4BC 100%);
+            border-top: 4px solid var(--color-text-tertiary);
         }
 
-        .journey-panel.before::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 20% 30%, rgba(139, 129, 120, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(139, 129, 120, 0.1) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        /* After Panel - Light, Hopeful, Joyful */
         .journey-panel.after {
-            background: linear-gradient(160deg, #F0F7F1 0%, #E5F0E7 50%, #D8EAD9 100%);
+            border-top: 4px solid var(--color-sage);
         }
 
-        .journey-panel.after::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background:
-                radial-gradient(circle at 30% 20%, rgba(122, 158, 126, 0.2) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(122, 158, 126, 0.15) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        /* Panel Labels */
         .journey-panel-label {
             display: inline-block;
-            padding: 8px 20px;
+            padding: var(--space-xs) var(--space-md);
             border-radius: var(--radius-pill);
-            font-size: 11px;
-            font-weight: 800;
+            font-size: var(--text-xs);
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
+            letter-spacing: var(--tracking-wider);
             margin-bottom: var(--space-lg);
-            position: relative;
-            z-index: 1;
         }
 
         .journey-panel.before .journey-panel-label {
-            background: #8B8178;
+            background: var(--color-text-tertiary);
             color: white;
-            box-shadow: 0 4px 12px rgba(139, 129, 120, 0.4);
         }
 
         .journey-panel.after .journey-panel-label {
-            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
+            background: var(--color-sage);
             color: white;
-            box-shadow: 0 4px 12px rgba(122, 158, 126, 0.5);
         }
 
-        /* Illustrations */
         .journey-panel-illustration {
-            width: 220px;
-            height: 220px;
-            margin-bottom: var(--space-xl);
-            position: relative;
-            z-index: 1;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto var(--space-lg);
         }
 
-        .journey-panel-illustration img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            transition: transform var(--duration-normal) var(--ease-out);
-        }
-
-        .journey-panel.before .journey-panel-illustration img {
-            filter: drop-shadow(0 8px 24px rgba(0,0,0,0.15));
-        }
-
-        .journey-panel.after .journey-panel-illustration img {
-            filter: drop-shadow(0 8px 24px rgba(122, 158, 126, 0.3));
-        }
-
-        .journey-panel:hover .journey-panel-illustration img {
-            transform: scale(1.05);
-        }
-
-        /* Panel Text */
         .journey-panel h3 {
-            font-size: clamp(1.35rem, 3vw, 1.65rem);
+            font-size: var(--text-h3);
+            color: var(--color-text-primary);
             margin-bottom: var(--space-sm);
-            font-weight: 700;
-            position: relative;
-            z-index: 1;
-        }
-
-        .journey-panel.before h3 {
-            color: #5C544C;
-        }
-
-        .journey-panel.after h3 {
-            color: var(--color-sage-dark);
         }
 
         .journey-panel p {
-            font-size: var(--text-body);
-            line-height: var(--leading-relaxed);
-            max-width: 260px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 1;
-        }
-
-        .journey-panel.before p {
-            color: #706860;
-        }
-
-        .journey-panel.after p {
-            color: #4A6A4D;
-        }
-
-        /* Center Divider - The Transformation Bridge */
-        .journey-divider {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            width: 80px;
-            background: linear-gradient(180deg, #D9D4CD 0%, #E5F0E7 100%);
-            position: relative;
-            z-index: 2;
-        }
-
-        .journey-divider::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            bottom: 0;
-            width: 3px;
-            transform: translateX(-50%);
-            background: linear-gradient(180deg,
-                #8B8178 0%,
-                #A09589 25%,
-                var(--color-sage) 75%,
-                #5A8A5E 100%
-            );
-        }
-
-        .journey-divider-badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 6px;
-            background: white;
-            padding: 16px 12px;
-            border-radius: 40px;
-            box-shadow:
-                0 8px 32px rgba(0,0,0,0.15),
-                0 0 0 3px rgba(122, 158, 126, 0.2);
-            position: relative;
-            z-index: 3;
-        }
-
-        .journey-divider-arrow {
-            width: 32px;
-            height: 32px;
-            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .journey-divider-arrow svg {
-            width: 18px;
-            height: 18px;
-            color: white;
-            transform: rotate(90deg);
-        }
-
-        .journey-divider-text {
-            writing-mode: vertical-rl;
-            text-orientation: mixed;
-            font-size: 10px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--color-sage-dark);
-            transform: rotate(180deg);
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(122, 158, 126, 0.4);
-            }
-            50% {
-                box-shadow: 0 0 0 8px rgba(122, 158, 126, 0);
-            }
-        }
-
-        /* Bottom Section - Tagline & Share */
-        .journey-bottom {
-            background: linear-gradient(180deg, #FAFBFA 0%, #F5F7F5 100%);
-            padding: var(--space-xl) var(--space-2xl);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: var(--space-lg);
-            border-top: 1px solid rgba(122, 158, 126, 0.15);
-        }
-
-        .journey-tagline {
-            flex: 1;
-        }
-
-        .journey-tagline p {
-            font-family: var(--font-heading);
-            font-size: clamp(1.1rem, 2.5vw, 1.35rem);
-            color: var(--color-sage-dark);
-            font-style: italic;
-            margin: 0 0 4px 0;
-            line-height: 1.3;
-        }
-
-        .journey-tagline .brand {
-            font-size: 12px;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            color: var(--color-sage);
-            font-style: normal;
-            text-transform: uppercase;
-        }
-
-        /* Share Buttons */
-        .journey-share-row {
-            display: flex;
-            gap: 10px;
-        }
-
-        .journey-share-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 42px;
-            height: 42px;
-            border-radius: 50%;
-            border: none;
-            cursor: pointer;
-            transition: transform var(--duration-fast), box-shadow var(--duration-fast);
-            box-shadow: 0 3px 12px rgba(0,0,0,0.1);
-        }
-
-        .journey-share-btn:hover {
-            transform: scale(1.12) translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.18);
-        }
-
-        .journey-share-btn.facebook { background: #1877F2; }
-        .journey-share-btn.twitter { background: #000000; }
-        .journey-share-btn.line { background: #00B900; }
-        .journey-share-btn.copy { background: var(--color-sage); }
-
-        .journey-share-btn img,
-        .journey-share-btn svg {
-            width: 20px;
-            height: 20px;
-            filter: brightness(0) invert(1);
-        }
-
-        /* CTA below card */
-        .journey-cta {
-            text-align: center;
-            margin-top: var(--space-2xl);
-        }
-
-        .journey-cta p {
-            font-size: var(--text-body);
-            color: var(--color-text-secondary);
-            margin-bottom: var(--space-md);
-        }
-
-        .journey-cta-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: var(--space-sm);
-            background: linear-gradient(135deg, var(--color-sage) 0%, #5A8A5E 100%);
-            color: white;
-            padding: 16px 32px;
-            border-radius: var(--radius-pill);
-            font-weight: 700;
-            font-size: var(--text-body);
-            text-decoration: none;
-            transition: transform var(--duration-fast), box-shadow var(--duration-fast);
-            box-shadow: 0 6px 24px rgba(122, 158, 126, 0.4);
-        }
-
-        .journey-cta-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 36px rgba(122, 158, 126, 0.5);
-        }
-
-        .journey-cta-btn svg {
-            width: 20px;
-            height: 20px;
-        }
-
-        /* Responsive - Tablet */
-        @media (min-width: 768px) and (max-width: 1023px) {
-            .journey-split {
-                min-height: 420px;
-            }
-
-            .journey-panel {
-                padding: var(--space-2xl) var(--space-xl);
-            }
-
-            .journey-panel-illustration {
-                width: 180px;
-                height: 180px;
-            }
-
-            .journey-divider {
-                width: 60px;
-            }
-        }
-
-        /* Responsive - Mobile: Stack vertically */
-        @media (max-width: 767px) {
-            .journey-shareable-card {
-                border-radius: 24px;
-                margin-left: var(--space-md);
-                margin-right: var(--space-md);
-            }
-
-            .journey-split {
-                grid-template-columns: 1fr;
-                grid-template-rows: auto auto auto;
-                min-height: auto;
-            }
-
-            .journey-panel {
-                padding: var(--space-2xl) var(--space-lg);
-            }
-
-            .journey-panel-illustration {
-                width: 180px;
-                height: 180px;
-                margin-bottom: var(--space-lg);
-            }
-
-            .journey-panel h3 {
-                font-size: 1.3rem;
-            }
-
-            /* Horizontal divider on mobile */
-            .journey-divider {
-                width: 100%;
-                height: 70px;
-                flex-direction: row;
-                background: linear-gradient(90deg, #D9D4CD 0%, #E5F0E7 100%);
-            }
-
-            .journey-divider::before {
-                top: 50%;
-                left: 0;
-                right: 0;
-                bottom: auto;
-                width: auto;
-                height: 3px;
-                transform: translateY(-50%);
-                background: linear-gradient(90deg,
-                    #8B8178 0%,
-                    #A09589 25%,
-                    var(--color-sage) 75%,
-                    #5A8A5E 100%
-                );
-            }
-
-            .journey-divider-badge {
-                flex-direction: row;
-                padding: 12px 20px;
-                border-radius: 30px;
-            }
-
-            .journey-divider-arrow svg {
-                transform: rotate(0deg);
-            }
-
-            .journey-divider-text {
-                writing-mode: horizontal-tb;
-                transform: none;
-            }
-
-            .journey-bottom {
-                flex-direction: column;
-                text-align: center;
-                padding: var(--space-lg);
-            }
-
-            .journey-tagline {
-                margin-bottom: var(--space-sm);
-            }
-        }
-
-        /* Very small screens */
-        @media (max-width: 400px) {
-            .journey-panel {
-                padding: var(--space-xl) var(--space-md);
-            }
-
-            .journey-panel-illustration {
-                width: 150px;
-                height: 150px;
-            }
-
-            .journey-share-btn {
-                width: 38px;
-                height: 38px;
-            }
-        }
-
-        /* ============================================
-           APP EXPERIENCE VIGNETTES SECTION
-           Cropped, styled UI screenshots showing the feel
-           ============================================ */
-        .vignettes-section {
-            padding: var(--spacing-section) 0;
-            background: linear-gradient(180deg, #FDFCFA 0%, var(--color-bg-lawn) 50%, #FDFCFA 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .vignettes-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 var(--space-lg);
-        }
-
-        .vignettes-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto var(--space-3xl);
-        }
-
-        .vignettes-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            margin-bottom: var(--space-md);
-            color: var(--color-text-primary);
-            line-height: 1.1;
-            font-weight: 700;
-        }
-
-        .vignettes-header h2 .accent {
-            color: var(--color-sage);
-            font-style: italic;
-        }
-
-        .vignettes-header p {
-            font-size: var(--text-body-lg);
-            color: var(--color-text-secondary);
-            line-height: var(--leading-relaxed);
-        }
-
-        /* Vignette Grid - Masonry-style scattered layout */
-        .vignettes-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-template-rows: auto auto auto;
-            gap: var(--space-xl);
-            max-width: 1100px;
-            margin: 0 auto;
-        }
-
-        /* Individual Vignette Card */
-        .vignette {
-            position: relative;
-            background: white;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow:
-                0 20px 60px rgba(0,0,0,0.08),
-                0 8px 24px rgba(0,0,0,0.04);
-            transition: transform var(--duration-normal) var(--ease-out),
-                        box-shadow var(--duration-normal) var(--ease-out);
-        }
-
-        .vignette:hover {
-            transform: translateY(-8px) rotate(0deg) !important;
-            box-shadow:
-                0 30px 80px rgba(0,0,0,0.12),
-                0 12px 32px rgba(0,0,0,0.06);
-        }
-
-        /* Vignette positioning - scattered magazine feel */
-        .vignette-1 {
-            grid-column: 1 / 6;
-            grid-row: 1;
-            transform: rotate(-2deg);
-        }
-
-        .vignette-2 {
-            grid-column: 6 / 13;
-            grid-row: 1;
-            transform: rotate(1.5deg);
-        }
-
-        .vignette-3 {
-            grid-column: 2 / 7;
-            grid-row: 2;
-            transform: rotate(1deg);
-        }
-
-        .vignette-4 {
-            grid-column: 7 / 12;
-            grid-row: 2;
-            transform: rotate(-1.5deg);
-        }
-
-        /* Vignette inner content */
-        .vignette-frame {
-            padding: var(--space-md);
-            background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
-        }
-
-        .vignette-image {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;
-            display: block;
-        }
-
-        /* Vignette caption */
-        .vignette-caption {
-            padding: var(--space-lg) var(--space-xl);
-            text-align: center;
-            background: white;
-        }
-
-        .vignette-emoji {
-            font-size: 2rem;
-            margin-bottom: var(--space-xs);
-            display: block;
-        }
-
-        .vignette-title {
-            font-size: var(--text-body);
-            font-weight: 700;
-            color: var(--color-text-primary);
-            margin-bottom: var(--space-2xs);
-        }
-
-        .vignette-subtitle {
             font-size: var(--text-small);
             color: var(--color-text-secondary);
             line-height: var(--leading-normal);
         }
 
-        /* Device frame overlay effect */
-        .vignette-frame::before {
-            content: "";
-            position: absolute;
-            top: 8px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 4px;
-            background: rgba(0,0,0,0.1);
-            border-radius: 2px;
-            z-index: 2;
+        .journey-arrow {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            color: var(--color-sage);
         }
 
-        /* Soft glow behind vignettes */
-        .vignette::after {
-            content: "";
-            position: absolute;
-            inset: -20px;
-            background: radial-gradient(ellipse at center, var(--color-sage-soft) 0%, transparent 70%);
-            z-index: -1;
-            opacity: 0;
-            transition: opacity var(--duration-normal);
+        .journey-arrow svg {
+            width: 48px;
+            height: 48px;
+            animation: pulse-arrow 2s ease-in-out infinite;
         }
 
-        .vignette:hover::after {
-            opacity: 1;
+        .journey-arrow span {
+            font-size: var(--text-xs);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: var(--tracking-wider);
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
         }
 
-        /* Vignettes responsive */
-        @media (max-width: 1024px) {
-            .vignettes-grid {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: auto;
-                gap: var(--space-lg);
-            }
-
-            .vignette-1,
-            .vignette-2,
-            .vignette-3,
-            .vignette-4 {
-                grid-column: auto;
-                grid-row: auto;
-                transform: none;
-            }
-
-            .vignette {
-                border-radius: 20px;
-            }
+        @keyframes pulse-arrow {
+            0%, 100% { transform: translateX(0); opacity: 0.7; }
+            50% { transform: translateX(5px); opacity: 1; }
         }
-
-        @media (max-width: 600px) {
-            .vignettes-grid {
-                grid-template-columns: 1fr;
-                max-width: 400px;
-            }
-
-            .vignettes-section {
-                padding: var(--space-4xl) 0;
-            }
-
-            .vignette-caption {
-                padding: var(--space-md) var(--space-lg);
-            }
-
-            .vignette-emoji {
-                font-size: 1.5rem;
-            }
-
-            .vignette-title {
-                font-size: var(--text-small);
-            }
-
-            .vignette-subtitle {
-                font-size: 0.8rem;
-            }
-        }
-
-        /* Scroll animations for vignettes */
-        .vignettes-section [data-animate] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-        }
-
-        .vignettes-section [data-animate].in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .vignettes-section [data-animate="delay-1"] { transition-delay: 0.1s; }
-        .vignettes-section [data-animate="delay-2"] { transition-delay: 0.2s; }
-        .vignettes-section [data-animate="delay-3"] { transition-delay: 0.3s; }
-        .vignettes-section [data-animate="delay-4"] { transition-delay: 0.4s; }
 
         /* ============================================
            SOCIAL PROOF SECTION
@@ -1820,6 +1151,20 @@
         }
 
         @media (max-width: 768px) {
+            .journey-comparison {
+                grid-template-columns: 1fr;
+                gap: var(--space-lg);
+            }
+
+            .journey-arrow {
+                transform: rotate(90deg);
+            }
+
+            .journey-arrow span {
+                writing-mode: horizontal-tb;
+                transform: none;
+            }
+
             .proof-stats {
                 grid-template-columns: repeat(2, 1fr);
                 gap: var(--space-md);
@@ -1877,498 +1222,6 @@
         .quotable-section [data-animate="delay-1"] {
             transition-delay: 0.2s;
         }
-
-        /* ============================================
-           APP PREVIEW SECTION - UI Vignettes
-           Real app UI components for marketing showcase
-           ============================================ */
-        .app-preview-section {
-            padding: var(--spacing-section) var(--space-lg);
-            background: linear-gradient(180deg, var(--color-bg-main) 0%, rgba(122, 158, 126, 0.08) 50%, var(--color-bg-main) 100%);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .app-preview-container {
-            max-width: var(--container-max);
-            margin: 0 auto;
-        }
-
-        .app-preview-header {
-            text-align: center;
-            max-width: 700px;
-            margin: 0 auto var(--space-4xl);
-        }
-
-        .app-preview-header h2 {
-            font-size: var(--text-display);
-            margin-bottom: var(--space-md);
-            color: var(--color-text-primary);
-        }
-
-        .app-preview-header p {
-            font-size: var(--text-body-lg);
-            color: var(--color-text-secondary);
-            line-height: var(--leading-relaxed);
-        }
-
-        /* Phone Frame Container */
-        .phone-mockup {
-            max-width: 380px;
-            margin: 0 auto var(--space-3xl);
-            position: relative;
-        }
-
-        .phone-frame {
-            background: #1a1a1a;
-            border-radius: 40px;
-            padding: 12px;
-            box-shadow:
-                0 25px 50px rgba(0, 0, 0, 0.25),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-            position: relative;
-        }
-
-        .phone-frame::before {
-            content: "";
-            position: absolute;
-            top: 12px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 24px;
-            background: #1a1a1a;
-            border-radius: 12px;
-            z-index: 10;
-        }
-
-        .phone-screen {
-            background: #FAF8F5;
-            border-radius: 30px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* App Preview HUD (Dashboard Header) */
-        .preview-hud {
-            background: white;
-            padding: 16px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .preview-hud-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .preview-hud-row + .preview-hud-row {
-            margin-top: 12px;
-            padding-top: 12px;
-            border-top: 1px solid rgba(0, 0, 0, 0.04);
-        }
-
-        .preview-avatar {
-            width: 48px;
-            height: 48px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #ffd5dc, #c0aede);
-            overflow: hidden;
-            flex-shrink: 0;
-        }
-
-        .preview-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .preview-identity {
-            flex: 1;
-            min-width: 0;
-        }
-
-        .preview-name {
-            font-family: var(--font-heading);
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--color-text-primary);
-            margin: 0;
-        }
-
-        .preview-meta {
-            font-size: 11px;
-            color: var(--color-text-secondary);
-            margin: 2px 0 0;
-        }
-
-        .preview-archetype {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--color-sage-soft);
-            padding: 6px 10px;
-            border-radius: 20px;
-        }
-
-        .preview-archetype-icon {
-            font-size: 16px;
-        }
-
-        .preview-archetype-text {
-            font-size: 11px;
-            font-weight: 600;
-            color: var(--color-sage-dark);
-        }
-
-        .preview-progress {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex: 1;
-        }
-
-        .preview-progress-bar {
-            flex: 1;
-            height: 8px;
-            background: rgba(122, 158, 126, 0.2);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .preview-progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--color-sage), var(--color-sage-light));
-            border-radius: 4px;
-            transition: width 1s ease-out;
-        }
-
-        .preview-progress-text {
-            font-size: 14px;
-            font-weight: 700;
-            color: var(--color-sage-dark);
-            min-width: 40px;
-        }
-
-        .preview-legend {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .preview-legend-item {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: 10px;
-            color: var(--color-text-secondary);
-            background: rgba(0, 0, 0, 0.03);
-            padding: 4px 8px;
-            border-radius: 12px;
-        }
-
-        .preview-legend-emoji {
-            font-size: 12px;
-        }
-
-        .preview-legend-count {
-            font-weight: 700;
-            color: var(--color-text-primary);
-        }
-
-        /* App Preview Garden View */
-        .preview-garden {
-            position: relative;
-            height: 320px;
-            background: linear-gradient(180deg, #E8F4FC 0%, #C5E8C9 70%, #A8C5AB 100%);
-            overflow: hidden;
-        }
-
-        /* Timeline bar at top of garden */
-        .preview-timeline {
-            display: flex;
-            height: 32px;
-            background: rgba(255, 255, 255, 0.5);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .preview-era {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            font-size: 9px;
-            border-right: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        .preview-era:last-child {
-            border-right: none;
-        }
-
-        .preview-era-name {
-            font-weight: 600;
-            color: var(--color-text-primary);
-        }
-
-        .preview-era-range {
-            font-size: 8px;
-            color: var(--color-text-secondary);
-        }
-
-        /* NOW indicator */
-        .preview-now-indicator {
-            position: absolute;
-            top: 32px;
-            left: 45%;
-            width: 3px;
-            height: calc(100% - 32px);
-            background: linear-gradient(180deg, #F5C87A 0%, rgba(245, 200, 122, 0.3) 100%);
-            z-index: 20;
-        }
-
-        .preview-now-label {
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #F5C87A;
-            color: var(--color-text-primary);
-            font-size: 8px;
-            font-weight: 700;
-            padding: 2px 6px;
-            border-radius: 6px;
-            white-space: nowrap;
-        }
-
-        /* Domain rows */
-        .preview-domain-rows {
-            position: absolute;
-            top: 32px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-
-        .preview-domain-row {
-            position: relative;
-            height: 72px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-            display: flex;
-            align-items: center;
-        }
-
-        .preview-domain-label {
-            position: absolute;
-            left: 8px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.8) 80%, transparent 100%);
-            padding: 4px 8px;
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            z-index: 10;
-        }
-
-        .preview-domain-icon {
-            width: 20px;
-            height: 20px;
-            border-radius: 6px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-        }
-
-        .preview-domain-name {
-            font-size: 10px;
-            font-weight: 600;
-            color: var(--color-text-primary);
-        }
-
-        /* Domain-specific colors */
-        .preview-domain-row.gross-motor { background: rgba(232, 146, 124, 0.15); }
-        .preview-domain-row.fine-motor { background: rgba(122, 158, 126, 0.15); }
-        .preview-domain-row.linguistic { background: rgba(168, 213, 229, 0.15); }
-        .preview-domain-row.cognitive { background: rgba(212, 196, 230, 0.15); }
-
-        .preview-domain-row.gross-motor .preview-domain-icon { background: rgba(232, 146, 124, 0.3); }
-        .preview-domain-row.fine-motor .preview-domain-icon { background: rgba(122, 158, 126, 0.3); }
-        .preview-domain-row.linguistic .preview-domain-icon { background: rgba(168, 213, 229, 0.3); }
-        .preview-domain-row.cognitive .preview-domain-icon { background: rgba(212, 196, 230, 0.3); }
-
-        /* Skill plant cards */
-        .preview-skill-plant {
-            position: absolute;
-            width: 52px;
-            height: 56px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 4px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s ease;
-        }
-
-        .preview-skill-plant:hover {
-            transform: scale(1.1);
-        }
-
-        .preview-skill-emoji {
-            font-size: 20px;
-            line-height: 1;
-        }
-
-        .preview-skill-name {
-            font-size: 7px;
-            font-weight: 500;
-            color: var(--color-text-primary);
-            text-align: center;
-            margin-top: 2px;
-            max-width: 48px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-
-        .preview-skill-status {
-            position: absolute;
-            bottom: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 7px;
-            font-weight: 600;
-            padding: 1px 5px;
-            border-radius: 6px;
-            text-transform: uppercase;
-            letter-spacing: 0.3px;
-        }
-
-        /* Skill states */
-        .preview-skill-plant.mastered {
-            background: linear-gradient(135deg, #F0FFF4 0%, #C6F6D5 100%);
-            border: 2px solid #68D391;
-        }
-
-        .preview-skill-plant.mastered .preview-skill-status {
-            background: #38A169;
-            color: white;
-        }
-
-        .preview-skill-plant.in-progress {
-            background: linear-gradient(135deg, #EBF8FF 0%, #BEE3F8 100%);
-            border: 2px solid #63B3ED;
-        }
-
-        .preview-skill-plant.in-progress .preview-skill-status {
-            background: #3182CE;
-            color: white;
-        }
-
-        .preview-skill-plant.ready {
-            background: linear-gradient(135deg, #FFF8F0 0%, #FFEDD5 100%);
-            border: 2px solid #F6AD55;
-        }
-
-        .preview-skill-plant.ready .preview-skill-status {
-            background: #ED8936;
-            color: white;
-        }
-
-        .preview-skill-plant.locked {
-            background: linear-gradient(135deg, #E8EAED 0%, #DDE0E4 100%);
-            border: 1px solid #C4C9CF;
-            opacity: 0.7;
-        }
-
-        .preview-skill-plant.locked .preview-skill-emoji {
-            filter: grayscale(60%);
-        }
-
-        .preview-skill-plant.locked .preview-skill-status {
-            background: #A0AEC0;
-            color: white;
-        }
-
-        /* Feature cards below phone */
-        .app-features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: var(--space-lg);
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .app-feature-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: var(--space-xl);
-            text-align: center;
-            box-shadow: var(--shadow-md);
-            transition: transform var(--duration-normal) var(--ease-out), box-shadow var(--duration-normal);
-        }
-
-        .app-feature-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-xl);
-        }
-
-        .app-feature-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto var(--space-md);
-            background: var(--color-sage-soft);
-            border-radius: var(--radius-md);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 28px;
-        }
-
-        .app-feature-card h4 {
-            font-size: var(--text-h3);
-            margin-bottom: var(--space-xs);
-            color: var(--color-text-primary);
-        }
-
-        .app-feature-card p {
-            font-size: var(--text-small);
-            color: var(--color-text-secondary);
-            line-height: var(--leading-normal);
-        }
-
-        /* Animation classes */
-        .app-preview-section [data-animate] {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
-        }
-
-        .app-preview-section [data-animate].in-view {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        .app-preview-section [data-animate="delay-1"] { transition-delay: 0.1s; }
-        .app-preview-section [data-animate="delay-2"] { transition-delay: 0.2s; }
-        .app-preview-section [data-animate="delay-3"] { transition-delay: 0.3s; }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .app-features-grid {
-                grid-template-columns: 1fr;
-                max-width: 350px;
-            }
-
-            .phone-mockup {
-                max-width: 320px;
-            }
-        }
     </style>
 </head>
 <body>
@@ -2400,15 +1253,89 @@
                     </div>
                 </div>
                 <div class="garden-hero-visual">
-                    <picture>
-                        <source srcset="assets/images/big-garden/hero-garden.webp" type="image/webp">
-                        <img src="assets/images/big-garden/hero-garden.jpeg"
-                             alt="Nine flower beds connected by a winding pathway, representing Big Garden's developmental journey through nine skill domains: sunflowers, tulips, roses, daisies, hyacinths, cherry blossoms, hibiscus, and yellow roses in a garden setting"
-                             class="garden-hero-illustration"
-                             width="1365"
-                             height="768"
-                             loading="eager">
-                    </picture>
+                    <!-- Hero illustration placeholder - will be enhanced with SVG -->
+                    <svg viewBox="0 0 400 400" width="400" height="400" class="garden-hero-illustration">
+                        <!-- Sky background -->
+                        <defs>
+                            <linearGradient id="skyGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:0.3" />
+                                <stop offset="100%" style="stop-color:#E8F5E9;stop-opacity:0.5" />
+                            </linearGradient>
+                            <linearGradient id="grassGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7A9E7E" />
+                                <stop offset="100%" style="stop-color:#5A7E5E" />
+                            </linearGradient>
+                        </defs>
+
+                        <!-- Background circle -->
+                        <circle cx="200" cy="200" r="180" fill="url(#skyGradient)"/>
+
+                        <!-- Ground/grass -->
+                        <ellipse cx="200" cy="320" rx="170" ry="60" fill="url(#grassGradient)"/>
+
+                        <!-- Sunflower (Social Skills) -->
+                        <g transform="translate(280, 180)" class="hero-plant sunflower">
+                            <line x1="0" y1="0" x2="0" y2="100" stroke="#5A7E5E" stroke-width="6"/>
+                            <circle cx="0" cy="-10" r="35" fill="#D9A835"/>
+                            <circle cx="0" cy="-10" r="20" fill="#8B7355"/>
+                            <!-- Petals -->
+                            <g fill="#D9A835">
+                                <ellipse cx="0" cy="-50" rx="8" ry="15"/>
+                                <ellipse cx="28" cy="-38" rx="8" ry="15" transform="rotate(45 28 -38)"/>
+                                <ellipse cx="40" cy="-10" rx="8" ry="15" transform="rotate(90 40 -10)"/>
+                                <ellipse cx="28" cy="18" rx="8" ry="15" transform="rotate(135 28 18)"/>
+                                <ellipse cx="0" cy="30" rx="8" ry="15" transform="rotate(180 0 30)"/>
+                                <ellipse cx="-28" cy="18" rx="8" ry="15" transform="rotate(-135 -28 18)"/>
+                                <ellipse cx="-40" cy="-10" rx="8" ry="15" transform="rotate(-90 -40 -10)"/>
+                                <ellipse cx="-28" cy="-38" rx="8" ry="15" transform="rotate(-45 -28 -38)"/>
+                            </g>
+                        </g>
+
+                        <!-- Oak sapling (Motor Skills) -->
+                        <g transform="translate(120, 200)" class="hero-plant oak">
+                            <path d="M0,80 L0,40 Q-5,30 -15,20 Q0,10 15,20 Q5,30 0,40" fill="#8B7355"/>
+                            <ellipse cx="-20" cy="10" rx="25" ry="30" fill="#5A7E5E"/>
+                            <ellipse cx="20" cy="10" rx="25" ry="30" fill="#7A9E7E"/>
+                            <ellipse cx="0" cy="-10" rx="30" ry="35" fill="#6B8E6F"/>
+                        </g>
+
+                        <!-- Colorful flower (Cognitive) -->
+                        <g transform="translate(200, 220)" class="hero-plant flower">
+                            <line x1="0" y1="0" x2="0" y2="70" stroke="#5A7E5E" stroke-width="4"/>
+                            <ellipse cx="-15" cy="50" rx="12" ry="8" fill="#7A9E7E" transform="rotate(-30 -15 50)"/>
+                            <ellipse cx="15" cy="40" rx="10" ry="6" fill="#7A9E7E" transform="rotate(20 15 40)"/>
+                            <!-- Flower petals -->
+                            <g fill="#E8855E">
+                                <ellipse cx="0" cy="-25" rx="12" ry="18"/>
+                                <ellipse cx="20" cy="-8" rx="12" ry="18" transform="rotate(72 20 -8)"/>
+                                <ellipse cx="12" cy="18" rx="12" ry="18" transform="rotate(144 12 18)"/>
+                                <ellipse cx="-12" cy="18" rx="12" ry="18" transform="rotate(-144 -12 18)"/>
+                                <ellipse cx="-20" cy="-8" rx="12" ry="18" transform="rotate(-72 -20 -8)"/>
+                            </g>
+                            <circle cx="0" cy="0" r="10" fill="#D9A835"/>
+                        </g>
+
+                        <!-- Climbing vine (Language) -->
+                        <g transform="translate(340, 250)" class="hero-plant vine">
+                            <path d="M0,50 Q-10,30 0,20 Q10,10 0,0 Q-10,-10 0,-20 Q10,-30 0,-40"
+                                  fill="none" stroke="#7A9E7E" stroke-width="5"/>
+                            <ellipse cx="-12" cy="10" rx="10" ry="6" fill="#5A7E5E"/>
+                            <ellipse cx="12" cy="-15" rx="10" ry="6" fill="#6B8E6F"/>
+                            <ellipse cx="-10" cy="-35" rx="8" ry="5" fill="#5A7E5E"/>
+                        </g>
+
+                        <!-- Small seeds/sprouts -->
+                        <g transform="translate(80, 290)" class="hero-plant seed">
+                            <ellipse cx="0" cy="0" rx="8" ry="5" fill="#8B7355"/>
+                            <path d="M0,-5 Q-3,-15 0,-20" fill="none" stroke="#7A9E7E" stroke-width="2"/>
+                        </g>
+                        <g transform="translate(320, 300)" class="hero-plant sprout">
+                            <ellipse cx="0" cy="0" rx="6" ry="4" fill="#8B7355"/>
+                            <path d="M0,-4 L0,-25" stroke="#5A7E5E" stroke-width="3"/>
+                            <ellipse cx="-8" cy="-20" rx="8" ry="5" fill="#7A9E7E" transform="rotate(-30 -8 -20)"/>
+                            <ellipse cx="8" cy="-22" rx="8" ry="5" fill="#6B8E6F" transform="rotate(30 8 -22)"/>
+                        </g>
+                    </svg>
                 </div>
             </div>
         </section>
@@ -2427,12 +1354,148 @@
 
                 <!-- Animated Garden Scene -->
                 <div class="garden-scene" data-animate="delay-1">
-                    <picture>
-                        <source srcset="assets/images/big-garden/garden-metaphor.webp" type="image/webp">
-                        <img src="assets/images/big-garden/garden-metaphor.png"
-                             alt="Garden growth journey showing four stages: seed, sprout, budding plant, and blooming sunflower"
-                             class="garden-scene-img">
-                    </picture>
+                    <svg viewBox="0 0 1000 562" class="garden-scene-svg" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <!-- Gradients -->
+                            <linearGradient id="sceneSky" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#87CEEB;stop-opacity:1" />
+                                <stop offset="70%" style="stop-color:#E8F5E9;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#C8E6C9;stop-opacity:1" />
+                            </linearGradient>
+                            <linearGradient id="sceneGrass" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#7A9E7E" />
+                                <stop offset="100%" style="stop-color:#5A7E5E" />
+                            </linearGradient>
+                            <linearGradient id="sceneSoil" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#8B7355" />
+                                <stop offset="100%" style="stop-color:#6B5340" />
+                            </linearGradient>
+
+                            <!-- Sun glow filter -->
+                            <filter id="sunGlow" x="-50%" y="-50%" width="200%" height="200%">
+                                <feGaussianBlur stdDeviation="15" result="blur"/>
+                                <feMerge>
+                                    <feMergeNode in="blur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+
+                        <!-- Sky background -->
+                        <rect width="1000" height="562" fill="url(#sceneSky)"/>
+
+                        <!-- Sun -->
+                        <circle cx="850" cy="100" r="60" fill="#D9A835" filter="url(#sunGlow)" opacity="0.9"/>
+
+                        <!-- Clouds -->
+                        <g fill="white" opacity="0.8">
+                            <ellipse cx="150" cy="80" rx="60" ry="30"/>
+                            <ellipse cx="200" cy="70" rx="50" ry="25"/>
+                            <ellipse cx="180" cy="90" rx="40" ry="20"/>
+
+                            <ellipse cx="500" cy="120" rx="70" ry="35"/>
+                            <ellipse cx="560" cy="110" rx="55" ry="28"/>
+                            <ellipse cx="530" cy="130" rx="45" ry="22"/>
+                        </g>
+
+                        <!-- Grass layer -->
+                        <ellipse cx="500" cy="480" rx="550" ry="120" fill="url(#sceneGrass)"/>
+
+                        <!-- Soil beds -->
+                        <rect x="50" y="420" width="900" height="80" rx="20" fill="url(#sceneSoil)"/>
+
+                        <!-- SEED Stage - Left -->
+                        <g class="plant-stage seed-stage" transform="translate(150, 400)">
+                            <text x="0" y="-20" text-anchor="middle" fill="#6B5340" font-family="var(--font-body)" font-size="14" font-weight="600">SEED</text>
+                            <ellipse cx="0" cy="30" rx="15" ry="8" fill="#5A4A3A"/>
+                            <ellipse cx="0" cy="28" rx="12" ry="6" fill="#6B5340"/>
+                        </g>
+
+                        <!-- SPROUT Stage - Center-Left -->
+                        <g class="plant-stage sprout-stage" transform="translate(350, 400)">
+                            <text x="0" y="-80" text-anchor="middle" fill="#5A7E5E" font-family="var(--font-body)" font-size="14" font-weight="600">SPROUT</text>
+                            <!-- Stem -->
+                            <line x1="0" y1="30" x2="0" y2="-40" stroke="#5A7E5E" stroke-width="6" stroke-linecap="round"/>
+                            <!-- Small leaves -->
+                            <ellipse cx="-15" cy="-20" rx="15" ry="8" fill="#7A9E7E" transform="rotate(-30 -15 -20)"/>
+                            <ellipse cx="15" cy="-30" rx="15" ry="8" fill="#6B8E6F" transform="rotate(30 15 -30)"/>
+                            <!-- Tip -->
+                            <ellipse cx="0" cy="-50" rx="8" ry="12" fill="#8AB88E"/>
+                        </g>
+
+                        <!-- BLOOMING Stage - Center-Right -->
+                        <g class="plant-stage bloom-stage" transform="translate(550, 400)">
+                            <text x="0" y="-160" text-anchor="middle" fill="#5A7E5E" font-family="var(--font-body)" font-size="14" font-weight="600">LEARNING</text>
+                            <!-- Stem -->
+                            <line x1="0" y1="30" x2="0" y2="-100" stroke="#5A7E5E" stroke-width="8" stroke-linecap="round"/>
+                            <!-- Leaves -->
+                            <ellipse cx="-25" cy="-30" rx="25" ry="12" fill="#7A9E7E" transform="rotate(-40 -25 -30)"/>
+                            <ellipse cx="25" cy="-50" rx="25" ry="12" fill="#6B8E6F" transform="rotate(40 25 -50)"/>
+                            <ellipse cx="-20" cy="-80" rx="20" ry="10" fill="#8AB88E" transform="rotate(-30 -20 -80)"/>
+                            <!-- Bud -->
+                            <ellipse cx="0" cy="-115" rx="18" ry="25" fill="#E8855E" opacity="0.8"/>
+                            <ellipse cx="0" cy="-120" rx="12" ry="18" fill="#D97B64"/>
+                        </g>
+
+                        <!-- MASTERED Stage - Right -->
+                        <g class="plant-stage mastered-stage" transform="translate(800, 400)">
+                            <text x="0" y="-200" text-anchor="middle" fill="#D9A835" font-family="var(--font-body)" font-size="14" font-weight="600">MASTERED</text>
+                            <!-- Main stem -->
+                            <line x1="0" y1="30" x2="0" y2="-130" stroke="#5A7E5E" stroke-width="10" stroke-linecap="round"/>
+                            <!-- Large leaves -->
+                            <ellipse cx="-35" cy="-20" rx="35" ry="15" fill="#7A9E7E" transform="rotate(-35 -35 -20)"/>
+                            <ellipse cx="35" cy="-40" rx="35" ry="15" fill="#6B8E6F" transform="rotate(35 35 -40)"/>
+                            <ellipse cx="-30" cy="-70" rx="30" ry="12" fill="#8AB88E" transform="rotate(-25 -30 -70)"/>
+                            <ellipse cx="30" cy="-90" rx="28" ry="12" fill="#7A9E7E" transform="rotate(25 30 -90)"/>
+                            <!-- Full bloom flower -->
+                            <g transform="translate(0, -145)">
+                                <circle cx="0" cy="0" r="15" fill="#D9A835"/>
+                                <g fill="#E8855E">
+                                    <ellipse cx="0" cy="-28" rx="12" ry="20"/>
+                                    <ellipse cx="26" cy="-9" rx="12" ry="20" transform="rotate(72 26 -9)"/>
+                                    <ellipse cx="16" cy="23" rx="12" ry="20" transform="rotate(144 16 23)"/>
+                                    <ellipse cx="-16" cy="23" rx="12" ry="20" transform="rotate(-144 -16 23)"/>
+                                    <ellipse cx="-26" cy="-9" rx="12" ry="20" transform="rotate(-72 -26 -9)"/>
+                                </g>
+                                <circle cx="0" cy="0" r="12" fill="#D9A835"/>
+                            </g>
+                        </g>
+
+                        <!-- Progress arrows -->
+                        <g fill="none" stroke="#7A9E7E" stroke-width="3" stroke-linecap="round" opacity="0.6">
+                            <path d="M200,380 Q250,350 300,380"/>
+                            <polygon points="295,375 305,380 295,385" fill="#7A9E7E"/>
+
+                            <path d="M420,350 Q470,320 520,350"/>
+                            <polygon points="515,345 525,350 515,355" fill="#7A9E7E"/>
+
+                            <path d="M620,320 Q680,280 740,320"/>
+                            <polygon points="735,315 745,320 735,325" fill="#7A9E7E"/>
+                        </g>
+
+                        <!-- Decorative elements -->
+                        <g class="garden-decorations">
+                            <!-- Butterflies -->
+                            <g transform="translate(250, 200)" class="butterfly">
+                                <ellipse cx="0" cy="0" rx="3" ry="8" fill="#9B8FC7"/>
+                                <ellipse cx="-8" cy="-2" rx="8" ry="5" fill="#9B8FC7" opacity="0.8"/>
+                                <ellipse cx="8" cy="-2" rx="8" ry="5" fill="#9B8FC7" opacity="0.8"/>
+                            </g>
+                            <g transform="translate(700, 250)" class="butterfly">
+                                <ellipse cx="0" cy="0" rx="3" ry="8" fill="#E8855E"/>
+                                <ellipse cx="-8" cy="-2" rx="8" ry="5" fill="#E8855E" opacity="0.8"/>
+                                <ellipse cx="8" cy="-2" rx="8" ry="5" fill="#E8855E" opacity="0.8"/>
+                            </g>
+
+                            <!-- Small flowers in grass -->
+                            <g fill="#D9A835" opacity="0.7">
+                                <circle cx="100" cy="500" r="5"/>
+                                <circle cx="300" cy="520" r="4"/>
+                                <circle cx="600" cy="510" r="5"/>
+                                <circle cx="850" cy="505" r="4"/>
+                            </g>
+                        </g>
+                    </svg>
 
                     <!-- Floating particles -->
                     <div class="garden-particles" id="gardenParticles"></div>
@@ -2678,19 +1741,6 @@
                     </div>
                 </div>
 
-                <!-- Carousel Dot Indicators (Mobile Only) -->
-                <div class="carousel-dots" aria-label="Skill domains navigation">
-                    <button class="carousel-dot active" data-index="0" aria-label="Gross Motor"></button>
-                    <button class="carousel-dot" data-index="1" aria-label="Fine Motor"></button>
-                    <button class="carousel-dot" data-index="2" aria-label="Linguistic"></button>
-                    <button class="carousel-dot" data-index="3" aria-label="Cognitive"></button>
-                    <button class="carousel-dot" data-index="4" aria-label="Social"></button>
-                    <button class="carousel-dot" data-index="5" aria-label="Emotional"></button>
-                    <button class="carousel-dot" data-index="6" aria-label="Feeding"></button>
-                    <button class="carousel-dot" data-index="7" aria-label="Self-Care"></button>
-                    <button class="carousel-dot" data-index="8" aria-label="Sensory"></button>
-                </div>
-
                 <!-- Garden Message -->
                 <div class="garden-message" data-animate="delay-4">
                     <p>"Your child's garden grows with every milestone. Every seed planted is a skill waiting to bloom."</p>
@@ -2699,395 +1749,95 @@
             </div>
         </section>
 
-        <!-- App Preview Section - Real UI Vignettes -->
-        <section class="app-preview-section">
-            <div class="app-preview-container">
-                <div class="app-preview-header" data-animate>
-                    <h2>See the App in Action</h2>
-                    <p>
-                        Big Garden transforms developmental tracking into a beautiful,
-                        intuitive experience. Here's what your child's garden will look like.
-                    </p>
-                </div>
-
-                <!-- Phone Mockup with Real UI -->
-                <div class="phone-mockup" data-animate="delay-1">
-                    <div class="phone-frame">
-                        <div class="phone-screen">
-                            <!-- HUD (Dashboard Header) -->
-                            <div class="preview-hud">
-                                <div class="preview-hud-row">
-                                    <div class="preview-avatar">
-                                        <img src="https://api.dicebear.com/9.x/adventurer/svg?seed=Mia&backgroundColor=ffd5dc,c0aede&backgroundType=gradientLinear&hair=long16&skinColor=ecad80" alt="Child avatar">
-                                    </div>
-                                    <div class="preview-identity">
-                                        <h3 class="preview-name">Mia's Garden</h3>
-                                        <p class="preview-meta">18 months · Toddler</p>
-                                    </div>
-                                    <div class="preview-archetype">
-                                        <span class="preview-archetype-icon">🌟</span>
-                                        <span class="preview-archetype-text">Explorer</span>
-                                    </div>
-                                </div>
-                                <div class="preview-hud-row">
-                                    <div class="preview-progress">
-                                        <div class="preview-progress-bar">
-                                            <div class="preview-progress-fill" style="width: 42%"></div>
-                                        </div>
-                                        <span class="preview-progress-text">42%</span>
-                                    </div>
-                                </div>
-                                <div class="preview-hud-row">
-                                    <div class="preview-legend">
-                                        <span class="preview-legend-item">
-                                            <span class="preview-legend-emoji">🌻</span>
-                                            <span class="preview-legend-count">24</span>
-                                        </span>
-                                        <span class="preview-legend-item">
-                                            <span class="preview-legend-emoji">🪴</span>
-                                            <span class="preview-legend-count">8</span>
-                                        </span>
-                                        <span class="preview-legend-item">
-                                            <span class="preview-legend-emoji">🌱</span>
-                                            <span class="preview-legend-count">12</span>
-                                        </span>
-                                        <span class="preview-legend-item">
-                                            <span class="preview-legend-emoji">🪨</span>
-                                            <span class="preview-legend-count">32</span>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Garden View -->
-                            <div class="preview-garden">
-                                <!-- Timeline -->
-                                <div class="preview-timeline">
-                                    <div class="preview-era">
-                                        <span class="preview-era-name">Baby</span>
-                                        <span class="preview-era-range">6-12mo</span>
-                                    </div>
-                                    <div class="preview-era">
-                                        <span class="preview-era-name">Toddler</span>
-                                        <span class="preview-era-range">12-24mo</span>
-                                    </div>
-                                    <div class="preview-era">
-                                        <span class="preview-era-name">Preschool</span>
-                                        <span class="preview-era-range">2-6yrs</span>
-                                    </div>
-                                </div>
-
-                                <!-- NOW Indicator -->
-                                <div class="preview-now-indicator">
-                                    <span class="preview-now-label">NOW · 18mo</span>
-                                </div>
-
-                                <!-- Domain Rows with Skill Plants -->
-                                <div class="preview-domain-rows">
-                                    <!-- Gross Motor Row -->
-                                    <div class="preview-domain-row gross-motor">
-                                        <div class="preview-domain-label">
-                                            <span class="preview-domain-icon">🏃</span>
-                                            <span class="preview-domain-name">Gross Motor</span>
-                                        </div>
-                                        <!-- Skill Plants -->
-                                        <div class="preview-skill-plant mastered" style="left: 15%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌻</span>
-                                            <span class="preview-skill-name">Crawling</span>
-                                            <span class="preview-skill-status">Done</span>
-                                        </div>
-                                        <div class="preview-skill-plant mastered" style="left: 32%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌻</span>
-                                            <span class="preview-skill-name">Walking</span>
-                                            <span class="preview-skill-status">Done</span>
-                                        </div>
-                                        <div class="preview-skill-plant in-progress" style="left: 50%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪴</span>
-                                            <span class="preview-skill-name">Running</span>
-                                            <span class="preview-skill-status">Learning</span>
-                                        </div>
-                                        <div class="preview-skill-plant locked" style="left: 75%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪨</span>
-                                            <span class="preview-skill-name">Jumping</span>
-                                            <span class="preview-skill-status">Soon</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Fine Motor Row -->
-                                    <div class="preview-domain-row fine-motor">
-                                        <div class="preview-domain-label">
-                                            <span class="preview-domain-icon">✋</span>
-                                            <span class="preview-domain-name">Fine Motor</span>
-                                        </div>
-                                        <div class="preview-skill-plant mastered" style="left: 20%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌸</span>
-                                            <span class="preview-skill-name">Grasping</span>
-                                            <span class="preview-skill-status">Done</span>
-                                        </div>
-                                        <div class="preview-skill-plant ready" style="left: 42%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌱</span>
-                                            <span class="preview-skill-name">Stacking</span>
-                                            <span class="preview-skill-status">Ready</span>
-                                        </div>
-                                        <div class="preview-skill-plant locked" style="left: 68%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪨</span>
-                                            <span class="preview-skill-name">Drawing</span>
-                                            <span class="preview-skill-status">Soon</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Linguistic Row -->
-                                    <div class="preview-domain-row linguistic">
-                                        <div class="preview-domain-label">
-                                            <span class="preview-domain-icon">💬</span>
-                                            <span class="preview-domain-name">Linguistic</span>
-                                        </div>
-                                        <div class="preview-skill-plant mastered" style="left: 18%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌷</span>
-                                            <span class="preview-skill-name">Babbling</span>
-                                            <span class="preview-skill-status">Done</span>
-                                        </div>
-                                        <div class="preview-skill-plant in-progress" style="left: 38%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪴</span>
-                                            <span class="preview-skill-name">First Words</span>
-                                            <span class="preview-skill-status">Learning</span>
-                                        </div>
-                                        <div class="preview-skill-plant ready" style="left: 58%; top: 8px;">
-                                            <span class="preview-skill-emoji">🌱</span>
-                                            <span class="preview-skill-name">2-Word</span>
-                                            <span class="preview-skill-status">Ready</span>
-                                        </div>
-                                    </div>
-
-                                    <!-- Cognitive Row -->
-                                    <div class="preview-domain-row cognitive">
-                                        <div class="preview-domain-label">
-                                            <span class="preview-domain-icon">🧠</span>
-                                            <span class="preview-domain-name">Cognitive</span>
-                                        </div>
-                                        <div class="preview-skill-plant mastered" style="left: 22%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪻</span>
-                                            <span class="preview-skill-name">Object</span>
-                                            <span class="preview-skill-status">Done</span>
-                                        </div>
-                                        <div class="preview-skill-plant in-progress" style="left: 45%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪴</span>
-                                            <span class="preview-skill-name">Sorting</span>
-                                            <span class="preview-skill-status">Learning</span>
-                                        </div>
-                                        <div class="preview-skill-plant locked" style="left: 72%; top: 8px;">
-                                            <span class="preview-skill-emoji">🪨</span>
-                                            <span class="preview-skill-name">Counting</span>
-                                            <span class="preview-skill-status">Soon</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Feature Cards -->
-                <div class="app-features-grid" data-animate="delay-2">
-                    <div class="app-feature-card">
-                        <div class="app-feature-icon">🌱</div>
-                        <h4>Track Progress</h4>
-                        <p>See every skill grow from seed to bloom with visual progress indicators.</p>
-                    </div>
-                    <div class="app-feature-card">
-                        <div class="app-feature-icon">📊</div>
-                        <h4>9 Domains</h4>
-                        <p>Monitor development across motor, language, cognitive, social, and more.</p>
-                    </div>
-                    <div class="app-feature-card">
-                        <div class="app-feature-icon">✨</div>
-                        <h4>Celebrate Wins</h4>
-                        <p>Every mastered skill is a celebration. Watch your garden flourish!</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Shareable Journey Section - Before/After Comparison -->
         <section class="journey-section">
             <div class="journey-container">
                 <div class="journey-header" data-animate>
-                    <h2>From <span class="accent-worry">Worry</span> to <span class="accent-wonder">Wonder</span></h2>
+                    <h2>Watch the Transformation</h2>
                     <p>
                         Every parent wonders: "Is my child developing normally?"
-                        Big Garden turns that anxiety into joyful discovery.
+                        Big Garden turns that anxiety into a joyful discovery.
                     </p>
                 </div>
 
-                <!-- Shareable Card - Horizontal Split Design -->
-                <div class="journey-shareable-card" data-animate="delay-1">
-                    <!-- Split Screen: Before | Divider | After -->
-                    <div class="journey-split">
-                        <!-- Before Panel - Heavy, Muted -->
-                        <div class="journey-panel before">
-                            <span class="journey-panel-label">Before</span>
-                            <div class="journey-panel-illustration">
-                                <picture>
-                                    <source srcset="assets/images/big-garden/before_parent.webp" type="image/webp">
-                                    <img src="assets/images/big-garden/before_parent.png"
-                                         alt="Parent surrounded by question marks, looking uncertain about their child's development"
-                                         loading="lazy">
-                                </picture>
-                            </div>
-                            <h3>Scattered Worries</h3>
-                            <p>Endless comparisons. Random checklists. The nagging question: "Am I doing enough?"</p>
+                <div class="journey-comparison" data-animate="delay-1">
+                    <!-- Before Panel -->
+                    <div class="journey-panel before">
+                        <span class="journey-panel-label">Before</span>
+                        <div class="journey-panel-illustration">
+                            <svg viewBox="0 0 200 200" fill="none">
+                                <!-- Worried parent figure -->
+                                <circle cx="100" cy="70" r="35" fill="#9a9e97" opacity="0.3"/>
+                                <circle cx="100" cy="70" r="30" fill="#9a9e97" opacity="0.5"/>
+                                <!-- Worried eyes -->
+                                <ellipse cx="88" cy="65" rx="5" ry="6" fill="#6b7268"/>
+                                <ellipse cx="112" cy="65" rx="5" ry="6" fill="#6b7268"/>
+                                <!-- Worried eyebrows -->
+                                <path d="M80 55 Q88 52 95 58" stroke="#6b7268" stroke-width="2" fill="none"/>
+                                <path d="M105 58 Q112 52 120 55" stroke="#6b7268" stroke-width="2" fill="none"/>
+                                <!-- Frown -->
+                                <path d="M88 82 Q100 76 112 82" stroke="#6b7268" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Question marks floating -->
+                                <text x="50" y="130" font-size="24" fill="#9a9e97" opacity="0.6">?</text>
+                                <text x="140" y="120" font-size="20" fill="#9a9e97" opacity="0.5">?</text>
+                                <text x="70" y="160" font-size="18" fill="#9a9e97" opacity="0.4">?</text>
+                                <text x="120" y="155" font-size="22" fill="#9a9e97" opacity="0.5">?</text>
+                                <!-- Scattered seeds (unfocused) -->
+                                <ellipse cx="60" cy="180" rx="8" ry="4" fill="#6b7268" opacity="0.3"/>
+                                <ellipse cx="100" cy="185" rx="6" ry="3" fill="#6b7268" opacity="0.3"/>
+                                <ellipse cx="140" cy="178" rx="7" ry="3" fill="#6b7268" opacity="0.3"/>
+                            </svg>
                         </div>
-
-                        <!-- Center Divider - Transformation Bridge -->
-                        <div class="journey-divider">
-                            <div class="journey-divider-badge">
-                                <div class="journey-divider-arrow">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-                                        <path d="M5 12h14M12 5l7 7-7 7"/>
-                                    </svg>
-                                </div>
-                                <span class="journey-divider-text">Big Garden</span>
-                            </div>
-                        </div>
-
-                        <!-- After Panel - Light, Hopeful -->
-                        <div class="journey-panel after">
-                            <span class="journey-panel-label">After</span>
-                            <div class="journey-panel-illustration">
-                                <picture>
-                                    <source srcset="assets/images/big-garden/after_parent.webp" type="image/webp">
-                                    <img src="assets/images/big-garden/after_parent.png"
-                                         alt="Happy parent with heart symbols, confident and joyful about their child's growth"
-                                         loading="lazy">
-                                </picture>
-                            </div>
-                            <h3>A Thriving Garden</h3>
-                            <p>Clear progress. Joyful discovery. Celebrating every small bloom together.</p>
-                        </div>
+                        <h3>Scattered Worries</h3>
+                        <p>Random checklists. Endless comparisons. The nagging question: "Am I doing enough?"</p>
                     </div>
 
-                    <!-- Bottom: Tagline + Share -->
-                    <div class="journey-bottom">
-                        <div class="journey-tagline">
-                            <p>"Every child blooms in their own time."</p>
-                            <span class="brand">Big Garden</span>
-                        </div>
-
-                        <div class="journey-share-row">
-                            <button class="journey-share-btn facebook" onclick="shareJourney('facebook')" title="Share on Facebook">
-                                <img src="assets/icons/facebook.svg" alt="Facebook">
-                            </button>
-                            <button class="journey-share-btn twitter" onclick="shareJourney('twitter')" title="Share on X">
-                                <img src="assets/icons/twitter-x.svg" alt="X">
-                            </button>
-                            <button class="journey-share-btn line" onclick="shareJourney('line')" title="Share on LINE">
-                                <img src="assets/icons/line.svg" alt="LINE">
-                            </button>
-                            <button class="journey-share-btn copy" onclick="shareJourney('copy')" title="Copy link">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <rect x="9" y="9" width="13" height="13" rx="2"/>
-                                    <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/>
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CTA -->
-                <div class="journey-cta" data-animate="delay-1">
-                    <p>Join families who've found joy in watching their children grow.</p>
-                    <a href="#" class="journey-cta-btn">
-                        Start Your Garden
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                    <!-- Arrow -->
+                    <div class="journey-arrow">
+                        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="3">
+                            <path d="M8 24h32M32 16l8 8-8 8"/>
                         </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- App Experience Vignettes Section -->
-        <section class="vignettes-section" id="experience">
-            <div class="vignettes-container">
-                <div class="vignettes-header" data-animate>
-                    <h2>Experience the <span class="accent">Joy</span></h2>
-                    <p>
-                        See what it feels like to watch your child's skills bloom.
-                        Every tap, every milestone, every moment of celebration.
-                    </p>
-                </div>
-
-                <div class="vignettes-grid">
-                    <!-- Vignette 1: Activity Detail - The "aha" moment -->
-                    <div class="vignette vignette-1" data-animate="delay-1">
-                        <div class="vignette-frame">
-                            <picture>
-                                <source srcset="assets/images/big-garden/activity.webp" type="image/webp">
-                                <img src="assets/images/big-garden/activity.png"
-                                     alt="Activity detail screen showing Hopping in Place skill with mastery requirements and training methods"
-                                     class="vignette-image"
-                                     loading="lazy">
-                            </picture>
-                        </div>
-                        <div class="vignette-caption">
-                            <span class="vignette-emoji">🎯</span>
-                            <div class="vignette-title">Clear guidance</div>
-                            <div class="vignette-subtitle">Know exactly what to practice</div>
-                        </div>
+                        <span>With Big Garden</span>
                     </div>
 
-                    <!-- Vignette 2: Garden View - Progress visualization -->
-                    <div class="vignette vignette-2" data-animate="delay-2">
-                        <div class="vignette-frame">
-                            <picture>
-                                <source srcset="assets/images/big-garden/garden-view.webp" type="image/webp">
-                                <img src="assets/images/big-garden/garden-view.png"
-                                     alt="Garden view showing skills organized by category with mastered skills blooming as flowers"
-                                     class="vignette-image"
-                                     loading="lazy">
-                            </picture>
+                    <!-- After Panel -->
+                    <div class="journey-panel after">
+                        <span class="journey-panel-label">After</span>
+                        <div class="journey-panel-illustration">
+                            <svg viewBox="0 0 200 200" fill="none">
+                                <!-- Happy parent figure -->
+                                <circle cx="100" cy="70" r="35" fill="#7A9E7E" opacity="0.2"/>
+                                <circle cx="100" cy="70" r="30" fill="#7A9E7E" opacity="0.4"/>
+                                <!-- Happy eyes -->
+                                <path d="M83 62 Q88 68 93 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <path d="M107 62 Q112 68 117 62" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Big smile -->
+                                <path d="M85 80 Q100 95 115 80" stroke="#5A7E5E" stroke-width="3" fill="none" stroke-linecap="round"/>
+                                <!-- Hearts floating -->
+                                <path d="M45 120 C45 115 50 110 55 115 C60 110 65 115 65 120 C65 128 55 135 55 135 C55 135 45 128 45 120" fill="#E8855E" opacity="0.6"/>
+                                <path d="M135 110 C135 106 138 103 141 106 C144 103 147 106 147 110 C147 115 141 120 141 120 C141 120 135 115 135 110" fill="#D9A835" opacity="0.5"/>
+                                <!-- Flourishing garden below -->
+                                <ellipse cx="100" cy="190" rx="80" ry="20" fill="#7A9E7E" opacity="0.3"/>
+                                <!-- Blooming flowers -->
+                                <g transform="translate(60, 160)">
+                                    <line x1="0" y1="0" x2="0" y2="25" stroke="#5A7E5E" stroke-width="3"/>
+                                    <circle cx="0" cy="-5" r="8" fill="#E8855E"/>
+                                    <circle cx="0" cy="-5" r="4" fill="#D9A835"/>
+                                </g>
+                                <g transform="translate(100, 150)">
+                                    <line x1="0" y1="0" x2="0" y2="35" stroke="#5A7E5E" stroke-width="4"/>
+                                    <circle cx="0" cy="-8" r="12" fill="#D9A835"/>
+                                    <circle cx="0" cy="-8" r="6" fill="#8B7355"/>
+                                </g>
+                                <g transform="translate(140, 155)">
+                                    <line x1="0" y1="0" x2="0" y2="30" stroke="#5A7E5E" stroke-width="3"/>
+                                    <circle cx="0" cy="-5" r="10" fill="#9B8FC7"/>
+                                    <circle cx="0" cy="-5" r="5" fill="#E8855E"/>
+                                </g>
+                            </svg>
                         </div>
-                        <div class="vignette-caption">
-                            <span class="vignette-emoji">🌸</span>
-                            <div class="vignette-title">Watch skills bloom</div>
-                            <div class="vignette-subtitle">Beautiful garden visualization</div>
-                        </div>
-                    </div>
-
-                    <!-- Vignette 3: Progress Dashboard - Achievement -->
-                    <div class="vignette vignette-3" data-animate="delay-3">
-                        <div class="vignette-frame">
-                            <picture>
-                                <source srcset="assets/images/big-garden/skill-tree.webp" type="image/webp">
-                                <img src="assets/images/big-garden/skill-tree.png"
-                                     alt="Skill tree dashboard showing 89% progress with 134 mastered skills and child's development stage"
-                                     class="vignette-image"
-                                     loading="lazy">
-                            </picture>
-                        </div>
-                        <div class="vignette-caption">
-                            <span class="vignette-emoji">🌟</span>
-                            <div class="vignette-title">Track progress</div>
-                            <div class="vignette-subtitle">See how far you've come</div>
-                        </div>
-                    </div>
-
-                    <!-- Vignette 4: Next Up - Discovery -->
-                    <div class="vignette vignette-4" data-animate="delay-4">
-                        <div class="vignette-frame">
-                            <picture>
-                                <source srcset="assets/images/big-garden/progress.webp" type="image/webp">
-                                <img src="assets/images/big-garden/progress.png"
-                                     alt="Progress screen showing next skills to work on with prerequisites and recommendations"
-                                     class="vignette-image"
-                                     loading="lazy">
-                            </picture>
-                        </div>
-                        <div class="vignette-caption">
-                            <span class="vignette-emoji">🌱</span>
-                            <div class="vignette-title">What's next</div>
-                            <div class="vignette-subtitle">Personalized recommendations</div>
-                        </div>
+                        <h3>A Thriving Garden</h3>
+                        <p>Clear progress. Joyful discovery. Celebrating every small bloom together.</p>
                     </div>
                 </div>
             </div>
@@ -3325,102 +2075,6 @@
             </div>
         </section>
 
-        <!-- Shareable Graphics Section -->
-        <section class="graphics-section">
-            <div class="graphics-container">
-                <div class="graphics-header" data-animate>
-                    <h2>Share the Garden Joy</h2>
-                    <p>Download these beautiful graphics to share on social media. Spread the message of nurturing growth with fellow parents.</p>
-                </div>
-
-                <div class="graphics-grid">
-                    <!-- Growth Journey Graphic -->
-                    <div class="graphic-card" data-animate="delay-1">
-                        <div class="graphic-preview">
-                            <img src="assets/images/big-garden/social-growth-journey.webp" alt="Growth Journey - From seed to bloom" loading="lazy" width="1200" height="630">
-                        </div>
-                        <div class="graphic-info">
-                            <h3>The Growth Journey</h3>
-                            <p>Every skill is a seed waiting to bloom</p>
-                            <div class="graphic-actions">
-                                <a href="assets/images/big-garden/social-growth-journey.png" download="big-garden-growth-journey.png" class="graphic-btn graphic-btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                                        <polyline points="7 10 12 15 17 10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Nurturing Parent Graphic -->
-                    <div class="graphic-card" data-animate="delay-1">
-                        <div class="graphic-preview">
-                            <img src="assets/images/big-garden/social-nurturing-parent.webp" alt="Nurturing Parent - Be your child's sunshine" loading="lazy" width="1200" height="630">
-                        </div>
-                        <div class="graphic-info">
-                            <h3>Be Their Sunshine</h3>
-                            <p>Nurture their growth with patience and love</p>
-                            <div class="graphic-actions">
-                                <a href="assets/images/big-garden/social-nurturing-parent.png" download="big-garden-nurturing.png" class="graphic-btn graphic-btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                                        <polyline points="7 10 12 15 17 10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Nine Skills Graphic -->
-                    <div class="graphic-card" data-animate="delay-2">
-                        <div class="graphic-preview">
-                            <img src="assets/images/big-garden/social-nine-skills.webp" alt="9 Skill Domains - Every garden has unique blooms" loading="lazy" width="1200" height="630">
-                        </div>
-                        <div class="graphic-info">
-                            <h3>9 Skill Domains</h3>
-                            <p>Every child's garden has unique blooms</p>
-                            <div class="graphic-actions">
-                                <a href="assets/images/big-garden/social-nine-skills.png" download="big-garden-skills.png" class="graphic-btn graphic-btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                                        <polyline points="7 10 12 15 17 10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Celebrate Progress Graphic -->
-                    <div class="graphic-card" data-animate="delay-2">
-                        <div class="graphic-preview">
-                            <img src="assets/images/big-garden/social-celebrate-progress.webp" alt="Celebrate Progress - Each milestone is a moment of joy" loading="lazy" width="1200" height="630">
-                        </div>
-                        <div class="graphic-info">
-                            <h3>Celebrate Every Bloom</h3>
-                            <p>Each milestone is a moment of joy</p>
-                            <div class="graphic-actions">
-                                <a href="assets/images/big-garden/social-celebrate-progress.png" download="big-garden-celebrate.png" class="graphic-btn graphic-btn-primary">
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
-                                        <polyline points="7 10 12 15 17 10"/>
-                                        <line x1="12" y1="15" x2="12" y2="3"/>
-                                    </svg>
-                                    Download
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
         <!-- Footer (Shared Component) -->
         <div id="footer-placeholder"></div>
     </div>
@@ -3523,7 +2177,7 @@
             }
 
             // Extended scroll animation for all new sections
-            const allAnimatedElements = document.querySelectorAll('.app-preview-section [data-animate], .journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate]');
+            const allAnimatedElements = document.querySelectorAll('.journey-section [data-animate], .social-proof-section [data-animate], .quotable-section [data-animate]');
             allAnimatedElements.forEach(el => {
                 gardenObserver.observe(el);
             });
@@ -3567,43 +2221,6 @@
                 });
             });
 
-            // Journey section share functionality
-            window.shareJourney = function(platform) {
-                const journeyUrl = window.location.origin + window.location.pathname + '#transformation';
-                const journeyText = 'From worry to wonder. Every child blooms in their own time. — Big Garden';
-                const encodedUrl = encodeURIComponent(journeyUrl);
-                const encodedText = encodeURIComponent(journeyText);
-
-                let shareUrl = '';
-
-                switch (platform) {
-                    case 'facebook':
-                        shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedText}`;
-                        break;
-                    case 'twitter':
-                        shareUrl = `https://twitter.com/intent/tweet?text=${encodedText}&url=${encodedUrl}`;
-                        break;
-                    case 'line':
-                        shareUrl = `https://social-plugins.line.me/lineit/share?url=${encodedUrl}&text=${encodedText}`;
-                        break;
-                    case 'copy':
-                        navigator.clipboard.writeText(journeyText + '\n' + journeyUrl).then(() => {
-                            const btn = document.querySelector('.journey-share-btn.copy');
-                            if (btn) {
-                                btn.style.background = 'var(--color-sage-dark)';
-                                setTimeout(() => {
-                                    btn.style.background = 'var(--color-sage)';
-                                }, 2000);
-                            }
-                        });
-                        return;
-                }
-
-                if (shareUrl) {
-                    window.open(shareUrl, '_blank', 'width=600,height=400,menubar=no,toolbar=no');
-                }
-            };
-
             // Animate proof stats numbers on scroll
             const proofStats = document.querySelectorAll('.proof-stat-number');
             const statsObserver = new IntersectionObserver((entries) => {
@@ -3616,71 +2233,6 @@
             }, { threshold: 0.5 });
 
             proofStats.forEach(stat => statsObserver.observe(stat));
-
-            // Skill Plants Carousel (Mobile Only)
-            const skillPlantsCarousel = document.querySelector('.skill-plants');
-            const carouselDots = document.querySelectorAll('.carousel-dot');
-            const skillPlants = document.querySelectorAll('.skill-plant');
-
-            if (skillPlantsCarousel && carouselDots.length > 0) {
-                // Update active dot based on scroll position
-                const updateActiveDot = () => {
-                    // Only update on mobile (when carousel is active)
-                    if (window.innerWidth > 768) return;
-
-                    const scrollLeft = skillPlantsCarousel.scrollLeft;
-                    const containerWidth = skillPlantsCarousel.offsetWidth;
-
-                    // Calculate which item is most centered
-                    let closestIndex = 0;
-                    let closestDistance = Infinity;
-
-                    skillPlants.forEach((plant, index) => {
-                        const plantCenter = plant.offsetLeft + plant.offsetWidth / 2;
-                        const viewportCenter = scrollLeft + containerWidth / 2;
-                        const distance = Math.abs(plantCenter - viewportCenter);
-
-                        if (distance < closestDistance) {
-                            closestDistance = distance;
-                            closestIndex = index;
-                        }
-                    });
-
-                    // Update dot states
-                    carouselDots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === closestIndex);
-                    });
-                };
-
-                // Listen for scroll events (debounced)
-                let scrollTimeout;
-                skillPlantsCarousel.addEventListener('scroll', () => {
-                    clearTimeout(scrollTimeout);
-                    scrollTimeout = setTimeout(updateActiveDot, 50);
-                }, { passive: true });
-
-                // Click on dot to scroll to that item
-                carouselDots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        const targetPlant = skillPlants[index];
-                        if (targetPlant && window.innerWidth <= 768) {
-                            const containerWidth = skillPlantsCarousel.offsetWidth;
-                            const scrollPosition = targetPlant.offsetLeft - (containerWidth / 2) + (targetPlant.offsetWidth / 2);
-
-                            skillPlantsCarousel.scrollTo({
-                                left: scrollPosition,
-                                behavior: 'smooth'
-                            });
-                        }
-                    });
-                });
-
-                // Initial update
-                updateActiveDot();
-
-                // Update on resize
-                window.addEventListener('resize', updateActiveDot, { passive: true });
-            }
         });
     </script>
 </body>
