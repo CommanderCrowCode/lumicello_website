@@ -792,30 +792,37 @@ document.addEventListener('DOMContentLoaded', initEmailProtection);
 // ============================================
 // SCROLL REVEAL ANIMATION
 // Reveals elements with .reveal and .reveal-stagger classes
+// Uses IntersectionObserver for better performance
 // ============================================
 
 /**
  * Initialize scroll reveal animations for elements with .reveal and .reveal-stagger classes.
+ * Uses IntersectionObserver instead of scroll events for better performance.
  * Adds 'visible' class when elements enter viewport.
  */
 function initScrollReveal() {
     const revealElements = document.querySelectorAll('.reveal, .reveal-stagger');
     if (revealElements.length === 0) return;
 
-    const revealOnScroll = () => {
-        revealElements.forEach(el => {
-            const elementTop = el.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+    // Use IntersectionObserver for better performance (no scroll event listener)
+    const revealObserver = new IntersectionObserver(
+        (entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Stop observing once revealed (one-time animation)
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            root: null,
+            rootMargin: '-100px 0px',
+            threshold: 0
+        }
+    );
 
-            if (elementTop < windowHeight - 100) {
-                el.classList.add('visible');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', revealOnScroll, { passive: true });
-    // Run immediately to reveal elements already in view
-    revealOnScroll();
+    revealElements.forEach(el => revealObserver.observe(el));
 }
 
 // Initialize scroll reveal when DOM is ready
