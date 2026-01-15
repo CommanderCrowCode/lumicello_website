@@ -124,92 +124,108 @@
     }
 
     // ========================================
-    // Tree Growth Animation
+    // Tree Growth Animation (Video Scroll-Scrub)
     // ========================================
 
     class TreeGrowthAnimator {
         constructor() {
-            this.treeSection = document.querySelector('.tree-section');
-            this.treePlaceholder = document.querySelector('.tree-placeholder');
+            this.treeSection = document.querySelector('.scroll-tree');
+            this.video = document.getElementById('treeVideo');
 
-            if (!this.treeSection || !this.treePlaceholder) return;
+            if (!this.treeSection || !this.video) {
+                console.log('[LumiBox] Tree video not found, skipping scroll-scrub');
+                return;
+            }
 
-            this.trunk = this.treePlaceholder.querySelector('.tree-trunk-css');
-            this.canopy = this.treePlaceholder.querySelector('.tree-canopy-css');
-            this.blooms = this.treePlaceholder.querySelectorAll('.tree-bloom');
+            this.videoDuration = 0;
+            this.isReady = false;
 
-            this.setupScrollTracking();
+            this.setupVideo();
+        }
+
+        setupVideo() {
+            // Wait for video metadata to load
+            this.video.addEventListener('loadedmetadata', () => {
+                this.videoDuration = this.video.duration;
+                this.isReady = true;
+                this.video.currentTime = 0;
+                console.log(`[LumiBox] Tree video ready, duration: ${this.videoDuration}s`);
+                this.setupScrollTracking();
+            });
+
+            // Fallback if already loaded
+            if (this.video.readyState >= 1) {
+                this.videoDuration = this.video.duration;
+                this.isReady = true;
+                this.video.currentTime = 0;
+                this.setupScrollTracking();
+            }
+
+            // Mobile: Wake up video on first user interaction
+            this.wakeUpMobile();
+        }
+
+        wakeUpMobile() {
+            const wakeUp = () => {
+                // Play and immediately pause to "unlock" video on mobile
+                const playPromise = this.video.play();
+                if (playPromise !== undefined) {
+                    playPromise.then(() => {
+                        this.video.pause();
+                        this.video.currentTime = 0;
+                        console.log('[LumiBox] Video unlocked for mobile');
+                    }).catch(err => {
+                        console.log('[LumiBox] Video play blocked:', err);
+                    });
+                }
+                // Remove listeners after first interaction
+                document.removeEventListener('touchstart', wakeUp);
+                document.removeEventListener('click', wakeUp);
+                document.removeEventListener('scroll', wakeUp);
+            };
+
+            document.addEventListener('touchstart', wakeUp, { once: true, passive: true });
+            document.addEventListener('click', wakeUp, { once: true });
+            document.addEventListener('scroll', wakeUp, { once: true, passive: true });
         }
 
         setupScrollTracking() {
-            // Create observer for when tree section is visible
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            this.startTracking();
-                        } else {
-                            this.stopTracking();
-                        }
+            // Use scroll event with rAF for smooth scrubbing (no throttle)
+            let ticking = false;
+            window.addEventListener('scroll', () => {
+                if (!ticking) {
+                    requestAnimationFrame(() => {
+                        this.updateVideoTime();
+                        ticking = false;
                     });
-                },
-                { threshold: 0 }
-            );
-
-            observer.observe(this.treeSection);
+                    ticking = true;
+                }
+            });
+            this.updateVideoTime(); // Initial call
         }
 
-        startTracking() {
-            this.scrollHandler = throttle(() => this.updateGrowth(), 16);
-            window.addEventListener('scroll', this.scrollHandler);
-            this.updateGrowth(); // Initial call
-        }
+        updateVideoTime() {
+            if (!this.isReady) return;
 
-        stopTracking() {
-            if (this.scrollHandler) {
-                window.removeEventListener('scroll', this.scrollHandler);
-            }
-        }
-
-        updateGrowth() {
-            const rect = this.treeSection.getBoundingClientRect();
+            const videoRect = this.video.getBoundingClientRect();
             const viewportHeight = window.innerHeight;
+            const viewportCenter = viewportHeight / 2;
 
-            // Calculate progress through the section
-            const sectionTop = rect.top;
-            const sectionHeight = rect.height;
+            // Progress: 0 when video top enters viewport (bottom of screen)
+            //           1 when video center reaches viewport center
+            const videoTop = videoRect.top;
+            const videoCenter = videoTop + (videoRect.height / 2);
 
-            // Progress: 0 when section enters, 1 when section exits
-            let progress = (viewportHeight - sectionTop) / (viewportHeight + sectionHeight);
+            // Start: videoTop = viewportHeight (just entering)
+            // End: videoCenter = viewportCenter (centered)
+            const startPoint = viewportHeight;
+            const endPoint = viewportCenter;
+
+            let progress = (startPoint - videoTop) / (startPoint - endPoint + (videoRect.height / 2));
             progress = clamp(progress, 0, 1);
 
-            // Apply growth based on progress
-            this.applyGrowth(progress);
-        }
-
-        applyGrowth(progress) {
-            if (!this.trunk || !this.canopy) return;
-
-            // Trunk grows first (0-40% of progress)
-            const trunkProgress = clamp(progress * 2.5, 0, 1);
-            const trunkHeight = lerp(20, 200, trunkProgress);
-            this.trunk.style.height = `${trunkHeight}px`;
-
-            // Canopy appears and grows (30-80% of progress)
-            const canopyProgress = clamp((progress - 0.3) * 2, 0, 1);
-            const canopyScale = lerp(0, 1, canopyProgress);
-            const canopyOpacity = lerp(0, 0.9, canopyProgress);
-            this.canopy.style.transform = `translateX(-50%) scale(${canopyScale})`;
-            this.canopy.style.opacity = canopyOpacity;
-
-            // Blooms appear last (60-100% of progress)
-            const bloomProgress = clamp((progress - 0.6) * 2.5, 0, 1);
-            this.blooms.forEach((bloom, index) => {
-                const delay = index * 0.1;
-                const individualProgress = clamp((bloomProgress - delay) * 2, 0, 1);
-                bloom.style.transform = `scale(${individualProgress})`;
-                bloom.style.opacity = individualProgress;
-            });
+            // Map progress to video time and set directly (already in rAF)
+            this.video.currentTime = progress * this.videoDuration;
         }
     }
 
