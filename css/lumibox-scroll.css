@@ -55,7 +55,7 @@
    ======================================== */
 .lumibox-scroll {
     background-color: var(--color-bg-main);
-    overflow-x: hidden;
+    /* Removed overflow-x: hidden as it can break sticky positioning */
 }
 
 /* ========================================
@@ -360,25 +360,26 @@
    PHASE SECTIONS
    ======================================== */
 .phase {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    min-height: 100vh;
+    display: flex;
     position: relative;
+    align-items: flex-start;  /* Key: don't stretch items, let sticky work */
+    min-height: 150vh;  /* Ensure container is tall enough for sticky */
 }
 
-/* Phase Visual Side (Sticky) */
+/* Phase Visual Side (Sticky) - the column itself is sticky */
 .phase__visual {
-    position: relative;
-}
-
-.phase__sticky {
+    flex: 0 0 50%;
     position: sticky;
-    top: 0;
-    height: 100vh;
+    top: 100px;
+    height: calc(100vh - 120px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--space-2xl);
+}
+
+.phase__sticky {
+    /* Now just a wrapper for the illustration */
 }
 
 .phase-illustration {
@@ -397,10 +398,14 @@
 
 /* Phase Content Side (Scrolling) */
 .phase__content {
+    flex: 0 0 50%;
     padding: var(--space-3xl) var(--space-2xl);
+    padding-top: 20vh;  /* Start content below fold for scroll room */
+    padding-bottom: 30vh;  /* Extra padding for scroll room */
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    gap: var(--space-2xl);
 }
 
 .phase__header {
@@ -494,7 +499,8 @@
 .kit-pair {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
+    gap: var(--space-3xl);  /* More spacing for scrollytelling effect */
+    padding: var(--space-2xl) 0;
 }
 
 .kit-card {
@@ -1336,17 +1342,23 @@
 /* Tablet */
 @media (max-width: 1024px) {
     .phase {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: stretch;
     }
 
     .phase__visual {
-        order: -1;
-    }
-
-    .phase__sticky {
-        position: relative;
+        position: relative;  /* Disable sticky on tablet */
+        top: auto;
+        flex: 0 0 auto;
         height: auto;
         min-height: 50vh;
+        margin-bottom: var(--space-xl);
+    }
+
+    .phase__content {
+        flex: 0 0 auto;
+        padding-top: var(--space-2xl);
+        padding-bottom: var(--space-2xl);
     }
 
     .scroll-domain {
