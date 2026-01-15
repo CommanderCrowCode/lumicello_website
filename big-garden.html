@@ -1274,6 +1274,18 @@
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-sm);
             transition: all var(--duration-normal) var(--ease-out);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .domain-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--domain-color, var(--color-sage));
         }
 
         .domain-card:hover {
@@ -1959,50 +1971,50 @@
             </div>
 
             <div class="domains-grid" data-animate="delay-1">
-                <div class="domain-card">
-                    <div class="domain-icon">&#127803;</div>
+                <div class="domain-card" style="--domain-color: #E8927C;">
+                    <div class="domain-icon">🌻</div>
                     <h4>Gross Motor</h4>
-                    <p>Running, jumping, climbing</p>
+                    <p>Running, jumping, climbing, balance</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#127800;</div>
+                <div class="domain-card" style="--domain-color: #7A9E7E;">
+                    <div class="domain-icon">🌷</div>
                     <h4>Fine Motor</h4>
-                    <p>Grasping, drawing, building</p>
+                    <p>Grasping, drawing, building, precision</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#127799;</div>
+                <div class="domain-card" style="--domain-color: #A8D5E5;">
+                    <div class="domain-icon">🔔</div>
                     <h4>Linguistic</h4>
-                    <p>Speaking, listening, reading</p>
+                    <p>Speaking, listening, vocabulary</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#129467;</div>
+                <div class="domain-card" style="--domain-color: #D4C4E6;">
+                    <div class="domain-icon">💜</div>
                     <h4>Cognitive</h4>
-                    <p>Problem-solving, memory</p>
+                    <p>Problem-solving, memory, logic</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#127802;</div>
+                <div class="domain-card" style="--domain-color: #F5C87A;">
+                    <div class="domain-icon">🌼</div>
                     <h4>Social</h4>
-                    <p>Sharing, friendship, empathy</p>
+                    <p>Sharing, friendship, cooperation</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#129344;</div>
+                <div class="domain-card" style="--domain-color: #F48FB1;">
+                    <div class="domain-icon">🌹</div>
                     <h4>Emotional</h4>
-                    <p>Self-regulation, expression</p>
+                    <p>Self-regulation, expression, empathy</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#127774;</div>
-                    <h4>Self-Care</h4>
-                    <p>Dressing, eating, hygiene</p>
+                <div class="domain-card" style="--domain-color: #FFAB91;">
+                    <div class="domain-icon">🍊</div>
+                    <h4>Feeding & Nutrition</h4>
+                    <p>Eating skills, food exploration</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#127912;</div>
-                    <h4>Creative</h4>
-                    <p>Art, music, imagination</p>
+                <div class="domain-card" style="--domain-color: #B2DFDB;">
+                    <div class="domain-icon">🪷</div>
+                    <h4>Self-Care & Independence</h4>
+                    <p>Dressing, hygiene, daily routines</p>
                 </div>
-                <div class="domain-card">
-                    <div class="domain-icon">&#129716;</div>
-                    <h4>Nature</h4>
-                    <p>Curiosity, exploration</p>
+                <div class="domain-card" style="--domain-color: #80DEEA;">
+                    <div class="domain-icon">💠</div>
+                    <h4>Sensory & Perceptual</h4>
+                    <p>Touch, sight, sound awareness</p>
                 </div>
             </div>
         </div>
