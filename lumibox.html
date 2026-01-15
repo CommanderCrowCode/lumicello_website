@@ -4,18 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4A5D4B">
-    <title>LumiBox - Thoughtfully Designed Learning Kits | Lumicello</title>
-    <meta name="description" content="LumiBox learning kits are thoughtfully designed for baby's first year. Each kit supports key developmental milestones while nurturing natural curiosity.">
+    <title>LumiBox - Two Years of Wonder | Lumicello</title>
+    <meta name="description" content="LumiBox learning kits are thoughtfully designed for baby's first two years. 12 developmental boxes plus 4 domain specializations in Music, Math, Color, and Alphabet.">
 
     <!-- Open Graph / Social Sharing -->
     <meta property="og:type" content="product">
     <meta property="og:url" content="https://lumicello.com/lumibox.html">
-    <meta property="og:title" content="LumiBox - The First Year Collection">
-    <meta property="og:description" content="Six beautifully designed kits for baby's first year. Each box unlocks a new chapter of discovery - from first gazes to first words.">
+    <meta property="og:title" content="LumiBox - Two Years of Wonder">
+    <meta property="og:description" content="From first gaze to first ABCs. 12 developmental kits plus 4 domain boxes for a complete learning journey.">
     <meta property="og:image" content="https://lumicello.com/assets/images/lumibox/items_0-2.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="LumiBox First Gazes Kit - beautifully designed sensory toys and high-contrast cards for newborns">
     <meta property="og:site_name" content="Lumicello">
 
     <!-- Canonical URL -->
@@ -23,22 +22,19 @@
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="LumiBox - The First Year Collection">
-    <meta name="twitter:description" content="Six beautifully designed kits for baby's first year. Each box unlocks a new chapter of discovery.">
+    <meta name="twitter:title" content="LumiBox - Two Years of Wonder">
+    <meta name="twitter:description" content="From first gaze to first ABCs. Thoughtfully designed learning kits for baby's first two years.">
     <meta name="twitter:image" content="https://lumicello.com/assets/images/lumibox/items_0-2.webp">
-    <meta name="twitter:image:alt" content="LumiBox learning kit contents - premium sensory toys for baby development">
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/nunito/v32/XRXV3I6Li01BKofINeaBTMnFcQ.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="https://fonts.gstatic.com/s/fraunces/v38/6NU78FyLNQOQZAnv9bYEvDiIdE9Ea92uemAk_WBq8U_9v0c2Wa0KxC9TeP2Xz5c.woff2" as="font" type="font/woff2" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Nunito:ital,wght@0,300..1000;1,300..1000&family=Noto+Sans+Thai:wght@300..900&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="css/variables.css">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/products.css">
+    <link rel="stylesheet" href="css/lumibox-scroll.css">
 
     <!-- Favicon -->
     <link rel="icon" href="favicon.png" type="image/png" sizes="32x32">
@@ -58,8 +54,8 @@
     {
         "@context": "https://schema.org",
         "@type": "Product",
-        "name": "LumiBox First Year Collection",
-        "description": "Thoughtfully designed learning kits for babies 0-12 months. Each kit supports key developmental milestones while nurturing natural curiosity.",
+        "name": "LumiBox Two Year Collection",
+        "description": "Thoughtfully designed learning kits for babies 0-24 months. 12 developmental boxes plus 4 domain specializations.",
         "brand": {
             "@type": "Brand",
             "name": "Lumicello"
@@ -69,344 +65,846 @@
         "audience": {
             "@type": "PeopleAudience",
             "suggestedMinAge": "0 months",
-            "suggestedMaxAge": "12 months"
+            "suggestedMaxAge": "24 months"
         }
     }
     </script>
 </head>
-<body>
+<body class="lumibox-scroll-page">
     <!-- Navigation (Shared Component) -->
     <div id="nav-placeholder"></div>
 
-    <!-- LumiBox Hero Section - Premium Unboxing Reveal -->
-    <section class="lumibox-hero">
-        <div class="lumibox-hero-container">
-            <!-- Text Content -->
-            <div class="lumibox-hero-content">
-                <span class="lumibox-hero-eyebrow reveal">The First Year Collection</span>
-                <h1 class="lumibox-hero-title">LumiBox</h1>
-                <p class="lumibox-hero-subtitle">Thoughtfully designed kits for baby's first year. Each box unlocks a new chapter of discovery.</p>
-                <div class="lumibox-hero-cta-group">
-                    <a href="#collection" class="btn btn-accent lumibox-hero-cta">Explore the Collection</a>
-                    <a href="#journey" class="btn btn-outline lumibox-hero-cta-secondary">See the Journey</a>
+    <!-- Main Scrollytelling Container -->
+    <main class="lumibox-scroll">
+
+        <!-- ============================================
+             SECTION 1: HERO
+             ============================================ -->
+        <section class="scroll-section scroll-hero" data-section="hero">
+            <div class="scroll-hero__content">
+                <div class="scroll-hero__sprout">
+                    <svg class="sprout-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path class="sprout-stem" d="M32 56V36" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                        <path class="sprout-leaf-left" d="M32 40C24 40 20 32 20 24C28 24 32 32 32 40Z" fill="currentColor"/>
+                        <path class="sprout-leaf-right" d="M32 32C40 32 44 24 44 16C36 16 32 24 32 32Z" fill="currentColor"/>
+                    </svg>
+                </div>
+                <span class="scroll-hero__eyebrow reveal">The Complete Collection</span>
+                <h1 class="scroll-hero__title">LumiBox</h1>
+                <p class="scroll-hero__tagline">Two Years of Wonder</p>
+                <p class="scroll-hero__subtitle">From first gaze to first ABCs—thoughtfully designed kits that grow with your little one.</p>
+                <div class="scroll-hero__cta">
+                    <a href="#year-one" class="btn btn-accent">Begin the Journey</a>
+                    <a href="#pricing" class="btn btn-outline">View Packages</a>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <span>Scroll to explore</span>
+                <svg class="scroll-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 5v14M5 12l7 7 7-7"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 2: TREE GROWTH
+             ============================================ -->
+        <section class="scroll-section scroll-tree" data-section="tree">
+            <div class="scroll-tree__container">
+                <!-- Tree SVG - grows as user scrolls -->
+                <div class="scroll-tree__visual">
+                    <div class="tree-placeholder" data-placeholder="true" data-asset-needed="tree-growth.svg">
+                        <!-- CSS-based placeholder tree -->
+                        <div class="tree-trunk"></div>
+                        <div class="tree-branch tree-branch--left"></div>
+                        <div class="tree-branch tree-branch--right"></div>
+                        <div class="tree-leaves"></div>
+                        <div class="tree-blooms">
+                            <span class="bloom bloom--music">🎵</span>
+                            <span class="bloom bloom--math">🔢</span>
+                            <span class="bloom bloom--color">🎨</span>
+                            <span class="bloom bloom--alphabet">🔤</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="scroll-tree__text">
+                    <p class="tree-stat reveal" data-reveal="1">
+                        <span class="stat-number">12</span>
+                        <span class="stat-label">developmental boxes</span>
+                    </p>
+                    <p class="tree-stat reveal" data-reveal="2">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">specialized domains</span>
+                    </p>
+                    <p class="tree-stat reveal" data-reveal="3">
+                        <span class="stat-number">1</span>
+                        <span class="stat-label">incredible journey</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 3: YEAR ONE - THE FOUNDATION
+             ============================================ -->
+        <section class="scroll-section scroll-year" data-section="year-one" data-year="1" id="year-one">
+            <div class="year-intro reveal">
+                <span class="year-badge">Year One</span>
+                <h2 class="year-title">The Foundation</h2>
+                <p class="year-subtitle">Six boxes for the most transformative year of life.</p>
+            </div>
+
+            <!-- Phase 1: Awakening (0-4 months) -->
+            <div class="phase" data-phase="awakening">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration awakening-illustration">
+                            <img src="assets/images/lumibox/items_0-2.webp" alt="First Gazes kit contents" class="phase-hero-image" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 1</span>
+                        <h3 class="phase__title">Awakening</h3>
+                        <p class="phase__age">0-4 months</p>
+                    </div>
+                    <p class="phase__narrative reveal">
+                        In these first weeks, every moment is magic. Baby discovers faces, light, and the comfort of your voice. Eyes learn to focus. Hands learn to grasp. The world begins.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 1: First Gazes -->
+                        <article class="kit-card reveal" data-kit="0-2">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">0-2 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">First Gazes</h4>
+                                <p class="kit-card__focus">Visual Development</p>
+                                <p class="kit-card__desc">High-contrast cards and gentle sensory toys designed for newborn eyes discovering the world.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 2: Tummy Time -->
+                        <article class="kit-card reveal" data-kit="3-4">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">3-4 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Tummy Time Discovery</h4>
+                                <p class="kit-card__focus">Core Strength & Tracking</p>
+                                <p class="kit-card__desc">Engaging props that make tummy time fun while building essential muscles and visual tracking skills.</p>
+                            </div>
+                        </article>
+                    </div>
                 </div>
             </div>
 
-            <!-- Hero Visual - Dramatic Kit Reveal -->
-            <div class="lumibox-hero-visual">
-                <div class="lumibox-reveal-stage">
-                    <!-- Main featured box with lid animation -->
-                    <div class="lumibox-featured">
-                        <div class="lumibox-featured-box">
-                            <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit - The beginning of your baby's discovery journey" loading="eager">
-                        </div>
-                        <!-- Kit items floating out -->
-                        <div class="lumibox-items-spread">
-                            <img src="assets/images/lumibox/items_0-2.webp" alt="Kit contents - High contrast cards, sensory toys, and parent guide" class="lumibox-items-img" loading="eager">
+            <!-- Phase 2: Exploring (5-8 months) -->
+            <div class="phase" data-phase="exploring">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration exploring-illustration">
+                            <img src="assets/images/lumibox/items_5-6.webp" alt="Grasp & Spin kit contents" class="phase-hero-image" loading="lazy">
                         </div>
                     </div>
-
-                    <!-- Secondary boxes orbiting -->
-                    <div class="lumibox-orbit">
-                        <div class="lumibox-orbit-item lumibox-orbit-1">
-                            <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit" loading="lazy">
-                        </div>
-                        <div class="lumibox-orbit-item lumibox-orbit-2">
-                            <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit" loading="lazy">
-                        </div>
-                        <div class="lumibox-orbit-item lumibox-orbit-3">
-                            <img src="assets/images/lumibox/box_7-8.webp" alt="Sit & Explore Kit" loading="lazy">
-                        </div>
+                </div>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 2</span>
+                        <h3 class="phase__title">Exploring</h3>
+                        <p class="phase__age">5-8 months</p>
                     </div>
-
-                    <!-- Ambient glow effects -->
-                    <div class="lumibox-ambient">
-                        <div class="lumibox-glow lumibox-glow-primary"></div>
-                        <div class="lumibox-glow lumibox-glow-secondary"></div>
+                    <p class="phase__narrative reveal">
+                        Hands reach out. Everything goes in the mouth. The world is becoming touchable, explorable. Sitting opens new horizons. Curiosity explodes.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 3: Grasp & Spin -->
+                        <article class="kit-card reveal" data-kit="5-6">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">5-6 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Grasp & Spin</h4>
+                                <p class="kit-card__focus">Fine Motor Skills</p>
+                                <p class="kit-card__desc">Colorful manipulatives that encourage reaching, grasping, and the joy of cause-and-effect discovery.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 4: Sit & Explore -->
+                        <article class="kit-card reveal" data-kit="7-8">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">7-8 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_7-8.webp" alt="Sit & Explore Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Sit & Explore</h4>
+                                <p class="kit-card__focus">Object Permanence</p>
+                                <p class="kit-card__desc">Interactive toys that reward curiosity and help babies understand that objects exist even when hidden.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <!-- Background decorations -->
-        <div class="lumibox-hero-bg">
-            <div class="lumibox-bg-circle lumibox-bg-circle-1"></div>
-            <div class="lumibox-bg-circle lumibox-bg-circle-2"></div>
-            <div class="lumibox-bg-circle lumibox-bg-circle-3"></div>
-        </div>
-    </section>
-
-    <!-- Collection Section - Premium Product Cards -->
-    <section class="lumibox-collection" id="collection">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>First Year Collection</h2>
-                <p>Six developmental stages, thoughtfully curated to support your baby's journey of discovery.</p>
-            </div>
-
-            <!-- Premium Product Grid -->
-            <div class="lumibox-product-grid">
-                <!-- Kit 1: 0-2 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="0-2">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">0-2 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_0-2.webp" alt="First Gazes Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_0-2.webp" alt="First Gazes Kit contents" class="lumibox-card-items" loading="lazy">
+            <!-- Phase 3: Moving (9-12 months) -->
+            <div class="phase" data-phase="moving">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration moving-illustration">
+                            <img src="assets/images/lumibox/items_9-10.webp" alt="Stand & Move kit contents" class="phase-hero-image" loading="lazy">
                         </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>First Gazes</h3>
-                        <p class="lumibox-card-focus">Visual Development</p>
-                        <p class="lumibox-card-desc">High-contrast cards and gentle sensory toys designed for newborn eyes discovering the world.</p>
-                    </div>
-                </article>
-
-                <!-- Kit 2: 3-4 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="3-4">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">3-4 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_3-4.webp" alt="Tummy Time Discovery Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_3-4.webp" alt="Tummy Time Discovery Kit contents" class="lumibox-card-items" loading="lazy">
-                        </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>Tummy Time Discovery</h3>
-                        <p class="lumibox-card-focus">Core Strength & Tracking</p>
-                        <p class="lumibox-card-desc">Engaging props that make tummy time fun while building essential muscles and visual tracking skills.</p>
-                    </div>
-                </article>
-
-                <!-- Kit 3: 5-6 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="5-6">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">5-6 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_5-6.webp" alt="Grasp & Spin Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_5-6.webp" alt="Grasp & Spin Kit contents" class="lumibox-card-items" loading="lazy">
-                        </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>Grasp & Spin</h3>
-                        <p class="lumibox-card-focus">Fine Motor Skills</p>
-                        <p class="lumibox-card-desc">Colorful manipulatives that encourage reaching, grasping, and the joy of cause-and-effect discovery.</p>
-                    </div>
-                </article>
-
-                <!-- Kit 4: 7-8 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="7-8">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">7-8 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_7-8.webp" alt="Sit & Explore Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_7-8.webp" alt="Sit & Explore Kit contents" class="lumibox-card-items" loading="lazy">
-                        </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>Sit & Explore</h3>
-                        <p class="lumibox-card-focus">Object Permanence</p>
-                        <p class="lumibox-card-desc">Interactive toys that reward curiosity and help babies understand that objects exist even when hidden.</p>
-                    </div>
-                </article>
-
-                <!-- Kit 5: 9-10 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="9-10">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">9-10 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_9-10.webp" alt="Stand & Move Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_9-10.webp" alt="Stand & Move Kit contents" class="lumibox-card-items" loading="lazy">
-                        </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>Stand & Move</h3>
-                        <p class="lumibox-card-focus">Gross Motor & Balance</p>
-                        <p class="lumibox-card-desc">Supportive tools that encourage pulling up, cruising, and those exciting first steps toward independence.</p>
-                    </div>
-                </article>
-
-                <!-- Kit 6: 11-12 Months -->
-                <article class="lumibox-product-card reveal-stagger" data-age="11-12">
-                    <div class="lumibox-card-visual">
-                        <div class="lumibox-card-badge">11-12 months</div>
-                        <div class="lumibox-card-image-wrapper">
-                            <img src="assets/images/lumibox/box_11-12.webp" alt="First Words Kit" class="lumibox-card-box" loading="lazy">
-                            <img src="assets/images/lumibox/items_11-12.webp" alt="First Words Kit contents" class="lumibox-card-items" loading="lazy">
-                        </div>
-                        <div class="lumibox-card-glow"></div>
-                    </div>
-                    <div class="lumibox-card-content">
-                        <h3>First Words</h3>
-                        <p class="lumibox-card-focus">Language & Communication</p>
-                        <p class="lumibox-card-desc">Language-rich materials that spark those magical first words and meaningful two-way communication.</p>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <!-- Journey Timeline Section -->
-    <section class="lumibox-journey" id="journey">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>A Year of Wonder</h2>
-                <p>Watch your little one grow through six carefully designed developmental stages.</p>
-            </div>
-
-            <div class="lumibox-timeline">
-                <div class="lumibox-timeline-track"></div>
-
-                <!-- Timeline Milestones -->
-                <div class="lumibox-milestone reveal" data-month="0">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
-                    </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">Birth</span>
-                        <h4>First Gazes</h4>
-                        <p>Eyes begin to focus, recognizing faces and high-contrast patterns.</p>
                     </div>
                 </div>
-
-                <div class="lumibox-milestone reveal" data-month="3">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 3</span>
+                        <h3 class="phase__title">Moving</h3>
+                        <p class="phase__age">9-12 months</p>
                     </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">3 months</span>
-                        <h4>Tummy Time</h4>
-                        <p>Building core strength and discovering the world from new angles.</p>
-                    </div>
-                </div>
-
-                <div class="lumibox-milestone reveal" data-month="5">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
-                    </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">5 months</span>
-                        <h4>Reaching Out</h4>
-                        <p>Those tiny hands start grasping everything within reach.</p>
-                    </div>
-                </div>
-
-                <div class="lumibox-milestone reveal" data-month="7">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
-                    </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">7 months</span>
-                        <h4>Sitting Strong</h4>
-                        <p>A whole new perspective opens up from sitting independently.</p>
-                    </div>
-                </div>
-
-                <div class="lumibox-milestone reveal" data-month="9">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
-                    </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">9 months</span>
-                        <h4>On the Move</h4>
-                        <p>Crawling, pulling up, and those thrilling first cruising steps.</p>
-                    </div>
-                </div>
-
-                <div class="lumibox-milestone reveal" data-month="12">
-                    <div class="lumibox-milestone-marker">
-                        <span class="lumibox-milestone-dot"></span>
-                    </div>
-                    <div class="lumibox-milestone-content">
-                        <span class="lumibox-milestone-age">12 months</span>
-                        <h4>First Words</h4>
-                        <p>The magic of communication begins with those precious first words.</p>
+                    <p class="phase__narrative reveal">
+                        Those first steps. That first "mama." The world is no longer something to watch—it's somewhere to GO. Independence beckons. Words begin to form.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 5: Stand & Move -->
+                        <article class="kit-card reveal" data-kit="9-10">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">9-10 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_9-10.webp" alt="Stand & Move Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Stand & Move</h4>
+                                <p class="kit-card__focus">Gross Motor & Balance</p>
+                                <p class="kit-card__desc">Supportive tools that encourage pulling up, cruising, and those exciting first steps toward independence.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 6: First Words -->
+                        <article class="kit-card reveal" data-kit="11-12">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">11-12 months</span>
+                                <div class="kit-card__image-container">
+                                    <img src="assets/images/lumibox/box_11-12.webp" alt="First Words Kit" class="kit-card__box" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">First Words</h4>
+                                <p class="kit-card__focus">Language & Communication</p>
+                                <p class="kit-card__desc">Language-rich materials that spark those magical first words and meaningful two-way communication.</p>
+                            </div>
+                        </article>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Trust Signals / Testimonials Section -->
-    <section class="lumibox-trust">
-        <div class="container">
-            <div class="section-header reveal">
-                <h2>Loved by Parents</h2>
-                <p>Join thousands of families who've made LumiBox part of their first year journey.</p>
+        <!-- ============================================
+             SECTION 4: BIRTHDAY CELEBRATION
+             ============================================ -->
+        <section class="scroll-section scroll-celebration" data-section="birthday">
+            <div class="celebration__content">
+                <div class="celebration__cake" data-placeholder="true" data-asset-needed="birthday-cake.svg">
+                    <span class="cake-emoji">🎂</span>
+                </div>
+                <h2 class="celebration__title reveal">Happy First Birthday!</h2>
+                <p class="celebration__text reveal">You made it through the most transformative year of life.</p>
+                <p class="celebration__continuation reveal">But this is just the beginning...</p>
+            </div>
+            <canvas class="confetti-canvas" id="confetti-canvas"></canvas>
+        </section>
+
+        <!-- ============================================
+             SECTION 5: YEAR TWO - THE EXPLORATION
+             ============================================ -->
+        <section class="scroll-section scroll-year" data-section="year-two" data-year="2" id="year-two">
+            <div class="year-intro reveal">
+                <span class="year-badge">Year Two</span>
+                <h2 class="year-title">The Exploration</h2>
+                <p class="year-subtitle">Six boxes for the year of independence and imagination.</p>
             </div>
 
-            <div class="lumibox-testimonials">
-                <blockquote class="lumibox-testimonial reveal-stagger">
-                    <p>"Every month we look forward to opening the new box together. It's become our special ritual."</p>
-                    <footer>
-                        <cite>Sarah M.</cite>
-                        <span>Mother of 8-month-old Mia</span>
-                    </footer>
-                </blockquote>
-
-                <blockquote class="lumibox-testimonial reveal-stagger">
-                    <p>"The quality is incredible. These aren't just toys - they're beautifully designed learning tools."</p>
-                    <footer>
-                        <cite>James & Priya K.</cite>
-                        <span>Parents of twin boys</span>
-                    </footer>
-                </blockquote>
-
-                <blockquote class="lumibox-testimonial reveal-stagger">
-                    <p>"I gave this as a baby shower gift and the parents were in tears. It's the gift that keeps giving all year."</p>
-                    <footer>
-                        <cite>Linda T.</cite>
-                        <span>Proud aunt</span>
-                    </footer>
-                </blockquote>
+            <!-- Phase 4: Independence (13-16 months) -->
+            <div class="phase" data-phase="independence">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration independence-illustration">
+                            <!-- Placeholder for Year 2 imagery -->
+                            <div class="placeholder-image" data-placeholder="true" data-asset-needed="items_13-14.webp">
+                                <span class="placeholder-label">Walking Tall Items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 4</span>
+                        <h3 class="phase__title">Independence</h3>
+                        <p class="phase__age">13-16 months</p>
+                    </div>
+                    <p class="phase__narrative reveal">
+                        Watch me walk! Watch me climb! The world is no longer a mystery—it's MY playground. Every step builds confidence. Every fall teaches resilience.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 7: Walking Tall -->
+                        <article class="kit-card reveal" data-kit="13-14" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">13-14 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_13-14.webp">
+                                    <span class="placeholder-label">Walking Tall</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Walking Tall</h4>
+                                <p class="kit-card__focus">Balance & Independent Mobility</p>
+                                <p class="kit-card__desc">Tools and toys that support confident walking and exploration of larger spaces.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 8: Self & World -->
+                        <article class="kit-card reveal" data-kit="15-16" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">15-16 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_15-16.webp">
+                                    <span class="placeholder-label">Self & World</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Self & World</h4>
+                                <p class="kit-card__focus">Self-Awareness & Environment</p>
+                                <p class="kit-card__desc">Materials that help toddlers understand themselves and their place in the world.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
             </div>
 
-            <!-- Trust badges -->
-            <div class="lumibox-trust-badges reveal">
-                <div class="lumibox-badge">
-                    <span class="lumibox-badge-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <!-- Phase 5: Expression (17-20 months) -->
+            <div class="phase" data-phase="expression">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration expression-illustration">
+                            <div class="placeholder-image" data-placeholder="true" data-asset-needed="items_17-18.webp">
+                                <span class="placeholder-label">Word Explosion Items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 5</span>
+                        <h3 class="phase__title">Expression</h3>
+                        <p class="phase__age">17-20 months</p>
+                    </div>
+                    <p class="phase__narrative reveal">
+                        More words every day! Big emotions too. Learning to name the world—and feelings. The vocabulary explosion begins. Communication transforms.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 9: Word Explosion -->
+                        <article class="kit-card reveal" data-kit="17-18" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">17-18 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_17-18.webp">
+                                    <span class="placeholder-label">Word Explosion</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Word Explosion</h4>
+                                <p class="kit-card__focus">Vocabulary Growth</p>
+                                <p class="kit-card__desc">Language-rich materials to support the vocabulary explosion period with naming games and conversation starters.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 10: Big Feelings -->
+                        <article class="kit-card reveal" data-kit="19-20" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">19-20 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_19-20.webp">
+                                    <span class="placeholder-label">Big Feelings</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Big Feelings</h4>
+                                <p class="kit-card__focus">Emotional Intelligence</p>
+                                <p class="kit-card__desc">Tools for understanding and expressing emotions. Feelings faces, calming strategies, and empathy builders.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Phase 6: Imagination (21-24 months) -->
+            <div class="phase" data-phase="imagination">
+                <div class="phase__visual">
+                    <div class="phase__sticky">
+                        <div class="phase-illustration imagination-illustration">
+                            <div class="placeholder-image" data-placeholder="true" data-asset-needed="items_21-22.webp">
+                                <span class="placeholder-label">Pretend Play Items</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="phase__content">
+                    <div class="phase__header reveal">
+                        <span class="phase__badge">Phase 6</span>
+                        <h3 class="phase__title">Imagination</h3>
+                        <p class="phase__age">21-24 months</p>
+                    </div>
+                    <p class="phase__narrative reveal">
+                        The stuffed bear has tea parties now. Problems are puzzles to solve. Imagination takes flight. Pretend play unlocks new worlds.
+                    </p>
+                    <div class="kit-pair">
+                        <!-- Kit 11: Pretend Play -->
+                        <article class="kit-card reveal" data-kit="21-22" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">21-22 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_21-22.webp">
+                                    <span class="placeholder-label">Pretend Play</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Pretend Play</h4>
+                                <p class="kit-card__focus">Imaginative & Symbolic Thinking</p>
+                                <p class="kit-card__desc">Open-ended props that spark imaginative play and help toddlers explore different roles and scenarios.</p>
+                            </div>
+                        </article>
+                        <!-- Kit 12: Little Thinker -->
+                        <article class="kit-card reveal" data-kit="23-24" data-placeholder="true">
+                            <div class="kit-card__visual">
+                                <span class="kit-card__age">23-24 months</span>
+                                <div class="kit-card__image-container kit-card__placeholder" data-asset-needed="box_23-24.webp">
+                                    <span class="placeholder-label">Little Thinker</span>
+                                </div>
+                            </div>
+                            <div class="kit-card__content">
+                                <h4 class="kit-card__name">Little Thinker</h4>
+                                <p class="kit-card__focus">Problem-Solving & Early Logic</p>
+                                <p class="kit-card__desc">Puzzles and challenges that stretch cognitive abilities and build confidence in thinking through problems.</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 6: DOMAIN INTRODUCTION
+             ============================================ -->
+        <section class="scroll-section scroll-domains-intro" data-section="domains-intro" id="domains">
+            <div class="domains-intro__content">
+                <h2 class="domains-intro__title reveal">Nurture Their Unique Spark</h2>
+                <p class="domains-intro__subtitle reveal">Every child has interests waiting to bloom. Our domain boxes help you cultivate what makes YOUR little one shine.</p>
+                <div class="domains-orbs reveal">
+                    <a href="#domain-music" class="domain-orb" data-domain="music">
+                        <span class="orb-icon">🎵</span>
+                        <span class="orb-label">Music</span>
+                    </a>
+                    <a href="#domain-math" class="domain-orb" data-domain="math">
+                        <span class="orb-icon">🔢</span>
+                        <span class="orb-label">Math</span>
+                    </a>
+                    <a href="#domain-color" class="domain-orb" data-domain="color">
+                        <span class="orb-icon">🎨</span>
+                        <span class="orb-label">Color</span>
+                    </a>
+                    <a href="#domain-alphabet" class="domain-orb" data-domain="alphabet">
+                        <span class="orb-icon">🔤</span>
+                        <span class="orb-label">Alphabet</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 7A: MUSIC DOMAIN
+             ============================================ -->
+        <section class="scroll-section scroll-domain" data-section="domain-music" data-domain="music" id="domain-music">
+            <div class="domain__visual">
+                <div class="domain__sticky">
+                    <div class="domain-box-display" data-placeholder="true" data-asset-needed="box_music.webp">
+                        <div class="domain-placeholder domain-placeholder--music">
+                            <span class="domain-placeholder__icon">🎵</span>
+                            <span class="domain-placeholder__label">Music Box</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domain__content">
+                <div class="domain__header reveal">
+                    <span class="domain__icon">🎵</span>
+                    <h3 class="domain__title">Little Maestro</h3>
+                    <p class="domain__tagline">"Rhythm is the first language"</p>
+                </div>
+                <p class="domain__narrative reveal">
+                    Before words, there's rhythm. Before sentences, there's song. Music awakens the brain in ways nothing else can—building neural pathways for language, math, and emotional expression.
+                </p>
+                <div class="domain__details reveal">
+                    <div class="domain__age-badge">Best for: 6+ months</div>
+                    <h4>What's Inside:</h4>
+                    <ul class="domain__contents">
+                        <li>Baby-safe instruments (shaker, bells, mini drum)</li>
+                        <li>Mini xylophone with soft mallet</li>
+                        <li>Rhythm pattern cards</li>
+                        <li>Songbook with QR codes for audio</li>
+                        <li>"Music & Me" parent activity guide</li>
+                    </ul>
+                    <h4>Skills Developed:</h4>
+                    <ul class="domain__skills">
+                        <li>Auditory discrimination</li>
+                        <li>Rhythm & beat awareness</li>
+                        <li>Cause-and-effect understanding</li>
+                        <li>Motor coordination through music</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 7B: MATH DOMAIN
+             ============================================ -->
+        <section class="scroll-section scroll-domain" data-section="domain-math" data-domain="math" id="domain-math">
+            <div class="domain__visual">
+                <div class="domain__sticky">
+                    <div class="domain-box-display" data-placeholder="true" data-asset-needed="box_math.webp">
+                        <div class="domain-placeholder domain-placeholder--math">
+                            <span class="domain-placeholder__icon">🔢</span>
+                            <span class="domain-placeholder__label">Math Box</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domain__content">
+                <div class="domain__header reveal">
+                    <span class="domain__icon">🔢</span>
+                    <h3 class="domain__title">Number Explorer</h3>
+                    <p class="domain__tagline">"Numbers are everywhere"</p>
+                </div>
+                <p class="domain__narrative reveal">
+                    Math isn't just counting—it's patterns, shapes, and logical thinking. These foundations start earlier than you'd think, in every stack of blocks and sorted pile of toys.
+                </p>
+                <div class="domain__details reveal">
+                    <div class="domain__age-badge">Best for: 12+ months</div>
+                    <h4>What's Inside:</h4>
+                    <ul class="domain__contents">
+                        <li>Counting stackers (1-10)</li>
+                        <li>Shape sorter with 6 geometric shapes</li>
+                        <li>Pattern block puzzle set</li>
+                        <li>Number texture cards (tactile 1-5)</li>
+                        <li>"Math Play" parent guide</li>
+                    </ul>
+                    <h4>Skills Developed:</h4>
+                    <ul class="domain__skills">
+                        <li>One-to-one correspondence</li>
+                        <li>Shape recognition & spatial reasoning</li>
+                        <li>Pattern recognition & sequencing</li>
+                        <li>Size comparison concepts</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 7C: COLOR DOMAIN
+             ============================================ -->
+        <section class="scroll-section scroll-domain" data-section="domain-color" data-domain="color" id="domain-color">
+            <div class="domain__visual">
+                <div class="domain__sticky">
+                    <div class="domain-box-display" data-placeholder="true" data-asset-needed="box_color.webp">
+                        <div class="domain-placeholder domain-placeholder--color">
+                            <span class="domain-placeholder__icon">🎨</span>
+                            <span class="domain-placeholder__label">Color Box</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domain__content">
+                <div class="domain__header reveal">
+                    <span class="domain__icon">🎨</span>
+                    <h3 class="domain__title">Color Wonderer</h3>
+                    <p class="domain__tagline">"The world explodes in color"</p>
+                </div>
+                <p class="domain__narrative reveal">
+                    Color is one of the first ways children categorize their world. Learning to see, name, and create with color builds vocabulary, cognitive skills, and creative confidence.
+                </p>
+                <div class="domain__details reveal">
+                    <div class="domain__age-badge">Best for: 12+ months</div>
+                    <h4>What's Inside:</h4>
+                    <ul class="domain__contents">
+                        <li>Color sorting cups (6 colors) & matching objects</li>
+                        <li>Color mixing discovery tubes</li>
+                        <li>Rainbow stacking arches</li>
+                        <li>First crayons (plant-based, safe formula)</li>
+                        <li>"World of Color" parent guide</li>
+                    </ul>
+                    <h4>Skills Developed:</h4>
+                    <ul class="domain__skills">
+                        <li>Color recognition & naming</li>
+                        <li>Categorization & sorting</li>
+                        <li>Visual discrimination</li>
+                        <li>Creative expression foundations</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 7D: ALPHABET DOMAIN
+             ============================================ -->
+        <section class="scroll-section scroll-domain" data-section="domain-alphabet" data-domain="alphabet" id="domain-alphabet">
+            <div class="domain__visual">
+                <div class="domain__sticky">
+                    <div class="domain-box-display" data-placeholder="true" data-asset-needed="box_alphabet.webp">
+                        <div class="domain-placeholder domain-placeholder--alphabet">
+                            <span class="domain-placeholder__icon">🔤</span>
+                            <span class="domain-placeholder__label">Alphabet Box</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="domain__content">
+                <div class="domain__header reveal">
+                    <span class="domain__icon">🔤</span>
+                    <h3 class="domain__title">Letter Lover</h3>
+                    <p class="domain__tagline">"Every story starts with a letter"</p>
+                </div>
+                <p class="domain__narrative reveal">
+                    The magic of reading begins with recognizing that those shapes on the page have meaning. This box builds the foundations for a lifetime of literacy and learning.
+                </p>
+                <div class="domain__details reveal">
+                    <div class="domain__age-badge">Best for: 18+ months</div>
+                    <h4>What's Inside:</h4>
+                    <ul class="domain__contents">
+                        <li>Tactile letter tiles (A-Z, textured surfaces)</li>
+                        <li>Phonics flashcards with pictures</li>
+                        <li>Alphabet floor puzzle</li>
+                        <li>Letter tracing cards (wipe-clean)</li>
+                        <li>"Letters Alive" parent guide</li>
+                    </ul>
+                    <h4>Skills Developed:</h4>
+                    <ul class="domain__skills">
+                        <li>Letter recognition</li>
+                        <li>Phonemic awareness (letter sounds)</li>
+                        <li>Fine motor (tracing)</li>
+                        <li>Print awareness & pre-reading</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 8: THE COMPLETE PICTURE
+             ============================================ -->
+        <section class="scroll-section scroll-overview" data-section="overview" id="overview">
+            <div class="overview__content">
+                <h2 class="overview__title reveal">The Complete Picture</h2>
+                <p class="overview__subtitle reveal">Build your perfect learning journey</p>
+                <div class="overview__map reveal">
+                    <div class="overview__journey">
+                        <div class="journey-year" data-year="1">
+                            <h4>Year One</h4>
+                            <div class="journey-boxes">
+                                <span class="journey-box" title="First Gazes (0-2mo)">📦</span>
+                                <span class="journey-box" title="Tummy Time (3-4mo)">📦</span>
+                                <span class="journey-box" title="Grasp & Spin (5-6mo)">📦</span>
+                                <span class="journey-box" title="Sit & Explore (7-8mo)">📦</span>
+                                <span class="journey-box" title="Stand & Move (9-10mo)">📦</span>
+                                <span class="journey-box" title="First Words (11-12mo)">📦</span>
+                            </div>
+                        </div>
+                        <div class="journey-year" data-year="2">
+                            <h4>Year Two</h4>
+                            <div class="journey-boxes">
+                                <span class="journey-box" title="Walking Tall (13-14mo)">📦</span>
+                                <span class="journey-box" title="Self & World (15-16mo)">📦</span>
+                                <span class="journey-box" title="Word Explosion (17-18mo)">📦</span>
+                                <span class="journey-box" title="Big Feelings (19-20mo)">📦</span>
+                                <span class="journey-box" title="Pretend Play (21-22mo)">📦</span>
+                                <span class="journey-box" title="Little Thinker (23-24mo)">📦</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="overview__domains">
+                        <h4>Domains</h4>
+                        <div class="domain-badges">
+                            <span class="domain-badge domain-badge--music" title="Music: Little Maestro">🎵</span>
+                            <span class="domain-badge domain-badge--math" title="Math: Number Explorer">🔢</span>
+                            <span class="domain-badge domain-badge--color" title="Color: Color Wonderer">🎨</span>
+                            <span class="domain-badge domain-badge--alphabet" title="Alphabet: Letter Lover">🔤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 9: PRICING
+             ============================================ -->
+        <section class="scroll-section scroll-pricing" data-section="pricing" id="pricing">
+            <div class="pricing__content">
+                <h2 class="pricing__title reveal">Choose Your Journey</h2>
+                <p class="pricing__subtitle reveal">Flexible options for every family</p>
+                <div class="pricing__cards reveal">
+                    <!-- Year 1 Package -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__title">Year One Journey</h3>
+                        <p class="pricing-card__description">The foundation of development</p>
+                        <ul class="pricing-card__features">
+                            <li>6 developmental boxes</li>
+                            <li>Ages 0-12 months</li>
+                            <li>Bi-monthly delivery</li>
+                            <li>Parent guides included</li>
+                        </ul>
+                        <div class="pricing-card__price">
+                            <span class="price-amount">฿X,XXX</span>
+                            <span class="price-period">/ collection</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-outline pricing-card__cta">Learn More</a>
+                    </div>
+                    <!-- Year 2 Package -->
+                    <div class="pricing-card">
+                        <h3 class="pricing-card__title">Year Two Journey</h3>
+                        <p class="pricing-card__description">Independence and imagination</p>
+                        <ul class="pricing-card__features">
+                            <li>6 developmental boxes</li>
+                            <li>Ages 13-24 months</li>
+                            <li>Bi-monthly delivery</li>
+                            <li>Parent guides included</li>
+                        </ul>
+                        <div class="pricing-card__price">
+                            <span class="price-amount">฿X,XXX</span>
+                            <span class="price-period">/ collection</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-outline pricing-card__cta">Learn More</a>
+                    </div>
+                    <!-- Complete Package -->
+                    <div class="pricing-card pricing-card--featured">
+                        <span class="pricing-card__badge">Best Value</span>
+                        <h3 class="pricing-card__title">Complete Explorer</h3>
+                        <p class="pricing-card__description">The full two-year journey</p>
+                        <ul class="pricing-card__features">
+                            <li>12 developmental boxes</li>
+                            <li>4 domain specializations</li>
+                            <li>Ages 0-24 months</li>
+                            <li>Priority delivery</li>
+                            <li>Exclusive parent community</li>
+                        </ul>
+                        <div class="pricing-card__price">
+                            <span class="price-amount">฿XX,XXX</span>
+                            <span class="price-period">/ complete set</span>
+                        </div>
+                        <a href="contact.html" class="btn btn-accent pricing-card__cta">Get Started</a>
+                    </div>
+                </div>
+                <div class="pricing__addons reveal">
+                    <h4>Add Domain Boxes</h4>
+                    <p>Enhance any package with specialized domain boxes</p>
+                    <div class="addon-options">
+                        <label class="addon-option">
+                            <input type="checkbox" name="addon-music">
+                            <span class="addon-icon">🎵</span>
+                            <span class="addon-name">Music</span>
+                        </label>
+                        <label class="addon-option">
+                            <input type="checkbox" name="addon-math">
+                            <span class="addon-icon">🔢</span>
+                            <span class="addon-name">Math</span>
+                        </label>
+                        <label class="addon-option">
+                            <input type="checkbox" name="addon-color">
+                            <span class="addon-icon">🎨</span>
+                            <span class="addon-name">Color</span>
+                        </label>
+                        <label class="addon-option">
+                            <input type="checkbox" name="addon-alphabet">
+                            <span class="addon-icon">🔤</span>
+                            <span class="addon-name">Alphabet</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================
+             SECTION 10: TESTIMONIALS
+             ============================================ -->
+        <section class="scroll-section scroll-testimonials" data-section="testimonials">
+            <div class="testimonials__content">
+                <h2 class="testimonials__title reveal">Loved by Parents</h2>
+                <p class="testimonials__subtitle reveal">Join thousands of families on the LumiBox journey</p>
+                <div class="testimonials__grid reveal">
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-card__quote">"Every month we look forward to opening the new box together. It's become our special ritual."</p>
+                        <footer class="testimonial-card__author">
+                            <cite>Sarah M.</cite>
+                            <span>Mother of 8-month-old Mia</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-card__quote">"The quality is incredible. These aren't just toys—they're beautifully designed learning tools."</p>
+                        <footer class="testimonial-card__author">
+                            <cite>James & Priya K.</cite>
+                            <span>Parents of twin boys</span>
+                        </footer>
+                    </blockquote>
+                    <blockquote class="testimonial-card">
+                        <p class="testimonial-card__quote">"I gave this as a baby shower gift and the parents were in tears. It's the gift that keeps giving all year."</p>
+                        <footer class="testimonial-card__author">
+                            <cite>Linda T.</cite>
+                            <span>Proud aunt</span>
+                        </footer>
+                    </blockquote>
+                </div>
+                <div class="trust-badges reveal">
+                    <div class="trust-badge">
+                        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
-                    </span>
-                    <span class="lumibox-badge-text">Safety Certified</span>
-                </div>
-                <div class="lumibox-badge">
-                    <span class="lumibox-badge-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <span class="trust-badge__text">Safety Certified</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                             <circle cx="12" cy="10" r="3"/>
                         </svg>
-                    </span>
-                    <span class="lumibox-badge-text">Made in Thailand</span>
-                </div>
-                <div class="lumibox-badge">
-                    <span class="lumibox-badge-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <span class="trust-badge__text">Made in Thailand</span>
+                    </div>
+                    <div class="trust-badge">
+                        <svg class="trust-badge__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
-                    </span>
-                    <span class="lumibox-badge-text">Expert Designed</span>
+                        <span class="trust-badge__text">Expert Designed</span>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA Section -->
-    <section class="lumibox-cta">
-        <div class="container">
-            <div class="lumibox-cta-content reveal">
-                <h2>Start Your Baby's Journey</h2>
-                <p>The perfect gift for expecting parents or your own little one. Each box arrives at exactly the right moment.</p>
-                <a href="contact.html" class="btn btn-accent btn-lg">Get in Touch</a>
+        <!-- ============================================
+             SECTION 11: FINAL CTA
+             ============================================ -->
+        <section class="scroll-section scroll-cta" data-section="cta">
+            <div class="cta__background">
+                <div class="cta__tree-full">
+                    <!-- Full grown tree visual -->
+                </div>
             </div>
-        </div>
-    </section>
+            <div class="cta__content">
+                <h2 class="cta__title reveal">Begin Your Two-Year Adventure</h2>
+                <p class="cta__subtitle reveal">The perfect gift for expecting parents or your own little one. Each box arrives at exactly the right moment.</p>
+                <div class="cta__buttons reveal">
+                    <a href="contact.html" class="btn btn-accent btn-lg">Start the Journey</a>
+                    <a href="#pricing" class="btn btn-outline btn-lg">View Packages</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <!-- Footer (Shared Component) -->
     <div id="footer-placeholder"></div>
@@ -414,5 +912,6 @@
     <!-- Scripts -->
     <script src="js/components.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/lumibox-scroll.js"></script>
 </body>
 </html>
