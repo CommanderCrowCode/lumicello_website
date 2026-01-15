@@ -744,36 +744,222 @@
 
         .particle {
             position: absolute;
-            border-radius: 50%;
-            animation: float-particle 8s ease-in-out infinite;
+            will-change: transform, opacity;
         }
 
+        /* Pollen - gentle golden sparkles that pulse with life */
         .particle.pollen {
+            width: 6px;
+            height: 6px;
+            background: radial-gradient(circle, #FFD700 0%, #F5C87A 60%, transparent 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(245, 200, 122, 0.6);
+            animation: pollen-dance var(--duration, 7s) cubic-bezier(0.4, 0, 0.2, 1) infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        /* Seeds - whimsical floating seeds drifting on a breeze */
+        .particle.seed {
+            width: 3px;
+            height: 12px;
+            background: linear-gradient(to bottom, #E8DFD4 0%, #C9BDA8 100%);
+            border-radius: 40% 40% 50% 50%;
+            animation: seed-float var(--duration, 9s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        .particle.seed::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 8px;
+            background: radial-gradient(ellipse at center, rgba(255,255,255,0.8) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Petals - joyful flower petals twirling in celebration */
+        .particle.petal {
+            width: 10px;
+            height: 14px;
+            background: var(--petal-color, #FFCCD5);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            opacity: 0.7;
+            animation: petal-twirl var(--duration, 8s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        /* Sparkle - tiny magical glints of light */
+        .particle.sparkle {
             width: 4px;
             height: 4px;
-            background: #D9A835;
-            opacity: 0.6;
+            background: white;
+            border-radius: 50%;
+            box-shadow:
+                0 0 4px rgba(255, 255, 255, 0.9),
+                0 0 8px rgba(217, 168, 53, 0.5);
+            animation: sparkle-burst var(--duration, 3s) ease-out infinite;
+            animation-delay: var(--delay, 0s);
         }
 
-        .particle.leaf {
+        /* Leaf motes - tiny leaf fragments catching the light */
+        .particle.leaf-mote {
             width: 8px;
-            height: 8px;
-            background: var(--color-sage);
-            opacity: 0.4;
+            height: 5px;
+            background: linear-gradient(135deg, var(--color-sage-light) 0%, var(--color-sage) 100%);
             border-radius: 50% 0 50% 0;
+            opacity: 0.5;
+            animation: leaf-sway var(--duration, 10s) ease-in-out infinite;
+            animation-delay: var(--delay, 0s);
         }
 
-        @keyframes float-particle {
-            0%, 100% {
+        /* Pollen dance - rises with gentle side-to-side sway, pulsing */
+        @keyframes pollen-dance {
+            0% {
+                transform: translate(0, 0) scale(0.8);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.9;
+            }
+            25% {
+                transform: translate(15px, -40px) scale(1.1);
+                opacity: 1;
+            }
+            50% {
+                transform: translate(-10px, -90px) scale(0.9);
+                opacity: 0.8;
+            }
+            75% {
+                transform: translate(20px, -130px) scale(1);
+                opacity: 0.6;
+            }
+            95% {
+                opacity: 0.2;
+            }
+            100% {
+                transform: translate(5px, -160px) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        /* Seed float - graceful upward drift with gentle rotation */
+        @keyframes seed-float {
+            0% {
                 transform: translate(0, 0) rotate(0deg);
                 opacity: 0;
             }
-            10% { opacity: 0.6; }
+            8% {
+                opacity: 0.7;
+            }
+            30% {
+                transform: translate(-20px, -50px) rotate(20deg);
+            }
             50% {
-                transform: translate(50px, -100px) rotate(180deg);
+                transform: translate(15px, -100px) rotate(-15deg);
                 opacity: 0.8;
             }
-            90% { opacity: 0.4; }
+            70% {
+                transform: translate(-10px, -140px) rotate(10deg);
+            }
+            92% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(5px, -180px) rotate(-5deg);
+                opacity: 0;
+            }
+        }
+
+        /* Petal twirl - joyful spinning with upward bounce */
+        @keyframes petal-twirl {
+            0% {
+                transform: translate(0, 0) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.7;
+                transform: translate(5px, -15px) rotate(45deg) scale(1);
+            }
+            30% {
+                transform: translate(-15px, -55px) rotate(135deg) scale(0.95);
+            }
+            50% {
+                transform: translate(20px, -95px) rotate(225deg) scale(1.05);
+                opacity: 0.8;
+            }
+            70% {
+                transform: translate(-5px, -130px) rotate(315deg) scale(0.9);
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translate(10px, -160px) rotate(405deg) scale(0.7);
+                opacity: 0;
+            }
+        }
+
+        /* Sparkle burst - quick bright flash then fade */
+        @keyframes sparkle-burst {
+            0% {
+                transform: translate(0, 0) scale(0);
+                opacity: 0;
+            }
+            15% {
+                transform: translate(2px, -10px) scale(1.5);
+                opacity: 1;
+            }
+            30% {
+                transform: translate(-3px, -25px) scale(0.8);
+                opacity: 0.9;
+            }
+            50% {
+                transform: translate(5px, -45px) scale(1.2);
+                opacity: 0.7;
+            }
+            75% {
+                transform: translate(-2px, -65px) scale(0.6);
+                opacity: 0.4;
+            }
+            100% {
+                transform: translate(3px, -80px) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        /* Leaf sway - slow, peaceful swaying drift */
+        @keyframes leaf-sway {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+                opacity: 0;
+            }
+            5% {
+                opacity: 0.5;
+            }
+            20% {
+                transform: translate(25px, -30px) rotate(25deg);
+            }
+            40% {
+                transform: translate(-15px, -70px) rotate(-20deg);
+                opacity: 0.6;
+            }
+            60% {
+                transform: translate(30px, -110px) rotate(30deg);
+            }
+            80% {
+                transform: translate(-10px, -145px) rotate(-15deg);
+                opacity: 0.4;
+            }
+            95% {
+                opacity: 0.1;
+            }
+            100% {
+                transform: translate(15px, -170px) rotate(10deg);
+                opacity: 0;
+            }
         }
 
         .growth-stages {
@@ -2156,24 +2342,90 @@
             });
         });
 
-        // Floating Particles for Garden Metaphor Section
+        // Joyful Floating Particles for Garden Metaphor Section
         function createParticles() {
             const container = document.getElementById('gardenParticles');
             if (!container) return;
 
-            const particleCount = 15;
+            // Particle configurations - each type has its own personality
+            const particleTypes = [
+                // Pollen - golden sparkles rising from flowers (most common)
+                {
+                    type: 'pollen',
+                    count: 8,
+                    durationRange: [6, 9],
+                    startYRange: [70, 95], // Start from lower portion (near flowers)
+                },
+                // Seeds - whimsical dandelion-like seeds
+                {
+                    type: 'seed',
+                    count: 4,
+                    durationRange: [8, 12],
+                    startYRange: [65, 85],
+                },
+                // Petals - joyful twirling flower petals
+                {
+                    type: 'petal',
+                    count: 5,
+                    durationRange: [7, 10],
+                    startYRange: [60, 80],
+                    colors: ['#FFCCD5', '#FFE4E1', '#FFF0F5', '#E8855E', '#D9A835'],
+                },
+                // Sparkles - magical glints of light (quick bursts)
+                {
+                    type: 'sparkle',
+                    count: 6,
+                    durationRange: [2.5, 4],
+                    startYRange: [50, 90],
+                },
+                // Leaf motes - tiny leaf fragments
+                {
+                    type: 'leaf-mote',
+                    count: 4,
+                    durationRange: [9, 13],
+                    startYRange: [55, 75],
+                },
+            ];
 
-            for (let i = 0; i < particleCount; i++) {
-                const particle = document.createElement('div');
-                particle.className = `particle ${Math.random() > 0.5 ? 'pollen' : 'leaf'}`;
+            // Create particles in orchestrated waves
+            let baseDelay = 0;
 
-                particle.style.left = `${Math.random() * 100}%`;
-                particle.style.top = `${60 + Math.random() * 30}%`;
-                particle.style.animationDelay = `${Math.random() * 8}s`;
-                particle.style.animationDuration = `${6 + Math.random() * 4}s`;
+            particleTypes.forEach(config => {
+                for (let i = 0; i < config.count; i++) {
+                    const particle = document.createElement('div');
+                    particle.className = `particle ${config.type}`;
 
-                container.appendChild(particle);
-            }
+                    // Distribute particles across the width with some clustering
+                    const xPosition = 5 + (Math.random() * 90);
+                    particle.style.left = `${xPosition}%`;
+
+                    // Start position within configured range
+                    const yPosition = config.startYRange[0] +
+                        Math.random() * (config.startYRange[1] - config.startYRange[0]);
+                    particle.style.top = `${yPosition}%`;
+
+                    // Varied duration within range
+                    const duration = config.durationRange[0] +
+                        Math.random() * (config.durationRange[1] - config.durationRange[0]);
+                    particle.style.setProperty('--duration', `${duration}s`);
+
+                    // Staggered delays for natural orchestration
+                    // Each particle type starts in a wave, then individual particles are offset
+                    const particleDelay = baseDelay + (i * 0.8) + (Math.random() * 2);
+                    particle.style.setProperty('--delay', `${particleDelay}s`);
+
+                    // Random colors for petals
+                    if (config.colors) {
+                        const color = config.colors[Math.floor(Math.random() * config.colors.length)];
+                        particle.style.setProperty('--petal-color', color);
+                    }
+
+                    container.appendChild(particle);
+                }
+
+                // Stagger the start of each particle type wave
+                baseDelay += 1.5;
+            });
         }
 
         // Initialize particles when garden scene is in view
