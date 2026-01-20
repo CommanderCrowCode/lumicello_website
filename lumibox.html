@@ -113,19 +113,16 @@
             <div class="scroll-tree__container">
                 <!-- Tree SVG - grows as user scrolls -->
                 <div class="scroll-tree__visual">
-                    <div class="tree-placeholder" data-placeholder="true" data-asset-needed="tree-growth.svg">
-                        <!-- CSS-based placeholder tree -->
-                        <div class="tree-trunk"></div>
-                        <div class="tree-branch tree-branch--left"></div>
-                        <div class="tree-branch tree-branch--right"></div>
-                        <div class="tree-leaves"></div>
-                        <div class="tree-blooms">
-                            <span class="bloom bloom--music">🎵</span>
-                            <span class="bloom bloom--math">🔢</span>
-                            <span class="bloom bloom--color">🎨</span>
-                            <span class="bloom bloom--alphabet">🔤</span>
-                        </div>
-                    </div>
+                    <video
+                        class="tree-video"
+                        id="treeVideo"
+                        muted
+                        playsinline
+                        preload="auto"
+                    >
+                        <source src="assets/videos/tree-growth-scrub.webm" type="video/webm">
+                        <source src="assets/videos/tree-growth-scrub.mp4" type="video/mp4">
+                    </video>
                 </div>
                 <div class="scroll-tree__text">
                     <p class="tree-stat reveal" data-reveal="1">

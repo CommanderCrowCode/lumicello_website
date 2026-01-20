@@ -210,10 +210,18 @@
 
 .scroll-tree__visual {
     width: 100%;
-    max-width: 400px;
+    max-width: 500px;
 }
 
-/* Tree Placeholder */
+/* Tree Video (scroll-scrubbed) */
+.tree-video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Tree Placeholder (fallback) */
 .tree-placeholder {
     position: relative;
     width: 100%;
